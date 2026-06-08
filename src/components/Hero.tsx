@@ -1,8 +1,6 @@
-import Image from "next/image";
-
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden" style={{ background: "var(--c-paper)" }}>
+    <section className="relative overflow-hidden md:min-h-screen" style={{ background: "var(--c-paper)" }}>
 
       {/* ── Subtle radial warmth at centre ── */}
       <div
@@ -20,10 +18,13 @@ export default function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 flex min-h-screen flex-col">
+      <div className="relative z-10 flex flex-col md:min-h-screen">
 
         {/* ── Headline block ── centred, tight, above car */}
-        <div className="flex flex-col items-center pt-36 pb-0 text-center px-5">
+        <div
+          className="relative flex flex-col items-center pt-28 md:pt-36 pb-0 text-center px-5"
+          style={{ zIndex: 20, pointerEvents: "none" }}
+        >
 
           {/* eyebrow */}
           <span
@@ -70,6 +71,7 @@ export default function Hero() {
               background: "var(--c-ink-900)",
               color: "var(--c-paper)",
               padding: "14px 32px",
+              pointerEvents: "auto",
             }}
           >
             Solicitar cotação
@@ -77,26 +79,25 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* ── Car — full-width, dominant ── */}
-        <div className="relative flex-1 flex items-end justify-center">
-          <div className="relative w-full max-w-6xl mx-auto px-4">
-
-            {/* Ground shadow */}
-            <div
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-8 rounded-full blur-2xl"
-              style={{ background: "rgba(10,10,9,0.18)" }}
-            />
-
-            <Image
-              src="/images/hero/mercedes-hero.png"
-              alt="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
-              width={1536}
-              height={864}
-              className="relative z-10 w-full h-auto object-contain"
-              style={{ maxHeight: "58vh" }}
-              priority
-            />
-          </div>
+        {/* ── Car — full-width, overlaps text with negative margin ── */}
+        <div
+          className="relative flex items-end justify-center w-full mt-8 md:mt-[-16vh] md:mb-[-6vh]"
+          style={{ zIndex: 1 }}
+        >
+          <video
+            src="/videos/car-hero.mp4"
+            poster="/images/hero/mercedes-hero.png"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-auto object-contain"
+            style={{ maxHeight: "78vh" }}
+            aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
+          >
+            <source src="/videos/car-hero.webm" type="video/webm" />
+            <source src="/videos/car-hero.mp4"  type="video/mp4" />
+          </video>
         </div>
 
         {/* ── Bottom strip ── */}
