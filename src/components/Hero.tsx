@@ -89,7 +89,6 @@ export default function Hero() {
             poster="/images/hero/mercedes-hero.png"
             autoPlay
             muted
-            loop
             playsInline
             preload="auto"
             controls={false}
