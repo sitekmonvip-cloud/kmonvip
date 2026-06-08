@@ -84,14 +84,25 @@ export default function Hero() {
           className="relative flex items-end justify-center w-full mt-8 md:mt-[-16vh] md:mb-[-6vh]"
           style={{ zIndex: 1 }}
         >
+          {/* Mobile: static image (no autoplay quirks, lighter) */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero/mercedes-hero.png"
+            alt="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
+            className="block md:hidden w-full h-auto object-contain"
+            style={{ maxHeight: "78vh" }}
+          />
+
+          {/* Desktop: animated video */}
           <video
             src="/videos/car-hero.mp4"
             poster="/images/hero/mercedes-hero.png"
             autoPlay
             muted
+            loop
             playsInline
             preload="auto"
-            className="w-full h-auto object-contain"
+            className="hidden md:block w-full h-auto object-contain"
             style={{ maxHeight: "78vh" }}
             aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
           >
