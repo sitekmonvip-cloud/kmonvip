@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
-import Marquee from "@/components/Marquee";
+import TrustBadges from "@/components/TrustBadges";
 import Authority from "@/components/Authority";
 import Clients from "@/components/Clients";
 import Services from "@/components/Services";
@@ -18,8 +18,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <StatsBar />
-        <Marquee />
+        <TrustBadges />
         <Services />
         <Fleet />
         <Differentials />
