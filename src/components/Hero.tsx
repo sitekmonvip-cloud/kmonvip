@@ -125,7 +125,7 @@ export default function Hero() {
                     {s.value}
                   </span>
                   <span
-                    className="text-xs uppercase tracking-[0.1em]"
+                    className="text-[10px] uppercase tracking-[0.08em] text-center leading-tight px-1"
                     style={{ color: "var(--c-ink-500)" }}
                   >
                     {s.label}
