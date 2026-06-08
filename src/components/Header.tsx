@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,9 +15,40 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastY = useRef(0);
+
+  useEffect(() => {
+    const handler = () => {
+      const y = window.scrollY;
+      const diff = y - lastY.current;
+
+      if (y < 100) {
+        // always show near top
+        setVisible(true);
+      } else if (diff > 8) {
+        // scrolling down fast enough → hide
+        setVisible(false);
+      } else if (diff < -50) {
+        // scrolled up 50px → show
+        setVisible(true);
+      }
+
+      lastY.current = y;
+    };
+
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        transform: visible ? "translateY(0)" : "translateY(-120%)",
+        transition: "transform 350ms cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-5 pt-4">
         <nav className="flex items-center justify-between rounded-2xl border border-ink-100 bg-white/80 backdrop-blur-xl px-6 py-3.5 shadow-sm">
           <Link href="/" className="flex items-center">
