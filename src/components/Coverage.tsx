@@ -1,37 +1,75 @@
-const cities = [
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
+type City = {
+  name: string;
+  desc: string;
+  image: string;
+  highlight?: boolean;
+};
+
+const cities: City[] = [
   {
     name: "Brasília",
     desc: "Base institucional. Embaixadas, autoridades, órgãos públicos e eventos corporativos.",
+    image: "/images/cities/Brasilia.jpg",
     highlight: true,
   },
   {
     name: "São Paulo",
     desc: "Executivos, eventos corporativos, empresas internacionais e mercado financeiro.",
+    image: "/images/cities/sao-paulo.jpg",
   },
   {
     name: "Rio de Janeiro",
     desc: "Turismo premium, eventos, autoridades, artistas e operações corporativas.",
+    image: "/images/cities/rio-de-janeiro.jpg",
   },
   {
     name: "Belo Horizonte",
     desc: "Transporte executivo e corporativo para empresas, eventos e agendas estratégicas.",
+    image: "/images/cities/belo-horizonte.jpg",
   },
   {
     name: "Manaus",
     desc: "Operações executivas, corporativas e institucionais na região Norte.",
+    image: "/images/cities/Manaus.jpg",
   },
   {
     name: "Belém",
     desc: "Cidade estratégica para eventos internacionais e grandes operações.",
+    image: "/images/cities/belem.jpg",
   },
 ];
 
+const ChevronIcon = ({ open }: { open: boolean }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+  >
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
+
 export default function Coverage() {
+  // Brasília expandida por padrão (sede)
+  const [openIdx, setOpenIdx] = useState<number>(0);
+
   return (
     <section id="atuacao" className="py-24 md:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-5">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
+          {/* Header */}
+          <div className="lg:sticky lg:top-24">
             <span className="text-xs font-medium uppercase tracking-[0.08em] text-ink-500 mb-4 block">
               Atuação Nacional
             </span>
@@ -49,35 +87,88 @@ export default function Coverage() {
             </div>
           </div>
 
-          <div className="grid gap-3">
-            {cities.map((city) => (
-              <div
-                key={city.name}
-                className={`rounded-xl border p-6 transition-all hover:shadow-md hover:-translate-y-0.5 ${
-                  city.highlight
-                    ? "border-ink-900 bg-ink-900 text-paper"
-                    : "border-ink-100 bg-paper"
-                }`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-medium tracking-tight">
-                    {city.name}
-                  </h3>
-                  {city.highlight && (
-                    <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-brand-champagne bg-white/10 px-3 py-1 rounded-full">
-                      Sede
-                    </span>
-                  )}
-                </div>
-                <p
-                  className={`text-sm leading-relaxed ${
-                    city.highlight ? "text-white/70" : "text-ink-500"
+          {/* Accordion list */}
+          <div className="flex flex-col gap-3">
+            {cities.map((city, i) => {
+              const isOpen = openIdx === i;
+              return (
+                <article
+                  key={city.name}
+                  className={`rounded-xl border overflow-hidden transition-all duration-300 ${
+                    isOpen
+                      ? "border-ink-900 bg-ink-900 text-paper shadow-xl"
+                      : "border-ink-100 bg-paper hover:border-ink-300"
                   }`}
                 >
-                  {city.desc}
-                </p>
-              </div>
-            ))}
+                  {/* Header — clickable */}
+                  <button
+                    onClick={() => setOpenIdx(isOpen ? -1 : i)}
+                    className="w-full text-left p-6 flex items-center justify-between gap-4 cursor-pointer"
+                    aria-expanded={isOpen}
+                    aria-controls={`city-panel-${i}`}
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <h3 className="text-lg font-medium tracking-tight truncate">
+                        {city.name}
+                      </h3>
+                      {city.highlight && (
+                        <span
+                          className={`text-[10px] font-medium uppercase tracking-[0.08em] px-2.5 py-1 rounded-full shrink-0 ${
+                            isOpen
+                              ? "bg-white/10 text-brand-champagne"
+                              : "bg-ink-100 text-ink-700"
+                          }`}
+                        >
+                          Sede
+                        </span>
+                      )}
+                    </div>
+                    <span
+                      className={`shrink-0 ${
+                        isOpen ? "text-brand-champagne" : "text-ink-500"
+                      }`}
+                    >
+                      <ChevronIcon open={isOpen} />
+                    </span>
+                  </button>
+
+                  {/* Expandable panel */}
+                  <div
+                    id={`city-panel-${i}`}
+                    className={`grid transition-all duration-500 ease-out ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-6 pb-6">
+                        {/* Image */}
+                        <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-4">
+                          <Image
+                            src={city.image}
+                            alt={city.name}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        </div>
+
+                        {/* Description */}
+                        <p
+                          className={`text-sm leading-relaxed ${
+                            isOpen ? "text-white/75" : "text-ink-500"
+                          }`}
+                        >
+                          {city.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
