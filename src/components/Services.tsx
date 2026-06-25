@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 
 const services = [
   {
@@ -8,42 +9,42 @@ const services = [
     title: "Transporte Executivo",
     label: "corporativo",
     desc: "Deslocamentos com conforto, pontualidade e discrição para executivos e líderes.",
-    gradient: "from-[#1a1a2e] to-[#2a2a3e]",
+    image: "/images/services/transporte-executivo.png",
   },
   {
     num: "02",
     title: "Transporte Blindado",
     label: "segurança",
     desc: "Veículos blindados para agendas que exigem proteção elevada e confidencialidade.",
-    gradient: "from-[#141414] to-[#2a2520]",
+    image: "/images/services/transporte-blindado.png",
   },
   {
     num: "03",
     title: "Transporte Diplomático",
     label: "protocolo",
     desc: "Embaixadas, delegações e missões oficiais com protocolo e precisão.",
-    gradient: "from-[#0f1e2e] to-[#1a3040]",
+    image: "/images/services/transporte-diplomatico.png",
   },
   {
     num: "04",
     title: "Eventos & Congressos",
     label: "eventos",
     desc: "Frota dedicada para grandes eventos, congressos e operações especiais.",
-    gradient: "from-[#1e1a14] to-[#2e2a1e]",
+    image: "/images/services/eventos-congressos.png",
   },
   {
     num: "05",
     title: "Transfers",
     label: "aeroporto",
     desc: "Traslados aeroporto, hotel e reuniões com atendimento profissional.",
-    gradient: "from-[#12201a] to-[#1e3028]",
+    image: "/images/services/transfers.png",
   },
   {
     num: "06",
     title: "Vans e Ônibus",
     label: "grupos",
     desc: "Mobilidade para grupos, delegações e equipes corporativas.",
-    gradient: "from-[#1a1520] to-[#2a2030]",
+    image: "/images/services/vans-onibus.png",
   },
 ];
 
@@ -140,16 +141,20 @@ export default function Services() {
             className="md:flex-[0_0_calc((min(100vw-40px,1280px)-80px)/3.3)] cursor-pointer"
           >
             <div
-              className={`group relative rounded-2xl bg-gradient-to-br ${s.gradient} text-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl`}
+              className="group relative rounded-2xl text-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl bg-ink-900"
               style={{ aspectRatio: "3/4" }}
             >
-              {/* Subtle noise overlay */}
-              <div
-                className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                }}
+              {/* Background image */}
+              <Image
+                src={s.image}
+                alt={s.title}
+                fill
+                sizes="(max-width: 768px) 85vw, 300px"
+                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-105"
               />
+
+              {/* Dark gradient overlay for legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30 pointer-events-none" />
 
               {/* Top row */}
               <div className="relative z-10 flex items-center justify-between p-5">
