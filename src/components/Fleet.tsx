@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useQuoteModal } from "./QuoteModal";
 
 type Category = {
   title: string;
@@ -106,6 +109,7 @@ const ArrowIcon = () => (
 );
 
 export default function Fleet() {
+  const { open: openQuote } = useQuoteModal();
   return (
     <section id="frota" className="py-24 md:py-32 bg-ink-900 text-paper">
       <div className="mx-auto max-w-7xl px-5">
@@ -169,15 +173,16 @@ export default function Fleet() {
                 </p>
 
                 {/* Saiba mais — pill button */}
-                <a
-                  href="#cotacao"
+                <button
+                  type="button"
+                  onClick={openQuote}
                   className="inline-flex items-center gap-2 self-start rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-ink-900 hover:border-white group/cta"
                 >
                   <span className="transition-transform duration-300 group-hover/cta:translate-x-0.5">
                     <ArrowIcon />
                   </span>
                   Saiba mais
-                </a>
+                </button>
               </div>
 
               {/* Hover glow border */}
@@ -196,13 +201,14 @@ export default function Fleet() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <a
-            href="#cotacao"
+          <button
+            type="button"
+            onClick={openQuote}
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 text-sm font-medium transition-all hover:bg-white/20"
           >
             Conhecer frota
             <span>&rarr;</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

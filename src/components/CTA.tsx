@@ -1,4 +1,9 @@
+"use client";
+
+import { useQuoteModal } from "./QuoteModal";
+
 export default function CTA() {
+  const { open: openQuote } = useQuoteModal();
   return (
     <section id="cotacao" className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5">
@@ -20,13 +25,14 @@ export default function CTA() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="#contato"
+              <button
+                type="button"
+                onClick={openQuote}
                 className="inline-flex items-center gap-2 rounded-full bg-paper text-ink-900 px-8 py-4 text-sm font-medium transition-all hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.97]"
               >
                 Solicitar cotação agora
                 <span>&rarr;</span>
-              </a>
+              </button>
               <a
                 href="https://wa.me/5561999999999"
                 target="_blank"

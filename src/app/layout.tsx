@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { QuoteModalProvider, QuoteModal } from "@/components/QuoteModal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,7 +35,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} antialiased`}>
-      <body suppressHydrationWarning className="min-h-screen flex flex-col">{children}</body>
+      <body suppressHydrationWarning className="min-h-screen flex flex-col">
+        <QuoteModalProvider>
+          {children}
+          <QuoteModal />
+        </QuoteModalProvider>
+      </body>
     </html>
   );
 }

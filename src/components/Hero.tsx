@@ -1,4 +1,9 @@
+"use client";
+
+import { useQuoteModal } from "./QuoteModal";
+
 export default function Hero() {
+  const { open: openQuote } = useQuoteModal();
   return (
     <section className="relative overflow-hidden md:min-h-screen" style={{ background: "var(--c-paper)" }}>
 
@@ -64,8 +69,9 @@ export default function Hero() {
           </p>
 
           {/* CTA */}
-          <a
-            href="#cotacao"
+          <button
+            type="button"
+            onClick={openQuote}
             className="mt-8 inline-flex items-center gap-2 rounded-full text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.97]"
             style={{
               background: "var(--c-ink-900)",
@@ -76,7 +82,7 @@ export default function Hero() {
           >
             Solicitar cotação
             <span style={{ color: "var(--brand-champagne)" }}>&rarr;</span>
-          </a>
+          </button>
         </div>
 
         {/* ── Car — full-width, overlaps text with negative margin ── */}

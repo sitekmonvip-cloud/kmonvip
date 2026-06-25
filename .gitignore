@@ -39,3 +39,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Source-only folders (not committed)
+IMAGENS - cópia/
+public/images/logos - cópia/
+public/images/vehicles - cópia/
+mercedes-home-wheel-rear.png
+public/images/Diferenciais kmon.png
+public/images/Diferenciais kmon mobile.png
+public/images/services/Eventos & Congressos.png
+public/images/services/Transporte executivo.png
+public/images/services/diplamatico.png
+public/images/services/transfer.png
+public/images/services/veiculos blindados.png
+public/images/services/van e onibus.png
+public/images/cities/Brasilia.jpg
+public/images/cities/Manaus.jpg
+public/images/cities/belen.jpg
+public/images/cities/sao paulo.jpg
+public/images/cities/rio de janeiro.jpg
+public/images/cities/belo horizante.jpg
+public/videos/diferenciais desktop.mp4
+public/videos/diferenciais mobile.mp4
