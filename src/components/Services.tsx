@@ -2,9 +2,11 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
+    slug: "transporte-executivo",
     num: "01",
     title: "Transporte Executivo",
     label: "corporativo",
@@ -12,6 +14,7 @@ const services = [
     image: "/images/services/transporte-executivo.png",
   },
   {
+    slug: "transporte-blindado",
     num: "02",
     title: "Transporte Blindado",
     label: "segurança",
@@ -19,6 +22,7 @@ const services = [
     image: "/images/services/transporte-blindado.png",
   },
   {
+    slug: "transporte-diplomatico",
     num: "03",
     title: "Transporte Diplomático",
     label: "protocolo",
@@ -26,6 +30,7 @@ const services = [
     image: "/images/services/transporte-diplomatico.png",
   },
   {
+    slug: "eventos-e-congressos",
     num: "04",
     title: "Eventos & Congressos",
     label: "eventos",
@@ -33,6 +38,7 @@ const services = [
     image: "/images/services/eventos-congressos.png",
   },
   {
+    slug: "transfers-executivos",
     num: "05",
     title: "Transfers",
     label: "aeroporto",
@@ -40,6 +46,7 @@ const services = [
     image: "/images/services/transfers.png",
   },
   {
+    slug: "vans-e-onibus",
     num: "06",
     title: "Vans e Ônibus",
     label: "grupos",
@@ -129,16 +136,16 @@ export default function Services() {
           paddingRight: "calc((100vw - min(100vw - 40px, 1280px)) / 2 + 20px)",
         }}
       >
-        {services.map((s, i) => (
-          <div
+        {services.map((s) => (
+          <Link
             key={s.num}
-            onClick={() => scrollTo(i)}
+            href={`/servicos/${s.slug}`}
             style={{
               scrollSnapAlign: "start",
               // Mobile: 85vw (1 card + peek). Tablet+: fixed 300px. Desktop: 1/4 of container.
               flex: "0 0 min(85vw, 300px)",
             }}
-            className="md:flex-[0_0_calc((min(100vw-40px,1280px)-80px)/3.3)] cursor-pointer"
+            className="md:flex-[0_0_calc((min(100vw-40px,1280px)-80px)/3.3)] cursor-pointer block"
           >
             <div
               className="group relative rounded-2xl text-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl bg-ink-900"
@@ -195,7 +202,7 @@ export default function Services() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
 
         {/* Right padding spacer */}

@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer id="contato" className="bg-ink-900 text-paper">
       <div className="mx-auto max-w-7xl px-5 py-16 md:py-24">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-6">
@@ -29,19 +29,45 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Transporte Executivo",
-                "Transporte Blindado",
-                "Transporte Diplomático",
-                "Eventos & Congressos",
-                "Transfers",
-                "Vans e Ônibus",
+                { label: "Transporte Executivo", href: "/servicos/transporte-executivo" },
+                { label: "Transporte Blindado",  href: "/servicos/transporte-blindado" },
+                { label: "Transporte Diplomático", href: "/servicos/transporte-diplomatico" },
+                { label: "Eventos & Congressos", href: "/servicos/eventos-e-congressos" },
+                { label: "Transfers",            href: "/servicos/transfers-executivos" },
+                { label: "Vans e Ônibus",        href: "/servicos/vans-e-onibus" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.href}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Atuação */}
+          <div>
+            <h4 className="text-xs font-medium uppercase tracking-[0.08em] text-white/40 mb-4">
+              Atuação
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { label: "Brasília",      href: "/atuacao/brasilia" },
+                { label: "São Paulo",     href: "/atuacao/sao-paulo" },
+                { label: "Rio de Janeiro", href: "/atuacao/rio-de-janeiro" },
+                { label: "Belo Horizonte", href: "/atuacao/belo-horizonte" },
+                { label: "Manaus",        href: "/atuacao/manaus" },
+                { label: "Belém",         href: "/atuacao/belem" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -55,18 +81,21 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Sobre a KMON",
-                "Frota",
-                "Atuação Nacional",
-                "Cotação",
-                "Contato",
+                { label: "Sobre a KMON",   href: "/sobre" },
+                { label: "História",       href: "/sobre/historia" },
+                { label: "Frota",          href: "/frota" },
+                { label: "Clientes",       href: "/clientes" },
+                { label: "Cotação",        href: "/cotacao" },
+                { label: "Contato",        href: "/contato" },
+                { label: "Política de Privacidade", href: "/politica-de-privacidade" },
+                { label: "LGPD",           href: "/lgpd" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.href}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}

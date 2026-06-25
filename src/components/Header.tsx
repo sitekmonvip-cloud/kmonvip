@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useQuoteModal } from "./QuoteModal";
 
 const navLinks = [
-  { label: "Início", href: "#" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Soluções", href: "#solucoes" },
-  { label: "Frota", href: "#frota" },
-  { label: "Atuação", href: "#atuacao" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início",   href: "/" },
+  { label: "Soluções", href: "/servicos" },
+  { label: "Frota",    href: "/frota" },
+  { label: "Atuação",  href: "/atuacao" },
+  { label: "Sobre",    href: "/sobre" },
+  { label: "Contato",  href: "/contato" },
 ];
 
 export default function Header() {

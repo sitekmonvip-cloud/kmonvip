@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useQuoteModal } from "./QuoteModal";
 
 type Category = {
+  slug: string;
   title: string;
   desc: string;
   image: string;
@@ -13,6 +15,7 @@ type Category = {
 
 const categories: Category[] = [
   {
+    slug: "sedan-executivo",
     title: "Sedan Executivo",
     desc: "Sedan executivo com motorista para reuniões, recepções de clientes, agendas corporativas e deslocamentos individuais.",
     image: "/images/fleet/sedan-executivo.webp",
@@ -20,6 +23,7 @@ const categories: Category[] = [
     model: "Mercedes-Benz Classe E ou similar",
   },
   {
+    slug: "suv-premium",
     title: "SUV Premium",
     desc: "SUV de luxo com motorista para executivos, autoridades e deslocamentos que exigem maior conforto e espaço.",
     image: "/images/fleet/suv-executivo.webp",
@@ -27,6 +31,7 @@ const categories: Category[] = [
     model: "Cadillac Escalade ou similar",
   },
   {
+    slug: "veiculo-blindado",
     title: "Veículo Blindado",
     desc: "Veículo executivo blindado com motorista para agendas que exigem segurança elevada, confidencialidade e proteção.",
     image: "/images/fleet/suv-commander.webp",
@@ -34,6 +39,7 @@ const categories: Category[] = [
     model: "Jeep Commander Blindado ou similar",
   },
   {
+    slug: "van-executiva",
     title: "Van Executiva",
     desc: "Van executiva com motorista para grupos, transfer aeroporto, eventos corporativos e operações de alta performance.",
     image: "/images/fleet/sprinter.webp",
@@ -41,6 +47,7 @@ const categories: Category[] = [
     model: "Mercedes-Benz Sprinter ou similar",
   },
   {
+    slug: "onibus-premium",
     title: "Ônibus Premium",
     desc: "Ônibus executivo premium com motorista para congressos, delegações e operações de grande volume.",
     image: "/images/fleet/onibus-executivo.webp",
@@ -48,6 +55,7 @@ const categories: Category[] = [
     model: "Marcopolo Paradiso ou similar",
   },
   {
+    slug: "frota-comitiva",
     title: "Frota para Comitiva",
     desc: "Combinação de SUVs, sedans e vans com motoristas para deslocamentos coordenados de comitivas e delegações.",
     image: "/images/fleet/blazer.webp",
@@ -172,17 +180,16 @@ export default function Fleet() {
                   {cat.desc}
                 </p>
 
-                {/* Saiba mais — pill button */}
-                <button
-                  type="button"
-                  onClick={openQuote}
+                {/* Saiba mais — link pra subpágina da frota */}
+                <Link
+                  href={`/frota/${cat.slug}`}
                   className="inline-flex items-center gap-2 self-start rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-ink-900 hover:border-white group/cta"
                 >
                   <span className="transition-transform duration-300 group-hover/cta:translate-x-0.5">
                     <ArrowIcon />
                   </span>
                   Saiba mais
-                </button>
+                </Link>
               </div>
 
               {/* Hover glow border */}
