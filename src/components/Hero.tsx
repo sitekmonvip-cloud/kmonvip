@@ -100,7 +100,7 @@ export default function Hero() {
             controls={false}
             disablePictureInPicture
             className="w-full h-auto object-contain pointer-events-none"
-            style={{ maxHeight: "78vh" }}
+            style={{ maxHeight: "78vh", background: "#FAF9F5" }}
             aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
           >
             <source src="/videos/car-hero.webm" type="video/webm" />
