@@ -1,9 +1,62 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useQuoteModal } from "./QuoteModal";
 
 export default function Hero() {
   const { open: openQuote } = useQuoteModal();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Force autoplay on Chrome Windows (which often blocks autoplay attribute)
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    // Ensure muted is set imperatively (browsers require muted at .play() time)
+    v.muted = true;
+    v.defaultMuted = true;
+    (v as HTMLVideoElement & { playsInline?: boolean }).playsInline = true;
+
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {
+          // Autoplay rejected — try once more after user scroll/interaction
+        });
+      }
+    };
+
+    // Try immediately
+    tryPlay();
+
+    // Try when video becomes visible
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) tryPlay();
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(v);
+
+    // Try after any user interaction (covers blocked autoplay)
+    const onInteract = () => {
+      tryPlay();
+      window.removeEventListener("pointerdown", onInteract);
+      window.removeEventListener("scroll", onInteract);
+      window.removeEventListener("keydown", onInteract);
+    };
+    window.addEventListener("pointerdown", onInteract, { passive: true });
+    window.addEventListener("scroll", onInteract, { passive: true });
+    window.addEventListener("keydown", onInteract);
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener("pointerdown", onInteract);
+      window.removeEventListener("scroll", onInteract);
+      window.removeEventListener("keydown", onInteract);
+    };
+  }, []);
+
   return (
     <section className="relative overflow-hidden md:min-h-screen" style={{ background: "var(--c-paper)" }}>
 
@@ -91,7 +144,7 @@ export default function Hero() {
           style={{ zIndex: 1 }}
         >
           <video
-            src="/videos/car-hero.mp4"
+            ref={videoRef}
             poster="/images/hero/mercedes-hero.png"
             autoPlay
             muted
@@ -103,8 +156,8 @@ export default function Hero() {
             style={{ maxHeight: "78vh", background: "#FAF9F5" }}
             aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
           >
-            <source src="/videos/car-hero.webm" type="video/webm" />
             <source src="/videos/car-hero.mp4"  type="video/mp4" />
+            <source src="/videos/car-hero.webm" type="video/webm" />
           </video>
         </div>
 
