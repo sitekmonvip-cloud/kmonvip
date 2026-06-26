@@ -147,7 +147,7 @@ const timeline: YearGroup[] = [
   },
 ];
 
-const AUTOPLAY_MS = 5500;
+const AUTOPLAY_MS = 3000;
 
 export default function Authority() {
   const [activeYear, setActiveYear] = useState(2026);
