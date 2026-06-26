@@ -28,7 +28,7 @@ const events: Event[] = [
   { year: 2024, title: "Visita do Presidente Biden",               desc: "Receptivo executivo e blindado para a comitiva presidencial dos Estados Unidos.",              image: "/images/timeline/2024 biden.jpg" },
   { year: 2024, title: "NFL Brasil",                               desc: "Operação para a primeira partida oficial da NFL sediada no Brasil.",                          image: "/images/timeline/2024 nfl.avif" },
   { year: 2025, title: "COP 30 — Belém",                           desc: "Operação ambiental de escala global. Frota executiva para delegações em missão na Amazônia.",  image: "/images/timeline/2025 cop 30.png" },
-  { year: 2026, title: "Nike — Lançamento 2ª Camisa Seleção",      desc: "Receptivo executivo para o evento Nike de apresentação da nova camisa oficial da Seleção.",   image: "/images/timeline/2026  Segunda camisa da Seleção Brasileira.avif" },
+  { year: 2026, title: "Nike — Lançamento 2ª Camisa Seleção",      desc: "Receptivo executivo para o evento Nike de apresentação da nova camisa oficial da Seleção.",   image: "/images/timeline/2026-nike-selecao.avif" },
 ];
 
 // Unique years sorted (for timeline track)
