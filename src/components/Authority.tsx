@@ -4,70 +4,150 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 
 type Event = {
-  year: number;
   title: string;
   desc: string;
   image: string;
 };
 
-const events: Event[] = [
+type YearGroup = {
+  year: number;
+  events: Event[];
+};
+
+const timeline: YearGroup[] = [
   {
     year: 2011,
-    title: "Visita Obama & Hillary Clinton",
-    desc: "Operação diplomática de alto nível durante visita oficial dos Estados Unidos ao Brasil.",
-    image: "/images/timeline/2011 obama.jpg",
+    events: [
+      {
+        title: "Visita do Presidente Barack Obama",
+        desc: "Operação diplomática de alto nível durante a visita oficial do Presidente dos Estados Unidos ao Brasil.",
+        image: "/images/timeline/2011 obama.jpg",
+      },
+      {
+        title: "Visita da Secretária Hillary Clinton",
+        desc: "Receptivo executivo e blindado para a Secretária de Estado dos EUA e comitiva diplomática.",
+        image: "/images/timeline/2011 Hillary.webp",
+      },
+    ],
   },
   {
     year: 2014,
-    title: "Copa do Mundo FIFA",
-    desc: "Mobilidade executiva para delegações, autoridades e convidados VIP durante o mundial.",
-    image: "/images/timeline/2014 copa do mundo.webp",
+    events: [
+      {
+        title: "Copa do Mundo FIFA",
+        desc: "Mobilidade executiva para delegações, autoridades e convidados VIP durante o mundial sediado no Brasil.",
+        image: "/images/timeline/2014 copa do mundo.webp",
+      },
+    ],
   },
   {
     year: 2016,
-    title: "Jogos Olímpicos Rio",
-    desc: "Frota dedicada para comitivas internacionais, federações e autoridades olímpicas.",
-    image: "/images/timeline/2016 olinpiedas.webp",
+    events: [
+      {
+        title: "Jogos Olímpicos Rio 2016",
+        desc: "Frota dedicada para comitivas internacionais, federações esportivas e autoridades olímpicas.",
+        image: "/images/timeline/2016 olinpiedas.webp",
+      },
+    ],
   },
   {
     year: 2019,
-    title: "Posse Presidente Jair Bolsonaro",
-    desc: "Operação de mobilidade para comitivas e autoridades durante a posse presidencial em Brasília.",
-    image: "/images/timeline/2019 bolsonaro.webp",
+    events: [
+      {
+        title: "Posse do Presidente Jair Bolsonaro",
+        desc: "Operação de mobilidade para comitivas e autoridades durante a posse presidencial em Brasília.",
+        image: "/images/timeline/2019 bolsonaro.webp",
+      },
+      {
+        title: "Visita do Secretário Mike Pompeo",
+        desc: "Receptivo executivo para o Secretário de Estado dos Estados Unidos em visita oficial ao Brasil.",
+        image: "/images/timeline/2019 mike.jpg",
+      },
+      {
+        title: "Copa América",
+        desc: "Operações executivas para o evento esportivo continental sediado no Brasil.",
+        image: "/images/timeline/2019 copa america.avif",
+      },
+    ],
   },
   {
     year: 2022,
-    title: "GP Brasil — Lewis Hamilton",
-    desc: "Receptivo executivo blindado para piloto e equipe durante o Grande Prêmio do Brasil.",
-    image: "/images/timeline/2022 hamilton.jpg",
+    events: [
+      {
+        title: "GP Brasil — Lewis Hamilton",
+        desc: "Receptivo executivo blindado para o piloto e equipe durante o Grande Prêmio do Brasil de Fórmula 1.",
+        image: "/images/timeline/2022 hamilton.jpg",
+      },
+      {
+        title: "The Killers — Tour Brasil",
+        desc: "Logística executiva para a banda durante apresentações no país.",
+        image: "/images/timeline/2022 the killers.jpg",
+      },
+    ],
   },
   {
     year: 2023,
-    title: "Posse Presidente Lula",
-    desc: "Operação executiva e diplomática para comitivas, delegações internacionais e autoridades durante a posse em Brasília.",
-    image: "/images/timeline/2023 lula.webp",
+    events: [
+      {
+        title: "Posse do Presidente Lula",
+        desc: "Operação executiva e diplomática para comitivas, delegações internacionais e autoridades durante a posse em Brasília.",
+        image: "/images/timeline/2023 lula.webp",
+      },
+      {
+        title: "Final Sul-Americana",
+        desc: "Mobilidade para delegações e autoridades durante a final continental.",
+        image: "/images/timeline/2023 sulamerica.webp",
+      },
+      {
+        title: "Red Hot Chili Peppers — Tour",
+        desc: "Tour internacional atendido com discrição e logística sob medida.",
+        image: "/images/timeline/2023 red hot.jpeg",
+      },
+    ],
   },
   {
     year: 2024,
-    title: "G20 Brasil & Visita Biden",
-    desc: "Mobilidade diplomática para cúpula mundial e comitiva presidencial dos Estados Unidos.",
-    image: "/images/timeline/2024 g20.jpeg",
+    events: [
+      {
+        title: "G20 Brasil",
+        desc: "Mobilidade diplomática para cúpula mundial com delegações de mais de 30 países.",
+        image: "/images/timeline/2024 g20.jpeg",
+      },
+      {
+        title: "Visita do Presidente Biden",
+        desc: "Receptivo executivo e blindado para a comitiva presidencial dos Estados Unidos.",
+        image: "/images/timeline/2024 biden.jpg",
+      },
+      {
+        title: "NFL Brasil",
+        desc: "Operação de transporte executivo para a primeira partida oficial da NFL sediada no Brasil.",
+        image: "/images/timeline/2024 nfl.avif",
+      },
+    ],
   },
   {
     year: 2025,
-    title: "COP 30 — Belém",
-    desc: "Operação ambiental de escala global. Frota executiva para delegações em missão na Amazônia.",
-    image: "/images/timeline/2025 cop 30.png",
+    events: [
+      {
+        title: "COP 30 — Belém",
+        desc: "Operação ambiental de escala global. Frota executiva para delegações internacionais em missão na Amazônia.",
+        image: "/images/timeline/2025 cop 30.png",
+      },
+    ],
   },
   {
     year: 2026,
-    title: "Nike — Lançamento 2ª Camisa Seleção Brasileira",
-    desc: "Receptivo executivo para o evento Nike de apresentação da nova camisa oficial da Seleção Brasileira de Futebol.",
-    image: "/images/timeline/2026  Segunda camisa da Seleção Brasileira.avif",
+    events: [
+      {
+        title: "Nike — Lançamento 2ª Camisa Seleção Brasileira",
+        desc: "Receptivo executivo para o evento Nike de apresentação da nova camisa oficial da Seleção Brasileira de Futebol.",
+        image: "/images/timeline/2026  Segunda camisa da Seleção Brasileira.avif",
+      },
+    ],
   },
 ];
 
-const AUTOPLAY_MS = 4500;
+const AUTOPLAY_MS = 5500;
 
 export default function Authority() {
   const [activeYear, setActiveYear] = useState(2026);
@@ -75,39 +155,34 @@ export default function Authority() {
   const userInteractedRef = useRef(false);
 
   const activeIdx = useMemo(
-    () => events.findIndex((e) => e.year === activeYear),
+    () => timeline.findIndex((g) => g.year === activeYear),
     [activeYear]
   );
 
-  // Sliding window of 4 cards centered on active
-  const visibleCards = useMemo(() => {
-    const total = events.length;
-    let start = activeIdx - 1;
-    if (start < 0) start = 0;
-    if (start + 4 > total) start = total - 4;
-    return events.slice(start, start + 4);
-  }, [activeIdx]);
+  const activeGroup = timeline[activeIdx];
+  const totalEvents = useMemo(
+    () => timeline.reduce((acc, g) => acc + g.events.length, 0),
+    []
+  );
 
-  // ── Autoplay (pauses on hover/click, resumes after 12s of inactivity) ──
+  // ── Autoplay ──
   useEffect(() => {
     if (isPaused) return;
     const id = setInterval(() => {
       setActiveYear((y) => {
-        const i = events.findIndex((e) => e.year === y);
-        const next = (i + 1) % events.length;
-        return events[next].year;
+        const i = timeline.findIndex((g) => g.year === y);
+        const next = (i + 1) % timeline.length;
+        return timeline[next].year;
       });
     }, AUTOPLAY_MS);
     return () => clearInterval(id);
   }, [isPaused]);
 
-  // Pause autoplay when user interacts; resume after 12s idle
   const handleUserPick = (year: number) => {
     userInteractedRef.current = true;
     setActiveYear(year);
     setIsPaused(true);
-    const t = setTimeout(() => setIsPaused(false), 12000);
-    return () => clearTimeout(t);
+    setTimeout(() => setIsPaused(false), 14000);
   };
 
   return (
@@ -134,7 +209,7 @@ export default function Authority() {
           onMouseLeave={() => !userInteractedRef.current && setIsPaused(false)}
         >
           {/* Header */}
-          <div className="flex items-end justify-between mb-6">
+          <div className="flex items-end justify-between mb-6 gap-3">
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.08em] text-ink-500 block mb-1">
                 Operações & Eventos
@@ -143,8 +218,8 @@ export default function Authority() {
                 Grandes operações e eventos já atendidos
               </h3>
             </div>
-            <span className="hidden sm:inline-flex items-center rounded-full border border-ink-200 bg-white px-3 py-1.5 text-xs font-medium text-ink-700">
-              {events.length} marcos
+            <span className="hidden sm:inline-flex items-center rounded-full border border-ink-200 bg-white px-3 py-1.5 text-xs font-medium text-ink-700 shrink-0">
+              {totalEvents} marcos
             </span>
           </div>
 
@@ -157,12 +232,12 @@ export default function Authority() {
 
             {/* Years */}
             <div className="flex justify-between relative pt-6 overflow-x-auto gap-3 md:gap-0">
-              {events.map((e) => {
-                const isActive = e.year === activeYear;
+              {timeline.map((g) => {
+                const isActive = g.year === activeYear;
                 return (
                   <button
-                    key={e.year}
-                    onClick={() => handleUserPick(e.year)}
+                    key={g.year}
+                    onClick={() => handleUserPick(g.year)}
                     className="relative flex flex-col items-center pt-14 cursor-pointer transition-transform hover:-translate-y-0.5 select-none shrink-0"
                   >
                     <span
@@ -172,12 +247,27 @@ export default function Authority() {
                     />
 
                     {isActive ? (
-                      <span className="flex h-14 px-4 items-center justify-center rounded-full bg-ink-900 text-paper text-lg font-medium shadow-lg -mt-2.5 animate-[dotPop_400ms_cubic-bezier(0.34,1.56,0.64,1)] whitespace-nowrap">
-                        {e.year}
+                      <span className="relative">
+                        <span className="flex h-14 px-4 items-center justify-center rounded-full bg-ink-900 text-paper text-lg font-medium shadow-lg -mt-2.5 animate-[dotPop_400ms_cubic-bezier(0.34,1.56,0.64,1)] whitespace-nowrap">
+                          {g.year}
+                        </span>
+                        {g.events.length > 1 && (
+                          <span
+                            className="absolute -top-1.5 -right-1.5 flex h-5 min-w-5 px-1.5 items-center justify-center rounded-full text-[10px] font-bold"
+                            style={{ background: "var(--brand-champagne)", color: "var(--c-ink-900)" }}
+                          >
+                            {g.events.length}
+                          </span>
+                        )}
                       </span>
                     ) : (
-                      <span className="text-xl md:text-2xl font-medium tracking-tight text-ink-700">
-                        {e.year}
+                      <span className="relative">
+                        <span className="text-xl md:text-2xl font-medium tracking-tight text-ink-700">
+                          {g.year}
+                        </span>
+                        {g.events.length > 1 && (
+                          <span className="absolute -top-1 -right-2.5 h-1.5 w-1.5 rounded-full bg-brand-champagne" />
+                        )}
                       </span>
                     )}
                   </button>
@@ -186,153 +276,95 @@ export default function Authority() {
             </div>
           </div>
 
-          {/* Desktop: 4 cards visible */}
-          <div className="mt-8 hidden md:grid grid-cols-4 gap-4">
-            {visibleCards.map((op, i) => {
-              const isActive = op.year === activeYear;
-              return (
-                <div
-                  key={op.year}
-                  className={`group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer transition-all duration-500 ${
-                    isActive
-                      ? "ring-2 ring-ink-900 shadow-2xl scale-[1.03] -translate-y-1"
-                      : "ring-0 opacity-80 hover:opacity-100"
-                  }`}
-                  style={{
-                    animation: `fadeUp 500ms cubic-bezier(0.22,1,0.36,1) ${
-                      50 + i * 50
-                    }ms backwards`,
-                  }}
-                  onClick={() => handleUserPick(op.year)}
-                >
-                  <Image
-                    src={op.image}
-                    alt={op.title}
-                    fill
-                    className={`object-cover transition-transform duration-700 ${
-                      isActive
-                        ? "scale-110"
-                        : "group-hover:scale-105"
-                    }`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                  <div className="relative h-full flex flex-col justify-end p-5 text-paper">
-                    <div className="flex gap-2 mb-3 flex-wrap">
-                      <span
-                        className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-sm transition-all ${
-                          isActive
-                            ? "bg-paper text-ink-900 border-paper"
-                            : "bg-white/20 text-white border-white/20"
-                        }`}
-                      >
-                        {op.year}
-                      </span>
-                    </div>
-                    <h4 className="text-base lg:text-lg font-medium tracking-tight mb-1 leading-tight">
-                      {op.title}
-                    </h4>
-                    <p className="text-xs text-white/80 leading-relaxed">
-                      {op.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {/* Active year — events grid */}
+          <div className="mt-8">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-3xl font-medium tracking-tight text-ink-900">{activeGroup.year}</span>
+              <span className="text-sm text-ink-500">
+                {activeGroup.events.length} {activeGroup.events.length === 1 ? "evento" : "eventos"}
+              </span>
+            </div>
 
-          {/* Mobile: single card */}
-          <div className="mt-8 md:hidden">
-            {events
-              .filter((e) => e.year === activeYear)
-              .map((op) => (
-                <div
-                  key={op.year}
-                  className="relative rounded-2xl overflow-hidden aspect-[4/5] ring-2 ring-ink-900 shadow-2xl animate-[fadeUp_500ms_cubic-bezier(0.22,1,0.36,1)]"
+            <div
+              key={activeGroup.year}
+              className={`grid gap-4 ${
+                activeGroup.events.length === 1
+                  ? "md:grid-cols-1 max-w-xl mx-auto"
+                  : activeGroup.events.length === 2
+                  ? "md:grid-cols-2"
+                  : "md:grid-cols-3"
+              }`}
+            >
+              {activeGroup.events.map((ev, i) => (
+                <article
+                  key={`${activeGroup.year}-${i}`}
+                  className="relative rounded-2xl overflow-hidden aspect-[4/5] ring-1 ring-ink-100 shadow-md animate-[fadeUp_500ms_cubic-bezier(0.22,1,0.36,1)_both]"
+                  style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <Image
-                    src={op.image}
-                    alt={op.title}
+                    src={ev.image}
+                    alt={ev.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                  <div className="relative h-full flex flex-col justify-end p-6 text-paper">
-                    <span className="inline-flex w-fit items-center rounded-full bg-paper text-ink-900 px-3 py-1 text-xs font-medium mb-3">
-                      {op.year}
+                  <div className="relative h-full flex flex-col justify-end p-5 text-paper">
+                    <span
+                      className="inline-flex w-fit items-center rounded-full px-3 py-1 text-[11px] font-medium mb-3"
+                      style={{ background: "var(--brand-champagne)", color: "var(--c-ink-900)" }}
+                    >
+                      {activeGroup.year}
                     </span>
-                    <h4 className="text-xl font-medium tracking-tight mb-2">
-                      {op.title}
+                    <h4 className="text-base md:text-lg font-medium tracking-tight mb-2 leading-tight">
+                      {ev.title}
                     </h4>
-                    <p className="text-sm text-white/80 leading-relaxed">
-                      {op.desc}
+                    <p className="text-xs md:text-sm text-white/80 leading-relaxed">
+                      {ev.desc}
                     </p>
                   </div>
-                </div>
+                </article>
               ))}
+            </div>
           </div>
 
           {/* Controls */}
           <div className="flex justify-center gap-3 mt-8">
             <button
               onClick={() =>
-                handleUserPick(events[Math.max(0, activeIdx - 1)].year)
+                handleUserPick(timeline[Math.max(0, activeIdx - 1)].year)
               }
               disabled={activeIdx === 0}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-900 transition-all hover:bg-ink-900 hover:text-paper hover:border-ink-900 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-ink-900"
               aria-label="Anterior"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
             <button
               onClick={() =>
                 handleUserPick(
-                  events[Math.min(events.length - 1, activeIdx + 1)].year
+                  timeline[Math.min(timeline.length - 1, activeIdx + 1)].year
                 )
               }
-              disabled={activeIdx === events.length - 1}
+              disabled={activeIdx === timeline.length - 1}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-900 transition-all hover:bg-ink-900 hover:text-paper hover:border-ink-900 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-ink-900"
               aria-label="Próximo"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* 3 Cards below */}
+        {/* 3 Cards below — Segurança / Discrição / Precisão */}
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[
             {
               icon: (
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               ),
@@ -341,14 +373,7 @@ export default function Authority() {
             },
             {
               icon: (
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               ),
@@ -357,14 +382,7 @@ export default function Authority() {
             },
             {
               icon: (
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               ),
@@ -379,12 +397,8 @@ export default function Authority() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-ink-50 text-ink-900 mb-6 transition-colors group-hover:bg-ink-900 group-hover:text-paper">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-medium tracking-tight mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm text-ink-500 leading-relaxed">
-                {item.desc}
-              </p>
+              <h3 className="text-lg font-medium tracking-tight mb-3">{item.title}</h3>
+              <p className="text-sm text-ink-500 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
