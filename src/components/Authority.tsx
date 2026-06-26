@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 
 type Event = {
@@ -31,9 +31,9 @@ const events: Event[] = [
   },
   {
     year: 2019,
-    title: "Copa América & Mike Tyson",
-    desc: "Operações executivas para evento esportivo continental e celebridades internacionais.",
-    image: "/images/timeline/2019 copa america.avif",
+    title: "Posse Presidente Jair Bolsonaro",
+    desc: "Operação de mobilidade para comitivas e autoridades durante a posse presidencial em Brasília.",
+    image: "/images/timeline/2019 bolsonaro.webp",
   },
   {
     year: 2022,
@@ -43,9 +43,9 @@ const events: Event[] = [
   },
   {
     year: 2023,
-    title: "Red Hot Chili Peppers & Sul-Americana",
-    desc: "Tour internacional e final continental atendidos com discrição e logística sob medida.",
-    image: "/images/timeline/2023 red hot.jpeg",
+    title: "Posse Presidente Lula",
+    desc: "Operação executiva e diplomática para comitivas, delegações internacionais e autoridades durante a posse em Brasília.",
+    image: "/images/timeline/2023 lula.webp",
   },
   {
     year: 2024,
@@ -59,10 +59,20 @@ const events: Event[] = [
     desc: "Operação ambiental de escala global. Frota executiva para delegações em missão na Amazônia.",
     image: "/images/timeline/2025 cop 30.png",
   },
+  {
+    year: 2026,
+    title: "Nike — Lançamento 2ª Camisa Seleção Brasileira",
+    desc: "Receptivo executivo para o evento Nike de apresentação da nova camisa oficial da Seleção Brasileira de Futebol.",
+    image: "/images/timeline/2026  Segunda camisa da Seleção Brasileira.avif",
+  },
 ];
 
+const AUTOPLAY_MS = 4500;
+
 export default function Authority() {
-  const [activeYear, setActiveYear] = useState(2024);
+  const [activeYear, setActiveYear] = useState(2026);
+  const [isPaused, setIsPaused] = useState(false);
+  const userInteractedRef = useRef(false);
 
   const activeIdx = useMemo(
     () => events.findIndex((e) => e.year === activeYear),
@@ -77,6 +87,28 @@ export default function Authority() {
     if (start + 4 > total) start = total - 4;
     return events.slice(start, start + 4);
   }, [activeIdx]);
+
+  // ── Autoplay (pauses on hover/click, resumes after 12s of inactivity) ──
+  useEffect(() => {
+    if (isPaused) return;
+    const id = setInterval(() => {
+      setActiveYear((y) => {
+        const i = events.findIndex((e) => e.year === y);
+        const next = (i + 1) % events.length;
+        return events[next].year;
+      });
+    }, AUTOPLAY_MS);
+    return () => clearInterval(id);
+  }, [isPaused]);
+
+  // Pause autoplay when user interacts; resume after 12s idle
+  const handleUserPick = (year: number) => {
+    userInteractedRef.current = true;
+    setActiveYear(year);
+    setIsPaused(true);
+    const t = setTimeout(() => setIsPaused(false), 12000);
+    return () => clearTimeout(t);
+  };
 
   return (
     <section id="sobre" className="py-24 md:py-32">
@@ -96,7 +128,11 @@ export default function Authority() {
         </div>
 
         {/* Timeline section */}
-        <div className="mt-12 rounded-3xl border border-ink-100 bg-paper p-6 md:p-12">
+        <div
+          className="mt-12 rounded-3xl border border-ink-100 bg-paper p-6 md:p-12"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => !userInteractedRef.current && setIsPaused(false)}
+        >
           {/* Header */}
           <div className="flex items-end justify-between mb-6">
             <div>
@@ -126,7 +162,7 @@ export default function Authority() {
                 return (
                   <button
                     key={e.year}
-                    onClick={() => setActiveYear(e.year)}
+                    onClick={() => handleUserPick(e.year)}
                     className="relative flex flex-col items-center pt-14 cursor-pointer transition-transform hover:-translate-y-0.5 select-none shrink-0"
                   >
                     <span
@@ -167,7 +203,7 @@ export default function Authority() {
                       50 + i * 50
                     }ms backwards`,
                   }}
-                  onClick={() => setActiveYear(op.year)}
+                  onClick={() => handleUserPick(op.year)}
                 >
                   <Image
                     src={op.image}
@@ -239,7 +275,7 @@ export default function Authority() {
           <div className="flex justify-center gap-3 mt-8">
             <button
               onClick={() =>
-                setActiveYear(events[Math.max(0, activeIdx - 1)].year)
+                handleUserPick(events[Math.max(0, activeIdx - 1)].year)
               }
               disabled={activeIdx === 0}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-900 transition-all hover:bg-ink-900 hover:text-paper hover:border-ink-900 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-ink-900"
@@ -260,7 +296,7 @@ export default function Authority() {
             </button>
             <button
               onClick={() =>
-                setActiveYear(
+                handleUserPick(
                   events[Math.min(events.length - 1, activeIdx + 1)].year
                 )
               }
