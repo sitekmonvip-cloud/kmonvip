@@ -328,7 +328,24 @@
       "vehicleModel": "Fahrzeugmodell",
       "selectModel": "Modell auswählen",
       "additionalInfo": "Zusatzinformationen",
-      "placeholderAdditional": "Irgendwelche spezifischen Informationen für Ihren Service?"
+      "placeholderAdditional": "Irgendwelche spezifischen Informationen für Ihren Service?",
+      "serviceOptions": {
+        "corporativo": "Executive-Firmentransport",
+        "transferAeroporto": "Flughafentransfer",
+        "eventos": "Events & Kongresse",
+        "cerimonias": "Zeremonien & Feiern",
+        "diplomatica": "Diplomatischer Besuch",
+        "continuado": "Laufender Service",
+        "outro": "Sonstiges"
+      },
+      "modelOptions": {
+        "sedan": "Limousine",
+        "suv": "SUV",
+        "van": "Van",
+        "minivan": "Minivan",
+        "microOnibus": "Kleinbus",
+        "onibus": "Bus"
+      }
     },
     "step3": {
       "title": "Ihre Daten",

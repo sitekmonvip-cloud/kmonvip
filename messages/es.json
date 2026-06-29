@@ -5,7 +5,7 @@
     "viewFleet": "Ver flota",
     "knowMore": "Conocer",
     "back": "Volver",
-    "next": "Próximo",
+    "next": "Siguiente",
     "close": "Cerrar",
     "open": "Abrir",
     "send": "Enviar",
@@ -328,7 +328,24 @@
       "vehicleModel": "Modelo del vehículo",
       "selectModel": "Select the Model",
       "additionalInfo": "Información adicional",
-      "placeholderAdditional": "¿Alguna información específica para su servicio?"
+      "placeholderAdditional": "¿Alguna información específica para su servicio?",
+      "serviceOptions": {
+        "corporativo": "Transporte Ejecutivo Corporativo",
+        "transferAeroporto": "Transfer Aeropuerto",
+        "eventos": "Eventos y Congresos",
+        "cerimonias": "Ceremonias y Celebraciones",
+        "diplomatica": "Visita Diplomática",
+        "continuado": "Servicio Continuo",
+        "outro": "Otro"
+      },
+      "modelOptions": {
+        "sedan": "Sedán",
+        "suv": "SUV",
+        "van": "Van",
+        "minivan": "Minivan",
+        "microOnibus": "Microbús",
+        "onibus": "Autobús"
+      }
     },
     "step3": {
       "title": "TUS DATOS",
@@ -348,8 +365,8 @@
       "title": "Solicitud registrada",
       "subtitle": "Para concluir, elige cómo prefieres finalizar el contacto:"
     },
-    "submit": "Concluir",
-    "next": "Próximo"
+    "submit": "Finalizar",
+    "next": "Siguiente"
   },
   "languages": {
     "pt": "Português",

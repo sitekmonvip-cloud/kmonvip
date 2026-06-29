@@ -44,23 +44,24 @@ const initialData: FormData = {
   company: "",
 };
 
+// value = canonical PT (kept in the lead notification); key = i18n label lookup
 const serviceTypes = [
-  "Transporte Executivo Corporativo",
-  "Transfer Aeroporto",
-  "Eventos e Congressos",
-  "Cerimônias e Festas",
-  "Visita Diplomática",
-  "Atendimento Continuado",
-  "Outro",
+  { value: "Transporte Executivo Corporativo", key: "corporativo" },
+  { value: "Transfer Aeroporto",               key: "transferAeroporto" },
+  { value: "Eventos e Congressos",             key: "eventos" },
+  { value: "Cerimônias e Festas",              key: "cerimonias" },
+  { value: "Visita Diplomática",               key: "diplomatica" },
+  { value: "Atendimento Continuado",           key: "continuado" },
+  { value: "Outro",                            key: "outro" },
 ];
 
 const vehicleModels = [
-  "Sedan",
-  "SUV",
-  "Van",
-  "Minivan",
-  "Micro-ônibus",
-  "Ônibus",
+  { value: "Sedan",        key: "sedan" },
+  { value: "SUV",          key: "suv" },
+  { value: "Van",          key: "van" },
+  { value: "Minivan",      key: "minivan" },
+  { value: "Micro-ônibus", key: "microOnibus" },
+  { value: "Ônibus",       key: "onibus" },
 ];
 
 // ── Component ───────────────────────────────────────────────────────
@@ -414,7 +415,7 @@ function Step2({
         >
           <option value="">{t("step2.selectPlaceholder")}</option>
           {serviceTypes.map((s) => (
-            <option key={s} value={s}>{s}</option>
+            <option key={s.key} value={s.value}>{t(`step2.serviceOptions.${s.key}`)}</option>
           ))}
         </select>
       </Field>
@@ -501,7 +502,7 @@ function Step2({
         >
           <option value="">{t("step2.selectModel")}</option>
           {vehicleModels.map((m) => (
-            <option key={m} value={m}>{m}</option>
+            <option key={m.key} value={m.value}>{t(`step2.modelOptions.${m.key}`)}</option>
           ))}
         </select>
       </Field>

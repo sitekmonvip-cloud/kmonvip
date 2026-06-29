@@ -6,12 +6,12 @@
     "knowMore": "知道",
     "back": "后退",
     "next": "下一步",
-    "close": "Close",
+    "close": "关闭",
     "open": "打开",
     "send": "送",
     "contact": "联系人",
     "passengers": "乘客",
-    "vehicle": "◻︎ 车辆  Vehicle",
+    "vehicle": "车辆",
     "model": "型号",
     "talkOnWhatsApp": "在WhatsApp发言",
     "sendByEmail": "电子邮箱",
@@ -65,7 +65,7 @@
       },
       "eventos-e-congressos": {
         "title": "活动和大会",
-        "label": "events",
+        "label": "活动",
         "desc": "专用于重大活动、大会和特别行动的车队。"
       },
       "transfers-executivos": {
@@ -177,22 +177,22 @@
   "authority": {
     "eyebrow": "關於我們",
     "title": "领导者、代表和决策者的流动性。",
-    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas com frota premium, motoristas treinados e planejamento logístico sob medida para agendas que exigem segurança, pontualidade e discrição.",
+    "subtitle": "KMON VIP 以高端车队、训练有素的司机和量身定制的物流规划，为要求安全、准时与审慎的行程提供行政、外交及企业出行服务。",
     "timelineEyebrow": "Operações & Eventos",
     "timelineTitle": "Grandes operações e eventos já atendidos",
-    "marksLabel": "marcos",
+    "marksLabel": "里程碑",
     "pillars": {
       "security": {
-        "title": "Segurança",
-        "desc": "Veículos executivos com opções blindadas, motoristas treinados e protocolos de segurança para agendas sensíveis."
+        "title": "安全",
+        "desc": "配备防弹选项的行政车辆、训练有素的司机，以及为敏感行程制定的安全规程。"
       },
       "discretion": {
-        "title": "Discrição",
-        "desc": "Confidencialidade absoluta em cada operação. Atendimento sob protocolo para clientes que exigem privacidade."
+        "title": "审慎",
+        "desc": "为注重隐私的客户提供按规程执行的服务，每一次行动均绝对保密。"
       },
       "precision": {
-        "title": "Precisão",
-        "desc": "Planejamento logístico detalhado, pontualidade operacional e suporte 24h para agendas que não permitem falhas."
+        "title": "精准",
+        "desc": "详尽的物流规划、准时的运营执行，以及全天候支持，确保不容有失的行程万无一失。"
       }
     },
     "timeline": {
@@ -267,88 +267,105 @@
     }
   },
   "clients": {
-    "eyebrow": "Parceiros & Clientes",
-    "title": "Empresas que confiam na KMON VIP"
+    "eyebrow": "合作伙伴与客户",
+    "title": "信赖 KMON VIP 的企业"
   },
   "cta": {
-    "title": "Pronto para sua próxima operação?",
-    "subtitle": "Solicite uma cotação e fale com a equipe KMON VIP.",
-    "homeTitle": "Planeje sua próxima operação com segurança, discrição e precisão.",
-    "homeSubtitle": "Solicite uma cotação e fale com a equipe da KMON VIP para estruturar o transporte ideal para sua agenda, evento ou delegação.",
-    "requestNow": "Solicitar cotação agora"
+    "title": "准备好您的下一次行动了吗？",
+    "subtitle": "申请报价，并与 KMON VIP 团队联系。",
+    "homeTitle": "以安全、审慎与精准，规划您的下一次行动。",
+    "homeSubtitle": "申请报价，并与 KMON VIP 团队联系，为您的行程、活动或代表团打造理想的出行方案。",
+    "requestNow": "立即申请报价"
   },
   "footer": {
-    "tagline": "Mobilidade executiva, blindada e diplomática para quem não pode errar no deslocamento.",
+    "tagline": "为出行不容有失的人士，提供行政级、防弹与外交出行服务。",
     "solutionsTitle": "解決方案",
     "coverageTitle": "性能",
-    "institutionalTitle": "Institucional",
+    "institutionalTitle": "机构",
     "contactTitle": "联系人",
-    "whatsapp24h": "WhatsApp 24h",
-    "email": "E-mail",
-    "service": "Atendimento",
-    "serviceValue": "24h — Operação Nacional",
-    "copyright": "Todos os direitos reservados.",
-    "privacy": "Política de Privacidade",
-    "terms": "Termos de Uso",
+    "whatsapp24h": "WhatsApp 24小时",
+    "email": "电子邮箱",
+    "service": "服务",
+    "serviceValue": "24小时 — 全国运营",
+    "copyright": "版权所有。",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
     "historyLink": "历史"
   },
   "quoteModal": {
-    "step": "Passo {current} de {total}",
+    "step": "第 {current} 步，共 {total} 步",
     "step1": {
-      "title": "Como podemos ajudar?",
+      "title": "我们能为您做些什么？",
       "options": {
         "empresa": {
-          "title": "Empresa / Empresário",
-          "sub": "Transporte Executivo Corporativo"
+          "title": "企业 / 企业家",
+          "sub": "企业行政接送"
         },
         "pessoaFisica": {
-          "title": "Pessoa Física",
-          "sub": "Transfer ou Motorista Particular"
+          "title": "个人",
+          "sub": "接送或专属司机"
         },
         "trabalho": {
-          "title": "Oportunidade de trabalho",
-          "sub": "Busca de Emprego / Candidato"
+          "title": "工作机会",
+          "sub": "求职 / 应聘者"
         }
       },
-      "blockTitle": "Este canal é exclusivo para cotações comerciais",
-      "blockMessage": "No momento não estamos recebendo candidaturas por este formulário. Para oportunidades de trabalho, fique atento aos nossos canais oficiais.",
-      "errorSelect": "Selecione uma opção."
+      "blockTitle": "本渠道仅用于商务报价",
+      "blockMessage": "我们目前不通过此表单接收求职申请。如有工作机会，请关注我们的官方渠道。",
+      "errorSelect": "请选择一个选项。"
     },
     "step2": {
-      "title": "Detalhes do serviço",
-      "subtitle": "Conte um pouco sobre o atendimento desejado.",
-      "serviceType": "Tipo de serviço",
-      "selectPlaceholder": "Selecione",
-      "startDate": "Data início",
-      "endDate": "Data término",
-      "bilingual": "Motorista Bilíngue",
-      "vehicleProtection": "◻︎ 车辆  Vehicle",
-      "armored": "Blindado",
-      "conventional": "Convencional",
-      "vehicleModel": "Modelo do veículo",
-      "selectModel": "Selecione o modelo",
-      "additionalInfo": "Informações adicionais",
-      "placeholderAdditional": "Alguma informação específica para o seu atendimento?"
+      "title": "服务详情",
+      "subtitle": "请简要介绍您所需的服务。",
+      "serviceType": "服务类型",
+      "selectPlaceholder": "请选择",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "bilingual": "双语司机",
+      "vehicleProtection": "车辆",
+      "armored": "防弹",
+      "conventional": "常规",
+      "vehicleModel": "车辆型号",
+      "selectModel": "选择型号",
+      "additionalInfo": "补充信息",
+      "placeholderAdditional": "关于您的服务有什么具体信息吗？",
+      "serviceOptions": {
+        "corporativo": "企业行政接送",
+        "transferAeroporto": "机场接送",
+        "eventos": "活动与会议",
+        "cerimonias": "典礼与庆典",
+        "diplomatica": "外交访问",
+        "continuado": "长期服务",
+        "outro": "其他"
+      },
+      "modelOptions": {
+        "sedan": "轿车",
+        "suv": "SUV",
+        "van": "厢式车",
+        "minivan": "迷你厢式车",
+        "microOnibus": "中巴",
+        "onibus": "大巴"
+      }
     },
     "step3": {
-      "title": "Seus Dados",
-      "subtitle": "Preencha seus dados de contato e clique em CONCLUIR.",
-      "fullName": "Nome completo",
-      "placeholderName": "Seu nome completo",
-      "email": "E-mail corporativo",
+      "title": "您的信息",
+      "subtitle": "填写您的联系方式，然后点击「完成」。",
+      "fullName": "全名",
+      "placeholderName": "您的全名",
+      "email": "企业邮箱",
       "placeholderEmail": "seu@empresa.com.br",
-      "phone": "Telefone",
+      "phone": "电话",
       "placeholderPhone": "(11) 91234-5678",
-      "position": "Cargo",
-      "placeholderPosition": "Ex: Gerente de Segurança, Assistente Executivo...",
-      "company": "Empresa",
-      "placeholderCompany": "Nome da sua empresa"
+      "position": "职位",
+      "placeholderPosition": "例如：安保经理、行政助理……",
+      "company": "公司",
+      "placeholderCompany": "您的公司名称"
     },
     "success": {
-      "title": "Solicitação registrada",
-      "subtitle": "Para concluir, escolha como prefere finalizar o contato:"
+      "title": "申请已登记",
+      "subtitle": "最后，请选择您希望的联系方式："
     },
-    "submit": "Concluir",
+    "submit": "完成",
     "next": "下一步"
   },
   "languages": {

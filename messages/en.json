@@ -328,7 +328,24 @@
       "vehicleModel": "Vehicle type",
       "selectModel": "Select Model",
       "additionalInfo": "Additional info",
-      "placeholderAdditional": "Any specific information for your service?"
+      "placeholderAdditional": "Any specific information for your service?",
+      "serviceOptions": {
+        "corporativo": "Corporate Executive Transport",
+        "transferAeroporto": "Airport Transfer",
+        "eventos": "Events & Conferences",
+        "cerimonias": "Ceremonies & Celebrations",
+        "diplomatica": "Diplomatic Visit",
+        "continuado": "Ongoing Service",
+        "outro": "Other"
+      },
+      "modelOptions": {
+        "sedan": "Sedan",
+        "suv": "SUV",
+        "van": "Van",
+        "minivan": "Minivan",
+        "microOnibus": "Minibus",
+        "onibus": "Bus"
+      }
     },
     "step3": {
       "title": "Your Details",

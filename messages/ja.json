@@ -328,7 +328,24 @@
       "vehicleModel": "車種",
       "selectModel": "モデルを選択",
       "additionalInfo": "追加情報",
-      "placeholderAdditional": "サービスに関する具体的な情報はありますか？"
+      "placeholderAdditional": "サービスに関する具体的な情報はありますか？",
+      "serviceOptions": {
+        "corporativo": "コーポレート・エグゼクティブ送迎",
+        "transferAeroporto": "空港送迎",
+        "eventos": "イベント・会議",
+        "cerimonias": "式典・祝賀会",
+        "diplomatica": "外交訪問",
+        "continuado": "継続的なご利用",
+        "outro": "その他"
+      },
+      "modelOptions": {
+        "sedan": "セダン",
+        "suv": "SUV",
+        "van": "バン",
+        "minivan": "ミニバン",
+        "microOnibus": "マイクロバス",
+        "onibus": "バス"
+      }
     },
     "step3": {
       "title": "お客様のデータ",
