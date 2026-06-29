@@ -193,6 +193,76 @@
         "title": "Precisión",
         "desc": "Planificación logística detallada, puntualidad operativa y soporte 24/7 para horarios que no permitan fallas."
       }
+    },
+    "timeline": {
+      "0": {
+        "title": "Visita del Presidente Barack Obama",
+        "desc": "Operación diplomática de alto nivel durante la visita oficial del Presidente de EE. UU. a Brasil."
+      },
+      "1": {
+        "title": "Visita de la Secretaria Hillary Clinton",
+        "desc": "Recepción ejecutiva y blindada para la Secretaria de Estado de EE. UU. y comitiva diplomática."
+      },
+      "2": {
+        "title": "Copa Mundial FIFA",
+        "desc": "Movilidad ejecutiva para delegaciones, autoridades e invitados VIP durante el mundial."
+      },
+      "3": {
+        "title": "Juegos Olímpicos Río 2016",
+        "desc": "Flota dedicada para comitivas internacionales, federaciones deportivas y autoridades olímpicas."
+      },
+      "4": {
+        "title": "Investidura del Presidente Jair Bolsonaro",
+        "desc": "Operación de movilidad para comitivas y autoridades durante la investidura presidencial en Brasilia."
+      },
+      "5": {
+        "title": "Visita del Secretario Mike Pompeo",
+        "desc": "Recepción ejecutiva para el Secretario de Estado de EE. UU. en visita oficial a Brasil."
+      },
+      "6": {
+        "title": "Copa América",
+        "desc": "Operaciones ejecutivas para el evento deportivo continental celebrado en Brasil."
+      },
+      "7": {
+        "title": "GP Brasil — Lewis Hamilton",
+        "desc": "Recepción ejecutiva blindada para el piloto y el equipo durante el Gran Premio de Brasil de F1."
+      },
+      "8": {
+        "title": "The Killers — Gira Brasil",
+        "desc": "Logística ejecutiva para la banda durante sus presentaciones en el país."
+      },
+      "9": {
+        "title": "Investidura del Presidente Lula",
+        "desc": "Operación ejecutiva y diplomática para comitivas, delegaciones internacionales y autoridades."
+      },
+      "10": {
+        "title": "Final de la Copa Sudamericana",
+        "desc": "Movilidad para delegaciones y autoridades durante la final continental."
+      },
+      "11": {
+        "title": "Red Hot Chili Peppers — Gira",
+        "desc": "Gira internacional atendida con discreción y logística a medida."
+      },
+      "12": {
+        "title": "G20 Brasil",
+        "desc": "Movilidad diplomática para la cumbre mundial con delegaciones de más de 30 países."
+      },
+      "13": {
+        "title": "Visita del Presidente Biden",
+        "desc": "Recepción ejecutiva y blindada para la comitiva presidencial de Estados Unidos."
+      },
+      "14": {
+        "title": "NFL Brasil",
+        "desc": "Operación para el primer partido oficial de la NFL celebrado en Brasil."
+      },
+      "15": {
+        "title": "COP 30 — Belém",
+        "desc": "Operación ambiental de escala global. Flota ejecutiva para delegaciones en misión en la Amazonía."
+      },
+      "16": {
+        "title": "Nike — Lanzamiento 2.ª Camiseta de la Selección",
+        "desc": "Recepción ejecutiva para el evento Nike de presentación de la nueva camiseta oficial de la Selección."
+      }
     }
   },
   "clients": {

@@ -193,6 +193,76 @@
         "title": "Accuracy",
         "desc": "Detailed logistics planning, operational punctuality and 24/7 support for schedules that do not allow failures."
       }
+    },
+    "timeline": {
+      "0": {
+        "title": "Visit of President Barack Obama",
+        "desc": "High-level diplomatic operation during the US President's official visit to Brazil."
+      },
+      "1": {
+        "title": "Visit of Secretary Hillary Clinton",
+        "desc": "Executive armored reception for the US Secretary of State and diplomatic delegation."
+      },
+      "2": {
+        "title": "FIFA World Cup",
+        "desc": "Executive mobility for delegations, officials and VIP guests during the World Cup."
+      },
+      "3": {
+        "title": "Rio 2016 Olympic Games",
+        "desc": "Dedicated fleet for international delegations, sports federations and Olympic authorities."
+      },
+      "4": {
+        "title": "Inauguration of President Jair Bolsonaro",
+        "desc": "Mobility operation for delegations and authorities during the presidential inauguration in Brasília."
+      },
+      "5": {
+        "title": "Visit of Secretary Mike Pompeo",
+        "desc": "Executive reception for the US Secretary of State on an official visit to Brazil."
+      },
+      "6": {
+        "title": "Copa América",
+        "desc": "Executive operations for the continental sporting event hosted in Brazil."
+      },
+      "7": {
+        "title": "Brazil GP — Lewis Hamilton",
+        "desc": "Executive armored reception for the driver and team during the Brazilian F1 Grand Prix."
+      },
+      "8": {
+        "title": "The Killers — Brazil Tour",
+        "desc": "Executive logistics for the band during performances in the country."
+      },
+      "9": {
+        "title": "Inauguration of President Lula",
+        "desc": "Executive and diplomatic operation for delegations, international missions and authorities."
+      },
+      "10": {
+        "title": "Copa Sudamericana Final",
+        "desc": "Mobility for delegations and authorities during the continental final."
+      },
+      "11": {
+        "title": "Red Hot Chili Peppers — Tour",
+        "desc": "International tour served with discretion and tailored logistics."
+      },
+      "12": {
+        "title": "G20 Brazil",
+        "desc": "Diplomatic mobility for the world summit with delegations from over 30 countries."
+      },
+      "13": {
+        "title": "Visit of President Biden",
+        "desc": "Executive armored reception for the United States presidential delegation."
+      },
+      "14": {
+        "title": "NFL Brazil",
+        "desc": "Operation for the first official NFL game hosted in Brazil."
+      },
+      "15": {
+        "title": "COP 30 — Belém",
+        "desc": "Environmental operation of global scale. Executive fleet for delegations on mission in the Amazon."
+      },
+      "16": {
+        "title": "Nike — Brazil Jersey Launch",
+        "desc": "Executive reception for the Nike event presenting the new official national team jersey."
+      }
     }
   },
   "clients": {

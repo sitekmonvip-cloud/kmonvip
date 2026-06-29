@@ -193,6 +193,76 @@
         "title": "Genauigkeit",
         "desc": "Detaillierte Logistikplanung, operative Pünktlichkeit und 24/7-Support für Zeitpläne, die keine Ausfälle zulassen."
       }
+    },
+    "timeline": {
+      "0": {
+        "title": "Besuch von Präsident Barack Obama",
+        "desc": "Diplomatische Operation auf höchster Ebene während des offiziellen Besuchs des US-Präsidenten in Brasilien."
+      },
+      "1": {
+        "title": "Besuch von Außenministerin Hillary Clinton",
+        "desc": "Exklusiver, gepanzerter Empfang für die US-Außenministerin und ihre diplomatische Delegation."
+      },
+      "2": {
+        "title": "FIFA-Weltmeisterschaft",
+        "desc": "Executive-Mobilität für Delegationen, Amtsträger und VIP-Gäste während der Weltmeisterschaft."
+      },
+      "3": {
+        "title": "Olympische Spiele Rio 2016",
+        "desc": "Dedizierte Flotte für internationale Delegationen, Sportverbände und olympische Behörden."
+      },
+      "4": {
+        "title": "Amtseinführung von Präsident Jair Bolsonaro",
+        "desc": "Mobilitätsoperation für Delegationen und Amtsträger während der Amtseinführung in Brasília."
+      },
+      "5": {
+        "title": "Besuch von Außenminister Mike Pompeo",
+        "desc": "Executive-Empfang für den US-Außenminister bei seinem offiziellen Besuch in Brasilien."
+      },
+      "6": {
+        "title": "Copa América",
+        "desc": "Executive-Operationen für das kontinentale Sportereignis in Brasilien."
+      },
+      "7": {
+        "title": "GP Brasilien — Lewis Hamilton",
+        "desc": "Gepanzerter Executive-Empfang für den Fahrer und das Team beim Großen Preis von Brasilien der F1."
+      },
+      "8": {
+        "title": "The Killers — Brasilien-Tour",
+        "desc": "Executive-Logistik für die Band während ihrer Auftritte im Land."
+      },
+      "9": {
+        "title": "Amtseinführung von Präsident Lula",
+        "desc": "Executive- und Diplomatie-Operation für Delegationen, internationale Missionen und Amtsträger."
+      },
+      "10": {
+        "title": "Finale der Copa Sudamericana",
+        "desc": "Mobilität für Delegationen und Amtsträger während des kontinentalen Finales."
+      },
+      "11": {
+        "title": "Red Hot Chili Peppers — Tour",
+        "desc": "Internationale Tournee mit Diskretion und maßgeschneiderter Logistik betreut."
+      },
+      "12": {
+        "title": "G20 Brasilien",
+        "desc": "Diplomatische Mobilität für den Weltgipfel mit Delegationen aus über 30 Ländern."
+      },
+      "13": {
+        "title": "Besuch von Präsident Biden",
+        "desc": "Gepanzerter Executive-Empfang für die Präsidentendelegation der Vereinigten Staaten."
+      },
+      "14": {
+        "title": "NFL Brasilien",
+        "desc": "Operation für das erste offizielle NFL-Spiel in Brasilien."
+      },
+      "15": {
+        "title": "COP 30 — Belém",
+        "desc": "Umweltoperation von globalem Ausmaß. Executive-Flotte für Delegationen auf Mission im Amazonas."
+      },
+      "16": {
+        "title": "Nike — Vorstellung des 2. Trikots der Nationalmannschaft",
+        "desc": "Executive-Empfang für das Nike-Event zur Vorstellung des neuen offiziellen Trikots der Nationalmannschaft."
+      }
     }
   },
   "clients": {

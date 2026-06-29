@@ -193,6 +193,76 @@
         "title": "Précision",
         "desc": "Planification logistique détaillée, ponctualité opérationnelle et assistance 24h/24 et 7j/7 pour les horaires qui ne permettent pas les défaillances."
       }
+    },
+    "timeline": {
+      "0": {
+        "title": "Visite du Président Barack Obama",
+        "desc": "Opération diplomatique de haut niveau lors de la visite officielle du Président des États-Unis au Brésil."
+      },
+      "1": {
+        "title": "Visite de la Secrétaire Hillary Clinton",
+        "desc": "Accueil exécutif et blindé pour la Secrétaire d'État des États-Unis et sa délégation diplomatique."
+      },
+      "2": {
+        "title": "Coupe du Monde FIFA",
+        "desc": "Mobilité exécutive pour les délégations, autorités et invités VIP pendant la Coupe du Monde."
+      },
+      "3": {
+        "title": "Jeux Olympiques de Rio 2016",
+        "desc": "Flotte dédiée aux délégations internationales, fédérations sportives et autorités olympiques."
+      },
+      "4": {
+        "title": "Investiture du Président Jair Bolsonaro",
+        "desc": "Opération de mobilité pour les délégations et autorités lors de l'investiture présidentielle à Brasília."
+      },
+      "5": {
+        "title": "Visite du Secrétaire Mike Pompeo",
+        "desc": "Accueil exécutif pour le Secrétaire d'État des États-Unis en visite officielle au Brésil."
+      },
+      "6": {
+        "title": "Copa América",
+        "desc": "Opérations exécutives pour l'événement sportif continental organisé au Brésil."
+      },
+      "7": {
+        "title": "GP du Brésil — Lewis Hamilton",
+        "desc": "Accueil exécutif blindé pour le pilote et l'équipe lors du Grand Prix du Brésil de F1."
+      },
+      "8": {
+        "title": "The Killers — Tournée Brésil",
+        "desc": "Logistique exécutive pour le groupe lors de ses concerts dans le pays."
+      },
+      "9": {
+        "title": "Investiture du Président Lula",
+        "desc": "Opération exécutive et diplomatique pour les délégations, missions internationales et autorités."
+      },
+      "10": {
+        "title": "Finale de la Copa Sudamericana",
+        "desc": "Mobilité pour les délégations et autorités lors de la finale continentale."
+      },
+      "11": {
+        "title": "Red Hot Chili Peppers — Tournée",
+        "desc": "Tournée internationale assurée avec discrétion et logistique sur mesure."
+      },
+      "12": {
+        "title": "G20 Brésil",
+        "desc": "Mobilité diplomatique pour le sommet mondial avec des délégations de plus de 30 pays."
+      },
+      "13": {
+        "title": "Visite du Président Biden",
+        "desc": "Accueil exécutif et blindé pour la délégation présidentielle des États-Unis."
+      },
+      "14": {
+        "title": "NFL Brésil",
+        "desc": "Opération pour le premier match officiel de la NFL organisé au Brésil."
+      },
+      "15": {
+        "title": "COP 30 — Belém",
+        "desc": "Opération environnementale d'envergure mondiale. Flotte exécutive pour les délégations en mission en Amazonie."
+      },
+      "16": {
+        "title": "Nike — Lancement du 2e Maillot de la Sélection",
+        "desc": "Accueil exécutif pour l'événement Nike de présentation du nouveau maillot officiel de la Sélection."
+      }
     }
   },
   "clients": {

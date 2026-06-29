@@ -6,30 +6,29 @@ import { useTranslations } from "next-intl";
 
 type Event = {
   year: number;
-  title: string;
-  desc: string;
   image: string;
 };
 
 // Flat sequential list — 17 events. Slide one at a time.
+// Title/desc live in messages catalog (authority.timeline.<index>), keyed by array position.
 const events: Event[] = [
-  { year: 2011, title: "Visita do Presidente Barack Obama",        desc: "Operação diplomática de alto nível durante a visita oficial do Presidente dos EUA ao Brasil.", image: "/images/timeline/2011 obama.jpg" },
-  { year: 2011, title: "Visita da Secretária Hillary Clinton",     desc: "Receptivo executivo e blindado para a Secretária de Estado dos EUA e comitiva diplomática.",   image: "/images/timeline/2011 Hillary.webp" },
-  { year: 2014, title: "Copa do Mundo FIFA",                       desc: "Mobilidade executiva para delegações, autoridades e convidados VIP durante o mundial.",         image: "/images/timeline/2014 copa do mundo.webp" },
-  { year: 2016, title: "Jogos Olímpicos Rio 2016",                 desc: "Frota dedicada para comitivas internacionais, federações esportivas e autoridades olímpicas.",  image: "/images/timeline/2016 olinpiedas.webp" },
-  { year: 2019, title: "Posse do Presidente Jair Bolsonaro",       desc: "Operação de mobilidade para comitivas e autoridades durante a posse presidencial em Brasília.", image: "/images/timeline/2019 bolsonaro.webp" },
-  { year: 2019, title: "Visita do Secretário Mike Pompeo",         desc: "Receptivo executivo para o Secretário de Estado dos EUA em visita oficial ao Brasil.",          image: "/images/timeline/2019 mike.jpg" },
-  { year: 2019, title: "Copa América",                             desc: "Operações executivas para o evento esportivo continental sediado no Brasil.",                  image: "/images/timeline/2019 copa america.avif" },
-  { year: 2022, title: "GP Brasil — Lewis Hamilton",               desc: "Receptivo executivo blindado para o piloto e equipe durante o Grande Prêmio do Brasil de F1.", image: "/images/timeline/2022 hamilton.jpg" },
-  { year: 2022, title: "The Killers — Tour Brasil",                desc: "Logística executiva para a banda durante apresentações no país.",                              image: "/images/timeline/2022 the killers.jpg" },
-  { year: 2023, title: "Posse do Presidente Lula",                 desc: "Operação executiva e diplomática para comitivas, delegações internacionais e autoridades.",   image: "/images/timeline/2023 lula.webp" },
-  { year: 2023, title: "Final Sul-Americana",                      desc: "Mobilidade para delegações e autoridades durante a final continental.",                        image: "/images/timeline/2023 sulamerica.webp" },
-  { year: 2023, title: "Red Hot Chili Peppers — Tour",             desc: "Tour internacional atendido com discrição e logística sob medida.",                            image: "/images/timeline/2023 red hot.jpeg" },
-  { year: 2024, title: "G20 Brasil",                               desc: "Mobilidade diplomática para cúpula mundial com delegações de mais de 30 países.",              image: "/images/timeline/2024 g20.jpeg" },
-  { year: 2024, title: "Visita do Presidente Biden",               desc: "Receptivo executivo e blindado para a comitiva presidencial dos Estados Unidos.",              image: "/images/timeline/2024 biden.jpg" },
-  { year: 2024, title: "NFL Brasil",                               desc: "Operação para a primeira partida oficial da NFL sediada no Brasil.",                          image: "/images/timeline/2024 nfl.avif" },
-  { year: 2025, title: "COP 30 — Belém",                           desc: "Operação ambiental de escala global. Frota executiva para delegações em missão na Amazônia.",  image: "/images/timeline/2025 cop 30.png" },
-  { year: 2026, title: "Nike — Lançamento 2ª Camisa Seleção",      desc: "Receptivo executivo para o evento Nike de apresentação da nova camisa oficial da Seleção.",   image: "/images/timeline/2026-nike-selecao.avif" },
+  { year: 2011, image: "/images/timeline/2011 obama.jpg" },
+  { year: 2011, image: "/images/timeline/2011 Hillary.webp" },
+  { year: 2014, image: "/images/timeline/2014 copa do mundo.webp" },
+  { year: 2016, image: "/images/timeline/2016 olinpiedas.webp" },
+  { year: 2019, image: "/images/timeline/2019 bolsonaro.webp" },
+  { year: 2019, image: "/images/timeline/2019 mike.jpg" },
+  { year: 2019, image: "/images/timeline/2019 copa america.avif" },
+  { year: 2022, image: "/images/timeline/2022 hamilton.jpg" },
+  { year: 2022, image: "/images/timeline/2022 the killers.jpg" },
+  { year: 2023, image: "/images/timeline/2023 lula.webp" },
+  { year: 2023, image: "/images/timeline/2023 sulamerica.webp" },
+  { year: 2023, image: "/images/timeline/2023 red hot.jpeg" },
+  { year: 2024, image: "/images/timeline/2024 g20.jpeg" },
+  { year: 2024, image: "/images/timeline/2024 biden.jpg" },
+  { year: 2024, image: "/images/timeline/2024 nfl.avif" },
+  { year: 2025, image: "/images/timeline/2025 cop 30.png" },
+  { year: 2026, image: "/images/timeline/2026-nike-selecao.avif" },
 ];
 
 // Unique years sorted (for timeline track)
@@ -168,7 +167,7 @@ export default function Authority() {
                 >
                   <Image
                     src={ev.image}
-                    alt={ev.title}
+                    alt={t(`timeline.${globalIdx}.title`)}
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
                     className={`object-cover transition-transform duration-700 ${
@@ -187,10 +186,10 @@ export default function Authority() {
                       {ev.year}
                     </span>
                     <h4 className="text-base font-medium tracking-tight mb-1 leading-tight">
-                      {ev.title}
+                      {t(`timeline.${globalIdx}.title`)}
                     </h4>
                     <p className="text-xs text-white/80 leading-relaxed">
-                      {ev.desc}
+                      {t(`timeline.${globalIdx}.desc`)}
                     </p>
                   </div>
                 </div>
@@ -209,7 +208,7 @@ export default function Authority() {
                 >
                   <Image
                     src={ev.image}
-                    alt={ev.title}
+                    alt={t(`timeline.${activeIdx}.title`)}
                     fill
                     sizes="100vw"
                     className="object-cover"
@@ -220,10 +219,10 @@ export default function Authority() {
                       {ev.year}
                     </span>
                     <h4 className="text-xl font-medium tracking-tight mb-2">
-                      {ev.title}
+                      {t(`timeline.${activeIdx}.title`)}
                     </h4>
                     <p className="text-sm text-white/80 leading-relaxed">
-                      {ev.desc}
+                      {t(`timeline.${activeIdx}.desc`)}
                     </p>
                   </div>
                 </div>
