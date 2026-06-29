@@ -1,4 +1,16 @@
+import { useTranslations } from "next-intl";
+
 export default function Differentials() {
+  const t = useTranslations("differentials");
+  const tagKeys = [
+    "armoredFleet",
+    "bilingualDrivers",
+    "diplomaticService",
+    "national24h",
+    "confidentiality",
+    "majorEvents",
+    "highComplexity",
+  ];
   return (
     <section className="relative py-20 md:py-44 overflow-hidden">
       {/* ── Background videos — responsive ── */}
@@ -42,40 +54,30 @@ export default function Differentials() {
       {/* ── Content ── */}
       <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
         <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-brand-champagne mb-5 sm:mb-6 block">
-          Diferenciais
+          {t("eyebrow")}
         </span>
 
         <h2
           className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.15] text-white mb-6 sm:mb-10 px-2"
           style={{ letterSpacing: "-0.025em" }}
         >
-          O padrão por trás de cada{" "}
+          {t("titlePart1")}{" "}
           <em
             className="font-normal not-italic text-brand-champagne"
             style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}
           >
-            deslocamento
+            {t("titleEm")}
           </em>
-          .
+          {t("titlePart2")}
         </h2>
 
         <p className="text-sm sm:text-lg md:text-xl text-white/75 leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-2">
-          Frota premium e blindada. Motoristas treinados e bilíngues.
-          Discrição absoluta, operação nacional 24h e logística de precisão
-          para agendas que não admitem improviso.
+          {t("subtitle")}
         </p>
 
         {/* Inline pill list — minimal, elegant */}
         <ul className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto">
-          {[
-            "Frota blindada",
-            "Motoristas bilíngues",
-            "Atendimento diplomático",
-            "Operação 24h nacional",
-            "Confidencialidade",
-            "Grandes eventos",
-            "Alta complexidade",
-          ].map((tag) => (
+          {tagKeys.map((tag) => (
             <li
               key={tag}
               className="inline-flex items-center rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-medium text-white/85 border backdrop-blur-md whitespace-nowrap"
@@ -88,7 +90,7 @@ export default function Differentials() {
                 className="mr-1.5 sm:mr-2 h-1 w-1 rounded-full shrink-0"
                 style={{ background: "var(--brand-champagne)" }}
               />
-              {tag}
+              {t(`tags.${tag}`)}
             </li>
           ))}
         </ul>

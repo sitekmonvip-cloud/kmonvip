@@ -1,6 +1,13 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const tServices = useTranslations("services");
+  const tCoverage = useTranslations("coverage");
+  const tNav = useTranslations("nav");
+  const year = new Date().getFullYear();
   return (
     <footer id="contato" className="bg-ink-900 text-paper">
       <div className="mx-auto max-w-7xl px-5 py-16 md:py-24">
@@ -17,32 +24,31 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm text-white/50 leading-relaxed">
-              Mobilidade executiva, blindada e diplomática para quem não pode
-              errar no deslocamento.
+              {t("tagline")}
             </p>
           </div>
 
           {/* Soluções */}
           <div>
             <h4 className="text-xs font-medium uppercase tracking-[0.08em] text-white/40 mb-4">
-              Soluções
+              {t("solutionsTitle")}
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "Transporte Executivo", href: "/servicos/transporte-executivo" },
-                { label: "Transporte Blindado",  href: "/servicos/transporte-blindado" },
-                { label: "Transporte Diplomático", href: "/servicos/transporte-diplomatico" },
-                { label: "Eventos & Congressos", href: "/servicos/eventos-e-congressos" },
-                { label: "Transfers",            href: "/servicos/transfers-executivos" },
-                { label: "Vans e Ônibus",        href: "/servicos/vans-e-onibus" },
+                { slug: "transporte-executivo" },
+                { slug: "transporte-blindado" },
+                { slug: "transporte-diplomatico" },
+                { slug: "eventos-e-congressos" },
+                { slug: "transfers-executivos" },
+                { slug: "vans-e-onibus" },
               ].map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
+                <li key={item.slug}>
+                  <Link
+                    href={`/servicos/${item.slug}`}
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    {item.label}
-                  </a>
+                    {tServices(`items.${item.slug}.title`)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -51,24 +57,24 @@ export default function Footer() {
           {/* Atuação */}
           <div>
             <h4 className="text-xs font-medium uppercase tracking-[0.08em] text-white/40 mb-4">
-              Atuação
+              {t("coverageTitle")}
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "Brasília",      href: "/atuacao/brasilia" },
-                { label: "São Paulo",     href: "/atuacao/sao-paulo" },
-                { label: "Rio de Janeiro", href: "/atuacao/rio-de-janeiro" },
-                { label: "Belo Horizonte", href: "/atuacao/belo-horizonte" },
-                { label: "Manaus",        href: "/atuacao/manaus" },
-                { label: "Belém",         href: "/atuacao/belem" },
+                { slug: "brasilia" },
+                { slug: "sao-paulo" },
+                { slug: "rio-de-janeiro" },
+                { slug: "belo-horizonte" },
+                { slug: "manaus" },
+                { slug: "belem" },
               ].map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
+                <li key={item.slug}>
+                  <Link
+                    href={`/atuacao/${item.slug}`}
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    {item.label}
-                  </a>
+                    {tCoverage(`items.${item.slug}.name`)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -77,26 +83,25 @@ export default function Footer() {
           {/* Institucional */}
           <div>
             <h4 className="text-xs font-medium uppercase tracking-[0.08em] text-white/40 mb-4">
-              Institucional
+              {t("institutionalTitle")}
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "Sobre a KMON",   href: "/sobre" },
-                { label: "História",       href: "/sobre/historia" },
-                { label: "Frota",          href: "/frota" },
-                { label: "Clientes",       href: "/clientes" },
-                { label: "Cotação",        href: "/cotacao" },
-                { label: "Contato",        href: "/contato" },
-                { label: "Política de Privacidade", href: "/politica-de-privacidade" },
-                { label: "LGPD",           href: "/lgpd" },
+                { label: tNav("about"),     href: "/sobre" },
+                { label: t("historyLink"),  href: "/sobre/historia" },
+                { label: tNav("fleet"),     href: "/frota" },
+                { label: tNav("coverage"),  href: "/atuacao" },
+                { label: tNav("contact"),   href: "/contato" },
+                { label: t("privacy"),      href: "/politica-de-privacidade" },
+                { label: "LGPD",            href: "/lgpd" },
               ].map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,7 +115,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="text-sm text-white/60">
                 <span className="block text-white/40 text-xs mb-1">
-                  WhatsApp 24h
+                  {t("whatsapp24h")}
                 </span>
                 <a
                   href="https://wa.me/5561998630303"
@@ -121,7 +126,7 @@ export default function Footer() {
               </li>
               <li className="text-sm text-white/60">
                 <span className="block text-white/40 text-xs mb-1">
-                  E-mail
+                  {t("email")}
                 </span>
                 <a
                   href="mailto:contato@kmonvip.com.br"
@@ -132,9 +137,9 @@ export default function Footer() {
               </li>
               <li className="text-sm text-white/60">
                 <span className="block text-white/40 text-xs mb-1">
-                  Atendimento
+                  {t("service")}
                 </span>
-                24h — Operação Nacional
+                {t("serviceValue")}
               </li>
             </ul>
           </div>
@@ -142,16 +147,15 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.08]">
           <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} KMON VIP. Todos os direitos
-            reservados.
+            &copy; {year} KMON VIP. {t("copyright")}
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors">
-              Política de Privacidade
-            </a>
-            <a href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors">
-              Termos de Uso
-            </a>
+            <Link href="/politica-de-privacidade" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+              {t("privacy")}
+            </Link>
+            <Link href="/lgpd" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+              {t("terms")}
+            </Link>
           </div>
         </div>
       </div>

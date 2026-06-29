@@ -218,7 +218,8 @@
     "serviceValue": "24h — National Operation",
     "copyright": "All rights reserved.",
     "privacy": "Privacy Policy",
-    "terms": "Terms of use"
+    "terms": "Terms of use",
+    "historyLink": "History"
   },
   "quoteModal": {
     "step": "Step {current} of {total}",

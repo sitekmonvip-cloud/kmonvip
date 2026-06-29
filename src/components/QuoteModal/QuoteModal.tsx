@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useQuoteModal } from "./QuoteModalProvider";
 
 // ── Config ──────────────────────────────────────────────────────────
@@ -64,6 +65,8 @@ const vehicleModels = [
 
 // ── Component ───────────────────────────────────────────────────────
 export default function QuoteModal() {
+  const t = useTranslations("quoteModal");
+  const tc = useTranslations("common");
   const { isOpen, close } = useQuoteModal();
   const [step, setStep]   = useState(1);
   const [data, setData]   = useState<FormData>(initialData);
@@ -107,8 +110,8 @@ export default function QuoteModal() {
   const validateStep = (s: number): boolean => {
     const e: Record<string, string> = {};
     if (s === 1) {
-      if (!data.purpose) e.purpose = "Selecione uma opção.";
-      if (data.purpose === "trabalho") e.purpose = "Este canal é exclusivo para cotações comerciais.";
+      if (!data.purpose) e.purpose = t("step1.errorSelect");
+      if (data.purpose === "trabalho") e.purpose = t("step1.blockTitle");
     } else if (s === 2) {
       if (!data.serviceType) e.serviceType = "Selecione o tipo de serviço.";
       if (!data.startDate)   e.startDate   = "Data de início é obrigatória.";
@@ -250,7 +253,7 @@ export default function QuoteModal() {
                 ))}
               </div>
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-ink-500">
-                Passo {step} de 3
+                {t("step", { current: step, total: 3 })}
               </span>
             </div>
           )}
@@ -280,7 +283,7 @@ export default function QuoteModal() {
                   onClick={goBack}
                   className="px-6 py-3 rounded-full border border-ink-200 text-sm font-medium text-ink-700 hover:bg-white transition-colors"
                 >
-                  Voltar
+                  {tc("back")}
                 </button>
               ) : (
                 <span />
@@ -292,7 +295,7 @@ export default function QuoteModal() {
                   className="ml-auto inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:shadow-lg active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
                   style={{ background: "var(--brand-champagne)", color: "var(--c-ink-900)" }}
                 >
-                  Próximo
+                  {t("next")}
                 </button>
               ) : (
                 <button
@@ -300,7 +303,7 @@ export default function QuoteModal() {
                   className="ml-auto inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:shadow-lg active:scale-[0.97]"
                   style={{ background: "var(--brand-champagne)", color: "var(--c-ink-900)" }}
                 >
-                  Concluir
+                  {t("submit")}
                 </button>
               )}
             </div>
@@ -319,15 +322,16 @@ function Step1({
   set: <K extends keyof FormData>(k: K, v: FormData[K]) => void;
   errors: Record<string, string>;
 }) {
-  const opts: { value: Purpose; title: string; sub: string }[] = [
-    { value: "empresa",       title: "Empresa / Empresário",     sub: "Transporte Executivo Corporativo" },
-    { value: "pessoa-fisica", title: "Pessoa Física",            sub: "Transfer ou Motorista Particular" },
-    { value: "trabalho",      title: "Oportunidade de trabalho", sub: "Busca de Emprego / Candidato" },
+  const t = useTranslations("quoteModal");
+  const opts: { value: Purpose; key: string }[] = [
+    { value: "empresa",       key: "empresa" },
+    { value: "pessoa-fisica", key: "pessoaFisica" },
+    { value: "trabalho",      key: "trabalho" },
   ];
 
   return (
     <div>
-      <h2 className="text-2xl font-medium tracking-tight mb-6">Como podemos ajudar?</h2>
+      <h2 className="text-2xl font-medium tracking-tight mb-6">{t("step1.title")}</h2>
       <div className="flex flex-col gap-3">
         {opts.map((o) => {
           const isActive = data.purpose === o.value;
@@ -358,8 +362,8 @@ function Step1({
                 )}
               </span>
               <span className="flex-1">
-                <span className="block font-medium text-ink-900">{o.title}</span>
-                <span className="block text-sm text-ink-500">{o.sub}</span>
+                <span className="block font-medium text-ink-900">{t(`step1.options.${o.key}.title`)}</span>
+                <span className="block text-sm text-ink-500">{t(`step1.options.${o.key}.sub`)}</span>
               </span>
             </label>
           );
@@ -377,11 +381,10 @@ function Step1({
           }}
         >
           <p className="text-sm font-semibold uppercase tracking-wider text-ink-900 mb-2">
-            Este canal é exclusivo para cotações comerciais
+            {t("step1.blockTitle")}
           </p>
           <p className="text-sm text-ink-700 leading-relaxed">
-            No momento não estamos recebendo candidaturas por este formulário.
-            Para oportunidades de trabalho, fique atento aos nossos canais oficiais.
+            {t("step1.blockMessage")}
           </p>
         </div>
       )}
@@ -397,18 +400,19 @@ function Step2({
   set: <K extends keyof FormData>(k: K, v: FormData[K]) => void;
   errors: Record<string, string>;
 }) {
+  const t = useTranslations("quoteModal");
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-2xl font-medium tracking-tight mb-1">Detalhes do serviço</h2>
-      <p className="text-sm text-ink-500 -mt-3">Conte um pouco sobre o atendimento desejado.</p>
+      <h2 className="text-2xl font-medium tracking-tight mb-1">{t("step2.title")}</h2>
+      <p className="text-sm text-ink-500 -mt-3">{t("step2.subtitle")}</p>
 
-      <Field label="Tipo de serviço *" error={errors.serviceType}>
+      <Field label={`${t("step2.serviceType")} *`} error={errors.serviceType}>
         <select
           value={data.serviceType}
           onChange={(e) => set("serviceType", e.target.value)}
           className={inputCls(!!errors.serviceType)}
         >
-          <option value="">Selecione</option>
+          <option value="">{t("step2.selectPlaceholder")}</option>
           {serviceTypes.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
@@ -416,7 +420,7 @@ function Step2({
       </Field>
 
       <div className="grid grid-cols-2 gap-3">
-        <Field label="Data início *" error={errors.startDate}>
+        <Field label={`${t("step2.startDate")} *`} error={errors.startDate}>
           <input
             type="date"
             value={data.startDate}
@@ -424,7 +428,7 @@ function Step2({
             className={inputCls(!!errors.startDate)}
           />
         </Field>
-        <Field label="Data término">
+        <Field label={t("step2.endDate")}>
           <input
             type="date"
             value={data.endDate}
@@ -453,10 +457,10 @@ function Step2({
             className="sr-only"
           />
         </span>
-        <span className="text-sm font-medium text-ink-900">Motorista Bilíngue</span>
+        <span className="text-sm font-medium text-ink-900">{t("step2.bilingual")}</span>
       </label>
 
-      <Field label="Veículo *" error={errors.vehicleProtection}>
+      <Field label={`${t("step2.vehicleProtection")} *`} error={errors.vehicleProtection}>
         <div className="grid grid-cols-2 gap-3">
           {(["blindado", "convencional"] as const).map((v) => {
             const isActive = data.vehicleProtection === v;
@@ -482,32 +486,32 @@ function Step2({
                 >
                   {isActive && <span className="h-2 w-2 rounded-full bg-ink-900" />}
                 </span>
-                <span className="text-sm font-medium capitalize">{v}</span>
+                <span className="text-sm font-medium">{v === "blindado" ? t("step2.armored") : t("step2.conventional")}</span>
               </label>
             );
           })}
         </div>
       </Field>
 
-      <Field label="Modelo do veículo *" error={errors.vehicleModel}>
+      <Field label={`${t("step2.vehicleModel")} *`} error={errors.vehicleModel}>
         <select
           value={data.vehicleModel}
           onChange={(e) => set("vehicleModel", e.target.value)}
           className={inputCls(!!errors.vehicleModel)}
         >
-          <option value="">Selecione o modelo</option>
+          <option value="">{t("step2.selectModel")}</option>
           {vehicleModels.map((m) => (
             <option key={m} value={m}>{m}</option>
           ))}
         </select>
       </Field>
 
-      <Field label="Informações adicionais *" error={errors.additionalInfo}>
+      <Field label={`${t("step2.additionalInfo")} *`} error={errors.additionalInfo}>
         <textarea
           value={data.additionalInfo}
           onChange={(e) => set("additionalInfo", e.target.value)}
           rows={3}
-          placeholder="Alguma informação específica para o seu atendimento?"
+          placeholder={t("step2.placeholderAdditional")}
           className={inputCls(!!errors.additionalInfo)}
         />
       </Field>
@@ -523,34 +527,35 @@ function Step3({
   set: <K extends keyof FormData>(k: K, v: FormData[K]) => void;
   errors: Record<string, string>;
 }) {
+  const t = useTranslations("quoteModal");
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-medium tracking-tight">Seus Dados</h2>
+      <h2 className="text-2xl font-medium tracking-tight">{t("step3.title")}</h2>
       <p className="text-sm text-ink-500 -mt-2">
-        Preencha seus dados de contato e clique em <strong>CONCLUIR</strong>.
+        {t("step3.subtitle")}
       </p>
 
-      <Field label="Nome completo *" error={errors.fullName}>
+      <Field label={`${t("step3.fullName")} *`} error={errors.fullName}>
         <input
           type="text"
           value={data.fullName}
           onChange={(e) => set("fullName", e.target.value)}
-          placeholder="Seu nome completo"
+          placeholder={t("step3.placeholderName")}
           className={inputCls(!!errors.fullName)}
         />
       </Field>
 
-      <Field label="E-mail corporativo *" error={errors.email}>
+      <Field label={`${t("step3.email")} *`} error={errors.email}>
         <input
           type="email"
           value={data.email}
           onChange={(e) => set("email", e.target.value)}
-          placeholder="seu@empresa.com.br"
+          placeholder={t("step3.placeholderEmail")}
           className={inputCls(!!errors.email)}
         />
       </Field>
 
-      <Field label="Telefone *" error={errors.phone}>
+      <Field label={`${t("step3.phone")} *`} error={errors.phone}>
         <div className="flex gap-2">
           <span className="inline-flex items-center px-3 py-3 rounded-lg border border-ink-200 bg-ink-50 text-sm font-medium text-ink-700 shrink-0">
             🇧🇷 +55
@@ -559,28 +564,28 @@ function Step3({
             type="tel"
             value={data.phone}
             onChange={(e) => set("phone", e.target.value)}
-            placeholder="(11) 91234-5678"
+            placeholder={t("step3.placeholderPhone")}
             className={inputCls(!!errors.phone)}
           />
         </div>
       </Field>
 
-      <Field label="Cargo">
+      <Field label={t("step3.position")}>
         <input
           type="text"
           value={data.position}
           onChange={(e) => set("position", e.target.value)}
-          placeholder="Ex: Gerente de Segurança, Assistente Executivo..."
+          placeholder={t("step3.placeholderPosition")}
           className={inputCls(false)}
         />
       </Field>
 
-      <Field label="Empresa">
+      <Field label={t("step3.company")}>
         <input
           type="text"
           value={data.company}
           onChange={(e) => set("company", e.target.value)}
-          placeholder="Nome da sua empresa"
+          placeholder={t("step3.placeholderCompany")}
           className={inputCls(false)}
         />
       </Field>
@@ -596,6 +601,8 @@ function SuccessScreen({
   onEmail: () => void;
   onClose: () => void;
 }) {
+  const t = useTranslations("quoteModal");
+  const tc = useTranslations("common");
   return (
     <div className="text-center py-6">
       <div
@@ -606,9 +613,9 @@ function SuccessScreen({
           <polyline points="20 6 9 17 4 12" />
         </svg>
       </div>
-      <h3 className="text-2xl font-medium tracking-tight mb-3">Solicitação registrada</h3>
+      <h3 className="text-2xl font-medium tracking-tight mb-3">{t("success.title")}</h3>
       <p className="text-sm text-ink-500 leading-relaxed mb-8 max-w-sm mx-auto">
-        Para concluir, escolha como prefere finalizar o contato:
+        {t("success.subtitle")}
       </p>
 
       <div className="flex flex-col gap-3 max-w-xs mx-auto">
@@ -620,19 +627,19 @@ function SuccessScreen({
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" />
           </svg>
-          Falar no WhatsApp
+          {tc("talkOnWhatsApp")}
         </button>
         <button
           onClick={onEmail}
           className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full border border-ink-200 font-medium text-sm text-ink-900 hover:bg-ink-50 transition-colors"
         >
-          Enviar por e-mail
+          {tc("sendByEmail")}
         </button>
         <button
           onClick={onClose}
           className="text-xs text-ink-500 hover:text-ink-900 transition-colors mt-2"
         >
-          Fechar
+          {tc("close")}
         </button>
       </div>
     </div>

@@ -1,9 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { useQuoteModal } from "./QuoteModal";
 
 export default function Hero() {
+  const t = useTranslations("hero");
+  const tc = useTranslations("common");
+  const ts = useTranslations("stats");
   const { open: openQuote } = useQuoteModal();
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -89,7 +93,7 @@ export default function Hero() {
             className="mb-5 block text-[11px] font-medium uppercase tracking-[0.18em]"
             style={{ color: "var(--c-ink-500)" }}
           >
-            A Número 1 do Brasil em
+            {t("eyebrow")}
           </span>
 
           {/* main headline */}
@@ -97,14 +101,7 @@ export default function Hero() {
             className="max-w-4xl text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05]"
             style={{ color: "var(--c-ink-900)", letterSpacing: "-0.03em" }}
           >
-            Transporte{" "}
-            <em
-              className="font-normal not-italic"
-              style={{ fontFamily: "Georgia, serif", fontStyle: "italic", color: "var(--c-ink-700)" }}
-            >
-              Executivo
-            </em>{" "}
-            Blindado
+            {t("title")}
           </h1>
 
           {/* champagne rule */}
@@ -118,7 +115,7 @@ export default function Hero() {
             className="mt-5 text-base max-w-sm leading-relaxed"
             style={{ color: "var(--c-ink-500)" }}
           >
-            Discrição. Precisão. Protocolo.
+            {t("subtitle")}
           </p>
 
           {/* CTA */}
@@ -133,7 +130,7 @@ export default function Hero() {
               pointerEvents: "auto",
             }}
           >
-            Solicitar cotação
+            {tc("requestQuote")}
             <span style={{ color: "var(--brand-champagne)" }}>&rarr;</span>
           </button>
         </div>
@@ -171,9 +168,9 @@ export default function Hero() {
               style={{ borderColor: "var(--c-ink-100)" }}
             >
               {[
-                { value: "35+", label: "anos de excelência" },
-                { value: "24h", label: "suporte operacional" },
-                { value: "7+",  label: "capitais atendidas"  },
+                { value: ts("yearsValue"),   label: ts("yearsLabel")   },
+                { value: ts("supportValue"), label: ts("supportLabel") },
+                { value: ts("citiesValue"),  label: ts("citiesLabel")  },
               ].map((s) => (
                 <div
                   key={s.label}

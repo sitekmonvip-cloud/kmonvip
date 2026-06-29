@@ -7,7 +7,10 @@ const clients = [
   { name: "XP Investimentos", src: "/images/logos/xp.png" },
 ];
 
+import { useTranslations } from "next-intl";
+
 export default function Clients() {
+  const t = useTranslations("clients");
   // Duplicate list for seamless loop
   const items = [...clients, ...clients];
 
@@ -16,10 +19,10 @@ export default function Clients() {
       <div className="mx-auto max-w-7xl px-5">
         <div className="text-center mb-12">
           <span className="text-xs font-medium uppercase tracking-[0.08em] text-ink-500 mb-3 block">
-            Parceiros & Clientes
+            {t("eyebrow")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight leading-[1.15]">
-            Empresas que confiam na KMON VIP
+            {t("title")}
           </h2>
         </div>
       </div>

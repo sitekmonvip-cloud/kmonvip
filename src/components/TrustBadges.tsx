@@ -6,7 +6,10 @@ const orgs = [
   { name: "ONU",    src: "/images/logos/logo trust/onu.svg",    scale: 1.7 },
 ];
 
+import { useTranslations } from "next-intl";
+
 export default function TrustBadges() {
+  const t = useTranslations("trustBadges");
   return (
     <section
       className="border-b"
@@ -20,7 +23,7 @@ export default function TrustBadges() {
             className="shrink-0 text-[11px] font-medium uppercase tracking-[0.14em] text-center sm:text-left"
             style={{ color: "var(--c-ink-300)" }}
           >
-            Confiança de organizações que<br className="hidden sm:block" /> operam no mais alto nível
+            {t("label")}
           </span>
 
           {/* Divider — desktop only */}

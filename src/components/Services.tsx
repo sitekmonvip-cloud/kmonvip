@@ -2,60 +2,21 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const services = [
-  {
-    slug: "transporte-executivo",
-    num: "01",
-    title: "Transporte Executivo",
-    label: "corporativo",
-    desc: "Deslocamentos com conforto, pontualidade e discrição para executivos e líderes.",
-    image: "/images/services/transporte-executivo.png",
-  },
-  {
-    slug: "transporte-blindado",
-    num: "02",
-    title: "Transporte Blindado",
-    label: "segurança",
-    desc: "Veículos blindados para agendas que exigem proteção elevada e confidencialidade.",
-    image: "/images/services/transporte-blindado.png",
-  },
-  {
-    slug: "transporte-diplomatico",
-    num: "03",
-    title: "Transporte Diplomático",
-    label: "protocolo",
-    desc: "Embaixadas, delegações e missões oficiais com protocolo e precisão.",
-    image: "/images/services/transporte-diplomatico.png",
-  },
-  {
-    slug: "eventos-e-congressos",
-    num: "04",
-    title: "Eventos & Congressos",
-    label: "eventos",
-    desc: "Frota dedicada para grandes eventos, congressos e operações especiais.",
-    image: "/images/services/eventos-congressos.png",
-  },
-  {
-    slug: "transfers-executivos",
-    num: "05",
-    title: "Transfers",
-    label: "aeroporto",
-    desc: "Traslados aeroporto, hotel e reuniões com atendimento profissional.",
-    image: "/images/services/transfers.png",
-  },
-  {
-    slug: "vans-e-onibus",
-    num: "06",
-    title: "Vans e Ônibus",
-    label: "grupos",
-    desc: "Mobilidade para grupos, delegações e equipes corporativas.",
-    image: "/images/services/vans-onibus.png",
-  },
+  { slug: "transporte-executivo",   num: "01", image: "/images/services/transporte-executivo.png" },
+  { slug: "transporte-blindado",    num: "02", image: "/images/services/transporte-blindado.png" },
+  { slug: "transporte-diplomatico", num: "03", image: "/images/services/transporte-diplomatico.png" },
+  { slug: "eventos-e-congressos",   num: "04", image: "/images/services/eventos-congressos.png" },
+  { slug: "transfers-executivos",   num: "05", image: "/images/services/transfers.png" },
+  { slug: "vans-e-onibus",          num: "06", image: "/images/services/vans-onibus.png" },
 ];
 
 export default function Services() {
+  const t = useTranslations("services");
+  const tc = useTranslations("common");
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -89,13 +50,13 @@ export default function Services() {
               className="text-[11px] font-medium uppercase tracking-[0.14em] mb-3 block"
               style={{ color: "var(--c-ink-500)" }}
             >
-              Soluções
+              {t("eyebrow")}
             </span>
             <h2
               className="text-3xl sm:text-4xl font-medium tracking-tight leading-[1.1]"
               style={{ color: "var(--c-ink-900)" }}
             >
-              Mobilidade para operações<br className="hidden sm:block" /> de alto padrão
+              {t("title")}
             </h2>
           </div>
 
@@ -154,7 +115,7 @@ export default function Services() {
               {/* Background image */}
               <Image
                 src={s.image}
-                alt={s.title}
+                alt={t(`items.${s.slug}.title`)}
                 fill
                 sizes="(max-width: 768px) 85vw, 300px"
                 className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-105"
@@ -177,7 +138,7 @@ export default function Services() {
                   className="rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em]"
                   style={{ background: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.8)" }}
                 >
-                  {s.label}
+                  {t(`items.${s.slug}.label`)}
                 </span>
               </div>
 
@@ -188,16 +149,16 @@ export default function Services() {
 
                 <div className="relative">
                   <h3 className="text-lg font-medium tracking-tight mb-2 leading-snug">
-                    {s.title}
+                    {t(`items.${s.slug}.title`)}
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
-                    {s.desc}
+                    {t(`items.${s.slug}.desc`)}
                   </p>
                   {/* Arrow — appears on hover */}
                   <div className="flex items-center gap-1 mt-3 text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-1 group-hover:translate-y-0"
                     style={{ color: "var(--brand-champagne)" }}
                   >
-                    Saiba mais <span>&rarr;</span>
+                    {tc("learnMore")} <span>&rarr;</span>
                   </div>
                 </div>
               </div>

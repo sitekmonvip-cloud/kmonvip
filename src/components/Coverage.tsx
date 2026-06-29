@@ -2,46 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-type City = {
-  name: string;
-  desc: string;
-  image: string;
-  highlight?: boolean;
-};
-
-const cities: City[] = [
-  {
-    name: "Brasília",
-    desc: "Base institucional. Embaixadas, autoridades, órgãos públicos e eventos corporativos.",
-    image: "/images/cities/Brasilia.jpg",
-    highlight: true,
-  },
-  {
-    name: "São Paulo",
-    desc: "Executivos, eventos corporativos, empresas internacionais e mercado financeiro.",
-    image: "/images/cities/sao-paulo.jpg",
-  },
-  {
-    name: "Rio de Janeiro",
-    desc: "Turismo premium, eventos, autoridades, artistas e operações corporativas.",
-    image: "/images/cities/rio-de-janeiro.jpg",
-  },
-  {
-    name: "Belo Horizonte",
-    desc: "Transporte executivo e corporativo para empresas, eventos e agendas estratégicas.",
-    image: "/images/cities/belo-horizonte.jpg",
-  },
-  {
-    name: "Manaus",
-    desc: "Operações executivas, corporativas e institucionais na região Norte.",
-    image: "/images/cities/Manaus.jpg",
-  },
-  {
-    name: "Belém",
-    desc: "Cidade estratégica para eventos internacionais e grandes operações.",
-    image: "/images/cities/belem.jpg",
-  },
+const cities = [
+  { slug: "brasilia",       image: "/images/cities/Brasilia.jpg", highlight: true },
+  { slug: "sao-paulo",      image: "/images/cities/sao-paulo.jpg" },
+  { slug: "rio-de-janeiro", image: "/images/cities/rio-de-janeiro.jpg" },
+  { slug: "belo-horizonte", image: "/images/cities/belo-horizonte.jpg" },
+  { slug: "manaus",         image: "/images/cities/Manaus.jpg" },
+  { slug: "belem",          image: "/images/cities/belem.jpg" },
 ];
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
@@ -61,6 +30,7 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 );
 
 export default function Coverage() {
+  const t = useTranslations("coverage");
   // Brasília expandida por padrão (sede)
   const [openIdx, setOpenIdx] = useState<number>(0);
 
@@ -71,19 +41,17 @@ export default function Coverage() {
           {/* Header */}
           <div className="lg:sticky lg:top-24">
             <span className="text-xs font-medium uppercase tracking-[0.08em] text-ink-500 mb-4 block">
-              Atuação Nacional
+              {t("eyebrow")}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.1] mb-6">
-              Operação executiva em Brasília e nas principais cidades do Brasil
+              {t("title")}
             </h2>
             <p className="text-lg text-ink-500 leading-relaxed mb-8">
-              A KMON VIP atende operações executivas, diplomáticas e corporativas
-              em Brasília e nas principais capitais brasileiras, com estrutura
-              para deslocamentos locais, eventos e agendas de alta complexidade.
+              {t("subtitle")}
             </p>
             <div className="flex items-center gap-3 text-sm text-ink-500">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-green animate-pulse-dot" />
-              Outras cidades sob consulta
+              {t("otherCities")}
             </div>
           </div>
 
@@ -93,7 +61,7 @@ export default function Coverage() {
               const isOpen = openIdx === i;
               return (
                 <article
-                  key={city.name}
+                  key={city.slug}
                   className={`rounded-xl border overflow-hidden transition-all duration-300 ${
                     isOpen
                       ? "border-ink-900 bg-ink-900 text-paper shadow-xl"
@@ -109,7 +77,7 @@ export default function Coverage() {
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <h3 className="text-lg font-medium tracking-tight truncate">
-                        {city.name}
+                        {t(`items.${city.slug}.name`)}
                       </h3>
                       {city.highlight && (
                         <span
@@ -119,7 +87,7 @@ export default function Coverage() {
                               : "bg-ink-100 text-ink-700"
                           }`}
                         >
-                          Sede
+                          {t("headquarters")}
                         </span>
                       )}
                     </div>
@@ -147,7 +115,7 @@ export default function Coverage() {
                         <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-4">
                           <Image
                             src={city.image}
-                            alt={city.name}
+                            alt={t(`items.${city.slug}.name`)}
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover"
@@ -161,7 +129,7 @@ export default function Coverage() {
                             isOpen ? "text-white/75" : "text-ink-500"
                           }`}
                         >
-                          {city.desc}
+                          {t(`items.${city.slug}.desc`)}
                         </p>
                       </div>
                     </div>

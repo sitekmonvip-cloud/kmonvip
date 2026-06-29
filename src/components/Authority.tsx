@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type Event = {
   year: number;
@@ -38,6 +39,7 @@ const AUTOPLAY_MS = 3000;
 const CARDS_VISIBLE = 4;
 
 export default function Authority() {
+  const t = useTranslations("authority");
   const [activeIdx, setActiveIdx] = useState(events.length - 1);
   const [isPaused, setIsPaused] = useState(false);
   const userInteractedRef = useRef(false);
@@ -83,15 +85,13 @@ export default function Authority() {
       <div className="mx-auto max-w-7xl px-5">
         <div className="max-w-3xl">
           <span className="text-xs font-medium uppercase tracking-[0.08em] text-ink-500 mb-4 block">
-            Quem somos
+            {t("eyebrow")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.1] mb-6">
-            Mobilidade para quem lidera, representa e decide.
+            {t("title")}
           </h2>
           <p className="text-lg text-ink-500 leading-relaxed max-w-2xl">
-            A KMON VIP atende operações executivas, diplomáticas e corporativas
-            com frota premium, motoristas treinados e planejamento logístico sob
-            medida para agendas que exigem segurança, pontualidade e discrição.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -105,14 +105,14 @@ export default function Authority() {
           <div className="flex items-end justify-between mb-6 gap-3">
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.08em] text-ink-500 block mb-1">
-                Operações & Eventos
+                {t("timelineEyebrow")}
               </span>
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight">
-                Grandes operações e eventos já atendidos
+                {t("timelineTitle")}
               </h3>
             </div>
             <span className="hidden sm:inline-flex items-center rounded-full border border-ink-200 bg-white px-3 py-1.5 text-xs font-medium text-ink-700 shrink-0">
-              {events.length} marcos
+              {events.length} {t("marksLabel")}
             </span>
           </div>
 
@@ -262,42 +262,39 @@ export default function Authority() {
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[
             {
+              key: "security",
               icon: (
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               ),
-              title: "Segurança",
-              desc: "Veículos executivos com opções blindadas, motoristas treinados e protocolos de segurança para agendas sensíveis.",
             },
             {
+              key: "discretion",
               icon: (
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               ),
-              title: "Discrição",
-              desc: "Confidencialidade absoluta em cada operação. Atendimento sob protocolo para clientes que exigem privacidade.",
             },
             {
+              key: "precision",
               icon: (
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               ),
-              title: "Precisão",
-              desc: "Planejamento logístico detalhado, pontualidade operacional e suporte 24h para agendas que não permitem falhas.",
             },
           ].map((item) => (
             <div
-              key={item.title}
+              key={item.key}
               className="group rounded-2xl border border-ink-100 bg-white p-8 transition-all hover:shadow-lg hover:-translate-y-0.5"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-ink-50 text-ink-900 mb-6 transition-colors group-hover:bg-ink-900 group-hover:text-paper">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-medium tracking-tight mb-3">{item.title}</h3>
-              <p className="text-sm text-ink-500 leading-relaxed">{item.desc}</p>
+              <h3 className="text-lg font-medium tracking-tight mb-3">{t(`pillars.${item.key}.title`)}</h3>
+              <p className="text-sm text-ink-500 leading-relaxed">{t(`pillars.${item.key}.desc`)}</p>
             </div>
           ))}
         </div>

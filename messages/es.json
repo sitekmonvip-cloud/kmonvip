@@ -218,7 +218,8 @@
     "serviceValue": "24h — Operación Nacional",
     "copyright": "Todos los derechs reservados.",
     "privacy": "Política de Privacidad",
-    "terms": "Términos de Uso"
+    "terms": "Términos de Uso",
+    "historyLink": "Historia"
   },
   "quoteModal": {
     "step": "Paso {current} de {total}",
