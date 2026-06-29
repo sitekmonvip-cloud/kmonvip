@@ -92,13 +92,12 @@ function maskProtected(str) {
 }
 
 function unmask(str, map) {
-  let out = str;
-  map.forEach((orig, i) => {
-    out = out.split(`{{P${i}}}`).join(orig);
-    out = out.split(`{{ P${i} }}`).join(orig); // some translators add spaces
-    out = out.split(`{{ P ${i} }}`).join(orig);
+  // Tolerate any whitespace the translator injects inside the placeholder,
+  // e.g. {{P0}}, {{ P0 }}, {{P 0}}, {{ P 0 }}.
+  return str.replace(/\{\{\s*P\s*(\d+)\s*\}\}/g, (m, n) => {
+    const orig = map[Number(n)];
+    return orig !== undefined ? orig : m;
   });
-  return out;
 }
 
 async function myMemoryTranslate(text, targetLang) {
