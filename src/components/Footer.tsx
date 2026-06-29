@@ -113,10 +113,10 @@ export default function Footer() {
                   WhatsApp 24h
                 </span>
                 <a
-                  href="https://wa.me/5561999999999"
+                  href="https://wa.me/5561998630303"
                   className="hover:text-white transition-colors"
                 >
-                  +55 (61) 99999-9999
+                  +55 (61) 99863-0303
                 </a>
               </li>
               <li className="text-sm text-white/60">

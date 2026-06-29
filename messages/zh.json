@@ -1,0 +1,291 @@
+{
+  "common": {
+    "requestQuote": "请求报价",
+    "learnMore": "深入瞭解",
+    "viewFleet": "查看车队",
+    "knowMore": "知道",
+    "back": "后退",
+    "next": "下一步",
+    "close": "Close",
+    "open": "打开",
+    "send": "送",
+    "contact": "联系人",
+    "passengers": "乘客",
+    "vehicle": "◻︎ 车辆  Vehicle",
+    "model": "型号",
+    "talkOnWhatsApp": "在WhatsApp发言",
+    "sendByEmail": "电子邮箱",
+    "support24h": "全天候客服支持",
+    "nationalOperation": "国家运营"
+  },
+  "nav": {
+    "home": "启动",
+    "services": "解決方案",
+    "fleet": "车队",
+    "coverage": "性能",
+    "about": "上",
+    "contact": "联系人"
+  },
+  "hero": {
+    "eyebrow": "巴西排名第一的国家",
+    "title": "装甲行政运输",
+    "subtitle": "谨慎。准确。规程。"
+  },
+  "stats": {
+    "yearsLabel": "多年的卓越表现",
+    "supportLabel": "运营支持",
+    "citiesLabel": "已送达的首都",
+    "yearsValue": "35+",
+    "supportValue": "24小时",
+    "citiesValue": "7+"
+  },
+  "trustBadges": {
+    "label": "对在最高级别运营的组织的信任"
+  },
+  "services": {
+    "eyebrow": "解決方案",
+    "title": "高端运营的高管流动性",
+    "subtitle": "豪华车队、训练有素的司机和24小时运营。从个人议程到重大外交行动。",
+    "items": {
+      "transporte-executivo": {
+        "title": "高管交通",
+        "label": "企业",
+        "desc": "为高管和领导者提供舒适、准时和谨慎的旅行体验。"
+      },
+      "transporte-blindado": {
+        "title": "装甲运输",
+        "label": "保安",
+        "desc": "用于需要高度保护和保密的议程的装甲车辆。"
+      },
+      "transporte-diplomatico": {
+        "title": "外交运输",
+        "label": "协议",
+        "desc": "官方大使馆、代表团和使团具有规程和精确度。"
+      },
+      "eventos-e-congressos": {
+        "title": "活动和大会",
+        "label": "events",
+        "desc": "专用于重大活动、大会和特别行动的车队。"
+      },
+      "transfers-executivos": {
+        "title": "转移",
+        "label": "机场",
+        "desc": "机场接送、酒店和会议，提供专业服务。"
+      },
+      "vans-e-onibus": {
+        "title": "面包车和公共汽车",
+        "label": "组",
+        "desc": "团队、代表团和公司团队的流动性。"
+      }
+    }
+  },
+  "fleet": {
+    "eyebrow": "车队",
+    "title": "不同运营级别的行政车队",
+    "subtitle": "从行政轿车到SUV、面包车、公共汽车和装甲车， KMON VIP为每种类型的时间表提供量身定制的出行解决方案。",
+    "disclaimer": "型号和类别视报价时的可用性而定。",
+    "knowFleet": "认识车队",
+    "items": {
+      "sedan-executivo": {
+        "title": "高管轿车",
+        "desc": "高管轿车，配备司机，用于会议、客户接待、公司日程安排和个人旅行。",
+        "passengers": "1至4名乘客",
+        "model": "Mercedes-Benz E级或类似级别"
+      },
+      "suv-premium": {
+        "title": "高级SUV",
+        "desc": "配备司机的豪华SUV ，适合需要更大舒适度和空间的高管、政府部门和通勤人士。",
+        "passengers": "1至6名乘客",
+        "model": "Cadillac Escalade或类似"
+      },
+      "veiculo-blindado": {
+        "title": "装甲车",
+        "desc": "配备司机的装甲车，用于需要高度安全、保密和保护的日程安排。",
+        "passengers": "1至4名乘客",
+        "model": "Jeep Commander屏蔽或类似"
+      },
+      "van-executiva": {
+        "title": "行政面包车",
+        "desc": "带司机的行政面包车，适合团体、机场接送、公司活动和高性能运营。",
+        "passengers": "8至15名乘客",
+        "model": "Mercedes-Benz Sprinter或类似"
+      },
+      "onibus-premium": {
+        "title": "高级面包车",
+        "desc": "高级行政巴士，配有会议、代表团和大量运营的司机。",
+        "passengers": "30至50名乘客",
+        "model": "Marcopolo Paradiso或类似"
+      },
+      "frota-comitiva": {
+        "title": "随行人员的舰队",
+        "desc": "将SUV、轿车和面包车与司机相结合，为随行人员和代表团协调通勤。",
+        "passengers": "量身定制",
+        "model": "SUV +轿车+面包车坐标"
+      }
+    }
+  },
+  "coverage": {
+    "eyebrow": "国家绩效",
+    "title": "在巴西Brasília和主要城市的执行运营",
+    "subtitle": "KMON VIP为Brasília和巴西主要首都的行政、外交和企业运营部门提供服务，为当地旅行、活动和高度复杂的日程安排提供服务。",
+    "otherCities": "其他城市可应要求提供服务",
+    "headquarters": "总部",
+    "items": {
+      "brasilia": {
+        "name": "Brasília",
+        "desc": "制度基础。大使馆、当局、公共机构和公司活动。"
+      },
+      "sao-paulo": {
+        "name": "São Paulo",
+        "desc": "高管、企业活动、国际公司和金融市场。"
+      },
+      "rio-de-janeiro": {
+        "name": "Rio de Janeiro",
+        "desc": "高端旅游、活动、当局、艺术家和企业运营。"
+      },
+      "belo-horizonte": {
+        "name": "Belo Horizonte",
+        "desc": "为公司、活动和战略议程提供行政和企业交通服务。"
+      },
+      "manaus": {
+        "name": "Manaus",
+        "desc": "北部地区的行政、企业和机构运营。"
+      },
+      "belem": {
+        "name": "Belém",
+        "desc": "国际活动和重大运营的战略城市。"
+      }
+    }
+  },
+  "differentials": {
+    "eyebrow": "差异",
+    "titlePart1": "每种背后的模式",
+    "titleEm": "偏距",
+    "titlePart2": ".",
+    "subtitle": "高级和装甲舰队。训练有素的双语司机。对于不允许即兴创作的议程，绝对自行决定， 24小时全国运营和精确物流。",
+    "tags": {
+      "armoredFleet": "装甲舰队",
+      "bilingualDrivers": "双语驱动程序",
+      "diplomaticService": "外交援助",
+      "national24h": "全国24小时运营",
+      "confidentiality": "保密",
+      "majorEvents": "重大事件",
+      "highComplexity": "复杂度高"
+    }
+  },
+  "authority": {
+    "eyebrow": "關於我們",
+    "title": "领导者、代表和决策者的流动性。",
+    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas com frota premium, motoristas treinados e planejamento logístico sob medida para agendas que exigem segurança, pontualidade e discrição.",
+    "timelineEyebrow": "Operações & Eventos",
+    "timelineTitle": "Grandes operações e eventos já atendidos",
+    "marksLabel": "marcos",
+    "pillars": {
+      "security": {
+        "title": "Segurança",
+        "desc": "Veículos executivos com opções blindadas, motoristas treinados e protocolos de segurança para agendas sensíveis."
+      },
+      "discretion": {
+        "title": "Discrição",
+        "desc": "Confidencialidade absoluta em cada operação. Atendimento sob protocolo para clientes que exigem privacidade."
+      },
+      "precision": {
+        "title": "Precisão",
+        "desc": "Planejamento logístico detalhado, pontualidade operacional e suporte 24h para agendas que não permitem falhas."
+      }
+    }
+  },
+  "clients": {
+    "eyebrow": "Parceiros & Clientes",
+    "title": "Empresas que confiam na KMON VIP"
+  },
+  "cta": {
+    "title": "Pronto para sua próxima operação?",
+    "subtitle": "Solicite uma cotação e fale com a equipe KMON VIP.",
+    "homeTitle": "Planeje sua próxima operação com segurança, discrição e precisão.",
+    "homeSubtitle": "Solicite uma cotação e fale com a equipe da KMON VIP para estruturar o transporte ideal para sua agenda, evento ou delegação.",
+    "requestNow": "Solicitar cotação agora"
+  },
+  "footer": {
+    "tagline": "Mobilidade executiva, blindada e diplomática para quem não pode errar no deslocamento.",
+    "solutionsTitle": "解決方案",
+    "coverageTitle": "性能",
+    "institutionalTitle": "Institucional",
+    "contactTitle": "联系人",
+    "whatsapp24h": "WhatsApp 24h",
+    "email": "E-mail",
+    "service": "Atendimento",
+    "serviceValue": "24h — Operação Nacional",
+    "copyright": "Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  },
+  "quoteModal": {
+    "step": "Passo {current} de {total}",
+    "step1": {
+      "title": "Como podemos ajudar?",
+      "options": {
+        "empresa": {
+          "title": "Empresa / Empresário",
+          "sub": "Transporte Executivo Corporativo"
+        },
+        "pessoaFisica": {
+          "title": "Pessoa Física",
+          "sub": "Transfer ou Motorista Particular"
+        },
+        "trabalho": {
+          "title": "Oportunidade de trabalho",
+          "sub": "Busca de Emprego / Candidato"
+        }
+      },
+      "blockTitle": "Este canal é exclusivo para cotações comerciais",
+      "blockMessage": "No momento não estamos recebendo candidaturas por este formulário. Para oportunidades de trabalho, fique atento aos nossos canais oficiais.",
+      "errorSelect": "Selecione uma opção."
+    },
+    "step2": {
+      "title": "Detalhes do serviço",
+      "subtitle": "Conte um pouco sobre o atendimento desejado.",
+      "serviceType": "Tipo de serviço",
+      "selectPlaceholder": "Selecione",
+      "startDate": "Data início",
+      "endDate": "Data término",
+      "bilingual": "Motorista Bilíngue",
+      "vehicleProtection": "◻︎ 车辆  Vehicle",
+      "armored": "Blindado",
+      "conventional": "Convencional",
+      "vehicleModel": "Modelo do veículo",
+      "selectModel": "Selecione o modelo",
+      "additionalInfo": "Informações adicionais",
+      "placeholderAdditional": "Alguma informação específica para o seu atendimento?"
+    },
+    "step3": {
+      "title": "Seus Dados",
+      "subtitle": "Preencha seus dados de contato e clique em CONCLUIR.",
+      "fullName": "Nome completo",
+      "placeholderName": "Seu nome completo",
+      "email": "E-mail corporativo",
+      "placeholderEmail": "seu@empresa.com.br",
+      "phone": "Telefone",
+      "placeholderPhone": "(11) 91234-5678",
+      "position": "Cargo",
+      "placeholderPosition": "Ex: Gerente de Segurança, Assistente Executivo...",
+      "company": "Empresa",
+      "placeholderCompany": "Nome da sua empresa"
+    },
+    "success": {
+      "title": "Solicitação registrada",
+      "subtitle": "Para concluir, escolha como prefere finalizar o contato:"
+    },
+    "submit": "Concluir",
+    "next": "下一步"
+  },
+  "languages": {
+    "pt": "Português",
+    "en": "English",
+    "es": "Español",
+    "zh": "中文",
+    "ja": "日本語",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

@@ -5,9 +5,9 @@ export const SITE_TAGLINE = "Transporte Executivo, Blindado e Diplomático";
 export const DEFAULT_OG_IMAGE = "/images/hero/mercedes-hero.png";
 
 export const BRAND_FOUNDED = "1990"; // TODO: confirm with client
-export const BRAND_PHONE = "+55-61-99999-9999"; // TODO: real number
+export const BRAND_PHONE = "+55-61-99863-0303";
 export const BRAND_EMAIL = "contato@kmonvip.com.br"; // TODO: confirm
-export const BRAND_WHATSAPP = "5561999999999"; // TODO: real number
+export const BRAND_WHATSAPP = "5561998630303";
 
 // ─── Services (slug, name, keywords, image, FAQs) ────────────────────
 export type Service = {

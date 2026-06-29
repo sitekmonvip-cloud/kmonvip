@@ -34,7 +34,7 @@ export default function CTA() {
                 <span>&rarr;</span>
               </button>
               <a
-                href="https://wa.me/5561999999999"
+                href="https://wa.me/5561998630303"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 text-sm font-medium transition-all hover:bg-white/20"

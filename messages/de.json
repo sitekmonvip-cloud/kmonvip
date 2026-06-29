@@ -1,0 +1,291 @@
+{
+  "common": {
+    "requestQuote": "Solicitar cotação",
+    "learnMore": "Saiba mais",
+    "viewFleet": "Ver frota",
+    "knowMore": "Conhecer",
+    "back": "Voltar",
+    "next": "Próximo",
+    "close": "Fechar",
+    "open": "Abrir",
+    "send": "Enviar",
+    "contact": "Contato",
+    "passengers": "passageiros",
+    "vehicle": "Veículo",
+    "model": "Modelo",
+    "talkOnWhatsApp": "Falar no WhatsApp",
+    "sendByEmail": "Enviar por e-mail",
+    "support24h": "Atendimento 24h",
+    "nationalOperation": "Operação Nacional"
+  },
+  "nav": {
+    "home": "Início",
+    "services": "Soluções",
+    "fleet": "Frota",
+    "coverage": "Atuação",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "hero": {
+    "eyebrow": "A Número 1 do Brasil em",
+    "title": "Transporte Executivo Blindado",
+    "subtitle": "Discrição. Precisão. Protocolo."
+  },
+  "stats": {
+    "yearsLabel": "anos de excelência",
+    "supportLabel": "suporte operacional",
+    "citiesLabel": "capitais atendidas",
+    "yearsValue": "35+",
+    "supportValue": "24h",
+    "citiesValue": "7+"
+  },
+  "trustBadges": {
+    "label": "Confiança de organizações que operam no mais alto nível"
+  },
+  "services": {
+    "eyebrow": "Soluções",
+    "title": "Mobilidade executiva para operações de alto padrão",
+    "subtitle": "Frota premium, motoristas treinados e operação 24 horas. Da agenda individual à grande operação diplomática.",
+    "items": {
+      "transporte-executivo": {
+        "title": "Transporte Executivo",
+        "label": "corporativo",
+        "desc": "Deslocamentos com conforto, pontualidade e discrição para executivos e líderes."
+      },
+      "transporte-blindado": {
+        "title": "Transporte Blindado",
+        "label": "segurança",
+        "desc": "Veículos blindados para agendas que exigem proteção elevada e confidencialidade."
+      },
+      "transporte-diplomatico": {
+        "title": "Transporte Diplomático",
+        "label": "protocolo",
+        "desc": "Embaixadas, delegações e missões oficiais com protocolo e precisão."
+      },
+      "eventos-e-congressos": {
+        "title": "Eventos & Congressos",
+        "label": "eventos",
+        "desc": "Frota dedicada para grandes eventos, congressos e operações especiais."
+      },
+      "transfers-executivos": {
+        "title": "Transfers",
+        "label": "aeroporto",
+        "desc": "Traslados aeroporto, hotel e reuniões com atendimento profissional."
+      },
+      "vans-e-onibus": {
+        "title": "Vans e Ônibus",
+        "label": "grupos",
+        "desc": "Mobilidade para grupos, delegações e equipes corporativas."
+      }
+    }
+  },
+  "fleet": {
+    "eyebrow": "Frota",
+    "title": "Frota executiva para diferentes níveis de operação",
+    "subtitle": "De sedans executivos a SUVs, vans, ônibus e veículos blindados, a KMON VIP oferece soluções de mobilidade sob medida para cada tipo de agenda.",
+    "disclaimer": "Modelos e categorias sujeitos à disponibilidade no momento da cotação.",
+    "knowFleet": "Conhecer frota",
+    "items": {
+      "sedan-executivo": {
+        "title": "Sedan Executivo",
+        "desc": "Sedan executivo com motorista para reuniões, recepções de clientes, agendas corporativas e deslocamentos individuais.",
+        "passengers": "1 a 4 passageiros",
+        "model": "Mercedes-Benz Classe E ou similar"
+      },
+      "suv-premium": {
+        "title": "SUV Premium",
+        "desc": "SUV de luxo com motorista para executivos, autoridades e deslocamentos que exigem maior conforto e espaço.",
+        "passengers": "1 a 6 passageiros",
+        "model": "Cadillac Escalade ou similar"
+      },
+      "veiculo-blindado": {
+        "title": "Veículo Blindado",
+        "desc": "Veículo executivo blindado com motorista para agendas que exigem segurança elevada, confidencialidade e proteção.",
+        "passengers": "1 a 4 passageiros",
+        "model": "Jeep Commander Blindado ou similar"
+      },
+      "van-executiva": {
+        "title": "Van Executiva",
+        "desc": "Van executiva com motorista para grupos, transfer aeroporto, eventos corporativos e operações de alta performance.",
+        "passengers": "8 a 15 passageiros",
+        "model": "Mercedes-Benz Sprinter ou similar"
+      },
+      "onibus-premium": {
+        "title": "Ônibus Premium",
+        "desc": "Ônibus executivo premium com motorista para congressos, delegações e operações de grande volume.",
+        "passengers": "30 a 50 passageiros",
+        "model": "Marcopolo Paradiso ou similar"
+      },
+      "frota-comitiva": {
+        "title": "Frota para Comitiva",
+        "desc": "Combinação de SUVs, sedans e vans com motoristas para deslocamentos coordenados de comitivas e delegações.",
+        "passengers": "Sob medida",
+        "model": "SUV + Sedan + Van coordenados"
+      }
+    }
+  },
+  "coverage": {
+    "eyebrow": "Atuação Nacional",
+    "title": "Operação executiva em Brasília e nas principais cidades do Brasil",
+    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas em Brasília e nas principais capitais brasileiras, com estrutura para deslocamentos locais, eventos e agendas de alta complexidade.",
+    "otherCities": "Outras cidades sob consulta",
+    "headquarters": "Sede",
+    "items": {
+      "brasilia": {
+        "name": "Brasília",
+        "desc": "Base institucional. Embaixadas, autoridades, órgãos públicos e eventos corporativos."
+      },
+      "sao-paulo": {
+        "name": "São Paulo",
+        "desc": "Executivos, eventos corporativos, empresas internacionais e mercado financeiro."
+      },
+      "rio-de-janeiro": {
+        "name": "Rio de Janeiro",
+        "desc": "Turismo premium, eventos, autoridades, artistas e operações corporativas."
+      },
+      "belo-horizonte": {
+        "name": "Belo Horizonte",
+        "desc": "Transporte executivo e corporativo para empresas, eventos e agendas estratégicas."
+      },
+      "manaus": {
+        "name": "Manaus",
+        "desc": "Operações executivas, corporativas e institucionais na região Norte."
+      },
+      "belem": {
+        "name": "Belém",
+        "desc": "Cidade estratégica para eventos internacionais e grandes operações."
+      }
+    }
+  },
+  "differentials": {
+    "eyebrow": "Diferenciais",
+    "titlePart1": "O padrão por trás de cada",
+    "titleEm": "deslocamento",
+    "titlePart2": ".",
+    "subtitle": "Frota premium e blindada. Motoristas treinados e bilíngues. Discrição absoluta, operação nacional 24h e logística de precisão para agendas que não admitem improviso.",
+    "tags": {
+      "armoredFleet": "Frota blindada",
+      "bilingualDrivers": "Motoristas bilíngues",
+      "diplomaticService": "Atendimento diplomático",
+      "national24h": "Operação 24h nacional",
+      "confidentiality": "Confidencialidade",
+      "majorEvents": "Grandes eventos",
+      "highComplexity": "Alta complexidade"
+    }
+  },
+  "authority": {
+    "eyebrow": "Quem somos",
+    "title": "Mobilidade para quem lidera, representa e decide.",
+    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas com frota premium, motoristas treinados e planejamento logístico sob medida para agendas que exigem segurança, pontualidade e discrição.",
+    "timelineEyebrow": "Operações & Eventos",
+    "timelineTitle": "Grandes operações e eventos já atendidos",
+    "marksLabel": "marcos",
+    "pillars": {
+      "security": {
+        "title": "Segurança",
+        "desc": "Veículos executivos com opções blindadas, motoristas treinados e protocolos de segurança para agendas sensíveis."
+      },
+      "discretion": {
+        "title": "Discrição",
+        "desc": "Confidencialidade absoluta em cada operação. Atendimento sob protocolo para clientes que exigem privacidade."
+      },
+      "precision": {
+        "title": "Precisão",
+        "desc": "Planejamento logístico detalhado, pontualidade operacional e suporte 24h para agendas que não permitem falhas."
+      }
+    }
+  },
+  "clients": {
+    "eyebrow": "Parceiros & Clientes",
+    "title": "Empresas que confiam na KMON VIP"
+  },
+  "cta": {
+    "title": "Pronto para sua próxima operação?",
+    "subtitle": "Solicite uma cotação e fale com a equipe KMON VIP.",
+    "homeTitle": "Planeje sua próxima operação com segurança, discrição e precisão.",
+    "homeSubtitle": "Solicite uma cotação e fale com a equipe da KMON VIP para estruturar o transporte ideal para sua agenda, evento ou delegação.",
+    "requestNow": "Solicitar cotação agora"
+  },
+  "footer": {
+    "tagline": "Mobilidade executiva, blindada e diplomática para quem não pode errar no deslocamento.",
+    "solutionsTitle": "Soluções",
+    "coverageTitle": "Atuação",
+    "institutionalTitle": "Institucional",
+    "contactTitle": "Contato",
+    "whatsapp24h": "WhatsApp 24h",
+    "email": "E-mail",
+    "service": "Atendimento",
+    "serviceValue": "24h — Operação Nacional",
+    "copyright": "Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  },
+  "quoteModal": {
+    "step": "Passo {current} de {total}",
+    "step1": {
+      "title": "Como podemos ajudar?",
+      "options": {
+        "empresa": {
+          "title": "Empresa / Empresário",
+          "sub": "Transporte Executivo Corporativo"
+        },
+        "pessoaFisica": {
+          "title": "Pessoa Física",
+          "sub": "Transfer ou Motorista Particular"
+        },
+        "trabalho": {
+          "title": "Oportunidade de trabalho",
+          "sub": "Busca de Emprego / Candidato"
+        }
+      },
+      "blockTitle": "Este canal é exclusivo para cotações comerciais",
+      "blockMessage": "No momento não estamos recebendo candidaturas por este formulário. Para oportunidades de trabalho, fique atento aos nossos canais oficiais.",
+      "errorSelect": "Selecione uma opção."
+    },
+    "step2": {
+      "title": "Detalhes do serviço",
+      "subtitle": "Conte um pouco sobre o atendimento desejado.",
+      "serviceType": "Tipo de serviço",
+      "selectPlaceholder": "Selecione",
+      "startDate": "Data início",
+      "endDate": "Data término",
+      "bilingual": "Motorista Bilíngue",
+      "vehicleProtection": "Veículo",
+      "armored": "Blindado",
+      "conventional": "Convencional",
+      "vehicleModel": "Modelo do veículo",
+      "selectModel": "Selecione o modelo",
+      "additionalInfo": "Informações adicionais",
+      "placeholderAdditional": "Alguma informação específica para o seu atendimento?"
+    },
+    "step3": {
+      "title": "Seus Dados",
+      "subtitle": "Preencha seus dados de contato e clique em CONCLUIR.",
+      "fullName": "Nome completo",
+      "placeholderName": "Seu nome completo",
+      "email": "E-mail corporativo",
+      "placeholderEmail": "seu@empresa.com.br",
+      "phone": "Telefone",
+      "placeholderPhone": "(11) 91234-5678",
+      "position": "Cargo",
+      "placeholderPosition": "Ex: Gerente de Segurança, Assistente Executivo...",
+      "company": "Empresa",
+      "placeholderCompany": "Nome da sua empresa"
+    },
+    "success": {
+      "title": "Solicitação registrada",
+      "subtitle": "Para concluir, escolha como prefere finalizar o contato:"
+    },
+    "submit": "Concluir",
+    "next": "Próximo"
+  },
+  "languages": {
+    "pt": "Português",
+    "en": "English",
+    "es": "Español",
+    "zh": "中文",
+    "ja": "日本語",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

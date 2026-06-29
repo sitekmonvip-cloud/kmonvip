@@ -61,7 +61,7 @@ export default function ContatoPage() {
                     rel="noopener noreferrer"
                     className="text-lg font-medium text-ink-900 hover:text-brand-champagne-dark transition-colors"
                   >
-                    +55 (61) 99999-9999
+                    +55 (61) 99863-0303
                   </a>
                 </dd>
               </div>

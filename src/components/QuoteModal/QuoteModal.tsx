@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useQuoteModal } from "./QuoteModalProvider";
 
 // ── Config ──────────────────────────────────────────────────────────
-const WHATSAPP_NUMBER = "5561999999999"; // TODO: real number
-const NOTIFY_EMAIL    = "lopeshpl@gmail.com";
+const WHATSAPP_NUMBER = "5561998630303";
+const NOTIFY_EMAIL    = "contaslopeshpl@gmail.com";
 
 // ── Types ───────────────────────────────────────────────────────────
 type Purpose = "empresa" | "trabalho" | "pessoa-fisica";

@@ -1,24 +1,28 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useQuoteModal } from "./QuoteModal";
-
-const navLinks = [
-  { label: "Início",   href: "/" },
-  { label: "Soluções", href: "/servicos" },
-  { label: "Frota",    href: "/frota" },
-  { label: "Atuação",  href: "/atuacao" },
-  { label: "Sobre",    href: "/sobre" },
-  { label: "Contato",  href: "/contato" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastY = useRef(0);
   const { open: openQuote } = useQuoteModal();
+  const tNav = useTranslations("nav");
+  const tCommon = useTranslations("common");
+
+  const navLinks = [
+    { label: tNav("home"),     href: "/" },
+    { label: tNav("services"), href: "/servicos" },
+    { label: tNav("fleet"),    href: "/frota" },
+    { label: tNav("coverage"), href: "/atuacao" },
+    { label: tNav("about"),    href: "/sobre" },
+    { label: tNav("contact"),  href: "/contato" },
+  ];
 
   // Show/hide header on scroll
   useEffect(() => {
@@ -83,23 +87,24 @@ export default function Header() {
 
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="relative text-sm text-ink-700 transition-colors hover:text-ink-900 after:absolute after:left-0 after:right-full after:bottom-[-4px] after:h-px after:bg-ink-900 after:transition-all hover:after:right-0"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className="hidden lg:flex items-center gap-3">
+              <LanguageSwitcher />
               <button
                 type="button"
                 onClick={openQuote}
                 className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3 text-sm font-medium text-paper transition-all hover:bg-black hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.97]"
               >
-                Solicitar cotação
+                {tCommon("requestQuote")}
               </button>
             </div>
 
@@ -188,7 +193,7 @@ export default function Header() {
         {/* Links */}
         <nav className="flex-1 flex flex-col gap-1 px-6 pt-6 overflow-y-auto">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
@@ -196,7 +201,7 @@ export default function Header() {
             >
               <span>{link.label}</span>
               <span className="opacity-30 text-lg">&rarr;</span>
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -208,7 +213,7 @@ export default function Header() {
             className="block w-full text-center rounded-full py-4 font-medium text-sm transition-transform active:scale-[0.98]"
             style={{ background: "#FAF9F5", color: "#0A0A0A" }}
           >
-            Solicitar cotação
+            {tCommon("requestQuote")}
           </button>
           <p className="mt-4 text-xs text-center text-white/40">
             Atendimento 24h · contato@kmonvip.com.br

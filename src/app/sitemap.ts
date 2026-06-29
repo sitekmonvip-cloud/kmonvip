@@ -1,61 +1,59 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, services, cities, fleet, crossPages } from "@/lib/seo/constants";
+import { routing } from "@/i18n/routing";
+
+const NON_DEFAULT_LOCALES = routing.locales.filter((l) => l !== routing.defaultLocale);
+
+// Build URL: PT (default) has no prefix; others get "/en", "/es", etc.
+function buildUrl(locale: string, path: string): string {
+  if (locale === routing.defaultLocale) return `${SITE_URL}${path}`;
+  return `${SITE_URL}/${locale}${path}`;
+}
+
+// Build alternate-language URLs object for one path
+function alternatesFor(path: string) {
+  const languages: Record<string, string> = {};
+  routing.locales.forEach((l) => {
+    languages[l === "pt" ? "pt-BR" : l] = buildUrl(l, path);
+  });
+  return { languages };
+}
+
+function entry(path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = "monthly"): MetadataRoute.Sitemap {
+  const now = new Date();
+  // One entry per locale + alternates pointing to all variants
+  return routing.locales.map((locale) => ({
+    url: buildUrl(locale, path),
+    lastModified: now,
+    changeFrequency,
+    priority,
+    alternates: alternatesFor(path),
+  }));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const all: MetadataRoute.Sitemap = [
+    ...entry("", 1.0),
 
-  const entries: MetadataRoute.Sitemap = [
-    // Home
-    { url: SITE_URL, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
+    ...entry("/servicos", 0.9),
+    ...entry("/atuacao", 0.9),
+    ...entry("/frota", 0.9),
 
-    // Hubs
-    { url: `${SITE_URL}/servicos`,  lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/atuacao`,   lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/frota`,     lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    ...services.flatMap((s) => entry(`/servicos/${s.slug}`, 0.8)),
+    ...cities.flatMap((c) => entry(`/atuacao/${c.slug}`, 0.8)),
+    ...fleet.flatMap((f) => entry(`/frota/${f.slug}`, 0.8)),
 
-    // Service pages
-    ...services.map((s) => ({
-      url: `${SITE_URL}/servicos/${s.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
+    ...crossPages.flatMap((p) => entry(`/servicos/${p.serviceSlug}/${p.citySlug}`, 0.7)),
 
-    // City pages
-    ...cities.map((c) => ({
-      url: `${SITE_URL}/atuacao/${c.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
+    ...entry("/sobre", 0.6, "yearly"),
+    ...entry("/sobre/historia", 0.6, "yearly"),
+    ...entry("/clientes", 0.6),
+    ...entry("/contato", 0.6, "yearly"),
+    ...entry("/cotacao", 0.7, "yearly"),
 
-    // Fleet pages
-    ...fleet.map((f) => ({
-      url: `${SITE_URL}/frota/${f.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
-
-    // Cross-segments (long-tail)
-    ...crossPages.map((p) => ({
-      url: `${SITE_URL}/servicos/${p.serviceSlug}/${p.citySlug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-
-    // Institutional
-    { url: `${SITE_URL}/sobre`,          lastModified: now, changeFrequency: "yearly",  priority: 0.6 },
-    { url: `${SITE_URL}/sobre/historia`, lastModified: now, changeFrequency: "yearly",  priority: 0.6 },
-    { url: `${SITE_URL}/clientes`,       lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/contato`,        lastModified: now, changeFrequency: "yearly",  priority: 0.6 },
-    { url: `${SITE_URL}/cotacao`,        lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
-
-    // Legal
-    { url: `${SITE_URL}/politica-de-privacidade`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/lgpd`,                    lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    ...entry("/politica-de-privacidade", 0.3, "yearly"),
+    ...entry("/lgpd", 0.3, "yearly"),
   ];
 
-  return entries;
+  return all;
 }
