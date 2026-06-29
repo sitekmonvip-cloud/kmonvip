@@ -3,16 +3,16 @@
     "requestQuote": "Angebot anfordern",
     "learnMore": "Erfahren Sie mehr",
     "viewFleet": "Flotte anzeigen",
-    "knowMore": "Wissen",
+    "knowMore": "Mehr erfahren",
     "back": "Zurück",
     "next": "Weiter",
-    "close": "Beenden",
-    "open": "Offene",
+    "close": "Schließen",
+    "open": "Öffnen",
     "send": "Senden",
     "contact": "Kontakt",
-    "passengers": "Mitfahrer",
+    "passengers": "Passagiere",
     "vehicle": "Fahrzeug",
-    "model": "Model",
+    "model": "Modell",
     "talkOnWhatsApp": "Sprechen Sie bei WhatsApp",
     "sendByEmail": "Per E-Mail versenden",
     "support24h": "Support rund um die Uhr",
@@ -20,21 +20,21 @@
   },
   "nav": {
     "home": "Start",
-    "services": "Anwendungen",
+    "services": "Lösungen",
     "fleet": "Flotte",
-    "coverage": "Leistung",
+    "coverage": "Einsatzgebiete",
     "about": "Über uns",
     "contact": "Kontakt"
   },
   "hero": {
     "eyebrow": "Die Nummer 1 in Brasilien in",
-    "title": "Gepanzerter Exekutivt",
+    "title": "Gepanzerter Executive-Transport",
     "subtitle": "Diskretion. Genauigkeit. Protokoll."
   },
   "stats": {
-    "yearsLabel": "jahre Exzellenz",
-    "supportLabel": "betriebsunterstützung",
-    "citiesLabel": "hauptbuchstaben bedient",
+    "yearsLabel": "Jahre Exzellenz",
+    "supportLabel": "Betriebsunterstützung",
+    "citiesLabel": "betreute Hauptstädte",
     "yearsValue": "35+",
     "supportValue": "24h",
     "citiesValue": "7+"
@@ -43,23 +43,23 @@
     "label": "Vertrauen von Organisationen, die auf höchstem Niveau agieren"
   },
   "services": {
-    "eyebrow": "Anwendungen",
+    "eyebrow": "Lösungen",
     "title": "Mobilität von Führungskräften für High-End-Operationen",
     "subtitle": "Premium-Flotte, geschulte Fahrer und 24-Stunden-Betrieb. Von der individuellen Agenda bis zur großen diplomatischen Operation.",
     "items": {
       "transporte-executivo": {
-        "title": "Executive Transportation",
-        "label": "unternehmen",
-        "desc": "Reisen Sie mit Komfort, Pünktlichkeit und Diskretion für Führungskräfte und Führungskräfte."
+        "title": "Executive-Transport",
+        "label": "Unternehmen",
+        "desc": "Fahrten mit Komfort, Pünktlichkeit und Diskretion für Führungskräfte und Entscheider."
       },
       "transporte-blindado": {
         "title": "Gepanzerter Transport",
-        "label": "Unbedenklichkeit",
+        "label": "Sicherheit",
         "desc": "Gepanzerte Fahrzeuge für Agenden, die hohen Schutz und Vertraulichkeit erfordern."
       },
       "transporte-diplomatico": {
         "title": "Diplomatischer Transport",
-        "label": "Studie Nr.",
+        "label": "Protokoll",
         "desc": "Offizielle Botschaften, Delegationen und Missionen mit Protokoll und Präzision."
       },
       "eventos-e-congressos": {
@@ -68,7 +68,7 @@
         "desc": "Spezielle Flotte für Großveranstaltungen, Kongresse und Sondereinsätze."
       },
       "transfers-executivos": {
-        "title": "Übertragungen",
+        "title": "Transfers",
         "label": "Flughafen",
         "desc": "Flughafentransfers, Hotels und Tagungen mit professionellem Service."
       },
@@ -120,12 +120,12 @@
         "title": "Flotte für Entourage",
         "desc": "Kombination von SUVs, Limousinen und Transportern mit Fahrern für koordiniertes Pendeln von Entourages und Delegationen.",
         "passengers": "Maßgeschneidert",
-        "model": "SUV + Limousine + Van-Koordinaten"
+        "model": "SUV + Limousine + Van kombiniert"
       }
     }
   },
   "coverage": {
-    "eyebrow": "Nationale Leistung",
+    "eyebrow": "Bundesweite Präsenz",
     "title": "Executive Operation in Brasília und Großstädten in Brasilien",
     "subtitle": "KMON VIP bedient Führungskräfte, Diplomaten und Unternehmen in Brasília und in den wichtigsten brasilianischen Hauptstädten mit einer Struktur für lokale Reisen, Veranstaltungen und hochkomplexe Zeitpläne.",
     "otherCities": "Andere Städte auf Anfrage",
@@ -158,15 +158,15 @@
     }
   },
   "differentials": {
-    "eyebrow": "Differentiale: ",
-    "titlePart1": "Das Muster dahinter",
-    "titleEm": "Verschieben",
+    "eyebrow": "Unsere Stärken",
+    "titlePart1": "Der Standard hinter jeder",
+    "titleEm": "Fahrt",
     "titlePart2": ".",
     "subtitle": "Premium- und gepanzerte Flotte. Ausgebildete und zweisprachige Fahrer. Absolute Diskretion, 24-Stunden-Betrieb und Präzisionslogistik für Agenden, die keine Improvisation zulassen.",
     "tags": {
       "armoredFleet": "Gepanzerte Flotte",
       "bilingualDrivers": "Zweisprachige Fahrer",
-      "diplomaticService": "Diplomatische Hilfe",
+      "diplomaticService": "Diplomatischer Service",
       "national24h": "Nationaler 24h-Betrieb",
       "confidentiality": "Geheimhaltung",
       "majorEvents": "Großereignisse",
@@ -277,19 +277,19 @@
     "requestNow": "Jetzt Angebot anfordern"
   },
   "footer": {
-    "tagline": "Exekutive, gepanzerte und diplomatische Mobilität für diejenigen, die bei der Vertreibung nichts falsch machen können.",
-    "solutionsTitle": "Anwendungen",
-    "coverageTitle": "Leistung",
+    "tagline": "Gepanzerte Executive- und Diplomatenmobilität für alle, die bei jeder Fahrt auf Nummer sicher gehen müssen.",
+    "solutionsTitle": "Lösungen",
+    "coverageTitle": "Einsatzgebiete",
     "institutionalTitle": "Institutionelles",
     "contactTitle": "Kontakt",
     "whatsapp24h": "WhatsApp 24h",
-    "email": "eMail",
+    "email": "E-Mail",
     "service": "Service",
     "serviceValue": "24h — Nationaler Betrieb",
     "copyright": "Alle Rechte vorbehalten.",
     "privacy": "Datenschutzerklärung",
-    "terms": "Auszeichnungen",
-    "historyLink": "Historie/Geschichte"
+    "terms": "Nutzungsbedingungen",
+    "historyLink": "Geschichte"
   },
   "quoteModal": {
     "step": "Schritt {current} von {total}",
@@ -316,16 +316,16 @@
     "step2": {
       "title": "Servicedetails",
       "subtitle": "Erzählen Sie uns ein wenig über den gewünschten Service.",
-      "serviceType": "die Art der Leistung",
+      "serviceType": "Art der Leistung",
       "selectPlaceholder": "Auswählen",
       "startDate": "Startdatum",
       "endDate": "Enddatum",
       "bilingual": "Zweisprachiger Fahrer",
       "vehicleProtection": "Fahrzeug",
-      "armored": "geschirmt ",
+      "armored": "Gepanzert",
       "conventional": "Konventionell",
       "vehicleModel": "Fahrzeugmodell",
-      "selectModel": "Vorlage auswählen",
+      "selectModel": "Modell auswählen",
       "additionalInfo": "Zusatzinformationen",
       "placeholderAdditional": "Irgendwelche spezifischen Informationen für Ihren Service?"
     },
@@ -341,7 +341,7 @@
       "position": "Funktion",
       "placeholderPosition": "Beispiel: Sicherheitsmanager, Assistent der Geschäftsleitung...",
       "company": "Firma",
-      "placeholderCompany": "FIRMENNAME"
+      "placeholderCompany": "Name Ihres Unternehmens"
     },
     "success": {
       "title": "Registrierte Anfrage",
@@ -351,12 +351,12 @@
     "next": "Weiter"
   },
   "languages": {
-    "pt": "Portugiesisch",
+    "pt": "Português",
     "en": "English",
-    "es": "can you speak English ?",
+    "es": "Español",
     "zh": "中文",
     "ja": "日本語",
-    "fr": "Francais",
+    "fr": "Français",
     "de": "Deutsch"
   }
 }

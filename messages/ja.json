@@ -14,7 +14,7 @@
     "vehicle": "車両",
     "model": "モデル",
     "talkOnWhatsApp": "WhatsAppで話す",
-    "sendByEmail": "メールアドレス",
+    "sendByEmail": "メールで送信",
     "support24h": "24時間年中無休のサポート",
     "nationalOperation": "ナショナルオペレーション"
   },
@@ -22,13 +22,13 @@
     "home": "ホーム",
     "services": "ソリューション",
     "fleet": "フリート",
-    "coverage": "パフォーマンス",
+    "coverage": "対応エリア",
     "about": "詳細",
     "contact": "お問合せ"
   },
   "hero": {
     "eyebrow": "ブラジルでナンバーワン",
-    "title": "装甲エグゼクティブ輸送船",
+    "title": "エグゼクティブ向け防弾輸送",
     "subtitle": "裁量。正確さ。プロトコル。"
   },
   "stats": {
@@ -53,18 +53,18 @@
         "desc": "エグゼクティブとリーダーのための快適さ、時間厳守、慎重さを持って旅行してください。"
       },
       "transporte-blindado": {
-        "title": "装甲輸送船",
+        "title": "防弾輸送",
         "label": "保安",
         "desc": "高い保護と機密性を必要とする議題のための装甲車両。"
       },
       "transporte-diplomatico": {
         "title": "外交輸送",
-        "label": "protocol",
+        "label": "プロトコル",
         "desc": "プロトコルと正確さを備えた公式の大使館、代表団、ミッション。"
       },
       "eventos-e-congressos": {
         "title": "イベント＆コングレス",
-        "label": "Events",
+        "label": "イベント",
         "desc": "主要なイベント、会議、特別作戦のための専用艦隊。"
       },
       "transfers-executivos": {
@@ -74,7 +74,7 @@
       },
       "vans-e-onibus": {
         "title": "バン＆バス",
-        "label": "groups",
+        "label": "グループ",
         "desc": "グループ、委任、企業チームのモビリティ。"
       }
     }
@@ -117,15 +117,15 @@
         "model": "Marcopolo Paradisoまたは類似のもの"
       },
       "frota-comitiva": {
-        "title": "側近用艦隊",
+        "title": "随行団向けフリート",
         "desc": "SUV、セダン、バンとドライバーを組み合わせて、アントラージュとデリゲーションの調整された通勤を実現します。",
         "passengers": "オーダーメイド",
-        "model": "SUV +セダン+バンの座標"
+        "model": "SUV＋セダン＋バンの組み合わせ"
       }
     }
   },
   "coverage": {
-    "eyebrow": "全国パフォーマンス",
+    "eyebrow": "全国対応",
     "title": "Brasíliaとブラジルの主要都市でのエグゼクティブオペレーション",
     "subtitle": "KMON VIPは、Brasíliaおよびブラジルの主要首都で、現地の旅行、イベント、非常に複雑なスケジュールに対応する体制で、役員、外交、企業業務を提供しています。",
     "otherCities": "リクエストに応じて他の都市",
@@ -158,13 +158,13 @@
     }
   },
   "differentials": {
-    "eyebrow": "差分",
-    "titlePart1": "それぞれの背後にあるパターン",
-    "titleEm": "変位",
+    "eyebrow": "差別化要素",
+    "titlePart1": "あらゆる移動の背後にある",
+    "titleEm": "基準",
     "titlePart2": ".",
-    "subtitle": "プレミアムで装甲艦隊。訓練を受けたバイリンガルのドライバー。即興を認めないアジェンダのための絶対的な裁量、24時間の全国的な運用と精密な物流。",
+    "subtitle": "プレミアムな防弾フリート。訓練を受けたバイリンガルのドライバー。即興を許さないスケジュールのための、絶対的な機密保持、24時間体制の全国対応、そして精密なロジスティクス。",
     "tags": {
-      "armoredFleet": "装甲艦隊",
+      "armoredFleet": "防弾フリート",
       "bilingualDrivers": "バイリンガルのドライバー",
       "diplomaticService": "外交支援",
       "national24h": "全国24時間稼働",
@@ -270,26 +270,26 @@
     "title": "KMON VIPを信頼する企業"
   },
   "cta": {
-    "title": "次の作戦の準備はいいですか？",
+    "title": "次のオペレーションの準備はできていますか？",
     "subtitle": "見積もりを依頼し、KMON VIPチームにお問い合わせください。",
     "homeTitle": "次の作業を安全に、慎重に、そして正確に計画しましょう。",
     "homeSubtitle": "見積もりを依頼し、KMON VIPチームに相談して、スケジュール、イベント、または委任に最適な交通手段を構築してください。",
     "requestNow": "今すぐ見積もりを依頼する"
   },
   "footer": {
-    "tagline": "置き換えでうまくいかない人のためのエグゼクティブ、装甲、外交のモビリティ。",
+    "tagline": "移動にミスが許されない方のための、エグゼクティブ・防弾・外交モビリティ。",
     "solutionsTitle": "ソリューション",
-    "coverageTitle": "パフォーマンス",
+    "coverageTitle": "対応エリア",
     "institutionalTitle": "制度",
     "contactTitle": "お問合せ",
     "whatsapp24h": "WhatsApp 24時間",
     "email": "メールアドレス",
     "service": "サービス",
     "serviceValue": "24時間—ナショナルオペレーション",
-    "copyright": "All rights reserved.",
+    "copyright": "無断転載を禁じます。",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
-    "historyLink": "デザイン"
+    "historyLink": "沿革"
   },
   "quoteModal": {
     "step": "ステップ{current}/{total}",
@@ -322,17 +322,17 @@
       "endDate": "終了日",
       "bilingual": "バイリンガルドライバー",
       "vehicleProtection": "車両",
-      "armored": "シールド中",
+      "armored": "防弾",
       "conventional": "従来型",
-      "vehicleModel": "車種 Vehicle&#10;Type/Model",
-      "selectModel": "テンプレートを選択",
+      "vehicleModel": "車種",
+      "selectModel": "モデルを選択",
       "additionalInfo": "追加情報",
       "placeholderAdditional": "サービスに関する具体的な情報はありますか？"
     },
     "step3": {
       "title": "お客様のデータ",
       "subtitle": "連絡先の詳細を入力し、[終了]をクリックします。",
-      "fullName": "<g id=\"1\">氏名：</g>",
+      "fullName": "氏名",
       "placeholderName": "氏名",
       "email": "法人用メールアドレス",
       "placeholderEmail": "seu@empresa.com.br",
@@ -351,12 +351,12 @@
     "next": "次へ"
   },
   "languages": {
-    "pt": "日本語",
-    "en": "英語",
+    "pt": "Português",
+    "en": "English",
     "es": "Español",
     "zh": "中文",
     "ja": "日本語",
     "fr": "Français",
-    "de": "ドイツ語"
+    "de": "Deutsch"
   }
 }
