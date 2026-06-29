@@ -2,10 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { useQuoteModal } from "./QuoteModal";
 import LanguageSwitcher from "./LanguageSwitcher";
+
+const FLAGS: Record<string, string> = {
+  pt: "🇧🇷", en: "🇺🇸", es: "🇪🇸", zh: "🇨🇳", ja: "🇯🇵", fr: "🇫🇷", de: "🇩🇪",
+};
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -14,6 +19,15 @@ export default function Header() {
   const { open: openQuote } = useQuoteModal();
   const tNav = useTranslations("nav");
   const tCommon = useTranslations("common");
+  const tLang = useTranslations("languages");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const switchLocale = (l: string) => {
+    router.replace(pathname, { locale: l });
+    setOpen(false);
+  };
 
   const navLinks = [
     { label: tNav("home"),     href: "/" },
@@ -205,8 +219,36 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* Language selector */}
+        <div className="px-6 pt-4">
+          <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-white/40 mb-3">
+            {tCommon("language")}
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {routing.locales.map((l) => {
+              const active = l === locale;
+              return (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => switchLocale(l)}
+                  aria-current={active ? "true" : undefined}
+                  className={`inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm transition-colors ${
+                    active
+                      ? "border-white bg-white text-ink-900 font-medium"
+                      : "border-white/15 text-white/70 hover:border-white/40 hover:text-white"
+                  }`}
+                >
+                  <span className="text-base leading-none">{FLAGS[l]}</span>
+                  <span>{tLang(l)}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Footer CTA */}
-        <div className="px-6 pb-8 pt-4 border-t border-white/[0.08]">
+        <div className="px-6 pb-8 pt-4 border-t border-white/[0.08] mt-4">
           <button
             type="button"
             onClick={() => { setOpen(false); openQuote(); }}
