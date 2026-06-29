@@ -1,292 +1,292 @@
 {
   "common": {
-    "requestQuote": "Solicitar cotação",
-    "learnMore": "Saiba mais",
-    "viewFleet": "Ver frota",
-    "knowMore": "Conhecer",
-    "back": "Voltar",
-    "next": "Próximo",
-    "close": "Fechar",
-    "open": "Abrir",
-    "send": "Enviar",
-    "contact": "Contato",
-    "passengers": "passageiros",
-    "vehicle": "Veículo",
-    "model": "Modelo",
-    "talkOnWhatsApp": "Falar no WhatsApp",
-    "sendByEmail": "Enviar por e-mail",
-    "support24h": "Atendimento 24h",
-    "nationalOperation": "Operação Nacional"
+    "requestQuote": "見積依頼",
+    "learnMore": "詳細情報",
+    "viewFleet": "フリートを表示",
+    "knowMore": "知る",
+    "back": "戻る",
+    "next": "次へ",
+    "close": "閉じる",
+    "open": "開く",
+    "send": "送信",
+    "contact": "お問合せ",
+    "passengers": "人の乗客",
+    "vehicle": "車両",
+    "model": "モデル",
+    "talkOnWhatsApp": "{{P 0}}で話す",
+    "sendByEmail": "メールアドレス",
+    "support24h": "24時間年中無休のサポート",
+    "nationalOperation": "ナショナルオペレーション"
   },
   "nav": {
-    "home": "Início",
-    "services": "Soluções",
-    "fleet": "Frota",
-    "coverage": "Atuação",
-    "about": "Sobre",
-    "contact": "Contato"
+    "home": "ホーム",
+    "services": "ソリューション",
+    "fleet": "フリート",
+    "coverage": "パフォーマンス",
+    "about": "詳細",
+    "contact": "お問合せ"
   },
   "hero": {
-    "eyebrow": "A Número 1 do Brasil em",
-    "title": "Transporte Executivo Blindado",
-    "subtitle": "Discrição. Precisão. Protocolo."
+    "eyebrow": "ブラジルでナンバーワン",
+    "title": "装甲エグゼクティブ輸送船",
+    "subtitle": "裁量。正確さ。プロトコル。"
   },
   "stats": {
-    "yearsLabel": "anos de excelência",
-    "supportLabel": "suporte operacional",
-    "citiesLabel": "capitais atendidas",
+    "yearsLabel": "長年の卓越性",
+    "supportLabel": "運用サポート",
+    "citiesLabel": "提供された首都",
     "yearsValue": "35+",
-    "supportValue": "24h",
+    "supportValue": "24時間",
     "citiesValue": "7+"
   },
   "trustBadges": {
-    "label": "Confiança de organizações que operam no mais alto nível"
+    "label": "最高レベルで運営されている組織への信頼"
   },
   "services": {
-    "eyebrow": "Soluções",
-    "title": "Mobilidade executiva para operações de alto padrão",
-    "subtitle": "Frota premium, motoristas treinados e operação 24 horas. Da agenda individual à grande operação diplomática.",
+    "eyebrow": "ソリューション",
+    "title": "ハイエンドオペレーションのためのエグゼクティブモビリティ",
+    "subtitle": "プレミアムフリート、トレーニングを受けたドライバー、24時間対応。個々のアジェンダから主要な外交作戦まで。",
     "items": {
       "transporte-executivo": {
-        "title": "Transporte Executivo",
-        "label": "corporativo",
-        "desc": "Deslocamentos com conforto, pontualidade e discrição para executivos e líderes."
+        "title": "エグゼクティブ・トランスポーテーション",
+        "label": "コーポレート",
+        "desc": "エグゼクティブとリーダーのための快適さ、時間厳守、慎重さを持って旅行してください。"
       },
       "transporte-blindado": {
-        "title": "Transporte Blindado",
-        "label": "segurança",
-        "desc": "Veículos blindados para agendas que exigem proteção elevada e confidencialidade."
+        "title": "装甲輸送船",
+        "label": "保安",
+        "desc": "高い保護と機密性を必要とする議題のための装甲車両。"
       },
       "transporte-diplomatico": {
-        "title": "Transporte Diplomático",
-        "label": "protocolo",
-        "desc": "Embaixadas, delegações e missões oficiais com protocolo e precisão."
+        "title": "外交輸送",
+        "label": "protocol",
+        "desc": "プロトコルと正確さを備えた公式の大使館、代表団、ミッション。"
       },
       "eventos-e-congressos": {
-        "title": "Eventos & Congressos",
-        "label": "eventos",
-        "desc": "Frota dedicada para grandes eventos, congressos e operações especiais."
+        "title": "イベント＆コングレス",
+        "label": "Events",
+        "desc": "主要なイベント、会議、特別作戦のための専用艦隊。"
       },
       "transfers-executivos": {
-        "title": "Transfers",
-        "label": "aeroporto",
-        "desc": "Traslados aeroporto, hotel e reuniões com atendimento profissional."
+        "title": "送迎",
+        "label": "空港",
+        "desc": "空港送迎、ホテル、プロフェッショナルサービス付きのミーティング。"
       },
       "vans-e-onibus": {
-        "title": "Vans e Ônibus",
-        "label": "grupos",
-        "desc": "Mobilidade para grupos, delegações e equipes corporativas."
+        "title": "バン＆バス",
+        "label": "groups",
+        "desc": "グループ、委任、企業チームのモビリティ。"
       }
     }
   },
   "fleet": {
-    "eyebrow": "Frota",
-    "title": "Frota executiva para diferentes níveis de operação",
-    "subtitle": "De sedans executivos a SUVs, vans, ônibus e veículos blindados, a KMON VIP oferece soluções de mobilidade sob medida para cada tipo de agenda.",
-    "disclaimer": "Modelos e categorias sujeitos à disponibilidade no momento da cotação.",
-    "knowFleet": "Conhecer frota",
+    "eyebrow": "フリート",
+    "title": "さまざまなレベルの運用のためのエグゼクティブフリート",
+    "subtitle": "エグゼクティブセダンからSUV、バン、バス、装甲車まで、{{P 0}}は各種スケジュールに合わせたモビリティソリューションを提供しています。",
+    "disclaimer": "モデルとカテゴリは、見積時に入手可能であることが条件となります。",
+    "knowFleet": "フリートのご紹介",
     "items": {
       "sedan-executivo": {
-        "title": "Sedan Executivo",
-        "desc": "Sedan executivo com motorista para reuniões, recepções de clientes, agendas corporativas e deslocamentos individuais.",
-        "passengers": "1 a 4 passageiros",
-        "model": "Mercedes-Benz Classe E ou similar"
+        "title": "エグゼクティブセダン",
+        "desc": "ミーティング、クライアントのレセプション、会社のスケジュール、個人旅行のドライバー付きのエグゼクティブセダン。",
+        "passengers": "乗客1 ～ 4人",
+        "model": "{{P 0}}クラスEまたは類似のもの"
       },
       "suv-premium": {
-        "title": "SUV Premium",
-        "desc": "SUV de luxo com motorista para executivos, autoridades e deslocamentos que exigem maior conforto e espaço.",
-        "passengers": "1 a 6 passageiros",
-        "model": "Cadillac Escalade ou similar"
+        "title": "プレミアムSUV",
+        "desc": "より快適さとスペースを必要とするエグゼクティブ、当局、通勤用のドライバー付きの高級SUV。",
+        "passengers": "乗客1 ～ 6人",
+        "model": "{{P 0}}または類似のもの"
       },
       "veiculo-blindado": {
-        "title": "Veículo Blindado",
-        "desc": "Veículo executivo blindado com motorista para agendas que exigem segurança elevada, confidencialidade e proteção.",
-        "passengers": "1 a 4 passageiros",
-        "model": "Jeep Commander Blindado ou similar"
+        "title": "装甲車",
+        "desc": "高いセキュリティ、機密性、保護を必要とする議題のためのドライバー付き装甲エグゼクティブ車両。",
+        "passengers": "乗客1 ～ 4人",
+        "model": "{{P 0}}シールドまたは類似のもの"
       },
       "van-executiva": {
-        "title": "Van Executiva",
-        "desc": "Van executiva com motorista para grupos, transfer aeroporto, eventos corporativos e operações de alta performance.",
-        "passengers": "8 a 15 passageiros",
-        "model": "Mercedes-Benz Sprinter ou similar"
+        "title": "エグゼクティブバン",
+        "desc": "グループ、空港送迎、企業イベント、高性能運用のためのドライバー付きエグゼクティブバン。",
+        "passengers": "8 ～ 15人の乗客",
+        "model": "{{P 0}} {{P 1}}または類似のもの"
       },
       "onibus-premium": {
-        "title": "Ônibus Premium",
-        "desc": "Ônibus executivo premium com motorista para congressos, delegações e operações de grande volume.",
-        "passengers": "30 a 50 passageiros",
-        "model": "Marcopolo Paradiso ou similar"
+        "title": "プレミアムバス",
+        "desc": "会議、代表団、大量の運用のためのドライバー付きのプレミアムエグゼクティブバス。",
+        "passengers": "乗客30 ～ 50人",
+        "model": "{{P 0}}または類似のもの"
       },
       "frota-comitiva": {
-        "title": "Frota para Comitiva",
-        "desc": "Combinação de SUVs, sedans e vans com motoristas para deslocamentos coordenados de comitivas e delegações.",
-        "passengers": "Sob medida",
-        "model": "SUV + Sedan + Van coordenados"
+        "title": "側近用艦隊",
+        "desc": "SUV、セダン、バンとドライバーを組み合わせて、アントラージュとデリゲーションの調整された通勤を実現します。",
+        "passengers": "オーダーメイド",
+        "model": "SUV +セダン+バンの座標"
       }
     }
   },
   "coverage": {
-    "eyebrow": "Atuação Nacional",
-    "title": "Operação executiva em Brasília e nas principais cidades do Brasil",
-    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas em Brasília e nas principais capitais brasileiras, com estrutura para deslocamentos locais, eventos e agendas de alta complexidade.",
-    "otherCities": "Outras cidades sob consulta",
-    "headquarters": "Sede",
+    "eyebrow": "全国パフォーマンス",
+    "title": "{{P 0}}とブラジルの主要都市でのエグゼクティブオペレーション",
+    "subtitle": "{{P 0}}は、{{P 1}}およびブラジルの主要首都で、現地の旅行、イベント、非常に複雑なスケジュールに対応する体制で、役員、外交、企業業務を提供しています。",
+    "otherCities": "リクエストに応じて他の都市",
+    "headquarters": "本社",
     "items": {
       "brasilia": {
-        "name": "Brasília",
-        "desc": "Base institucional. Embaixadas, autoridades, órgãos públicos e eventos corporativos."
+        "name": "{{P 0}}",
+        "desc": "機関ベース。大使館、当局、公共機関、企業イベント。"
       },
       "sao-paulo": {
-        "name": "São Paulo",
-        "desc": "Executivos, eventos corporativos, empresas internacionais e mercado financeiro."
+        "name": "{{P 0}}",
+        "desc": "エグゼクティブ、企業イベント、国際企業、金融市場。"
       },
       "rio-de-janeiro": {
-        "name": "Rio de Janeiro",
-        "desc": "Turismo premium, eventos, autoridades, artistas e operações corporativas."
+        "name": "{{P 0}}",
+        "desc": "プレミアムツーリズム、イベント、当局、アーティスト、企業運営。"
       },
       "belo-horizonte": {
-        "name": "Belo Horizonte",
-        "desc": "Transporte executivo e corporativo para empresas, eventos e agendas estratégicas."
+        "name": "{{P 0}}",
+        "desc": "企業、イベント、戦略的アジェンダのためのエグゼクティブおよび企業の輸送。"
       },
       "manaus": {
-        "name": "Manaus",
-        "desc": "Operações executivas, corporativas e institucionais na região Norte."
+        "name": "{{P 0}}",
+        "desc": "北部地域におけるエグゼクティブ、コーポレート、および機関業務。"
       },
       "belem": {
-        "name": "Belém",
-        "desc": "Cidade estratégica para eventos internacionais e grandes operações."
+        "name": "{{P 0}}",
+        "desc": "国際的なイベントや主要なオペレーションのための戦略的な都市。"
       }
     }
   },
   "differentials": {
-    "eyebrow": "Diferenciais",
-    "titlePart1": "O padrão por trás de cada",
-    "titleEm": "deslocamento",
+    "eyebrow": "差分",
+    "titlePart1": "それぞれの背後にあるパターン",
+    "titleEm": "変位",
     "titlePart2": ".",
-    "subtitle": "Frota premium e blindada. Motoristas treinados e bilíngues. Discrição absoluta, operação nacional 24h e logística de precisão para agendas que não admitem improviso.",
+    "subtitle": "プレミアムで装甲艦隊。訓練を受けたバイリンガルのドライバー。即興を認めないアジェンダのための絶対的な裁量、24時間の全国的な運用と精密な物流。",
     "tags": {
-      "armoredFleet": "Frota blindada",
-      "bilingualDrivers": "Motoristas bilíngues",
-      "diplomaticService": "Atendimento diplomático",
-      "national24h": "Operação 24h nacional",
-      "confidentiality": "Confidencialidade",
-      "majorEvents": "Grandes eventos",
-      "highComplexity": "Alta complexidade"
+      "armoredFleet": "装甲艦隊",
+      "bilingualDrivers": "バイリンガルのドライバー",
+      "diplomaticService": "外交支援",
+      "national24h": "全国24時間稼働",
+      "confidentiality": "守秘義務",
+      "majorEvents": "主なイベント",
+      "highComplexity": "複雑さが高い"
     }
   },
   "authority": {
-    "eyebrow": "Quem somos",
-    "title": "Mobilidade para quem lidera, representa e decide.",
-    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas com frota premium, motoristas treinados e planejamento logístico sob medida para agendas que exigem segurança, pontualidade e discrição.",
-    "timelineEyebrow": "Operações & Eventos",
-    "timelineTitle": "Grandes operações e eventos já atendidos",
-    "marksLabel": "marcos",
+    "eyebrow": "会社概要",
+    "title": "指導者、代表者、意思決定者のためのモビリティ。",
+    "subtitle": "{{P 0}}は、プレミアムフリート、訓練を受けたドライバー、安全性、時間厳守、裁量を必要とするスケジュールに合わせた物流計画により、役員、外交、企業の業務を提供しています。",
+    "timelineEyebrow": "作戦本部とイベント",
+    "timelineTitle": "既に参加している主要なオペレーションとイベント",
+    "marksLabel": "マイルストーン",
     "pillars": {
       "security": {
-        "title": "Segurança",
-        "desc": "Veículos executivos com opções blindadas, motoristas treinados e protocolos de segurança para agendas sensíveis."
+        "title": "安全性",
+        "desc": "装甲オプション、訓練を受けたドライバー、機密性の高いスケジュールのための安全プロトコルを備えたエグゼクティブビークル。"
       },
       "discretion": {
-        "title": "Discrição",
-        "desc": "Confidencialidade absoluta em cada operação. Atendimento sob protocolo para clientes que exigem privacidade."
+        "title": "裁量",
+        "desc": "各操作の絶対的な機密性。プライバシーを必要とする顧客のためのプロトコルに基づくサービス。"
       },
       "precision": {
-        "title": "Precisão",
-        "desc": "Planejamento logístico detalhado, pontualidade operacional e suporte 24h para agendas que não permitem falhas."
+        "title": "正確さ",
+        "desc": "詳細な物流計画、運用の時間厳守、故障を許さないスケジュールの24時間年中無休のサポート。"
       }
     }
   },
   "clients": {
-    "eyebrow": "Parceiros & Clientes",
-    "title": "Empresas que confiam na KMON VIP"
+    "eyebrow": "パートナーと顧客",
+    "title": "{{P 0}}を信頼する企業"
   },
   "cta": {
-    "title": "Pronto para sua próxima operação?",
-    "subtitle": "Solicite uma cotação e fale com a equipe KMON VIP.",
-    "homeTitle": "Planeje sua próxima operação com segurança, discrição e precisão.",
-    "homeSubtitle": "Solicite uma cotação e fale com a equipe da KMON VIP para estruturar o transporte ideal para sua agenda, evento ou delegação.",
-    "requestNow": "Solicitar cotação agora"
+    "title": "次の作戦の準備はいいですか？",
+    "subtitle": "見積もりを依頼し、{{P 0}}チームにお問い合わせください。",
+    "homeTitle": "次の作業を安全に、慎重に、そして正確に計画しましょう。",
+    "homeSubtitle": "見積もりを依頼し、{{P 0}}チームに相談して、スケジュール、イベント、または委任に最適な交通手段を構築してください。",
+    "requestNow": "今すぐ見積もりを依頼する"
   },
   "footer": {
-    "tagline": "Mobilidade executiva, blindada e diplomática para quem não pode errar no deslocamento.",
-    "solutionsTitle": "Soluções",
-    "coverageTitle": "Atuação",
-    "institutionalTitle": "Institucional",
-    "contactTitle": "Contato",
-    "whatsapp24h": "WhatsApp 24h",
-    "email": "E-mail",
-    "service": "Atendimento",
-    "serviceValue": "24h — Operação Nacional",
-    "copyright": "Todos os direitos reservados.",
-    "privacy": "Política de Privacidade",
-    "terms": "Termos de Uso",
-    "historyLink": "沿革"
+    "tagline": "置き換えでうまくいかない人のためのエグゼクティブ、装甲、外交のモビリティ。",
+    "solutionsTitle": "ソリューション",
+    "coverageTitle": "パフォーマンス",
+    "institutionalTitle": "制度",
+    "contactTitle": "お問合せ",
+    "whatsapp24h": "{{P 0}} 24時間",
+    "email": "メールアドレス",
+    "service": "サービス",
+    "serviceValue": "24時間—ナショナルオペレーション",
+    "copyright": "All rights reserved.",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "historyLink": "デザイン"
   },
   "quoteModal": {
-    "step": "Passo {current} de {total}",
+    "step": "ステップ{current}/{total}",
     "step1": {
-      "title": "Como podemos ajudar?",
+      "title": "何かお困りですか？",
       "options": {
         "empresa": {
-          "title": "Empresa / Empresário",
-          "sub": "Transporte Executivo Corporativo"
+          "title": "会社/起業家",
+          "sub": "コーポレートエグゼクティブトランスポーテーション"
         },
         "pessoaFisica": {
-          "title": "Pessoa Física",
-          "sub": "Transfer ou Motorista Particular"
+          "title": "個人",
+          "sub": "乗り換えまたは専属ドライバー"
         },
         "trabalho": {
-          "title": "Oportunidade de trabalho",
-          "sub": "Busca de Emprego / Candidato"
+          "title": "求人情報",
+          "sub": "求職/応募者"
         }
       },
-      "blockTitle": "Este canal é exclusivo para cotações comerciais",
-      "blockMessage": "No momento não estamos recebendo candidaturas por este formulário. Para oportunidades de trabalho, fique atento aos nossos canais oficiais.",
-      "errorSelect": "Selecione uma opção."
+      "blockTitle": "このチャンネルは商用見積もり専用です",
+      "blockMessage": "現在、このフォームの申請は受け付けていません。雇用機会については、当社の公式チャンネルにご注目ください。",
+      "errorSelect": "オプションを選択してください。"
     },
     "step2": {
-      "title": "Detalhes do serviço",
-      "subtitle": "Conte um pouco sobre o atendimento desejado.",
-      "serviceType": "Tipo de serviço",
-      "selectPlaceholder": "Selecione",
-      "startDate": "Data início",
-      "endDate": "Data término",
-      "bilingual": "Motorista Bilíngue",
-      "vehicleProtection": "Veículo",
-      "armored": "Blindado",
-      "conventional": "Convencional",
-      "vehicleModel": "Modelo do veículo",
-      "selectModel": "Selecione o modelo",
-      "additionalInfo": "Informações adicionais",
-      "placeholderAdditional": "Alguma informação específica para o seu atendimento?"
+      "title": "サービスの詳細",
+      "subtitle": "ご希望のサービスについて少しお聞かせください。",
+      "serviceType": "サービスの種類",
+      "selectPlaceholder": "選択",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "bilingual": "バイリンガルドライバー",
+      "vehicleProtection": "車両",
+      "armored": "シールド中",
+      "conventional": "従来型",
+      "vehicleModel": "車種 Vehicle&#10;Type/Model",
+      "selectModel": "テンプレートを選択",
+      "additionalInfo": "追加情報",
+      "placeholderAdditional": "サービスに関する具体的な情報はありますか？"
     },
     "step3": {
-      "title": "Seus Dados",
-      "subtitle": "Preencha seus dados de contato e clique em CONCLUIR.",
-      "fullName": "Nome completo",
-      "placeholderName": "Seu nome completo",
-      "email": "E-mail corporativo",
+      "title": "お客様のデータ",
+      "subtitle": "連絡先の詳細を入力し、[終了]をクリックします。",
+      "fullName": "<g id=\"1\">氏名：</g>",
+      "placeholderName": "氏名",
+      "email": "法人用メールアドレス",
       "placeholderEmail": "seu@empresa.com.br",
-      "phone": "Telefone",
+      "phone": "電話",
       "placeholderPhone": "(11) 91234-5678",
-      "position": "Cargo",
-      "placeholderPosition": "Ex: Gerente de Segurança, Assistente Executivo...",
-      "company": "Empresa",
-      "placeholderCompany": "Nome da sua empresa"
+      "position": "役職",
+      "placeholderPosition": "例：セキュリティマネージャー、エグゼクティブアシスタント...",
+      "company": "会社",
+      "placeholderCompany": "会社名"
     },
     "success": {
-      "title": "Solicitação registrada",
-      "subtitle": "Para concluir, escolha como prefere finalizar o contato:"
+      "title": "リクエストが登録されました",
+      "subtitle": "最後に、問い合わせを確定する方法を選択します。"
     },
-    "submit": "Concluir",
-    "next": "Próximo"
+    "submit": "終了",
+    "next": "次へ"
   },
   "languages": {
-    "pt": "Português",
-    "en": "English",
+    "pt": "日本語",
+    "en": "英語",
     "es": "Español",
     "zh": "中文",
     "ja": "日本語",
     "fr": "Français",
-    "de": "Deutsch"
+    "de": "ドイツ語"
   }
 }

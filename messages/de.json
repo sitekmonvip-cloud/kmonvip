@@ -1,292 +1,292 @@
 {
   "common": {
-    "requestQuote": "Solicitar cotação",
-    "learnMore": "Saiba mais",
-    "viewFleet": "Ver frota",
-    "knowMore": "Conhecer",
-    "back": "Voltar",
-    "next": "Próximo",
-    "close": "Fechar",
-    "open": "Abrir",
-    "send": "Enviar",
-    "contact": "Contato",
-    "passengers": "passageiros",
-    "vehicle": "Veículo",
-    "model": "Modelo",
-    "talkOnWhatsApp": "Falar no WhatsApp",
-    "sendByEmail": "Enviar por e-mail",
-    "support24h": "Atendimento 24h",
-    "nationalOperation": "Operação Nacional"
+    "requestQuote": "Angebot anfordern",
+    "learnMore": "Erfahren Sie mehr",
+    "viewFleet": "Flotte anzeigen",
+    "knowMore": "Wissen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "close": "Beenden",
+    "open": "Offene",
+    "send": "Senden",
+    "contact": "Kontakt",
+    "passengers": "Mitfahrer",
+    "vehicle": "Fahrzeug",
+    "model": "Model",
+    "talkOnWhatsApp": "Sprechen Sie bei WhatsApp",
+    "sendByEmail": "Per E-Mail versenden",
+    "support24h": "Support rund um die Uhr",
+    "nationalOperation": "Nationaler Betrieb"
   },
   "nav": {
-    "home": "Início",
-    "services": "Soluções",
-    "fleet": "Frota",
-    "coverage": "Atuação",
-    "about": "Sobre",
-    "contact": "Contato"
+    "home": "Start",
+    "services": "Anwendungen",
+    "fleet": "Flotte",
+    "coverage": "Leistung",
+    "about": "Über uns",
+    "contact": "Kontakt"
   },
   "hero": {
-    "eyebrow": "A Número 1 do Brasil em",
-    "title": "Transporte Executivo Blindado",
-    "subtitle": "Discrição. Precisão. Protocolo."
+    "eyebrow": "Die Nummer 1 in Brasilien in",
+    "title": "Gepanzerter Exekutivt",
+    "subtitle": "Diskretion. Genauigkeit. Protokoll."
   },
   "stats": {
-    "yearsLabel": "anos de excelência",
-    "supportLabel": "suporte operacional",
-    "citiesLabel": "capitais atendidas",
+    "yearsLabel": "jahre Exzellenz",
+    "supportLabel": "betriebsunterstützung",
+    "citiesLabel": "hauptbuchstaben bedient",
     "yearsValue": "35+",
     "supportValue": "24h",
     "citiesValue": "7+"
   },
   "trustBadges": {
-    "label": "Confiança de organizações que operam no mais alto nível"
+    "label": "Vertrauen von Organisationen, die auf höchstem Niveau agieren"
   },
   "services": {
-    "eyebrow": "Soluções",
-    "title": "Mobilidade executiva para operações de alto padrão",
-    "subtitle": "Frota premium, motoristas treinados e operação 24 horas. Da agenda individual à grande operação diplomática.",
+    "eyebrow": "Anwendungen",
+    "title": "Mobilität von Führungskräften für High-End-Operationen",
+    "subtitle": "Premium-Flotte, geschulte Fahrer und 24-Stunden-Betrieb. Von der individuellen Agenda bis zur großen diplomatischen Operation.",
     "items": {
       "transporte-executivo": {
-        "title": "Transporte Executivo",
-        "label": "corporativo",
-        "desc": "Deslocamentos com conforto, pontualidade e discrição para executivos e líderes."
+        "title": "Executive Transportation",
+        "label": "unternehmen",
+        "desc": "Reisen Sie mit Komfort, Pünktlichkeit und Diskretion für Führungskräfte und Führungskräfte."
       },
       "transporte-blindado": {
-        "title": "Transporte Blindado",
-        "label": "segurança",
-        "desc": "Veículos blindados para agendas que exigem proteção elevada e confidencialidade."
+        "title": "Gepanzerter Transport",
+        "label": "Unbedenklichkeit",
+        "desc": "Gepanzerte Fahrzeuge für Agenden, die hohen Schutz und Vertraulichkeit erfordern."
       },
       "transporte-diplomatico": {
-        "title": "Transporte Diplomático",
-        "label": "protocolo",
-        "desc": "Embaixadas, delegações e missões oficiais com protocolo e precisão."
+        "title": "Diplomatischer Transport",
+        "label": "Studie Nr.",
+        "desc": "Offizielle Botschaften, Delegationen und Missionen mit Protokoll und Präzision."
       },
       "eventos-e-congressos": {
-        "title": "Eventos & Congressos",
-        "label": "eventos",
-        "desc": "Frota dedicada para grandes eventos, congressos e operações especiais."
+        "title": "Events & Kongresse",
+        "label": "events",
+        "desc": "Spezielle Flotte für Großveranstaltungen, Kongresse und Sondereinsätze."
       },
       "transfers-executivos": {
-        "title": "Transfers",
-        "label": "aeroporto",
-        "desc": "Traslados aeroporto, hotel e reuniões com atendimento profissional."
+        "title": "Übertragungen",
+        "label": "Flughafen",
+        "desc": "Flughafentransfers, Hotels und Tagungen mit professionellem Service."
       },
       "vans-e-onibus": {
-        "title": "Vans e Ônibus",
-        "label": "grupos",
-        "desc": "Mobilidade para grupos, delegações e equipes corporativas."
+        "title": "Transporter & Busse",
+        "label": "Gruppen",
+        "desc": "Mobilität für Gruppen, Delegationen und Unternehmensteams."
       }
     }
   },
   "fleet": {
-    "eyebrow": "Frota",
-    "title": "Frota executiva para diferentes níveis de operação",
-    "subtitle": "De sedans executivos a SUVs, vans, ônibus e veículos blindados, a KMON VIP oferece soluções de mobilidade sob medida para cada tipo de agenda.",
-    "disclaimer": "Modelos e categorias sujeitos à disponibilidade no momento da cotação.",
-    "knowFleet": "Conhecer frota",
+    "eyebrow": "Flotte",
+    "title": "Exekutivflotte für verschiedene Betriebsebenen",
+    "subtitle": "Von Executive-Limousinen bis hin zu SUVs, Lieferwagen, Bussen und gepanzerten Fahrzeugen bietet KMON VIP Mobilitätslösungen, die auf jede Art von Zeitplan zugeschnitten sind.",
+    "disclaimer": "Modelle und Kategorien vorbehaltlich der Verfügbarkeit zum Zeitpunkt des Angebots.",
+    "knowFleet": "Lerne die Flotte kennen",
     "items": {
       "sedan-executivo": {
-        "title": "Sedan Executivo",
-        "desc": "Sedan executivo com motorista para reuniões, recepções de clientes, agendas corporativas e deslocamentos individuais.",
-        "passengers": "1 a 4 passageiros",
-        "model": "Mercedes-Benz Classe E ou similar"
+        "title": "Executive Limousine",
+        "desc": "Executive Limousine mit Fahrer für Meetings, Kundenempfänge, Geschäftspläne und individuelle Fahrten.",
+        "passengers": "1 bis 4 Passagiere",
+        "model": "Mercedes-Benz Klasse E oder ähnlich"
       },
       "suv-premium": {
-        "title": "SUV Premium",
-        "desc": "SUV de luxo com motorista para executivos, autoridades e deslocamentos que exigem maior conforto e espaço.",
-        "passengers": "1 a 6 passageiros",
-        "model": "Cadillac Escalade ou similar"
+        "title": "Premium-SUV",
+        "desc": "Luxus-SUV mit Fahrer für Führungskräfte, Behörden und Pendler, die mehr Komfort und Platz benötigen.",
+        "passengers": "1 bis 6 Passagiere",
+        "model": "Cadillac Escalade oder ähnlich"
       },
       "veiculo-blindado": {
-        "title": "Veículo Blindado",
-        "desc": "Veículo executivo blindado com motorista para agendas que exigem segurança elevada, confidencialidade e proteção.",
-        "passengers": "1 a 4 passageiros",
-        "model": "Jeep Commander Blindado ou similar"
+        "title": "Gepanzertes Fahrzeug",
+        "desc": "Gepanzertes Führungsfahrzeug mit Fahrer für Agenden, die hohe Sicherheit, Vertraulichkeit und Schutz erfordern.",
+        "passengers": "1 bis 4 Passagiere",
+        "model": "Jeep Commander abgeschirmt oder ähnlich"
       },
       "van-executiva": {
-        "title": "Van Executiva",
-        "desc": "Van executiva com motorista para grupos, transfer aeroporto, eventos corporativos e operações de alta performance.",
-        "passengers": "8 a 15 passageiros",
-        "model": "Mercedes-Benz Sprinter ou similar"
+        "title": "Executive Van",
+        "desc": "Executive Van mit Fahrer für Gruppen, Flughafentransfer, Firmenveranstaltungen und Hochleistungsbetrieb.",
+        "passengers": "8 bis 15 Passagiere",
+        "model": "Mercedes-Benz Sprinter oder ähnlich"
       },
       "onibus-premium": {
-        "title": "Ônibus Premium",
-        "desc": "Ônibus executivo premium com motorista para congressos, delegações e operações de grande volume.",
-        "passengers": "30 a 50 passageiros",
-        "model": "Marcopolo Paradiso ou similar"
+        "title": "Premium-Bus",
+        "desc": "Premium Executive Bus mit Fahrer für Kongresse, Delegationen und Großaufträge.",
+        "passengers": "30 bis 50 Passagiere",
+        "model": "Marcopolo Paradiso oder ähnlich"
       },
       "frota-comitiva": {
-        "title": "Frota para Comitiva",
-        "desc": "Combinação de SUVs, sedans e vans com motoristas para deslocamentos coordenados de comitivas e delegações.",
-        "passengers": "Sob medida",
-        "model": "SUV + Sedan + Van coordenados"
+        "title": "Flotte für Entourage",
+        "desc": "Kombination von SUVs, Limousinen und Transportern mit Fahrern für koordiniertes Pendeln von Entourages und Delegationen.",
+        "passengers": "Maßgeschneidert",
+        "model": "SUV + Limousine + Van-Koordinaten"
       }
     }
   },
   "coverage": {
-    "eyebrow": "Atuação Nacional",
-    "title": "Operação executiva em Brasília e nas principais cidades do Brasil",
-    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas em Brasília e nas principais capitais brasileiras, com estrutura para deslocamentos locais, eventos e agendas de alta complexidade.",
-    "otherCities": "Outras cidades sob consulta",
-    "headquarters": "Sede",
+    "eyebrow": "Nationale Leistung",
+    "title": "Executive Operation in Brasília und Großstädten in Brasilien",
+    "subtitle": "KMON VIP bedient Führungskräfte, Diplomaten und Unternehmen in Brasília und in den wichtigsten brasilianischen Hauptstädten mit einer Struktur für lokale Reisen, Veranstaltungen und hochkomplexe Zeitpläne.",
+    "otherCities": "Andere Städte auf Anfrage",
+    "headquarters": "Hauptsitz",
     "items": {
       "brasilia": {
         "name": "Brasília",
-        "desc": "Base institucional. Embaixadas, autoridades, órgãos públicos e eventos corporativos."
+        "desc": "Institutionelle Basis. Botschaften, Behörden, Behörden und Firmenveranstaltungen."
       },
       "sao-paulo": {
         "name": "São Paulo",
-        "desc": "Executivos, eventos corporativos, empresas internacionais e mercado financeiro."
+        "desc": "Führungskräfte, Firmenevents, internationale Unternehmen und Finanzmärkte."
       },
       "rio-de-janeiro": {
         "name": "Rio de Janeiro",
-        "desc": "Turismo premium, eventos, autoridades, artistas e operações corporativas."
+        "desc": "Premium-Tourismus, Veranstaltungen, Behörden, Künstler und Unternehmen."
       },
       "belo-horizonte": {
         "name": "Belo Horizonte",
-        "desc": "Transporte executivo e corporativo para empresas, eventos e agendas estratégicas."
+        "desc": "Führungskräfte- und Unternehmenstransporte für Unternehmen, Veranstaltungen und strategische Agenden."
       },
       "manaus": {
         "name": "Manaus",
-        "desc": "Operações executivas, corporativas e institucionais na região Norte."
+        "desc": "Exekutive, korporative und institutionelle Aktivitäten in der Region Nord."
       },
       "belem": {
         "name": "Belém",
-        "desc": "Cidade estratégica para eventos internacionais e grandes operações."
+        "desc": "Strategische Stadt für internationale Veranstaltungen und Großveranstaltungen."
       }
     }
   },
   "differentials": {
-    "eyebrow": "Diferenciais",
-    "titlePart1": "O padrão por trás de cada",
-    "titleEm": "deslocamento",
+    "eyebrow": "Differentiale: ",
+    "titlePart1": "Das Muster dahinter",
+    "titleEm": "Verschieben",
     "titlePart2": ".",
-    "subtitle": "Frota premium e blindada. Motoristas treinados e bilíngues. Discrição absoluta, operação nacional 24h e logística de precisão para agendas que não admitem improviso.",
+    "subtitle": "Premium- und gepanzerte Flotte. Ausgebildete und zweisprachige Fahrer. Absolute Diskretion, 24-Stunden-Betrieb und Präzisionslogistik für Agenden, die keine Improvisation zulassen.",
     "tags": {
-      "armoredFleet": "Frota blindada",
-      "bilingualDrivers": "Motoristas bilíngues",
-      "diplomaticService": "Atendimento diplomático",
-      "national24h": "Operação 24h nacional",
-      "confidentiality": "Confidencialidade",
-      "majorEvents": "Grandes eventos",
-      "highComplexity": "Alta complexidade"
+      "armoredFleet": "Gepanzerte Flotte",
+      "bilingualDrivers": "Zweisprachige Fahrer",
+      "diplomaticService": "Diplomatische Hilfe",
+      "national24h": "Nationaler 24h-Betrieb",
+      "confidentiality": "Geheimhaltung",
+      "majorEvents": "Großereignisse",
+      "highComplexity": "Hohe Komplexität"
     }
   },
   "authority": {
-    "eyebrow": "Quem somos",
-    "title": "Mobilidade para quem lidera, representa e decide.",
-    "subtitle": "A KMON VIP atende operações executivas, diplomáticas e corporativas com frota premium, motoristas treinados e planejamento logístico sob medida para agendas que exigem segurança, pontualidade e discrição.",
-    "timelineEyebrow": "Operações & Eventos",
-    "timelineTitle": "Grandes operações e eventos já atendidos",
-    "marksLabel": "marcos",
+    "eyebrow": "Über uns",
+    "title": "Mobilität für diejenigen, die führen, vertreten und entscheiden.",
+    "subtitle": "KMON VIP bedient Führungskräfte, Diplomaten und Unternehmen mit einer Premium-Flotte, geschulten Fahrern und einer Logistikplanung, die auf Zeitpläne zugeschnitten ist, die Sicherheit, Pünktlichkeit und Diskretion erfordern.",
+    "timelineEyebrow": "Operations & Events",
+    "timelineTitle": "Wichtige Operationen und Veranstaltungen, die bereits besucht wurden",
+    "marksLabel": "meilensteine",
     "pillars": {
       "security": {
-        "title": "Segurança",
-        "desc": "Veículos executivos com opções blindadas, motoristas treinados e protocolos de segurança para agendas sensíveis."
+        "title": "Sicherheit",
+        "desc": "Exekutivfahrzeuge mit gepanzerten Optionen, geschulten Fahrern und Sicherheitsprotokollen für sensible Zeitpläne."
       },
       "discretion": {
-        "title": "Discrição",
-        "desc": "Confidencialidade absoluta em cada operação. Atendimento sob protocolo para clientes que exigem privacidade."
+        "title": "Diskretion",
+        "desc": "Absolute Vertraulichkeit bei jedem Vorgang. Service unter Protokoll für Kunden, die Privatsphäre benötigen."
       },
       "precision": {
-        "title": "Precisão",
-        "desc": "Planejamento logístico detalhado, pontualidade operacional e suporte 24h para agendas que não permitem falhas."
+        "title": "Genauigkeit",
+        "desc": "Detaillierte Logistikplanung, operative Pünktlichkeit und 24/7-Support für Zeitpläne, die keine Ausfälle zulassen."
       }
     }
   },
   "clients": {
-    "eyebrow": "Parceiros & Clientes",
-    "title": "Empresas que confiam na KMON VIP"
+    "eyebrow": "Partner & Kunden",
+    "title": "Unternehmen, die KMON VIP vertrauen"
   },
   "cta": {
-    "title": "Pronto para sua próxima operação?",
-    "subtitle": "Solicite uma cotação e fale com a equipe KMON VIP.",
-    "homeTitle": "Planeje sua próxima operação com segurança, discrição e precisão.",
-    "homeSubtitle": "Solicite uma cotação e fale com a equipe da KMON VIP para estruturar o transporte ideal para sua agenda, evento ou delegação.",
-    "requestNow": "Solicitar cotação agora"
+    "title": "Bereit für Ihre nächste Operation?",
+    "subtitle": "Fordern Sie ein Angebot an und sprechen Sie mit dem KMON VIP -Team.",
+    "homeTitle": "Planen Sie Ihre nächste Operation sicher, diskret und genau.",
+    "homeSubtitle": "Fordern Sie ein Angebot an und sprechen Sie mit dem KMON VIP -Team, um den idealen Transport für Ihren Zeitplan, Ihre Veranstaltung oder Ihre Delegation zu strukturieren.",
+    "requestNow": "Jetzt Angebot anfordern"
   },
   "footer": {
-    "tagline": "Mobilidade executiva, blindada e diplomática para quem não pode errar no deslocamento.",
-    "solutionsTitle": "Soluções",
-    "coverageTitle": "Atuação",
-    "institutionalTitle": "Institucional",
-    "contactTitle": "Contato",
+    "tagline": "Exekutive, gepanzerte und diplomatische Mobilität für diejenigen, die bei der Vertreibung nichts falsch machen können.",
+    "solutionsTitle": "Anwendungen",
+    "coverageTitle": "Leistung",
+    "institutionalTitle": "Institutionelles",
+    "contactTitle": "Kontakt",
     "whatsapp24h": "WhatsApp 24h",
-    "email": "E-mail",
-    "service": "Atendimento",
-    "serviceValue": "24h — Operação Nacional",
-    "copyright": "Todos os direitos reservados.",
-    "privacy": "Política de Privacidade",
-    "terms": "Termos de Uso",
-    "historyLink": "Geschichte"
+    "email": "eMail",
+    "service": "Service",
+    "serviceValue": "24h — Nationaler Betrieb",
+    "copyright": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Auszeichnungen",
+    "historyLink": "Historie/Geschichte"
   },
   "quoteModal": {
-    "step": "Passo {current} de {total}",
+    "step": "Schritt {current} von {total}",
     "step1": {
-      "title": "Como podemos ajudar?",
+      "title": "Wie können wir helfen?",
       "options": {
         "empresa": {
-          "title": "Empresa / Empresário",
-          "sub": "Transporte Executivo Corporativo"
+          "title": "Unternehmen / Unternehmer",
+          "sub": "Corporate Executive Transportation"
         },
         "pessoaFisica": {
-          "title": "Pessoa Física",
-          "sub": "Transfer ou Motorista Particular"
+          "title": "Einzelpersonen",
+          "sub": "Transfer oder privater Fahrer"
         },
         "trabalho": {
-          "title": "Oportunidade de trabalho",
-          "sub": "Busca de Emprego / Candidato"
+          "title": "Stellenangebot",
+          "sub": "Jobsuche / Kandidat"
         }
       },
-      "blockTitle": "Este canal é exclusivo para cotações comerciais",
-      "blockMessage": "No momento não estamos recebendo candidaturas por este formulário. Para oportunidades de trabalho, fique atento aos nossos canais oficiais.",
-      "errorSelect": "Selecione uma opção."
+      "blockTitle": "Dieser Kanal ist exklusiv für kommerzielle Angebote",
+      "blockMessage": "Wir erhalten derzeit keine Bewerbungen für dieses Formular. Bleiben Sie auf unseren offiziellen Kanälen auf dem Laufenden, wenn es um Stellenangebote geht.",
+      "errorSelect": "Bitte wählen Sie eine Option aus."
     },
     "step2": {
-      "title": "Detalhes do serviço",
-      "subtitle": "Conte um pouco sobre o atendimento desejado.",
-      "serviceType": "Tipo de serviço",
-      "selectPlaceholder": "Selecione",
-      "startDate": "Data início",
-      "endDate": "Data término",
-      "bilingual": "Motorista Bilíngue",
-      "vehicleProtection": "Veículo",
-      "armored": "Blindado",
-      "conventional": "Convencional",
-      "vehicleModel": "Modelo do veículo",
-      "selectModel": "Selecione o modelo",
-      "additionalInfo": "Informações adicionais",
-      "placeholderAdditional": "Alguma informação específica para o seu atendimento?"
+      "title": "Servicedetails",
+      "subtitle": "Erzählen Sie uns ein wenig über den gewünschten Service.",
+      "serviceType": "die Art der Leistung",
+      "selectPlaceholder": "Auswählen",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "bilingual": "Zweisprachiger Fahrer",
+      "vehicleProtection": "Fahrzeug",
+      "armored": "geschirmt ",
+      "conventional": "Konventionell",
+      "vehicleModel": "Fahrzeugmodell",
+      "selectModel": "Vorlage auswählen",
+      "additionalInfo": "Zusatzinformationen",
+      "placeholderAdditional": "Irgendwelche spezifischen Informationen für Ihren Service?"
     },
     "step3": {
-      "title": "Seus Dados",
-      "subtitle": "Preencha seus dados de contato e clique em CONCLUIR.",
-      "fullName": "Nome completo",
-      "placeholderName": "Seu nome completo",
-      "email": "E-mail corporativo",
+      "title": "Ihre Daten",
+      "subtitle": "Geben Sie Ihre Kontaktdaten ein und klicken Sie auf FERTIG STELLEN.",
+      "fullName": "Vor- und Nachname",
+      "placeholderName": "Ihr vollständiger Name",
+      "email": "Firmen-E-Mail",
       "placeholderEmail": "seu@empresa.com.br",
-      "phone": "Telefone",
+      "phone": "Telefon",
       "placeholderPhone": "(11) 91234-5678",
-      "position": "Cargo",
-      "placeholderPosition": "Ex: Gerente de Segurança, Assistente Executivo...",
-      "company": "Empresa",
-      "placeholderCompany": "Nome da sua empresa"
+      "position": "Funktion",
+      "placeholderPosition": "Beispiel: Sicherheitsmanager, Assistent der Geschäftsleitung...",
+      "company": "Firma",
+      "placeholderCompany": "FIRMENNAME"
     },
     "success": {
-      "title": "Solicitação registrada",
-      "subtitle": "Para concluir, escolha como prefere finalizar o contato:"
+      "title": "Registrierte Anfrage",
+      "subtitle": "Wählen Sie abschließend aus, wie Sie den Kontakt abschließen möchten:"
     },
-    "submit": "Concluir",
-    "next": "Próximo"
+    "submit": "Abschließen",
+    "next": "Weiter"
   },
   "languages": {
-    "pt": "Português",
+    "pt": "Portugiesisch",
     "en": "English",
-    "es": "Español",
+    "es": "can you speak English ?",
     "zh": "中文",
     "ja": "日本語",
-    "fr": "Français",
+    "fr": "Francais",
     "de": "Deutsch"
   }
 }
