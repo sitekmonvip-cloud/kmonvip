@@ -729,7 +729,7 @@ export const fleet: FleetCategory[] = [
     intro: "Sedans executivos com motorista para deslocamentos corporativos, reuniões, recepções de clientes e agendas individuais. Frota Toyota Corolla ou similar, com acabamento premium, ar-condicionado, motorista uniformizado e atendimento bilíngue.",
     specs: { passengers: "1 a 4 passageiros", model: "Toyota Corolla ou similar" },
     features: ["Acabamento premium", "Ar-condicionado", "Wi-Fi disponível", "Motorista uniformizado", "Atendimento bilíngue"],
-    image: "/images/fleet/Corola-Sedan Executivo.jpg",
+    image: "/images/fleet/corola-sedan-executivo.jpg",
   },
   {
     slug: "sedan-blindado",
@@ -804,7 +804,7 @@ export const fleet: FleetCategory[] = [
     intro: "Mini vans executivas com motorista profissional para grupos pequenos, transfers VIP, jantares corporativos e deslocamentos discretos com conforto e privacidade. Frota Mercedes-Benz Vito ou similar, com acabamento executivo e atendimento bilíngue.",
     specs: { passengers: "1 a 7 passageiros", model: "Mercedes-Benz Vito ou similar" },
     features: ["Acabamento executivo", "Privacidade para grupos", "Ar-condicionado", "Motorista uniformizado", "Atendimento bilíngue"],
-    image: "/images/fleet/mini van vito.jpg",
+    image: "/images/fleet/mini-van-vito.jpg",
   },
   {
     slug: "van-executiva",

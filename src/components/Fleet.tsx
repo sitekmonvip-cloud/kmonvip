@@ -6,10 +6,10 @@ import { Link } from "@/i18n/navigation";
 import { useQuoteModal } from "./QuoteModal";
 
 const categories = [
-  { slug: "sedan-executivo",  image: "/images/fleet/Corola-Sedan Executivo.jpg" },
+  { slug: "sedan-executivo",  image: "/images/fleet/corola-sedan-executivo.jpg" },
   { slug: "sedan-blindado",   image: "/images/fleet/classe-e.png" },
   { slug: "suv-blindado",     image: "/images/fleet/suv-commander.webp" },
-  { slug: "minivan-executiva", image: "/images/fleet/mini van vito.jpg" },
+  { slug: "minivan-executiva", image: "/images/fleet/mini-van-vito.jpg" },
   { slug: "van-executiva",    image: "/images/fleet/sprinter.webp" },
   { slug: "onibus-premium",   image: "/images/fleet/onibus-executivo.webp" },
 ];
