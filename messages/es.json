@@ -133,27 +133,27 @@
     "headquarters": "Sed",
     "items": {
       "brasilia": {
-        "name": "P0. ",
+        "name": "Brasília",
         "desc": "Base institucional. Embajadas, autoridades, organismos públicos y eventos corporativos."
       },
       "sao-paulo": {
-        "name": "P0. ",
+        "name": "São Paulo",
         "desc": "Ejecutivos, eventos corporativos, empresas internacionales y mercados financieros."
       },
       "rio-de-janeiro": {
-        "name": "P0. ",
+        "name": "Rio de Janeiro",
         "desc": "Turismo premium, eventos, autoridades, artistas y operaciones corporativas."
       },
       "belo-horizonte": {
-        "name": "P0. ",
+        "name": "Belo Horizonte",
         "desc": "Transporte ejecutivo y corporativo para empresas, eventos y agendas estratégicas."
       },
       "manaus": {
-        "name": "P0. ",
+        "name": "Manaus",
         "desc": "Operaciones ejecutivas, corporativas e institucionales en la región Norte."
       },
       "belem": {
-        "name": "P0. ",
+        "name": "Belém",
         "desc": "Ciudad estratégica para eventos internacionales y grandes operaciones."
       }
     }

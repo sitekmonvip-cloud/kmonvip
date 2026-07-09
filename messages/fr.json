@@ -133,27 +133,27 @@
     "headquarters": "Siège ",
     "items": {
       "brasilia": {
-        "name": "P0:",
+        "name": "Brasília",
         "desc": "Base institutionnelle. Ambassades, autorités, organismes publics et événements d'entreprise."
       },
       "sao-paulo": {
-        "name": "P0:",
+        "name": "São Paulo",
         "desc": "Cadres, événements d'entreprise, entreprises internationales et marchés financiers."
       },
       "rio-de-janeiro": {
-        "name": "P0:",
+        "name": "Rio de Janeiro",
         "desc": "Tourisme haut de gamme, événements, autorités, artistes et opérations d'entreprise."
       },
       "belo-horizonte": {
-        "name": "P0:",
+        "name": "Belo Horizonte",
         "desc": "Transport exécutif et d'entreprise pour les entreprises, les événements et les agendas stratégiques."
       },
       "manaus": {
-        "name": "P0:",
+        "name": "Manaus",
         "desc": "Opérations exécutives, corporatives et institutionnelles dans la région Nord."
       },
       "belem": {
-        "name": "P0:",
+        "name": "Belém",
         "desc": "Ville stratégique pour les événements internationaux et les grandes opérations."
       }
     }
