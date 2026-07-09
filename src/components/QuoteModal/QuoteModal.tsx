@@ -671,7 +671,7 @@ function Field({
 }
 
 function inputCls(hasError: boolean) {
-  return `w-full px-4 py-3 rounded-lg border bg-white text-sm text-ink-900 placeholder:text-ink-300 outline-none transition-colors focus:border-ink-900 focus:ring-1 focus:ring-ink-900/10 ${
+  return `w-full px-4 py-3 rounded-lg border bg-white text-base text-ink-900 placeholder:text-ink-300 outline-none transition-colors focus:border-ink-900 focus:ring-1 focus:ring-ink-900/10 ${
     hasError ? "border-red-500" : "border-ink-200"
   }`;
 }
