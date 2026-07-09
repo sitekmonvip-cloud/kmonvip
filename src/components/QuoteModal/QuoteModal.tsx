@@ -571,25 +571,29 @@ function Step3({
         </div>
       </Field>
 
-      <Field label={t("step3.position")}>
-        <input
-          type="text"
-          value={data.position}
-          onChange={(e) => set("position", e.target.value)}
-          placeholder={t("step3.placeholderPosition")}
-          className={inputCls(false)}
-        />
-      </Field>
+      {data.purpose !== "pessoa-fisica" && (
+        <>
+          <Field label={t("step3.position")}>
+            <input
+              type="text"
+              value={data.position}
+              onChange={(e) => set("position", e.target.value)}
+              placeholder={t("step3.placeholderPosition")}
+              className={inputCls(false)}
+            />
+          </Field>
 
-      <Field label={t("step3.company")}>
-        <input
-          type="text"
-          value={data.company}
-          onChange={(e) => set("company", e.target.value)}
-          placeholder={t("step3.placeholderCompany")}
-          className={inputCls(false)}
-        />
-      </Field>
+          <Field label={t("step3.company")}>
+            <input
+              type="text"
+              value={data.company}
+              onChange={(e) => set("company", e.target.value)}
+              placeholder={t("step3.placeholderCompany")}
+              className={inputCls(false)}
+            />
+          </Field>
+        </>
+      )}
     </div>
   );
 }
