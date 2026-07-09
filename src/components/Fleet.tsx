@@ -6,12 +6,12 @@ import { Link } from "@/i18n/navigation";
 import { useQuoteModal } from "./QuoteModal";
 
 const categories = [
-  { slug: "sedan-executivo",  image: "/images/fleet/corola-sedan-executivo.jpg" },
-  { slug: "sedan-blindado",   image: "/images/fleet/classe-e.png" },
-  { slug: "suv-blindado",     image: "/images/fleet/suv-commander.webp" },
-  { slug: "minivan-executiva", image: "/images/fleet/mini-van-vito.jpg" },
-  { slug: "van-executiva",    image: "/images/fleet/sprinter.webp" },
-  { slug: "onibus-premium",   image: "/images/fleet/onibus-executivo.webp" },
+  { slug: "sedan-executivo",   image: "/images/fleet/corola-sedan-executivo.jpg", bgWhite: true },
+  { slug: "sedan-blindado",    image: "/images/fleet/classe-e.png",               bgWhite: true },
+  { slug: "suv-blindado",      image: "/images/fleet/suv-commander.webp",         bgWhite: true },
+  { slug: "minivan-executiva", image: "/images/fleet/mini-van-vito.jpg",          bgWhite: false },
+  { slug: "van-executiva",     image: "/images/fleet/sprinter.webp",              bgWhite: false },
+  { slug: "onibus-premium",    image: "/images/fleet/onibus-executivo.webp",      bgWhite: false },
 ];
 
 // ── Icons ───────────────────────────────────────────────────────────
@@ -92,7 +92,7 @@ export default function Fleet() {
               className="group relative rounded-2xl overflow-hidden bg-ink-800 cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl flex flex-col"
             >
               {/* Image */}
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className={`relative aspect-[16/10] overflow-hidden${cat.bgWhite ? " bg-white" : ""}`}>
                 <Image
                   src={cat.image}
                   alt={t(`items.${cat.slug}.title`)}
