@@ -7,7 +7,7 @@ import { useQuoteModal } from "./QuoteModalProvider";
 
 // ── Config ──────────────────────────────────────────────────────────
 const WHATSAPP_NUMBER = "5561998630303";
-const NOTIFY_EMAIL    = "contaslopeshpl@gmail.com";
+const NOTIFY_EMAIL    = "sitekmonvip@gmail.com";
 
 // ── Types ───────────────────────────────────────────────────────────
 type Purpose = "empresa" | "trabalho" | "pessoa-fisica";
@@ -172,14 +172,15 @@ export default function QuoteModal() {
   const handleSubmit = () => {
     if (!validateStep(3)) return;
 
-    // ── Tracking placeholder ──
-    // TODO: replace with real tracking/backend integration
-    // For now: log + open WhatsApp + send via mailto fallback
-    console.log("[KMON-LEAD]", {
-      timestamp: new Date().toISOString(),
-      notifyEmail: NOTIFY_EMAIL,
-      data,
-    });
+    fetch("/api/quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: buildMessage(),
+        fullName: data.fullName,
+        email: data.email,
+      }),
+    }).catch((err) => console.error("[KMON-LEAD] email send failed", err));
 
     setSubmitted(true);
   };
