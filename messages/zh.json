@@ -88,40 +88,40 @@
     "knowFleet": "认识车队",
     "items": {
       "sedan-executivo": {
-        "title": "高管轿车",
-        "desc": "高管轿车，配备司机，用于会议、客户接待、公司日程安排和个人旅行。",
+        "title": "行政轿车",
+        "desc": "配专职司机的行政轿车，适用于会议、客户接待、企业日程及个人出行。",
         "passengers": "1至4名乘客",
-        "model": "Mercedes-Benz E级或类似级别"
+        "model": "丰田卡罗拉或同类车型"
       },
-      "suv-premium": {
-        "title": "高级SUV",
-        "desc": "配备司机的豪华SUV ，适合需要更大舒适度和空间的高管、政府部门和通勤人士。",
-        "passengers": "1至6名乘客",
-        "model": "Cadillac Escalade或类似"
-      },
-      "veiculo-blindado": {
-        "title": "装甲车",
-        "desc": "配备司机的装甲车，用于需要高度安全、保密和保护的日程安排。",
+      "sedan-blindado": {
+        "title": "防弹轿车",
+        "desc": "配受训司机的防弹轿车，适用于需要高度安全性同时兼顾低调与行政舒适度的行程。",
         "passengers": "1至4名乘客",
-        "model": "Jeep Commander屏蔽或类似"
+        "model": "奔驰E级防弹版或同类车型"
+      },
+      "suv-blindado": {
+        "title": "防弹SUV",
+        "desc": "配专职司机的防弹SUV，适用于需要最高防护等级和较大乘载能力的政要、外交官及高管。",
+        "passengers": "1至4名乘客",
+        "model": "吉普指挥官防弹版或同类车型"
+      },
+      "minivan-executiva": {
+        "title": "行政小型客车",
+        "desc": "配专职司机的行政小型客车，适用于小型团组、VIP接送及需要舒适与私密的企业出行。",
+        "passengers": "1至7名乘客",
+        "model": "奔驰Vito或同类车型"
       },
       "van-executiva": {
         "title": "行政面包车",
-        "desc": "带司机的行政面包车，适合团体、机场接送、公司活动和高性能运营。",
+        "desc": "配专职司机的行政面包车，适用于团组接送、机场接驳、企业活动及高效运营。",
         "passengers": "8至15名乘客",
-        "model": "Mercedes-Benz Sprinter或类似"
+        "model": "奔驰Sprinter或同类车型"
       },
       "onibus-premium": {
-        "title": "高级面包车",
-        "desc": "高级行政巴士，配有会议、代表团和大量运营的司机。",
+        "title": "豪华大巴",
+        "desc": "配专职司机的豪华行政大巴，适用于会议、代表团及大规模运营。",
         "passengers": "30至50名乘客",
-        "model": "Marcopolo Paradiso或类似"
-      },
-      "frota-comitiva": {
-        "title": "随行人员的舰队",
-        "desc": "将SUV、轿车和面包车与司机相结合，为随行人员和代表团协调通勤。",
-        "passengers": "量身定制",
-        "model": "SUV +轿车+面包车坐标"
+        "model": "Marcopolo Paradiso或同类车型"
       }
     }
   },

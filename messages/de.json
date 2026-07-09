@@ -88,40 +88,40 @@
     "knowFleet": "Lerne die Flotte kennen",
     "items": {
       "sedan-executivo": {
-        "title": "Executive Limousine",
-        "desc": "Executive Limousine mit Fahrer für Meetings, Kundenempfänge, Geschäftspläne und individuelle Fahrten.",
+        "title": "Executive-Limousine",
+        "desc": "Executive-Limousine mit Fahrer für Meetings, Kundenempfänge, Unternehmensagenden und Einzeltransfers.",
         "passengers": "1 bis 4 Passagiere",
-        "model": "Mercedes-Benz Klasse E oder ähnlich"
+        "model": "Toyota Corolla oder ähnlich"
       },
-      "suv-premium": {
-        "title": "Premium-SUV",
-        "desc": "Luxus-SUV mit Fahrer für Führungskräfte, Behörden und Pendler, die mehr Komfort und Platz benötigen.",
-        "passengers": "1 bis 6 Passagiere",
-        "model": "Cadillac Escalade oder ähnlich"
-      },
-      "veiculo-blindado": {
-        "title": "Gepanzertes Fahrzeug",
-        "desc": "Gepanzertes Führungsfahrzeug mit Fahrer für Agenden, die hohe Sicherheit, Vertraulichkeit und Schutz erfordern.",
+      "sedan-blindado": {
+        "title": "Gepanzerte Limousine",
+        "desc": "Gepanzerte Limousine mit geschultem Fahrer für Agenden mit hohem Sicherheitsbedarf bei absoluter Diskretion und exekutivem Komfort.",
         "passengers": "1 bis 4 Passagiere",
-        "model": "Jeep Commander abgeschirmt oder ähnlich"
+        "model": "Mercedes-Benz E-Klasse Gepanzert oder ähnlich"
+      },
+      "suv-blindado": {
+        "title": "Gepanzerter SUV",
+        "desc": "Gepanzerter SUV mit Fahrer für Behörden, Diplomaten und Führungskräfte, die maximalen Schutz und größere Kapazität benötigen.",
+        "passengers": "1 bis 4 Passagiere",
+        "model": "Jeep Commander Gepanzert oder ähnlich"
+      },
+      "minivan-executiva": {
+        "title": "Executive-Minivan",
+        "desc": "Executive-Minivan mit Fahrer für kleine Gruppen, VIP-Transfers und Unternehmensfahrten mit Komfort und Privatsphäre.",
+        "passengers": "1 bis 7 Passagiere",
+        "model": "Mercedes-Benz Vito oder ähnlich"
       },
       "van-executiva": {
-        "title": "Executive Van",
-        "desc": "Executive Van mit Fahrer für Gruppen, Flughafentransfer, Firmenveranstaltungen und Hochleistungsbetrieb.",
+        "title": "Executive-Van",
+        "desc": "Executive-Van mit Fahrer für Gruppen, Flughafentransfers, Unternehmensveranstaltungen und Hochleistungsoperationen.",
         "passengers": "8 bis 15 Passagiere",
         "model": "Mercedes-Benz Sprinter oder ähnlich"
       },
       "onibus-premium": {
-        "title": "Premium-Bus",
-        "desc": "Premium Executive Bus mit Fahrer für Kongresse, Delegationen und Großaufträge.",
+        "title": "Premium-Reisebus",
+        "desc": "Premium-Reisebus mit Fahrer für Kongresse, Delegationen und Großoperationen.",
         "passengers": "30 bis 50 Passagiere",
         "model": "Marcopolo Paradiso oder ähnlich"
-      },
-      "frota-comitiva": {
-        "title": "Flotte für Entourage",
-        "desc": "Kombination von SUVs, Limousinen und Transportern mit Fahrern für koordiniertes Pendeln von Entourages und Delegationen.",
-        "passengers": "Maßgeschneidert",
-        "model": "SUV + Limousine + Van kombiniert"
       }
     }
   },

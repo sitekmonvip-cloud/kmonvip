@@ -89,39 +89,39 @@
     "items": {
       "sedan-executivo": {
         "title": "Executive Sedan",
-        "desc": "Executive sedan with driver for meetings, client receptions, corporate schedules and individual trips.",
+        "desc": "Executive sedan with chauffeur for meetings, client receptions, corporate agendas and individual transfers.",
         "passengers": "1 to 4 passengers",
-        "model": "Mercedes-Benz Class E or similar"
+        "model": "Toyota Corolla or similar"
       },
-      "suv-premium": {
-        "title": "Premium SUV",
-        "desc": "Luxury SUV with driver for executives, authorities and commutes that require greater comfort and space.",
-        "passengers": "1 to 6 passengers",
-        "model": "Cadillac Escalade or similar"
-      },
-      "veiculo-blindado": {
-        "title": "Armored Vehicle:",
-        "desc": "Armored executive vehicle with driver for agendas that require high security, confidentiality and protection.",
+      "sedan-blindado": {
+        "title": "Armored Sedan",
+        "desc": "Armored sedan with trained chauffeur for agendas requiring high security with discretion and executive comfort.",
         "passengers": "1 to 4 passengers",
-        "model": "Jeep Commander Shielded or similar"
+        "model": "Mercedes-Benz E-Class Armored or similar"
+      },
+      "suv-blindado": {
+        "title": "Armored SUV",
+        "desc": "Armored SUV with chauffeur for authorities, diplomats and executives requiring maximum protection and capacity.",
+        "passengers": "1 to 4 passengers",
+        "model": "Jeep Commander Armored or similar"
+      },
+      "minivan-executiva": {
+        "title": "Executive Minivan",
+        "desc": "Executive minivan with chauffeur for small groups, VIP transfers and corporate trips with comfort and privacy.",
+        "passengers": "1 to 7 passengers",
+        "model": "Mercedes-Benz Vito or similar"
       },
       "van-executiva": {
         "title": "Executive Van",
-        "desc": "Executive van with driver for groups, airport transfer, corporate events and high-performance operations.",
+        "desc": "Executive van with chauffeur for groups, airport transfers, corporate events and high-performance operations.",
         "passengers": "8 to 15 passengers",
         "model": "Mercedes-Benz Sprinter or similar"
       },
       "onibus-premium": {
         "title": "Premium Bus",
-        "desc": "Premium executive bus with driver for congresses, delegations and high-volume operations.",
+        "desc": "Premium executive bus with chauffeur for congresses, delegations and large-volume operations.",
         "passengers": "30 to 50 passengers",
         "model": "Marcopolo Paradiso or similar"
-      },
-      "frota-comitiva": {
-        "title": "Fleet for Entourage",
-        "desc": "Combination of SUVs, sedans and vans with drivers for coordinated commuting of entourages and delegations.",
-        "passengers": "Customized Solutions",
-        "model": "SUV + Sedan + Van coordinates"
       }
     }
   },

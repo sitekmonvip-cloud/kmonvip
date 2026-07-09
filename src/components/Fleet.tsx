@@ -6,12 +6,12 @@ import { Link } from "@/i18n/navigation";
 import { useQuoteModal } from "./QuoteModal";
 
 const categories = [
-  { slug: "sedan-executivo", image: "/images/fleet/sedan-executivo.webp" },
-  { slug: "suv-premium",     image: "/images/fleet/suv-executivo.webp" },
-  { slug: "veiculo-blindado", image: "/images/fleet/suv-commander.webp" },
-  { slug: "van-executiva",   image: "/images/fleet/sprinter.webp" },
-  { slug: "onibus-premium",  image: "/images/fleet/onibus-executivo.webp" },
-  { slug: "frota-comitiva",  image: "/images/fleet/blazer.webp" },
+  { slug: "sedan-executivo",  image: "/images/fleet/Corola-Sedan Executivo.jpg" },
+  { slug: "sedan-blindado",   image: "/images/fleet/classe-e.png" },
+  { slug: "suv-blindado",     image: "/images/fleet/suv-commander.webp" },
+  { slug: "minivan-executiva", image: "/images/fleet/mini van vito.jpg" },
+  { slug: "van-executiva",    image: "/images/fleet/sprinter.webp" },
+  { slug: "onibus-premium",   image: "/images/fleet/onibus-executivo.webp" },
 ];
 
 // ── Icons ───────────────────────────────────────────────────────────

@@ -91,19 +91,25 @@
         "title": "Sedan Executivo",
         "desc": "Sedan executivo com motorista para reuniões, recepções de clientes, agendas corporativas e deslocamentos individuais.",
         "passengers": "1 a 4 passageiros",
-        "model": "Mercedes-Benz Classe E ou similar"
+        "model": "Toyota Corolla ou similar"
       },
-      "suv-premium": {
-        "title": "SUV Premium",
-        "desc": "SUV de luxo com motorista para executivos, autoridades e deslocamentos que exigem maior conforto e espaço.",
-        "passengers": "1 a 6 passageiros",
-        "model": "Cadillac Escalade ou similar"
+      "sedan-blindado": {
+        "title": "Sedan Blindado",
+        "desc": "Sedan blindado com motorista para agendas que exigem segurança elevada com discrição e conforto executivo.",
+        "passengers": "1 a 4 passageiros",
+        "model": "Mercedes-Benz Classe E Blindado ou similar"
       },
-      "veiculo-blindado": {
-        "title": "Veículo Blindado",
-        "desc": "Veículo executivo blindado com motorista para agendas que exigem segurança elevada, confidencialidade e proteção.",
+      "suv-blindado": {
+        "title": "SUV Blindado",
+        "desc": "SUV blindado com motorista para autoridades, diplomatas e executivos que exigem proteção elevada e maior capacidade.",
         "passengers": "1 a 4 passageiros",
         "model": "Jeep Commander Blindado ou similar"
+      },
+      "minivan-executiva": {
+        "title": "Mini Van Executiva",
+        "desc": "Mini van executiva com motorista para grupos pequenos, transfers VIP e deslocamentos corporativos com conforto e privacidade.",
+        "passengers": "1 a 7 passageiros",
+        "model": "Mercedes-Benz Vito ou similar"
       },
       "van-executiva": {
         "title": "Van Executiva",
@@ -116,12 +122,6 @@
         "desc": "Ônibus executivo premium com motorista para congressos, delegações e operações de grande volume.",
         "passengers": "30 a 50 passageiros",
         "model": "Marcopolo Paradiso ou similar"
-      },
-      "frota-comitiva": {
-        "title": "Frota para Comitiva",
-        "desc": "Combinação de SUVs, sedans e vans com motoristas para deslocamentos coordenados de comitivas e delegações.",
-        "passengers": "Sob medida",
-        "model": "SUV + Sedan + Van coordenados"
       }
     }
   },

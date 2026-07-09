@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { fleet } from "@/lib/seo/constants";
 import FleetPageContent from "@/components/page/FleetPageContent";
 
-const item = fleet.find((f) => f.slug === "veiculo-blindado")!;
+const item = fleet.find((f) => f.slug === "sedan-blindado")!;
 
 export const metadata: Metadata = buildMetadata({
   title: item.meta.title,

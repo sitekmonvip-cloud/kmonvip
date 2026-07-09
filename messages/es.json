@@ -88,40 +88,40 @@
     "knowFleet": "Conoce a la flota",
     "items": {
       "sedan-executivo": {
-        "title": "Sedán ejecutivo",
-        "desc": "Sedán ejecutivo con conductor para reuniones, recepciones de clientes, horarios corporativos y viajes individuales.",
+        "title": "Sedán Ejecutivo",
+        "desc": "Sedán ejecutivo con chófer para reuniones, recepciones de clientes, agendas corporativas y traslados individuales.",
         "passengers": "1 a 4 pasajeros",
-        "model": "Mercedes-Benz Clase E o similar"
+        "model": "Toyota Corolla o similar"
       },
-      "suv-premium": {
-        "title": "SUV Premium",
-        "desc": "SUV de lujo con conductor para ejecutivos, autoridades y desplazamientos que requieren mayor comodidad y espacio.",
-        "passengers": "De 1 a 6 pasajeros",
-        "model": "Cadillac Escalade o similar"
+      "sedan-blindado": {
+        "title": "Sedán Blindado",
+        "desc": "Sedán blindado con chófer para agendas que requieren alta seguridad con discreción y confort ejecutivo.",
+        "passengers": "1 a 4 pasajeros",
+        "model": "Mercedes-Benz Clase E Blindado o similar"
       },
-      "veiculo-blindado": {
-        "title": "Vehículo blindado",
-        "desc": "Vehículo ejecutivo blindado con conductor para agendas que requieren alta seguridad, confidencialidad y protección.",
+      "suv-blindado": {
+        "title": "SUV Blindado",
+        "desc": "SUV blindado con chófer para autoridades, diplomáticos y ejecutivos que exigen protección máxima y mayor capacidad.",
         "passengers": "1 a 4 pasajeros",
         "model": "Jeep Commander Blindado o similar"
       },
+      "minivan-executiva": {
+        "title": "Minivan Ejecutiva",
+        "desc": "Minivan ejecutiva con chófer para grupos pequeños, traslados VIP y desplazamientos corporativos con comodidad y privacidad.",
+        "passengers": "1 a 7 pasajeros",
+        "model": "Mercedes-Benz Vito o similar"
+      },
       "van-executiva": {
-        "title": "Executive Van",
-        "desc": "Furgoneta ejecutiva con conductor para grupos, traslado al aeropuerto, eventos corporativos y operaciones de alto rendimiento.",
-        "passengers": "De 8 a 15 pasajeros",
+        "title": "Van Ejecutiva",
+        "desc": "Van ejecutiva con chófer para grupos, transfer aeropuerto, eventos corporativos y operaciones de alto rendimiento.",
+        "passengers": "8 a 15 pasajeros",
         "model": "Mercedes-Benz Sprinter o similar"
       },
       "onibus-premium": {
         "title": "Autobús Premium",
-        "desc": "Autobús ejecutivo premium con conductor para congresos, delegaciones y operaciones de gran volumen.",
-        "passengers": "De 30 a 50 pasajeros",
+        "desc": "Autobús ejecutivo premium con chófer para congresos, delegaciones y operaciones de gran volumen.",
+        "passengers": "30 a 50 pasajeros",
         "model": "Marcopolo Paradiso o similar"
-      },
-      "frota-comitiva": {
-        "title": "Flota para Entourage",
-        "desc": "Combinación de todoterrenos, sedanes y furgonetas con conductores para el desplazamiento coordinado de séquitos y delegaciones.",
-        "passengers": "A la medida",
-        "model": "Coordenadas SUV + Sedán + Van"
       }
     }
   },

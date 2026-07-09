@@ -88,40 +88,40 @@
     "knowFleet": "Rencontrez Fleet",
     "items": {
       "sedan-executivo": {
-        "title": "Executive Sedan",
-        "desc": "Berline Executive avec chauffeur pour les réunions, les réceptions des clients, les horaires d'entreprise et les courses individuelles.",
+        "title": "Berline Exécutive",
+        "desc": "Berline exécutive avec chauffeur pour réunions, réceptions clients, agendas d'entreprise et déplacements individuels.",
         "passengers": "1 à 4 passagers",
-        "model": "Mercedes-Benz Classe E ou similaire"
+        "model": "Toyota Corolla ou similaire"
       },
-      "suv-premium": {
-        "title": "SUV premium",
-        "desc": "SUV de luxe avec chauffeur pour les cadres, les autorités et les trajets domicile-travail qui nécessitent plus de confort et d'espace.",
-        "passengers": "1 à 6 passagers",
-        "model": "Cadillac Escalade ou similaire"
+      "sedan-blindado": {
+        "title": "Berline Blindée",
+        "desc": "Berline blindée avec chauffeur pour les agendas nécessitant une haute sécurité avec discrétion et confort exécutif.",
+        "passengers": "1 à 4 passagers",
+        "model": "Mercedes-Benz Classe E Blindée ou similaire"
       },
-      "veiculo-blindado": {
-        "title": "Véhicule blindé",
-        "desc": "Véhicule de direction blindé avec chauffeur pour les agendas qui nécessitent une sécurité, une confidentialité et une protection élevées.",
+      "suv-blindado": {
+        "title": "SUV Blindé",
+        "desc": "SUV blindé avec chauffeur pour autorités, diplomates et dirigeants exigeant une protection maximale et une grande capacité.",
         "passengers": "1 à 4 passagers",
         "model": "Jeep Commander Blindé ou similaire"
       },
+      "minivan-executiva": {
+        "title": "Minivan Exécutif",
+        "desc": "Minivan exécutif avec chauffeur pour petits groupes, transferts VIP et déplacements d'entreprise avec confort et intimité.",
+        "passengers": "1 à 7 passagers",
+        "model": "Mercedes-Benz Vito ou similaire"
+      },
       "van-executiva": {
-        "title": "Van exécutif",
-        "desc": "Camionnette de fonction avec chauffeur pour les groupes, les transferts aéroport, les événements d'entreprise et les opérations de haute performance.",
+        "title": "Van Exécutif",
+        "desc": "Van exécutif avec chauffeur pour groupes, transferts aéroport, événements d'entreprise et opérations haute performance.",
         "passengers": "8 à 15 passagers",
         "model": "Mercedes-Benz Sprinter ou similaire"
       },
       "onibus-premium": {
-        "title": "Bus Premium",
-        "desc": "Autobus exécutif haut de gamme avec chauffeur pour les congrès, les délégations et les opérations à haut volume.",
+        "title": "Car Premium",
+        "desc": "Car exécutif premium avec chauffeur pour congrès, délégations et opérations à grand volume.",
         "passengers": "30 à 50 passagers",
         "model": "Marcopolo Paradiso ou similaire"
-      },
-      "frota-comitiva": {
-        "title": "Flotte pour Entourage",
-        "desc": "Combinaison de vus, de berlines et de fourgonnettes avec des chauffeurs pour des déplacements coordonnés des entourages et des délégations.",
-        "passengers": "Sur mesure",
-        "model": "Coordonnées SUV + Berline + Van"
       }
     }
   },
