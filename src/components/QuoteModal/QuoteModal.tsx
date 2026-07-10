@@ -203,7 +203,16 @@ export default function QuoteModal() {
 
     const firstName = data.fullName.trim().split(" ")[0] || "cliente";
 
-    return `<div style="background:#F4F2EC;padding:32px 16px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+    return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Nova solicitação de cotação — KMON VIP</title>
+</head>
+<body style="margin:0;padding:0;background:#F4F2EC;">
+<div style="background:#F4F2EC;padding:32px 16px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" style="max-width:560px;margin:0 auto;background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E8E6DC;">
     <tr>
       <td style="background:#0A0A0A;padding:24px 32px;">
@@ -214,7 +223,7 @@ export default function QuoteModal() {
       <td style="padding:32px;">
         <p style="margin:0 0 6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#BFB08A;">Nova solicitação de cotação</p>
         <h1 style="margin:0 0 24px;font-size:22px;font-weight:600;color:#0A0A0A;line-height:1.3;">${escapeHtml(data.fullName)}</h1>
-        <a href="${waLink(data.phone, firstName)}" style="display:inline-block;background:#25D366;color:#FFFFFF;text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14px;margin-bottom:28px;">💬&nbsp;&nbsp;Falar com ${escapeHtml(firstName)} no WhatsApp</a>
+        <a href="${waLink(data.phone, firstName)}" style="display:inline-block;background:#25D366;color:#FFFFFF;text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14px;margin-bottom:28px;">Falar com ${escapeHtml(firstName)} no WhatsApp</a>
         <table role="presentation" width="100%" style="border-collapse:collapse;margin-top:8px;">${rowsHtml}
         </table>
         ${
@@ -233,7 +242,9 @@ export default function QuoteModal() {
       </td>
     </tr>
   </table>
-</div>`;
+</div>
+</body>
+</html>`;
   };
 
   const handleSubmit = () => {
