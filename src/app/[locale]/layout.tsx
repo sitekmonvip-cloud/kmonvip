@@ -6,6 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 import "../globals.css";
 
 import { QuoteModalProvider, QuoteModal } from "@/components/QuoteModal";
+import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/seo/JsonLd";
 import { homeSchemas } from "@/components/seo/schemas";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/seo/constants";
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
             {children}
             <QuoteModal />
           </QuoteModalProvider>
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

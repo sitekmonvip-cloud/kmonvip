@@ -380,5 +380,9 @@
     "ja": "日本語",
     "fr": "Français",
     "de": "Deutsch"
+  },
+  "cookieConsent": {
+    "message": "サイトの正常な動作のため、必要なCookieを使用しています。",
+    "linkText": "詳細はこちら"
   }
 }

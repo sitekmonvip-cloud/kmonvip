@@ -380,5 +380,9 @@
     "ja": "日本語",
     "fr": "Français",
     "de": "Deutsch"
+  },
+  "cookieConsent": {
+    "message": "Usamos cookies esenciales para el funcionamiento del sitio.",
+    "linkText": "Saber más"
   }
 }

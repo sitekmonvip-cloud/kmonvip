@@ -380,5 +380,9 @@
     "ja": "日本語",
     "fr": "Français",
     "de": "Deutsch"
+  },
+  "cookieConsent": {
+    "message": "我们使用必要的Cookie以确保网站正常运行。",
+    "linkText": "了解更多"
   }
 }
