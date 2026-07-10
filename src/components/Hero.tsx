@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useQuoteModal } from "./QuoteModal";
@@ -11,7 +11,6 @@ export default function Hero() {
   const ts = useTranslations("stats");
   const { open: openQuote } = useQuoteModal();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoPlaying, setVideoPlaying] = useState(false);
 
   // Force autoplay on Chrome Windows (which often blocks autoplay attribute)
   useEffect(() => {
@@ -170,12 +169,8 @@ export default function Hero() {
             preload="auto"
             controls={false}
             disablePictureInPicture
-            onPlaying={() => setVideoPlaying(true)}
-            onPause={() => setVideoPlaying(false)}
-            onWaiting={() => setVideoPlaying(false)}
-            onStalled={() => setVideoPlaying(false)}
-            className="absolute top-0 inset-x-0 w-full h-auto object-contain pointer-events-none transition-opacity duration-500"
-            style={{ maxHeight: "78vh", background: videoPlaying ? "#FAF9F5" : "transparent", opacity: videoPlaying ? 1 : 0 }}
+            className="absolute top-0 inset-x-0 w-full h-auto object-contain pointer-events-none"
+            style={{ maxHeight: "78vh" }}
             aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
           >
             <source src="/videos/car-hero.mp4"  type="video/mp4" />
