@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useQuoteModal } from "./QuoteModalProvider";
@@ -72,6 +72,28 @@ export default function QuoteModal() {
   const [data, setData]   = useState<FormData>(initialData);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [hasMoreBelow, setHasMoreBelow] = useState(false);
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  // Show a "scroll for more" hint only while there's unseen content below
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (!el) return;
+
+    const check = () => {
+      setHasMoreBelow(el.scrollHeight - el.scrollTop - el.clientHeight > 12);
+    };
+
+    check();
+    el.addEventListener("scroll", check);
+    const ro = new ResizeObserver(check);
+    ro.observe(el);
+
+    return () => {
+      el.removeEventListener("scroll", check);
+      ro.disconnect();
+    };
+  }, [step, submitted]);
 
   // Reset on close
   useEffect(() => {
@@ -333,7 +355,7 @@ export default function QuoteModal() {
           )}
 
           {/* Body — scrollable */}
-          <div className="flex-1 overflow-y-auto px-6 py-6">
+          <div ref={bodyRef} className="flex-1 min-h-0 overflow-y-auto px-6 py-6">
             {submitted ? (
               <SuccessScreen
                 onWhatsApp={openWhatsApp}
@@ -346,6 +368,22 @@ export default function QuoteModal() {
             ) : (
               <Step3 data={data} set={set} errors={errors} />
             )}
+
+            {/* Subtle "scroll for more" hint — sticks to the bottom of the
+                scrollable viewport, only while there's unseen content below */}
+            <div
+              className={`pointer-events-none sticky bottom-0 left-0 right-0 -mb-6 flex justify-center pb-1.5 pt-6 transition-opacity duration-300 ${
+                hasMoreBelow ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                background: "linear-gradient(to bottom, transparent, var(--c-white) 65%)",
+              }}
+              aria-hidden="true"
+            >
+              <span className="text-[11px] text-ink-400">
+                ↓ Role para ver mais
+              </span>
+            </div>
           </div>
 
           {/* Footer buttons */}
