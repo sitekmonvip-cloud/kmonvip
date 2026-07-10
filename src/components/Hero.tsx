@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useQuoteModal } from "./QuoteModal";
 
@@ -10,6 +11,7 @@ export default function Hero() {
   const ts = useTranslations("stats");
   const { open: openQuote } = useQuoteModal();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   // Force autoplay on Chrome Windows (which often blocks autoplay attribute)
   useEffect(() => {
@@ -147,6 +149,19 @@ export default function Hero() {
           className="relative flex items-end justify-center w-full mt-8 md:mt-[-16vh] md:mb-[-6vh]"
           style={{ zIndex: 1 }}
         >
+          {/* Static image — guaranteed LCP candidate. Playing <video> is excluded
+              from LCP by Chrome, so this stays the real first paint; the video
+              fades in on top once it actually renders a frame. */}
+          <Image
+            src="/images/hero/mercedes-hero.webp"
+            alt="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
+            width={1024}
+            height={441}
+            priority
+            fetchPriority="high"
+            className="w-full h-auto object-contain"
+            style={{ maxHeight: "78vh", background: "#FAF9F5" }}
+          />
           <video
             ref={videoRef}
             poster="/images/hero/mercedes-hero.webp"
@@ -156,8 +171,9 @@ export default function Hero() {
             preload="auto"
             controls={false}
             disablePictureInPicture
-            className="w-full h-auto object-contain pointer-events-none"
-            style={{ maxHeight: "78vh", background: "#FAF9F5" }}
+            onPlaying={() => setVideoPlaying(true)}
+            className="absolute inset-0 w-full h-auto object-contain pointer-events-none transition-opacity duration-500"
+            style={{ maxHeight: "78vh", background: "#FAF9F5", opacity: videoPlaying ? 1 : 0 }}
             aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
           >
             <source src="/videos/car-hero.mp4"  type="video/mp4" />
