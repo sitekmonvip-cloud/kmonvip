@@ -8,6 +8,46 @@ import { useQuoteModal } from "./QuoteModalProvider";
 // ── Config ──────────────────────────────────────────────────────────
 const WHATSAPP_NUMBER = "5561998630303";
 
+// Dial codes for the phone field — Brazil first (primary market/default),
+// then grouped roughly by relevance to an executive/diplomatic clientele.
+const COUNTRY_CODES: { dial: string; flag: string; name: string }[] = [
+  { dial: "55",  flag: "🇧🇷", name: "Brasil" },
+  { dial: "1",   flag: "🇺🇸", name: "Estados Unidos" },
+  { dial: "1",   flag: "🇨🇦", name: "Canadá" },
+  { dial: "54",  flag: "🇦🇷", name: "Argentina" },
+  { dial: "56",  flag: "🇨🇱", name: "Chile" },
+  { dial: "598",  flag: "🇺🇾", name: "Uruguai" },
+  { dial: "595",  flag: "🇵🇾", name: "Paraguai" },
+  { dial: "51",  flag: "🇵🇪", name: "Peru" },
+  { dial: "57",  flag: "🇨🇴", name: "Colômbia" },
+  { dial: "58",  flag: "🇻🇪", name: "Venezuela" },
+  { dial: "593",  flag: "🇪🇨", name: "Equador" },
+  { dial: "591",  flag: "🇧🇴", name: "Bolívia" },
+  { dial: "52",  flag: "🇲🇽", name: "México" },
+  { dial: "351", flag: "🇵🇹", name: "Portugal" },
+  { dial: "34",  flag: "🇪🇸", name: "Espanha" },
+  { dial: "33",  flag: "🇫🇷", name: "França" },
+  { dial: "49",  flag: "🇩🇪", name: "Alemanha" },
+  { dial: "39",  flag: "🇮🇹", name: "Itália" },
+  { dial: "44",  flag: "🇬🇧", name: "Reino Unido" },
+  { dial: "41",  flag: "🇨🇭", name: "Suíça" },
+  { dial: "31",  flag: "🇳🇱", name: "Países Baixos" },
+  { dial: "32",  flag: "🇧🇪", name: "Bélgica" },
+  { dial: "351", flag: "🇮🇪", name: "Irlanda" },
+  { dial: "971", flag: "🇦🇪", name: "Emirados Árabes Unidos" },
+  { dial: "966", flag: "🇸🇦", name: "Arábia Saudita" },
+  { dial: "974", flag: "🇶🇦", name: "Catar" },
+  { dial: "972", flag: "🇮🇱", name: "Israel" },
+  { dial: "86",  flag: "🇨🇳", name: "China" },
+  { dial: "81",  flag: "🇯🇵", name: "Japão" },
+  { dial: "82",  flag: "🇰🇷", name: "Coreia do Sul" },
+  { dial: "91",  flag: "🇮🇳", name: "Índia" },
+  { dial: "65",  flag: "🇸🇬", name: "Singapura" },
+  { dial: "27",  flag: "🇿🇦", name: "África do Sul" },
+  { dial: "61",  flag: "🇦🇺", name: "Austrália" },
+  { dial: "64",  flag: "🇳🇿", name: "Nova Zelândia" },
+];
+
 // ── Types ───────────────────────────────────────────────────────────
 type Purpose = "empresa" | "trabalho" | "pessoa-fisica";
 
@@ -22,6 +62,7 @@ type FormData = {
   additionalInfo: string;
   fullName: string;
   email: string;
+  countryCode: string;
   phone: string;
   position: string;
   company: string;
@@ -38,6 +79,7 @@ const initialData: FormData = {
   additionalInfo: "",
   fullName: "",
   email: "",
+  countryCode: "55",
   phone: "",
   position: "",
   company: "",
@@ -182,7 +224,7 @@ export default function QuoteModal() {
       `*Dados de contato:*`,
       `Nome: ${data.fullName}`,
       `E-mail: ${data.email}`,
-      `Telefone: ${data.phone}`,
+      `Telefone: +${data.countryCode} ${data.phone}`,
       data.position ? `Cargo: ${data.position}` : "",
       data.company ? `Empresa: ${data.company}` : "",
     ]
@@ -207,7 +249,7 @@ export default function QuoteModal() {
       ["Modelo", data.vehicleModel],
       ["Nome", data.fullName],
       ["E-mail", data.email],
-      ["Telefone", `+55 ${data.phone}`],
+      ["Telefone", `+${data.countryCode} ${data.phone}`],
       ...(data.position ? ([["Cargo", data.position]] as [string, string][]) : []),
       ...(data.company ? ([["Empresa", data.company]] as [string, string][]) : []),
     ];
@@ -244,7 +286,7 @@ export default function QuoteModal() {
       <td style="padding:32px;">
         <p style="margin:0 0 6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#BFB08A;">Nova solicitação de cotação</p>
         <h1 style="margin:0 0 24px;font-size:22px;font-weight:600;color:#0A0A0A;line-height:1.3;">${escapeHtml(data.fullName)}</h1>
-        <a href="${waLink(data.phone, firstName)}" style="display:inline-block;background:#25D366;color:#FFFFFF;text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14px;margin-bottom:28px;">Falar com ${escapeHtml(firstName)} no WhatsApp</a>
+        <a href="${waLink(data.countryCode, data.phone, firstName)}" style="display:inline-block;background:#25D366;color:#FFFFFF;text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14px;margin-bottom:28px;">Falar com ${escapeHtml(firstName)} no WhatsApp</a>
         <table role="presentation" width="100%" style="border-collapse:collapse;margin-top:8px;">${rowsHtml}
         </table>
         ${
@@ -668,9 +710,18 @@ function Step3({
 
       <Field label={`${t("step3.phone")} *`} error={errors.phone}>
         <div className="flex gap-2">
-          <span className="inline-flex items-center px-3 py-3 rounded-lg border border-ink-200 bg-ink-50 text-sm font-medium text-ink-700 shrink-0">
-            🇧🇷 +55
-          </span>
+          <select
+            value={data.countryCode}
+            onChange={(e) => set("countryCode", e.target.value)}
+            aria-label={t("step3.countryCode")}
+            className="shrink-0 rounded-lg border border-ink-200 bg-ink-50 px-2 py-3 text-base text-ink-700 font-medium outline-none focus:border-ink-900 focus:ring-1 focus:ring-ink-900/10"
+          >
+            {COUNTRY_CODES.map((c, i) => (
+              <option key={`${c.dial}-${i}`} value={c.dial}>
+                {c.flag} +{c.dial}
+              </option>
+            ))}
+          </select>
           <input
             type="tel"
             value={data.phone}
@@ -794,10 +845,10 @@ function formatDateBR(iso: string) {
   return `${d}/${m}/${y}`;
 }
 
-function waLink(phone: string, firstName: string) {
+function waLink(countryCode: string, phone: string, firstName: string) {
   const digits = phone.replace(/\D/g, "");
   const greeting = encodeURIComponent(
     `Olá, ${firstName}! Recebemos sua solicitação de cotação na KMON VIP e gostaria de dar continuidade ao seu atendimento.`
   );
-  return `https://wa.me/55${digits}?text=${greeting}`;
+  return `https://wa.me/${countryCode}${digits}?text=${greeting}`;
 }

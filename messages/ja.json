@@ -358,6 +358,7 @@
       "email": "法人用メールアドレス",
       "placeholderEmail": "seu@empresa.com.br",
       "phone": "電話",
+      "countryCode": "国コード",
       "placeholderPhone": "(11) 91234-5678",
       "position": "役職",
       "placeholderPosition": "例：セキュリティマネージャー、エグゼクティブアシスタント...",

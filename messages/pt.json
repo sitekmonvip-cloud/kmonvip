@@ -358,6 +358,7 @@
       "email": "E-mail corporativo",
       "placeholderEmail": "seu@empresa.com.br",
       "phone": "Telefone",
+      "countryCode": "Código do país",
       "placeholderPhone": "(11) 91234-5678",
       "position": "Cargo",
       "placeholderPosition": "Ex: Gerente de Segurança, Assistente Executivo...",

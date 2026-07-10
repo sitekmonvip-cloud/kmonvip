@@ -358,6 +358,7 @@
       "email": "企业邮箱",
       "placeholderEmail": "seu@empresa.com.br",
       "phone": "电话",
+      "countryCode": "国家代码",
       "placeholderPhone": "(11) 91234-5678",
       "position": "职位",
       "placeholderPosition": "例如：安保经理、行政助理……",

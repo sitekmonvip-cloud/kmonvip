@@ -358,6 +358,7 @@
       "email": "E-mail de l'entreprise",
       "placeholderEmail": "seu@empresa.com.br",
       "phone": "Téléphone ",
+      "countryCode": "Indicatif du pays",
       "placeholderPhone": "(11) 91234-5678",
       "position": "Poste ",
       "placeholderPosition": "Ex : Responsable Sécurité, Assistante de Direction…",

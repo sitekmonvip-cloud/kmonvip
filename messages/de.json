@@ -358,6 +358,7 @@
       "email": "Firmen-E-Mail",
       "placeholderEmail": "seu@empresa.com.br",
       "phone": "Telefon",
+      "countryCode": "Ländervorwahl",
       "placeholderPhone": "(11) 91234-5678",
       "position": "Funktion",
       "placeholderPosition": "Beispiel: Sicherheitsmanager, Assistent der Geschäftsleitung...",

@@ -358,6 +358,7 @@
       "email": "Business email",
       "placeholderEmail": "seu@empresa.com.br",
       "phone": "Phone no.",
+      "countryCode": "Country code",
       "placeholderPhone": "(11) 91234-5678",
       "position": "Job Title",
       "placeholderPosition": "Ex: Security Manager, Executive Assistant...",
