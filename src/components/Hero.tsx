@@ -174,7 +174,7 @@ export default function Hero() {
             onPause={() => setVideoPlaying(false)}
             onWaiting={() => setVideoPlaying(false)}
             onStalled={() => setVideoPlaying(false)}
-            className="absolute inset-0 w-full h-auto object-contain pointer-events-none transition-opacity duration-500"
+            className="absolute top-0 inset-x-0 w-full h-auto object-contain pointer-events-none transition-opacity duration-500"
             style={{ maxHeight: "78vh", background: videoPlaying ? "#FAF9F5" : "transparent", opacity: videoPlaying ? 1 : 0 }}
             aria-label="Mercedes Classe E — KMON VIP Transporte Executivo Blindado"
           >
