@@ -41,9 +41,8 @@ export function orgSchema() {
       },
     ],
     sameAs: [
-      // TODO: add real social handles
-      // "https://www.linkedin.com/company/kmonvip",
-      // "https://www.instagram.com/kmonvip",
+      "https://www.instagram.com/kmonvip/",
+      "https://www.linkedin.com/company/kmonvip-transportes-executivo/",
     ],
     address: {
       "@type": "PostalAddress",
@@ -54,7 +53,7 @@ export function orgSchema() {
   };
 }
 
-// ─── WebSite (with SearchAction placeholder) ─────────────────────────
+// ─── WebSite ──────────────────────────────────────────────────────────
 export function websiteSchema() {
   return {
     "@context": "https://schema.org",
