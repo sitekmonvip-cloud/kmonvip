@@ -44,7 +44,7 @@
   --color-brand-champagne: var(--brand-champagne);
   --color-accent-green: var(--c-accent-green);
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 body {
