@@ -384,5 +384,96 @@
   "cookieConsent": {
     "message": "We use essential cookies for the site to work properly.",
     "linkText": "Learn more"
+  },
+  "diplomaticLanding": {
+    "meta": {
+      "title": "Diplomatic Transport for Embassies in Brazil",
+      "description": "English-speaking chauffeurs, armored vehicles and protocol-trained drivers for embassies, consulates and international executives across Brazil. 24/7 support, Brasília to São Paulo.",
+      "keywords": [
+        "diplomatic transport Brazil",
+        "embassy transportation Brazil",
+        "armored car service Brazil",
+        "executive chauffeur Brazil",
+        "VIP transport Brasília",
+        "international executive transport Brazil",
+        "protocol driver Brazil",
+        "English speaking driver Brazil",
+        "embassy car service Brasília",
+        "corporate transport Brazil for foreigners"
+      ]
+    },
+    "eyebrow": "FOR EMBASSIES & INTERNATIONAL EXECUTIVES",
+    "title": "Diplomatic & Executive Transport for Foreign Missions in Brazil",
+    "subtitle": "English-speaking chauffeurs, armored vehicles and protocol-trained drivers for embassies, consulates and international companies operating across Brazil — from official visits in Brasília to multi-city executive itineraries.",
+    "ctaLabel": "Request a Quote",
+    "breadcrumb": "Diplomatic Transport for Embassies",
+    "intro": "Relocating staff, hosting a delegation, or coordinating an official visit to Brazil comes with a layer of complexity that generic transport providers rarely understand: security vetting, protocol etiquette, language, and the logistics of moving between Brasília, São Paulo and Rio in the same week. KMON VIP has supported embassies, consulates and international executives operating in Brazil for over three decades, with English-speaking chauffeurs, armored options for higher-risk profiles, and a dispatch team available around the clock. Whether you're arranging transport for an ambassador's first week in the country or a multi-city executive tour, we handle the ground logistics so your team doesn't have to.",
+    "featuresHeading": "Built for foreign missions and international teams",
+    "features": [
+      {
+        "title": "English-speaking chauffeurs",
+        "desc": "Vetted, background-checked drivers fluent in English, briefed on diplomatic and corporate etiquette."
+      },
+      {
+        "title": "Armored vehicles on request",
+        "desc": "B6-certified armored sedans and SUVs for higher-risk profiles, official visits or high-exposure agendas."
+      },
+      {
+        "title": "Protocol-trained drivers",
+        "desc": "Experience with official convoys, embassy schedules and formal delegation movements."
+      },
+      {
+        "title": "Multi-city coverage",
+        "desc": "Brasília, São Paulo, Rio de Janeiro and other capitals — one point of contact for the whole itinerary."
+      },
+      {
+        "title": "Embassy & corporate billing",
+        "desc": "Monthly invoicing, purchase orders and billing in BRL or USD for embassies and international companies."
+      },
+      {
+        "title": "24/7 English-speaking dispatch",
+        "desc": "A team available around the clock for schedule changes, airport pickups and last-minute requests."
+      }
+    ],
+    "faqHeading": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "Do you provide English-speaking drivers for embassy staff and visiting delegations?",
+        "a": "Yes. All chauffeurs assigned to diplomatic and international corporate clients are fluent in English and briefed on protocol expectations before the assignment."
+      },
+      {
+        "q": "Can you arrange armored vehicles for official visits or higher-risk profiles?",
+        "a": "Yes, we operate B6-certified armored sedans and SUVs and can brief on security planning for official visits, high-profile executives or sensitive agendas."
+      },
+      {
+        "q": "Can you support a multi-city itinerary, such as Brasília followed by São Paulo in the same week?",
+        "a": "Yes. We coordinate multi-city itineraries with a single point of contact, so your delegation or executive team has consistent service across capitals."
+      },
+      {
+        "q": "How does billing work for embassies and foreign companies?",
+        "a": "We offer monthly invoicing, purchase-order billing and can invoice in BRL or USD, matching the procurement process most embassies and international companies already use."
+      },
+      {
+        "q": "How far in advance should we book for an official visit or delegation?",
+        "a": "For official visits or delegations of more than two vehicles, we recommend booking at least two weeks in advance. For single executive transfers, 48 hours is usually enough — and we do accommodate urgent requests when possible."
+      }
+    ],
+    "relatedHeading": "Related services",
+    "ctaTitle": "Planning a visit or relocation to Brazil?",
+    "ctaSubtitle": "Talk to our English-speaking team — we'll set up your transport plan before your first day in the country.",
+    "related": [
+      {
+        "title": "Diplomatic Transport",
+        "desc": "Full overview of our diplomatic and official transport service."
+      },
+      {
+        "title": "Armored Transport",
+        "desc": "B6-certified armored sedans and SUVs for high-security agendas."
+      },
+      {
+        "title": "Coverage in Brasília",
+        "desc": "Executive and diplomatic transport in the federal capital."
+      }
+    ]
   }
 }

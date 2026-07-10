@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 export type RelatedLink = {
@@ -11,9 +11,10 @@ export type RelatedLink = {
 type Props = {
   heading?: string;
   links: RelatedLink[];
+  linkLabel?: string;
 };
 
-export default function RelatedLinks({ heading = "Veja também", links }: Props) {
+export default function RelatedLinks({ heading = "Veja também", links, linkLabel = "Saiba mais" }: Props) {
   return (
     <section className="py-16 md:py-20" style={{ background: "var(--c-paper)" }}>
       <div className="mx-auto max-w-7xl px-5">
@@ -46,7 +47,7 @@ export default function RelatedLinks({ heading = "Veja também", links }: Props)
                   <p className="text-sm text-ink-500 leading-relaxed">{link.desc}</p>
                 )}
                 <span className="inline-flex items-center gap-1 mt-3 text-xs font-medium text-ink-900">
-                  Saiba mais
+                  {linkLabel}
                   <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                 </span>
               </div>

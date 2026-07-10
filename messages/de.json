@@ -384,5 +384,93 @@
   "cookieConsent": {
     "message": "Wir verwenden essenzielle Cookies für die Funktion der Website.",
     "linkText": "Mehr erfahren"
+  },
+  "diplomaticLanding": {
+    "meta": {
+      "title": "Diplomatischer Transport für Botschaften in Brasilien",
+      "description": "Englischsprachige Chauffeure, gepanzerte Fahrzeuge und protokollgeschultes Personal für Botschaften, Konsulate und internationale Führungskräfte in Brasilien. 24/7-Support, Brasília bis São Paulo.",
+      "keywords": [
+        "diplomatischer Transport Brasilien",
+        "Transport für Botschaften Brasilien",
+        "gepanzertes Auto für Botschaft",
+        "englischsprachiger Fahrer Brasília",
+        "internationaler Executive-Transport Brasilien",
+        "VIP-Transport für Diplomaten",
+        "Fahrer für ausländische Führungskräfte Brasilien"
+      ]
+    },
+    "eyebrow": "FÜR BOTSCHAFTEN UND INTERNATIONALE FÜHRUNGSKRÄFTE",
+    "title": "Diplomatischer und Executive-Transport für ausländische Vertretungen in Brasilien",
+    "subtitle": "Englischsprachige Chauffeure, gepanzerte Fahrzeuge und protokollgeschultes Personal für Botschaften, Konsulate und internationale Unternehmen in Brasilien — von offiziellen Besuchen in Brasília bis zu Executive-Reisen durch mehrere Städte.",
+    "ctaLabel": "Angebot Anfordern",
+    "breadcrumb": "Transport für Ausländische Botschaften",
+    "intro": "Die Versetzung von Personal, der Empfang einer Delegation oder die Koordination eines offiziellen Besuchs in Brasilien bringt eine Komplexität mit sich, die generische Transportanbieter selten verstehen: Sicherheitsprüfung, Protokoll, Sprache und die Logistik, sich innerhalb derselben Woche zwischen Brasília, São Paulo und Rio zu bewegen. Seit über drei Jahrzehnten unterstützt KMON VIP Botschaften, Konsulate und internationale Führungskräfte in Brasilien mit englischsprachigen Chauffeuren, gepanzerten Optionen für Profile mit höherem Risiko und einem rund um die Uhr verfügbaren Dispositionsteam. Ob es um die Organisation des Transports für die erste Woche eines Botschafters im Land oder eine mehrstädtige Executive-Tour geht — wir übernehmen die Bodenlogistik, damit Ihr Team es nicht muss.",
+    "featuresHeading": "Entwickelt für ausländische Vertretungen und internationale Teams",
+    "features": [
+      {
+        "title": "Englischsprachige Chauffeure",
+        "desc": "Geprüfte Fahrer mit Background-Check, fließend Englisch sprechend und geschult in diplomatischer und geschäftlicher Etikette."
+      },
+      {
+        "title": "Gepanzerte Fahrzeuge auf Anfrage",
+        "desc": "B6-zertifizierte gepanzerte Limousinen und SUVs für Profile mit höherem Risiko, offizielle Besuche oder sensible Termine."
+      },
+      {
+        "title": "Protokollgeschulte Fahrer",
+        "desc": "Erfahrung mit offiziellen Kolonnen, Botschaftsterminen und formellen Delegationsbewegungen."
+      },
+      {
+        "title": "Abdeckung mehrerer Städte",
+        "desc": "Brasília, São Paulo, Rio de Janeiro und andere Hauptstädte — ein Ansprechpartner für die gesamte Reiseroute."
+      },
+      {
+        "title": "Abrechnung für Botschaften und Unternehmen",
+        "desc": "Monatliche Rechnungsstellung, Bestellungen und Abrechnung in Real oder Dollar für Botschaften und internationale Unternehmen."
+      },
+      {
+        "title": "24/7-Disposition auf Englisch",
+        "desc": "Ein Team, das jederzeit für Terminänderungen, Flughafenabholungen und kurzfristige Anfragen zur Verfügung steht."
+      }
+    ],
+    "faqHeading": "Häufig Gestellte Fragen",
+    "faqs": [
+      {
+        "q": "Bieten Sie englischsprachige Fahrer für Botschaftspersonal und Besuchsdelegationen an?",
+        "a": "Ja. Alle Chauffeure, die diplomatischen und internationalen Unternehmenskunden zugewiesen werden, sprechen fließend Englisch und werden vor dem Einsatz über die Protokollerwartungen informiert."
+      },
+      {
+        "q": "Können Sie gepanzerte Fahrzeuge für offizielle Besuche oder Profile mit höherem Risiko organisieren?",
+        "a": "Ja, wir betreiben B6-zertifizierte gepanzerte Limousinen und SUVs und können bei der Sicherheitsplanung für offizielle Besuche, hochrangige Führungskräfte oder sensible Termine beraten."
+      },
+      {
+        "q": "Können Sie eine mehrstädtige Reiseroute unterstützen, z. B. Brasília gefolgt von São Paulo in derselben Woche?",
+        "a": "Ja. Wir koordinieren mehrstädtige Reiserouten mit einem einzigen Ansprechpartner, sodass Ihre Delegation oder Ihr Führungsteam über die Hauptstädte hinweg einen konsistenten Service erhält."
+      },
+      {
+        "q": "Wie funktioniert die Abrechnung für Botschaften und ausländische Unternehmen?",
+        "a": "Wir bieten monatliche Rechnungsstellung, Abrechnung per Bestellung und können in Real oder Dollar fakturieren — passend zum Beschaffungsprozess, den die meisten Botschaften und internationalen Unternehmen bereits nutzen."
+      },
+      {
+        "q": "Wie weit im Voraus sollten wir für einen offiziellen Besuch oder eine Delegation buchen?",
+        "a": "Für offizielle Besuche oder Delegationen mit mehr als zwei Fahrzeugen empfehlen wir eine Buchung mindestens zwei Wochen im Voraus. Für einzelne Executive-Transfers reichen in der Regel 48 Stunden — und wir berücksichtigen dringende Anfragen, wenn möglich."
+      }
+    ],
+    "relatedHeading": "Verwandte Leistungen",
+    "ctaTitle": "Planen Sie einen Besuch oder Umzug nach Brasilien?",
+    "ctaSubtitle": "Sprechen Sie mit unserem englischsprachigen Team — wir organisieren Ihren Transportplan vor Ihrem ersten Tag im Land.",
+    "related": [
+      {
+        "title": "Diplomatischer Transport",
+        "desc": "Vollständiger Überblick über unseren diplomatischen und offiziellen Transportservice."
+      },
+      {
+        "title": "Gepanzerter Transport",
+        "desc": "B6-zertifizierte gepanzerte Limousinen und SUVs für Hochsicherheitstermine."
+      },
+      {
+        "title": "Präsenz in Brasília",
+        "desc": "Executive- und diplomatischer Transport in der Bundeshauptstadt."
+      }
+    ]
   }
 }

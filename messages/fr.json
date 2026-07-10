@@ -384,5 +384,93 @@
   "cookieConsent": {
     "message": "Nous utilisons des cookies essentiels au bon fonctionnement du site.",
     "linkText": "En savoir plus"
+  },
+  "diplomaticLanding": {
+    "meta": {
+      "title": "Transport Diplomatique pour Ambassades au Brésil",
+      "description": "Chauffeurs anglophones, véhicules blindés et personnel formé au protocole pour ambassades, consulats et cadres internationaux au Brésil. Support 24h/24, Brasília à São Paulo.",
+      "keywords": [
+        "transport diplomatique Brésil",
+        "transport pour ambassades Brésil",
+        "voiture blindée pour ambassade",
+        "chauffeur anglophone Brasília",
+        "transport exécutif international Brésil",
+        "transport VIP pour diplomates",
+        "chauffeur pour cadres étrangers Brésil"
+      ]
+    },
+    "eyebrow": "POUR LES AMBASSADES ET CADRES INTERNATIONAUX",
+    "title": "Transport Diplomatique et Exécutif pour les Missions Étrangères au Brésil",
+    "subtitle": "Chauffeurs anglophones, véhicules blindés et personnel formé au protocole pour les ambassades, consulats et entreprises internationales opérant au Brésil — des visites officielles à Brasília aux itinéraires exécutifs multi-villes.",
+    "ctaLabel": "Demander un Devis",
+    "breadcrumb": "Transport pour Ambassades Étrangères",
+    "intro": "Transférer du personnel, accueillir une délégation ou coordonner une visite officielle au Brésil implique une complexité que les prestataires de transport génériques comprennent rarement : vérification de sécurité, protocole, langue et logistique des déplacements entre Brasília, São Paulo et Rio dans la même semaine. Depuis plus de trois décennies, KMON VIP accompagne les ambassades, consulats et cadres internationaux opérant au Brésil, avec des chauffeurs anglophones, une option blindée pour les profils à exposition plus élevée et une équipe de répartition disponible 24h/24. Qu'il s'agisse d'organiser le transport de la première semaine d'un ambassadeur dans le pays ou une tournée exécutive multi-villes, nous gérons la logistique terrestre pour que votre équipe n'ait pas à le faire.",
+    "featuresHeading": "Conçu pour les missions étrangères et les équipes internationales",
+    "features": [
+      {
+        "title": "Chauffeurs anglophones",
+        "desc": "Chauffeurs vérifiés, avec contrôle des antécédents, parlant couramment anglais et formés à l'étiquette diplomatique et corporative."
+      },
+      {
+        "title": "Véhicules blindés sur demande",
+        "desc": "Berlines et SUV blindés niveau B6 pour les profils à exposition plus élevée, visites officielles ou agendas sensibles."
+      },
+      {
+        "title": "Chauffeurs formés au protocole",
+        "desc": "Expérience des cortèges officiels, des agendas d'ambassade et des déplacements formels de délégations."
+      },
+      {
+        "title": "Couverture multi-villes",
+        "desc": "Brasília, São Paulo, Rio de Janeiro et autres capitales — un seul point de contact pour tout l'itinéraire."
+      },
+      {
+        "title": "Facturation pour ambassades et entreprises",
+        "desc": "Facturation mensuelle, bons de commande et facturation en reais ou en dollars pour les ambassades et entreprises internationales."
+      },
+      {
+        "title": "Répartition 24h/24 en anglais",
+        "desc": "Équipe disponible à tout moment pour les changements d'horaire, les prises en charge à l'aéroport et les demandes de dernière minute."
+      }
+    ],
+    "faqHeading": "Questions Fréquentes",
+    "faqs": [
+      {
+        "q": "Proposez-vous des chauffeurs anglophones pour le personnel d'ambassade et les délégations en visite ?",
+        "a": "Oui. Tous les chauffeurs affectés aux clients diplomatiques et corporatifs internationaux parlent couramment anglais et sont informés des attentes en matière de protocole avant la mission."
+      },
+      {
+        "q": "Pouvez-vous organiser des véhicules blindés pour des visites officielles ou des profils à risque plus élevé ?",
+        "a": "Oui, nous exploitons des berlines et SUV blindés niveau B6 et pouvons conseiller sur la planification de sécurité pour les visites officielles, cadres de haut profil ou agendas sensibles."
+      },
+      {
+        "q": "Pouvez-vous gérer un itinéraire multi-villes, comme Brasília suivi de São Paulo la même semaine ?",
+        "a": "Oui. Nous coordonnons les itinéraires multi-villes avec un seul point de contact, garantissant un service cohérent pour votre délégation ou équipe exécutive entre les capitales."
+      },
+      {
+        "q": "Comment fonctionne la facturation pour les ambassades et entreprises étrangères ?",
+        "a": "Nous proposons une facturation mensuelle, une facturation par bon de commande et pouvons facturer en reais ou en dollars, conformément au processus d'achat déjà utilisé par la plupart des ambassades et entreprises internationales."
+      },
+      {
+        "q": "Combien de temps à l'avance devons-nous réserver pour une visite officielle ou une délégation ?",
+        "a": "Pour les visites officielles ou délégations de plus de deux véhicules, nous recommandons de réserver au moins deux semaines à l'avance. Pour les transferts exécutifs individuels, 48 heures suffisent généralement — et nous répondons aux demandes urgentes dans la mesure du possible."
+      }
+    ],
+    "relatedHeading": "Services connexes",
+    "ctaTitle": "Vous planifiez une visite ou une relocalisation au Brésil ?",
+    "ctaSubtitle": "Parlez à notre équipe anglophone — nous organiserons votre plan de transport avant votre premier jour dans le pays.",
+    "related": [
+      {
+        "title": "Transport Diplomatique",
+        "desc": "Vue d'ensemble de notre service de transport diplomatique et officiel."
+      },
+      {
+        "title": "Transport Blindé",
+        "desc": "Berlines et SUV blindés niveau B6 pour agendas de haute sécurité."
+      },
+      {
+        "title": "Présence à Brasília",
+        "desc": "Transport exécutif et diplomatique dans la capitale fédérale."
+      }
+    ]
   }
 }

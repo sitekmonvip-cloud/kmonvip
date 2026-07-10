@@ -45,6 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     ...crossPages.flatMap((p) => entry(`/servicos/${p.serviceSlug}/${p.citySlug}`, 0.7)),
 
+    ...entry("/diplomatic-transport-brazil", 0.8),
+
     ...entry("/sobre", 0.6, "yearly"),
     ...entry("/sobre/historia", 0.6, "yearly"),
     ...entry("/clientes", 0.6),

@@ -384,5 +384,93 @@
   "cookieConsent": {
     "message": "Usamos cookies esenciales para el funcionamiento del sitio.",
     "linkText": "Saber más"
+  },
+  "diplomaticLanding": {
+    "meta": {
+      "title": "Transporte Diplomático para Embajadas en Brasil",
+      "description": "Choferes bilingües, vehículos blindados y personal capacitado en protocolo para embajadas, consulados y ejecutivos internacionales en Brasil. Soporte 24h, Brasilia a São Paulo.",
+      "keywords": [
+        "transporte diplomático Brasil",
+        "transporte para embajadas Brasil",
+        "auto blindado para embajada",
+        "chofer bilingüe Brasilia",
+        "transporte ejecutivo internacional Brasil",
+        "transporte VIP para diplomáticos",
+        "chofer para ejecutivos extranjeros Brasil"
+      ]
+    },
+    "eyebrow": "PARA EMBAJADAS Y EJECUTIVOS INTERNACIONALES",
+    "title": "Transporte Diplomático y Ejecutivo para Misiones Extranjeras en Brasil",
+    "subtitle": "Choferes bilingües, vehículos blindados y personal capacitado en protocolo para embajadas, consulados y empresas internacionales que operan en Brasil — desde visitas oficiales en Brasilia hasta itinerarios ejecutivos multi-ciudad.",
+    "ctaLabel": "Solicitar Cotización",
+    "breadcrumb": "Transporte para Embajadas Extranjeras",
+    "intro": "Trasladar personal, recibir una delegación o coordinar una visita oficial a Brasil conlleva una complejidad que los proveedores de transporte genéricos rara vez comprenden: verificación de seguridad, protocolo, idioma y la logística de desplazarse entre Brasilia, São Paulo y Río en la misma semana. Desde hace más de tres décadas, KMON VIP atiende a embajadas, consulados y ejecutivos internacionales que operan en Brasil, con choferes bilingües, opción de blindaje para perfiles de mayor exposición y un equipo de despacho disponible las 24 horas. Ya sea para organizar el transporte de la primera semana de un embajador en el país o un recorrido ejecutivo multi-ciudad, nos encargamos de la logística terrestre para que su equipo no tenga que hacerlo.",
+    "featuresHeading": "Pensado para misiones extranjeras y equipos internacionales",
+    "features": [
+      {
+        "title": "Choferes bilingües",
+        "desc": "Conductores verificados, con antecedentes revisados, fluidos en inglés y capacitados en etiqueta diplomática y corporativa."
+      },
+      {
+        "title": "Vehículos blindados bajo pedido",
+        "desc": "Sedanes y SUV blindados nivel B6 para perfiles de mayor exposición, visitas oficiales o agendas sensibles."
+      },
+      {
+        "title": "Choferes capacitados en protocolo",
+        "desc": "Experiencia con comitivas oficiales, agendas de embajadas y desplazamientos formales de delegaciones."
+      },
+      {
+        "title": "Cobertura multi-ciudad",
+        "desc": "Brasilia, São Paulo, Río de Janeiro y otras capitales — un único punto de contacto para todo el itinerario."
+      },
+      {
+        "title": "Facturación para embajadas y empresas",
+        "desc": "Facturación mensual, órdenes de compra y cobro en reales o dólares para embajadas y empresas internacionales."
+      },
+      {
+        "title": "Despacho 24h en inglés",
+        "desc": "Equipo disponible en todo momento para cambios de agenda, recogidas en el aeropuerto y solicitudes de último minuto."
+      }
+    ],
+    "faqHeading": "Preguntas Frecuentes",
+    "faqs": [
+      {
+        "q": "¿Ofrecen choferes que hablan inglés para personal de embajada y delegaciones visitantes?",
+        "a": "Sí. Todos los choferes asignados a clientes diplomáticos y corporativos internacionales son fluidos en inglés y reciben información sobre las expectativas de protocolo antes del servicio."
+      },
+      {
+        "q": "¿Pueden coordinar vehículos blindados para visitas oficiales o perfiles de mayor riesgo?",
+        "a": "Sí, operamos sedanes y SUV blindados nivel B6 y podemos asesorar en la planificación de seguridad para visitas oficiales, ejecutivos de alto perfil o agendas sensibles."
+      },
+      {
+        "q": "¿Pueden atender un itinerario multi-ciudad, como Brasilia seguido de São Paulo en la misma semana?",
+        "a": "Sí. Coordinamos itinerarios multi-ciudad con un único punto de contacto, garantizando un servicio consistente para su delegación o equipo ejecutivo entre capitales."
+      },
+      {
+        "q": "¿Cómo funciona la facturación para embajadas y empresas extranjeras?",
+        "a": "Ofrecemos facturación mensual, cobro mediante orden de compra y emisión en reales o dólares, alineado con el proceso de compras que la mayoría de las embajadas y empresas internacionales ya utiliza."
+      },
+      {
+        "q": "¿Con cuánta anticipación debemos reservar para una visita oficial o delegación?",
+        "a": "Para visitas oficiales o delegaciones con más de dos vehículos, recomendamos reservar con al menos dos semanas de anticipación. Para traslados ejecutivos individuales, 48 horas suele ser suficiente, y atendemos solicitudes urgentes cuando es posible."
+      }
+    ],
+    "relatedHeading": "Servicios relacionados",
+    "ctaTitle": "¿Planeando una visita o traslado a Brasil?",
+    "ctaSubtitle": "Hable con nuestro equipo bilingüe: organizamos su plan de transporte antes de su primer día en el país.",
+    "related": [
+      {
+        "title": "Transporte Diplomático",
+        "desc": "Visión completa de nuestro servicio de transporte diplomático y oficial."
+      },
+      {
+        "title": "Transporte Blindado",
+        "desc": "Sedanes y SUV blindados nivel B6 para agendas de alta seguridad."
+      },
+      {
+        "title": "Cobertura en Brasilia",
+        "desc": "Transporte ejecutivo y diplomático en la capital federal."
+      }
+    ]
   }
 }

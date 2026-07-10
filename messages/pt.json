@@ -384,5 +384,93 @@
   "cookieConsent": {
     "message": "Usamos cookies essenciais para o funcionamento do site.",
     "linkText": "Saiba mais"
+  },
+  "diplomaticLanding": {
+    "meta": {
+      "title": "Transporte Diplomático para Embaixadas Estrangeiras no Brasil",
+      "description": "Motoristas bilíngues, veículos blindados e equipe treinada em protocolo para embaixadas, consulados e executivos internacionais no Brasil. Suporte 24h, Brasília a São Paulo.",
+      "keywords": [
+        "transporte para embaixadas estrangeiras",
+        "transporte diplomático Brasil",
+        "carro blindado para embaixada",
+        "motorista bilíngue Brasília",
+        "transporte executivo internacional Brasil",
+        "transporte VIP para diplomatas estrangeiros",
+        "chauffeur para executivos estrangeiros Brasil"
+      ]
+    },
+    "eyebrow": "PARA EMBAIXADAS E EXECUTIVOS INTERNACIONAIS",
+    "title": "Transporte Diplomático e Executivo para Missões Estrangeiras no Brasil",
+    "subtitle": "Motoristas bilíngues, veículos blindados e equipe treinada em protocolo para embaixadas, consulados e empresas internacionais operando no Brasil — de visitas oficiais em Brasília a roteiros executivos multi-cidade.",
+    "ctaLabel": "Solicitar Cotação",
+    "breadcrumb": "Transporte para Embaixadas Estrangeiras",
+    "intro": "Transferir equipe, receber uma delegação ou coordenar uma visita oficial ao Brasil traz uma camada de complexidade que fornecedores genéricos de transporte raramente entendem: verificação de segurança, protocolo, idioma e a logística de se deslocar entre Brasília, São Paulo e Rio na mesma semana. Há mais de três décadas a KMON VIP atende embaixadas, consulados e executivos internacionais em operação no Brasil, com motoristas bilíngues, opção de blindagem para perfis de maior exposição e equipe de despacho disponível 24 horas. Seja para organizar o transporte da primeira semana de um embaixador no país ou um roteiro executivo multi-cidade, cuidamos da logística terrestre para que sua equipe não precise.",
+    "featuresHeading": "Pensado para missões estrangeiras e equipes internacionais",
+    "features": [
+      {
+        "title": "Motoristas bilíngues",
+        "desc": "Motoristas verificados, com checagem de antecedentes, fluentes em inglês e orientados sobre etiqueta diplomática e corporativa."
+      },
+      {
+        "title": "Veículos blindados sob demanda",
+        "desc": "Sedans e SUVs blindados nível B6 para perfis de maior exposição, visitas oficiais ou agendas sensíveis."
+      },
+      {
+        "title": "Motoristas treinados em protocolo",
+        "desc": "Experiência com comitivas oficiais, agendas de embaixadas e deslocamentos formais de delegações."
+      },
+      {
+        "title": "Cobertura multi-cidade",
+        "desc": "Brasília, São Paulo, Rio de Janeiro e outras capitais — um único ponto de contato para todo o roteiro."
+      },
+      {
+        "title": "Faturamento para embaixadas e empresas",
+        "desc": "Faturamento mensal, ordens de compra e cobrança em real ou dólar para embaixadas e empresas internacionais."
+      },
+      {
+        "title": "Despacho 24h em inglês",
+        "desc": "Equipe disponível a qualquer hora para mudanças de agenda, buscas no aeroporto e solicitações de última hora."
+      }
+    ],
+    "faqHeading": "Perguntas Frequentes",
+    "faqs": [
+      {
+        "q": "Vocês oferecem motoristas que falam inglês para equipe de embaixada e delegações visitantes?",
+        "a": "Sim. Todos os motoristas designados para clientes diplomáticos e corporativos internacionais são fluentes em inglês e orientados sobre expectativas de protocolo antes do atendimento."
+      },
+      {
+        "q": "É possível providenciar veículos blindados para visitas oficiais ou perfis de maior risco?",
+        "a": "Sim, operamos sedans e SUVs blindados nível B6 e podemos orientar o planejamento de segurança para visitas oficiais, executivos de alto perfil ou agendas sensíveis."
+      },
+      {
+        "q": "Conseguem atender um roteiro multi-cidade, como Brasília seguido de São Paulo na mesma semana?",
+        "a": "Sim. Coordenamos roteiros multi-cidade com um único ponto de contato, garantindo atendimento consistente para sua delegação ou equipe executiva entre capitais."
+      },
+      {
+        "q": "Como funciona o faturamento para embaixadas e empresas estrangeiras?",
+        "a": "Oferecemos faturamento mensal, cobrança via ordem de compra e emissão em real ou dólar, alinhado ao processo de compras que a maioria das embaixadas e empresas internacionais já utiliza."
+      },
+      {
+        "q": "Com quanto tempo de antecedência devemos reservar para uma visita oficial ou delegação?",
+        "a": "Para visitas oficiais ou delegações com mais de dois veículos, recomendamos reservar com pelo menos duas semanas de antecedência. Para transfers executivos individuais, 48 horas costuma ser suficiente — e atendemos solicitações urgentes sempre que possível."
+      }
+    ],
+    "relatedHeading": "Serviços relacionados",
+    "ctaTitle": "Planejando uma visita ou transferência para o Brasil?",
+    "ctaSubtitle": "Fale com nossa equipe bilíngue — organizamos seu plano de transporte antes do seu primeiro dia no país.",
+    "related": [
+      {
+        "title": "Transporte Diplomático",
+        "desc": "Visão completa do nosso serviço de transporte diplomático e oficial."
+      },
+      {
+        "title": "Transporte Blindado",
+        "desc": "Sedans e SUVs blindados nível B6 para agendas de alta segurança."
+      },
+      {
+        "title": "Atuação em Brasília",
+        "desc": "Transporte executivo e diplomático na capital federal."
+      }
+    ]
   }
 }
