@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "ブラジルでナンバーワン",
-    "title": "エグゼクティブ向け防弾輸送",
+    "titlePart1": "エグゼクティブ向け",
+    "titleEm": "防弾",
+    "titlePart2": "輸送",
     "subtitle": "裁量。正確さ。プロトコル。"
   },
   "stats": {

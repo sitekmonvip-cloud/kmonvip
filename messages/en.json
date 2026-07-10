@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "The Number 1 in Brazil in",
-    "title": "Armored Executive Transport",
+    "titlePart1": "",
+    "titleEm": "Armored",
+    "titlePart2": " Executive Transport",
     "subtitle": "Discretion. Accuracy. Protocol."
   },
   "stats": {

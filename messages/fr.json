@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "Le numéro 1 au Brésil en",
-    "title": "Transport Exécutif Blindé",
+    "titlePart1": "Transport Exécutif ",
+    "titleEm": "Blindé",
+    "titlePart2": "",
     "subtitle": "Discrétion. Précision. Protocole."
   },
   "stats": {

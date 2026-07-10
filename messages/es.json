@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "El número 1 en Brasil en",
-    "title": "Transporte ejecutivo blindado",
+    "titlePart1": "Transporte ejecutivo ",
+    "titleEm": "blindado",
+    "titlePart2": "",
     "subtitle": "Discreción. Precisión. Protocolo."
   },
   "stats": {

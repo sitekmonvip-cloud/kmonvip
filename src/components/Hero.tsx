@@ -101,7 +101,14 @@ export default function Hero() {
             className="max-w-4xl text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05]"
             style={{ color: "var(--c-ink-900)", letterSpacing: "-0.03em" }}
           >
-            {t("title")}
+            {t("titlePart1")}
+            <em
+              className="font-normal not-italic"
+              style={{ fontFamily: "Georgia, serif", fontStyle: "italic", color: "var(--brand-champagne-dark)" }}
+            >
+              {t("titleEm")}
+            </em>
+            {t("titlePart2")}
           </h1>
 
           {/* champagne rule */}

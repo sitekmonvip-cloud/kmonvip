@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "Die Nummer 1 in Brasilien in",
-    "title": "Gepanzerter Executive-Transport",
+    "titlePart1": "",
+    "titleEm": "Gepanzerter",
+    "titlePart2": " Executive-Transport",
     "subtitle": "Diskretion. Genauigkeit. Protokoll."
   },
   "stats": {

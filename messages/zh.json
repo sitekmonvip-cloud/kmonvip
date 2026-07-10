@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "巴西排名第一的国家",
-    "title": "装甲行政运输",
+    "titlePart1": "",
+    "titleEm": "装甲",
+    "titlePart2": "行政运输",
     "subtitle": "谨慎。准确。规程。"
   },
   "stats": {

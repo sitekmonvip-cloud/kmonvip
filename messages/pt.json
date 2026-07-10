@@ -29,7 +29,9 @@
   },
   "hero": {
     "eyebrow": "A Número 1 do Brasil em",
-    "title": "Transporte Executivo Blindado",
+    "titlePart1": "Transporte Executivo ",
+    "titleEm": "Blindado",
+    "titlePart2": "",
     "subtitle": "Discrição. Precisão. Protocolo."
   },
   "stats": {
