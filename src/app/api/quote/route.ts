@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const TO_EMAIL = process.env.LEAD_NOTIFY_EMAIL || "sitekmonvip@gmail.com";
-const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || "KMON VIP <onboarding@resend.dev>";
+const TO_EMAIL = process.env.LEAD_NOTIFY_EMAIL || "contato@kmonvip.com";
+const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || "KMON VIP <naoresponda@kmonvip.com>";
 
 export async function POST(req: Request) {
   const apiKey = process.env.RESEND_API_KEY;
