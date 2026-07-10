@@ -11,16 +11,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Email service not configured" }, { status: 500 });
   }
 
-  let payload: { message?: string; fullName?: string; email?: string };
+  let payload: { html?: string; text?: string; fullName?: string; email?: string };
   try {
     payload = await req.json();
   } catch {
     return NextResponse.json({ ok: false, error: "Invalid request body" }, { status: 400 });
   }
 
-  const { message, fullName, email } = payload;
-  if (!message || typeof message !== "string") {
-    return NextResponse.json({ ok: false, error: "Missing message" }, { status: 400 });
+  const { html, text, fullName, email } = payload;
+  if (!html && !text) {
+    return NextResponse.json({ ok: false, error: "Missing email content" }, { status: 400 });
   }
 
   const resend = new Resend(apiKey);
@@ -29,7 +29,8 @@ export async function POST(req: Request) {
     to: TO_EMAIL,
     replyTo: email && typeof email === "string" ? email : undefined,
     subject: `Nova solicitação de cotação — ${fullName || "Site KMON VIP"}`,
-    text: message,
+    html: html || undefined,
+    text: text || html!.replace(/<[^>]+>/g, " "),
   });
 
   if (error) {

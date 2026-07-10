@@ -169,6 +169,73 @@ export default function QuoteModal() {
       .join("\n");
   };
 
+  const buildEmailHtml = () => {
+    const purposeLabel = {
+      "empresa": "Empresa / Empresário",
+      "trabalho": "Oportunidade de trabalho",
+      "pessoa-fisica": "Pessoa Física",
+    }[data.purpose as Purpose] || "—";
+
+    const rows: [string, string][] = [
+      ["Categoria", purposeLabel],
+      ["Serviço", data.serviceType],
+      ["Início", formatDateBR(data.startDate)],
+      ...(data.endDate ? ([["Término", formatDateBR(data.endDate)]] as [string, string][]) : []),
+      ["Motorista bilíngue", data.bilingualDriver ? "Sim" : "Não"],
+      ["Tipo de veículo", data.vehicleProtection === "blindado" ? "Blindado" : "Convencional"],
+      ["Modelo", data.vehicleModel],
+      ["Nome", data.fullName],
+      ["E-mail", data.email],
+      ["Telefone", `+55 ${data.phone}`],
+      ...(data.position ? ([["Cargo", data.position]] as [string, string][]) : []),
+      ...(data.company ? ([["Empresa", data.company]] as [string, string][]) : []),
+    ];
+
+    const rowsHtml = rows
+      .map(
+        ([label, value]) => `
+        <tr>
+          <td style="padding:10px 16px 10px 0;border-bottom:1px solid #E8E6DC;color:#6B6B66;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;vertical-align:top;">${escapeHtml(label)}</td>
+          <td style="padding:10px 0;border-bottom:1px solid #E8E6DC;color:#0A0A0A;font-size:14px;font-weight:500;">${escapeHtml(value)}</td>
+        </tr>`
+      )
+      .join("");
+
+    const firstName = data.fullName.trim().split(" ")[0] || "cliente";
+
+    return `<div style="background:#F4F2EC;padding:32px 16px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" style="max-width:560px;margin:0 auto;background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #E8E6DC;">
+    <tr>
+      <td style="background:#0A0A0A;padding:24px 32px;">
+        <span style="color:#FFFFFF;font-size:20px;font-weight:700;letter-spacing:0.02em;">KMON <span style="color:#BFB08A;">VIP</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:32px;">
+        <p style="margin:0 0 6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#BFB08A;">Nova solicitação de cotação</p>
+        <h1 style="margin:0 0 24px;font-size:22px;font-weight:600;color:#0A0A0A;line-height:1.3;">${escapeHtml(data.fullName)}</h1>
+        <a href="${waLink(data.phone, firstName)}" style="display:inline-block;background:#25D366;color:#FFFFFF;text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14px;margin-bottom:28px;">💬&nbsp;&nbsp;Falar com ${escapeHtml(firstName)} no WhatsApp</a>
+        <table role="presentation" width="100%" style="border-collapse:collapse;margin-top:8px;">${rowsHtml}
+        </table>
+        ${
+          data.additionalInfo
+            ? `<div style="margin-top:24px;">
+          <p style="margin:0 0 6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#6B6B66;">Informações adicionais</p>
+          <p style="margin:0;font-size:14px;color:#2A2A28;line-height:1.6;white-space:pre-wrap;">${escapeHtml(data.additionalInfo)}</p>
+        </div>`
+            : ""
+        }
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:18px 32px;background:#F4F2EC;text-align:center;">
+        <span style="font-size:11px;color:#B0AEA5;">Lead recebido via site KMON VIP</span>
+      </td>
+    </tr>
+  </table>
+</div>`;
+  };
+
   const handleSubmit = () => {
     if (!validateStep(3)) return;
 
@@ -176,7 +243,8 @@ export default function QuoteModal() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        message: buildMessage(),
+        html: buildEmailHtml(),
+        text: buildMessage(),
         fullName: data.fullName,
         email: data.email,
       }),
@@ -675,4 +743,27 @@ function inputCls(hasError: boolean) {
   return `w-full px-4 py-3 rounded-lg border bg-white text-base text-ink-900 placeholder:text-ink-300 outline-none transition-colors focus:border-ink-900 focus:ring-1 focus:ring-ink-900/10 ${
     hasError ? "border-red-500" : "border-ink-200"
   }`;
+}
+
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function formatDateBR(iso: string) {
+  if (!iso) return "—";
+  const [y, m, d] = iso.split("-");
+  return `${d}/${m}/${y}`;
+}
+
+function waLink(phone: string, firstName: string) {
+  const digits = phone.replace(/\D/g, "");
+  const greeting = encodeURIComponent(
+    `Olá, ${firstName}! Recebemos sua solicitação de cotação na KMON VIP e gostaria de dar continuidade ao seu atendimento.`
+  );
+  return `https://wa.me/55${digits}?text=${greeting}`;
 }
