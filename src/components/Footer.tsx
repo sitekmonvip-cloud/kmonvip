@@ -129,10 +129,10 @@ export default function Footer() {
                   {t("email")}
                 </span>
                 <a
-                  href="mailto:contato@kmonvip.com.br"
+                  href="mailto:contato@kmonvip.com"
                   className="hover:text-white transition-colors"
                 >
-                  contato@kmonvip.com.br
+                  contato@kmonvip.com
                 </a>
               </li>
               <li className="text-sm text-white/60">

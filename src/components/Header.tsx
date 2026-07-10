@@ -258,7 +258,7 @@ export default function Header() {
             {tCommon("requestQuote")}
           </button>
           <p className="mt-4 text-xs text-center text-white/40">
-            Atendimento 24h · contato@kmonvip.com.br
+            Atendimento 24h · contato@kmonvip.com
           </p>
         </div>
       </aside>
