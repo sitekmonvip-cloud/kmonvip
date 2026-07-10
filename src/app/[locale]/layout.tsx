@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     images: [DEFAULT_OG_IMAGE],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/favicon.svg" },
+  verification: { google: "EgswlTuyhrqkUXM3NlcmfA1KFJZ7Khe7uEFWJkxNdg8" },
 };
 
 // HTML lang attribute per locale
