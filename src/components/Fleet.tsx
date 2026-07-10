@@ -6,10 +6,10 @@ import { Link } from "@/i18n/navigation";
 import { useQuoteModal } from "./QuoteModal";
 
 const categories = [
-  { slug: "sedan-executivo",   image: "/images/fleet/corola-sedan-executivo.jpg", bgWhite: true },
-  { slug: "sedan-blindado",    image: "/images/fleet/classe-e.png",               bgWhite: true },
+  { slug: "sedan-executivo",   image: "/images/fleet/corola-sedan-executivo.webp", bgWhite: true },
+  { slug: "sedan-blindado",    image: "/images/fleet/classe-e.webp",               bgWhite: true },
   { slug: "suv-blindado",      image: "/images/fleet/suv-commander.webp",         bgWhite: true },
-  { slug: "minivan-executiva", image: "/images/fleet/mini-van-vito.jpg",          bgWhite: false },
+  { slug: "minivan-executiva", image: "/images/fleet/mini-van-vito.webp",          bgWhite: false },
   { slug: "van-executiva",     image: "/images/fleet/sprinter.webp",              bgWhite: false },
   { slug: "onibus-premium",    image: "/images/fleet/onibus-executivo.webp",      bgWhite: false },
 ];

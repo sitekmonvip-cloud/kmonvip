@@ -2,7 +2,7 @@
 export const SITE_URL = "https://kmonvip.com";
 export const SITE_NAME = "KMON VIP";
 export const SITE_TAGLINE = "Transporte Executivo, Blindado e Diplomático";
-export const DEFAULT_OG_IMAGE = "/images/hero/mercedes-hero.png";
+export const DEFAULT_OG_IMAGE = "/images/hero/mercedes-hero.webp";
 
 export const BRAND_FOUNDED = "1990"; // TODO: confirm with client
 export const BRAND_PHONE = "+55-61-99863-0303";
@@ -76,7 +76,7 @@ export const services: Service[] = [
         a: "Atendemos em Brasília (sede), São Paulo, Rio de Janeiro, Belo Horizonte, Manaus e Belém. Outras cidades sob consulta.",
       },
     ],
-    image: "/images/services/transporte-executivo.png",
+    image: "/images/services/transporte-executivo.webp",
   },
   {
     slug: "transporte-blindado",
@@ -131,7 +131,7 @@ export const services: Service[] = [
         a: "Disponível em Brasília, São Paulo e Rio de Janeiro com frota local. Demais capitais sob consulta com mobilização da frota.",
       },
     ],
-    image: "/images/services/transporte-blindado.png",
+    image: "/images/services/transporte-blindado.webp",
   },
   {
     slug: "transporte-diplomatico",
@@ -186,7 +186,7 @@ export const services: Service[] = [
         a: "Sim. Combinamos sedans, SUVs, vans e veículos blindados com batedores e equipe de segurança dimensionada conforme o protocolo da missão.",
       },
     ],
-    image: "/images/services/transporte-diplomatico.png",
+    image: "/images/services/transporte-diplomatico.webp",
   },
   {
     slug: "eventos-e-congressos",
@@ -241,7 +241,7 @@ export const services: Service[] = [
         a: "Sim. Em operações de grande porte, designamos coordenador presencial que gerencia a frota em tempo real durante o evento.",
       },
     ],
-    image: "/images/services/eventos-congressos.png",
+    image: "/images/services/eventos-congressos.webp",
   },
   {
     slug: "transfers-executivos",
@@ -296,7 +296,7 @@ export const services: Service[] = [
         a: "Sim. Oferecemos vans executivas e ônibus para transfers de grupos, com coordenação logística para múltiplos passageiros.",
       },
     ],
-    image: "/images/services/transfers.png",
+    image: "/images/services/transfers.webp",
   },
   {
     slug: "vans-e-onibus",
@@ -351,7 +351,7 @@ export const services: Service[] = [
         a: "Sim. Para eventos com VIPs e grupos, combinamos sedans/SUVs executivos com vans/ônibus para staff e convidados, sob coordenação única.",
       },
     ],
-    image: "/images/services/vans-onibus.png",
+    image: "/images/services/vans-onibus.webp",
   },
 ];
 
@@ -424,7 +424,7 @@ export const cities: City[] = [
         a: "Sim. Operamos frota blindada B6 com base permanente em Brasília, disponível para autoridades, executivos e diplomatas no DF.",
       },
     ],
-    image: "/images/cities/Brasilia.jpg",
+    image: "/images/cities/Brasilia.webp",
   },
   {
     slug: "sao-paulo",
@@ -477,7 +477,7 @@ export const cities: City[] = [
         a: "Sim. Cobertura completa em Faria Lima, Itaim Bibi, Vila Olímpia, Berrini, Paulista, Jardins e demais regiões de SP.",
       },
     ],
-    image: "/images/cities/sao-paulo.jpg",
+    image: "/images/cities/sao-paulo.webp",
   },
   {
     slug: "rio-de-janeiro",
@@ -530,7 +530,7 @@ export const cities: City[] = [
         a: "Cobertura completa Zona Sul (Copacabana, Ipanema, Leblon, Lagoa), Centro, Barra da Tijuca e principais pontos turísticos e corporativos.",
       },
     ],
-    image: "/images/cities/rio-de-janeiro.jpg",
+    image: "/images/cities/rio-de-janeiro.webp",
   },
   {
     slug: "belo-horizonte",
@@ -583,7 +583,7 @@ export const cities: City[] = [
         a: "Sim. Atendemos executivos e comitivas do setor de mineração e indústria, com agendas técnicas e visitas de campo.",
       },
     ],
-    image: "/images/cities/belo-horizonte.jpg",
+    image: "/images/cities/belo-horizonte.webp",
   },
   {
     slug: "manaus",
@@ -636,7 +636,7 @@ export const cities: City[] = [
         a: "Sim. Apoiamos missões corporativas e institucionais na região Amazônica com logística integrada a partir de Manaus.",
       },
     ],
-    image: "/images/cities/Manaus.jpg",
+    image: "/images/cities/Manaus.webp",
   },
   {
     slug: "belem",
@@ -689,7 +689,7 @@ export const cities: City[] = [
         a: "Sim. Operação dedicada a eventos no Hangar e em demais centros de convenção e hotéis de Belém.",
       },
     ],
-    image: "/images/cities/belem.jpg",
+    image: "/images/cities/belem.webp",
   },
 ];
 
@@ -729,7 +729,7 @@ export const fleet: FleetCategory[] = [
     intro: "Sedans executivos com motorista para deslocamentos corporativos, reuniões, recepções de clientes e agendas individuais. Frota Toyota Corolla ou similar, com acabamento premium, ar-condicionado, motorista uniformizado e atendimento bilíngue.",
     specs: { passengers: "1 a 4 passageiros", model: "Toyota Corolla ou similar" },
     features: ["Acabamento premium", "Ar-condicionado", "Wi-Fi disponível", "Motorista uniformizado", "Atendimento bilíngue"],
-    image: "/images/fleet/corola-sedan-executivo.jpg",
+    image: "/images/fleet/corola-sedan-executivo.webp",
   },
   {
     slug: "sedan-blindado",
@@ -754,7 +754,7 @@ export const fleet: FleetCategory[] = [
     intro: "Sedans blindados com motorista treinado em direção defensiva e evasiva. Mercedes-Benz Classe E Blindado ou similar — segurança elevada com discrição absoluta e conforto de alto padrão, para executivos e autoridades que exigem proteção sem abrir mão da elegância.",
     specs: { passengers: "1 a 4 passageiros", model: "Mercedes-Benz Classe E Blindado ou similar" },
     features: ["Blindagem certificada", "Motorista treinado em segurança", "Discrição absoluta", "Ar-condicionado dual zone", "Planejamento de rota"],
-    image: "/images/fleet/classe-e.png",
+    image: "/images/fleet/classe-e.webp",
   },
   {
     slug: "suv-blindado",
@@ -804,7 +804,7 @@ export const fleet: FleetCategory[] = [
     intro: "Mini vans executivas com motorista profissional para grupos pequenos, transfers VIP, jantares corporativos e deslocamentos discretos com conforto e privacidade. Frota Mercedes-Benz Vito ou similar, com acabamento executivo e atendimento bilíngue.",
     specs: { passengers: "1 a 7 passageiros", model: "Mercedes-Benz Vito ou similar" },
     features: ["Acabamento executivo", "Privacidade para grupos", "Ar-condicionado", "Motorista uniformizado", "Atendimento bilíngue"],
-    image: "/images/fleet/mini-van-vito.jpg",
+    image: "/images/fleet/mini-van-vito.webp",
   },
   {
     slug: "van-executiva",

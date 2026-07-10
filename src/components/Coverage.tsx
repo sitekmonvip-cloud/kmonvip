@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const cities = [
-  { slug: "brasilia",       image: "/images/cities/Brasilia.jpg", highlight: true },
-  { slug: "sao-paulo",      image: "/images/cities/sao-paulo.jpg" },
-  { slug: "rio-de-janeiro", image: "/images/cities/rio-de-janeiro.jpg" },
-  { slug: "belo-horizonte", image: "/images/cities/belo-horizonte.jpg" },
-  { slug: "manaus",         image: "/images/cities/Manaus.jpg" },
-  { slug: "belem",          image: "/images/cities/belem.jpg" },
+  { slug: "brasilia",       image: "/images/cities/Brasilia.webp", highlight: true },
+  { slug: "sao-paulo",      image: "/images/cities/sao-paulo.webp" },
+  { slug: "rio-de-janeiro", image: "/images/cities/rio-de-janeiro.webp" },
+  { slug: "belo-horizonte", image: "/images/cities/belo-horizonte.webp" },
+  { slug: "manaus",         image: "/images/cities/Manaus.webp" },
+  { slug: "belem",          image: "/images/cities/belem.webp" },
 ];
 
 const ChevronIcon = ({ open }: { open: boolean }) => (

@@ -6,12 +6,12 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const services = [
-  { slug: "transporte-executivo",   num: "01", image: "/images/services/transporte-executivo.png" },
-  { slug: "transporte-blindado",    num: "02", image: "/images/services/transporte-blindado.png" },
-  { slug: "transporte-diplomatico", num: "03", image: "/images/services/transporte-diplomatico.png" },
-  { slug: "eventos-e-congressos",   num: "04", image: "/images/services/eventos-congressos.png" },
-  { slug: "transfers-executivos",   num: "05", image: "/images/services/transfers.png" },
-  { slug: "vans-e-onibus",          num: "06", image: "/images/services/vans-onibus.png" },
+  { slug: "transporte-executivo",   num: "01", image: "/images/services/transporte-executivo.webp" },
+  { slug: "transporte-blindado",    num: "02", image: "/images/services/transporte-blindado.webp" },
+  { slug: "transporte-diplomatico", num: "03", image: "/images/services/transporte-diplomatico.webp" },
+  { slug: "eventos-e-congressos",   num: "04", image: "/images/services/eventos-congressos.webp" },
+  { slug: "transfers-executivos",   num: "05", image: "/images/services/transfers.webp" },
+  { slug: "vans-e-onibus",          num: "06", image: "/images/services/vans-onibus.webp" },
 ];
 
 export default function Services() {

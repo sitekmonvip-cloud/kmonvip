@@ -24,7 +24,7 @@ export const metadata: Metadata = buildMetadata({
     "transporte para embaixadas tradição",
     "missão e valores KMON VIP",
   ],
-  image: "/images/timeline/2024 g20.jpeg",
+  image: "/images/timeline/2024 g20.webp",
 });
 
 export default function SobrePage() {
@@ -43,7 +43,7 @@ export default function SobrePage() {
           eyebrow="Sobre a KMON VIP"
           title="35 anos transportando quem move o mundo"
           subtitle="Há mais de três décadas a KMON VIP atende CEOs, autoridades, embaixadas, delegações e grandes eventos no Brasil — com discrição, precisão e padrão internacional."
-          image="/images/timeline/2024 g20.jpeg"
+          image="/images/timeline/2024 g20.webp"
           imageAlt="KMON VIP — operações executivas"
         />
 

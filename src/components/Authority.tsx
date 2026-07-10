@@ -12,22 +12,22 @@ type Event = {
 // Flat sequential list — 17 events. Slide one at a time.
 // Title/desc live in messages catalog (authority.timeline.<index>), keyed by array position.
 const events: Event[] = [
-  { year: 2011, image: "/images/timeline/2011 obama.jpg" },
+  { year: 2011, image: "/images/timeline/2011 obama.webp" },
   { year: 2011, image: "/images/timeline/2011 Hillary.webp" },
   { year: 2014, image: "/images/timeline/2014 copa do mundo.webp" },
   { year: 2016, image: "/images/timeline/2016 olinpiedas.webp" },
   { year: 2019, image: "/images/timeline/2019 bolsonaro.webp" },
-  { year: 2019, image: "/images/timeline/2019 mike.jpg" },
+  { year: 2019, image: "/images/timeline/2019 mike.webp" },
   { year: 2019, image: "/images/timeline/2019 copa america.avif" },
-  { year: 2022, image: "/images/timeline/2022 hamilton.jpg" },
-  { year: 2022, image: "/images/timeline/2022 the killers.jpg" },
+  { year: 2022, image: "/images/timeline/2022 hamilton.webp" },
+  { year: 2022, image: "/images/timeline/2022 the killers.webp" },
   { year: 2023, image: "/images/timeline/2023 lula.webp" },
   { year: 2023, image: "/images/timeline/2023 sulamerica.webp" },
-  { year: 2023, image: "/images/timeline/2023 red hot.jpeg" },
-  { year: 2024, image: "/images/timeline/2024 g20.jpeg" },
-  { year: 2024, image: "/images/timeline/2024 biden.jpg" },
+  { year: 2023, image: "/images/timeline/2023 red hot.webp" },
+  { year: 2024, image: "/images/timeline/2024 g20.webp" },
+  { year: 2024, image: "/images/timeline/2024 biden.webp" },
   { year: 2024, image: "/images/timeline/2024 nfl.avif" },
-  { year: 2025, image: "/images/timeline/2025 cop 30.png" },
+  { year: 2025, image: "/images/timeline/2025 cop 30.webp" },
   { year: 2026, image: "/images/timeline/2026-nike-selecao.avif" },
 ];
 

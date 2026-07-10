@@ -149,7 +149,7 @@ export default function Hero() {
         >
           <video
             ref={videoRef}
-            poster="/images/hero/mercedes-hero.png"
+            poster="/images/hero/mercedes-hero.webp"
             autoPlay
             muted
             playsInline

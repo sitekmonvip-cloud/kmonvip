@@ -16,7 +16,7 @@ export default function Differentials() {
       {/* ── Background videos — responsive ── */}
       <video
         src="/videos/diferenciais-desktop.mp4"
-        poster="/images/diferenciais-bg-desktop.png"
+        poster="/images/diferenciais-bg-desktop.webp"
         autoPlay
         muted
         loop
@@ -29,7 +29,7 @@ export default function Differentials() {
       />
       <video
         src="/videos/diferenciais-mobile.mp4"
-        poster="/images/diferenciais-bg-mobile.png"
+        poster="/images/diferenciais-bg-mobile.webp"
         autoPlay
         muted
         loop

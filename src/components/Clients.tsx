@@ -1,10 +1,10 @@
 const clients = [
   { name: "ESPN", src: "/images/logos/espn.svg" },
-  { name: "Google", src: "/images/logos/google.png" },
-  { name: "Live ABA", src: "/images/logos/live-aba.png" },
-  { name: "Microsoft", src: "/images/logos/microsoft.png" },
-  { name: "Shell", src: "/images/logos/shell-.png" },
-  { name: "XP Investimentos", src: "/images/logos/xp.png" },
+  { name: "Google", src: "/images/logos/google.webp" },
+  { name: "Live ABA", src: "/images/logos/live-aba.webp" },
+  { name: "Microsoft", src: "/images/logos/microsoft.webp" },
+  { name: "Shell", src: "/images/logos/shell-.webp" },
+  { name: "XP Investimentos", src: "/images/logos/xp.webp" },
 ];
 
 import { useTranslations } from "next-intl";
