@@ -381,7 +381,7 @@ export default function QuoteModal() {
               aria-hidden="true"
             >
               <span className="text-[11px] text-ink-400">
-                ↓ Role para ver mais
+                ↓ {tc("scrollForMore")}
               </span>
             </div>
           </div>
