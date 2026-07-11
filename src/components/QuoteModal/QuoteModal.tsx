@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { useQuoteModal } from "./QuoteModalProvider";
 
 // ── Config ──────────────────────────────────────────────────────────
@@ -323,6 +324,12 @@ export default function QuoteModal() {
         email: data.email,
       }),
     }).catch((err) => console.error("[KMON-LEAD] email send failed", err));
+
+    sendGTMEvent({
+      event: "quote_submitted",
+      landing_page: window.location.pathname,
+      purpose: data.purpose,
+    });
 
     setSubmitted(true);
   };

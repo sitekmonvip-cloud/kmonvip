@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -80,6 +81,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={HTML_LANG[locale] || locale} className={`${inter.variable} antialiased`}>
+      <GoogleTagManager gtmId="GTM-TPN3SG8Z" />
       <body suppressHydrationWarning className="min-h-screen flex flex-col">
         {/* Global JSON-LD */}
         <JsonLd data={homeSchemas()} />
