@@ -1,5 +1,5 @@
 // ─── Site-wide constants ──────────────────────────────────────────────
-export const SITE_URL = "https://kmonvip.com";
+export const SITE_URL = "https://www.kmonvip.com";
 export const SITE_NAME = "KMON VIP";
 export const SITE_TAGLINE = "Transporte Executivo, Blindado e Diplomático";
 export const DEFAULT_OG_IMAGE = "/images/hero/mercedes-hero.webp";
