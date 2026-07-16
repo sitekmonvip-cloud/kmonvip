@@ -19,17 +19,16 @@ export default function CookieConsent() {
     return () => clearTimeout(showTimer);
   }, []);
 
+  function dismiss() {
+    localStorage.setItem(STORAGE_KEY, "1");
+    setVisible(false);
+  }
+
   useEffect(() => {
     if (!visible) return;
     const dismissTimer = setTimeout(dismiss, AUTO_DISMISS_MS);
     return () => clearTimeout(dismissTimer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
-
-  const dismiss = () => {
-    localStorage.setItem(STORAGE_KEY, "1");
-    setVisible(false);
-  };
 
   if (!visible) return null;
 

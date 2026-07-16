@@ -9,6 +9,17 @@ export const BRAND_PHONE = "+55-61-99863-0303";
 export const BRAND_EMAIL = "contato@kmonvip.com";
 export const BRAND_WHATSAPP = "5561998630303";
 
+// ─── Analytics IDs (single source of truth — used by the public layout AND /crm/configuracoes) ─
+export const GTM_ID = "GTM-TPN3SG8Z";
+export const CLARITY_ID = "xkjdgicz0s";
+export const GSC_VERIFICATION = "EgswlTuyhrqkUXM3NlcmfA1KFJZ7Khe7uEFWJkxNdg8";
+
+/** Best-effort service slug for a given pathname, e.g. "/servicos/transporte-blindado/brasilia" -> "transporte-blindado". */
+export function deriveServiceFromPath(pathname: string): string | null {
+  const match = services.find((s) => pathname.includes(`/servicos/${s.slug}`));
+  return match?.slug ?? null;
+}
+
 // ─── Services (slug, name, keywords, image, FAQs) ────────────────────
 export type Service = {
   slug: string;

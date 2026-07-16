@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
+import ContactWhatsAppLink from "@/components/page/ContactWhatsAppLink";
 import JsonLd from "@/components/seo/JsonLd";
 import { contactPageSchema } from "@/components/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -55,14 +56,12 @@ export default function ContatoPage() {
                   WhatsApp 24h
                 </dt>
                 <dd>
-                  <a
-                    href={`https://wa.me/${BRAND_WHATSAPP}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <ContactWhatsAppLink
+                    whatsappNumber={BRAND_WHATSAPP}
                     className="text-lg font-medium text-ink-900 hover:text-brand-champagne-dark transition-colors"
                   >
                     +55 (61) 99863-0303
-                  </a>
+                  </ContactWhatsAppLink>
                 </dd>
               </div>
               <div className="rounded-xl border border-ink-100 bg-white p-6">

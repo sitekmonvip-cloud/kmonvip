@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { useQuoteModal } from "./QuoteModalProvider";
+import { trackEvent } from "@/lib/tracking/events";
+import { getAttribution } from "@/lib/tracking/attribution";
 
 // ── Config ──────────────────────────────────────────────────────────
 const WHATSAPP_NUMBER = "5561998630303";
@@ -314,6 +316,8 @@ export default function QuoteModal() {
   const handleSubmit = () => {
     if (!validateStep(3)) return;
 
+    const attribution = getAttribution();
+
     fetch("/api/quote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -322,6 +326,15 @@ export default function QuoteModal() {
         text: buildMessage(),
         fullName: data.fullName,
         email: data.email,
+        phone: data.phone,
+        countryCode: data.countryCode,
+        company: data.company,
+        position: data.position,
+        purpose: data.purpose,
+        serviceType: data.serviceType,
+        vehicleProtection: data.vehicleProtection,
+        ...attribution,
+        landingPage: window.location.pathname,
       }),
     }).catch((err) => console.error("[KMON-LEAD] email send failed", err));
 
@@ -335,6 +348,7 @@ export default function QuoteModal() {
   };
 
   const openWhatsApp = () => {
+    trackEvent({ eventType: "whatsapp_click", buttonId: "quote-success-whatsapp", buttonLocation: "quote-modal-success" });
     const text = encodeURIComponent(buildMessage());
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   };

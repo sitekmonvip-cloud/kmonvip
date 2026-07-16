@@ -11,8 +11,9 @@ import { QuoteModalProvider, QuoteModal } from "@/components/QuoteModal";
 import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/seo/JsonLd";
 import { homeSchemas } from "@/components/seo/schemas";
-import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/seo/constants";
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, GTM_ID, CLARITY_ID, GSC_VERIFICATION } from "@/lib/seo/constants";
 import { routing } from "@/i18n/routing";
+import AttributionCapture from "@/components/AttributionCapture";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     images: [DEFAULT_OG_IMAGE],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/favicon.svg" },
-  verification: { google: "EgswlTuyhrqkUXM3NlcmfA1KFJZ7Khe7uEFWJkxNdg8" },
+  verification: { google: GSC_VERIFICATION },
 };
 
 // HTML lang attribute per locale
@@ -81,7 +82,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={HTML_LANG[locale] || locale} className={`${inter.variable} antialiased`}>
-      <GoogleTagManager gtmId="GTM-TPN3SG8Z" />
+      <GoogleTagManager gtmId={GTM_ID} />
       <body suppressHydrationWarning className="min-h-screen flex flex-col">
         {/* Global JSON-LD */}
         <JsonLd data={homeSchemas()} />
@@ -93,9 +94,11 @@ export default async function LocaleLayout({
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "xkjdgicz0s");
+            })(window, document, "clarity", "script", "${CLARITY_ID}");
           `}
         </Script>
+
+        <AttributionCapture />
 
         <NextIntlClientProvider>
           <QuoteModalProvider>
