@@ -12,6 +12,8 @@ import PageCTA from "@/components/page/PageCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL, SITE_NAME } from "@/lib/seo/constants";
 import { ORG_ID } from "@/components/seo/schemas";
+import { getIndexableLocales } from "@/lib/seo/i18n-status";
+import { buildHreflangAlternates } from "@/lib/seo/locale-urls";
 
 const PATH = "/diplomatic-transport-brazil";
 const IMAGE = "/images/services/transporte-diplomatico.webp";
@@ -35,12 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = t("meta.title");
   const description = t("meta.description");
   const ogImage = `${SITE_URL}${IMAGE}`;
+  const languages = buildHreflangAlternates(PATH, getIndexableLocales(PATH));
 
   return {
     title,
     description,
     keywords: t.raw("meta.keywords") as string[],
-    alternates: { canonical: url },
+    alternates: { canonical: url, ...(languages ? { languages } : {}) },
     robots: { index: true, follow: true },
     openGraph: {
       type: "website",

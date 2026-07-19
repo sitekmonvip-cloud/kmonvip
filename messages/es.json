@@ -472,5 +472,31 @@
         "desc": "Transporte ejecutivo y diplomático en la capital federal."
       }
     ]
+  },
+  "statsBar": {
+    "items": [
+      {
+        "label": "Años de Excelencia",
+        "desc": "Trayectoria comprobada en servicio y confiabilidad."
+      },
+      {
+        "label": "Flota Blindada",
+        "desc": "Seguridad con SUVs y sedanes con opciones blindadas."
+      },
+      {
+        "label": "Choferes Bilingües",
+        "desc": "Profesionales discretos y fluidos en su idioma."
+      },
+      {
+        "label": "Eventos Globales",
+        "desc": "Experiencia local para eventos que mueven el mundo."
+      }
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "Transporte Ejecutivo, Blindado y Diplomático en Brasil",
+      "description": "Transporte ejecutivo, blindado y diplomático para CEOs, autoridades, embajadas, delegaciones y grandes eventos en Brasil. Seguridad, discreción y estándar internacional."
+    }
   }
 }

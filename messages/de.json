@@ -472,5 +472,31 @@
         "desc": "Executive- und diplomatischer Transport in der Bundeshauptstadt."
       }
     ]
+  },
+  "statsBar": {
+    "items": [
+      {
+        "label": "Jahre Exzellenz",
+        "desc": "Bewährte Erfolgsbilanz in Service und Zuverlässigkeit."
+      },
+      {
+        "label": "Gepanzerte Flotte",
+        "desc": "Sicherheit mit SUVs und Limousinen mit gepanzerten Optionen."
+      },
+      {
+        "label": "Zweisprachige Chauffeure",
+        "desc": "Diskrete Fachkräfte, fließend in Ihrer Sprache."
+      },
+      {
+        "label": "Globale Events",
+        "desc": "Lokale Expertise für Events, die die Welt bewegen."
+      }
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "Executive-, Panzer- und Diplomatentransport in Brasilien",
+      "description": "Executive-, gepanzerter und diplomatischer Transport für CEOs, Amtsträger, Botschaften, Delegationen und Großveranstaltungen in ganz Brasilien. Sicherheit, Diskretion und internationaler Standard."
+    }
   }
 }

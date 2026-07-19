@@ -472,5 +472,31 @@
         "desc": "Transport exécutif et diplomatique dans la capitale fédérale."
       }
     ]
+  },
+  "statsBar": {
+    "items": [
+      {
+        "label": "Années d'Excellence",
+        "desc": "Un savoir-faire éprouvé en service et fiabilité."
+      },
+      {
+        "label": "Flotte Blindée",
+        "desc": "Sécurité avec SUV et berlines proposant des options blindées."
+      },
+      {
+        "label": "Chauffeurs Bilingues",
+        "desc": "Professionnels discrets, parlant couramment votre langue."
+      },
+      {
+        "label": "Événements Mondiaux",
+        "desc": "Expertise locale pour des événements qui font bouger le monde."
+      }
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "Transport Exécutif, Blindé et Diplomatique au Brésil",
+      "description": "Transport exécutif, blindé et diplomatique pour dirigeants, autorités, ambassades, délégations et grands événements au Brésil. Sécurité, discrétion et standard international."
+    }
   }
 }

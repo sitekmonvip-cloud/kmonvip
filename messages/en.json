@@ -475,5 +475,31 @@
         "desc": "Executive and diplomatic transport in the federal capital."
       }
     ]
+  },
+  "statsBar": {
+    "items": [
+      {
+        "label": "Years of Excellence",
+        "desc": "Proven track record in service and reliability."
+      },
+      {
+        "label": "Armored Fleet",
+        "desc": "Security with SUVs and sedans offering armored options."
+      },
+      {
+        "label": "Bilingual Chauffeurs",
+        "desc": "Discreet professionals fluent in your language."
+      },
+      {
+        "label": "Global Events",
+        "desc": "Local expertise for events that move the world."
+      }
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "Executive, Armored & Diplomatic Transport in Brazil",
+      "description": "Executive, armored and diplomatic transport for CEOs, officials, embassies, delegations and major events across Brazil. Security, discretion and international standards."
+    }
   }
 }

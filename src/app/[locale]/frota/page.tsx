@@ -8,23 +8,32 @@ import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { fleet } from "@/lib/seo/constants";
+import type { Locale } from "@/i18n/routing";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Frota Executiva — Sedans, SUVs, Blindados, Vans e Ônibus Premium",
-  description:
-    "Frota KMON VIP: sedans executivos, SUVs premium, veículos blindados B6, vans Mercedes-Benz Sprinter e ônibus premium. Operação 24h em todo o Brasil.",
-  path: "/frota",
-  keywords: [
-    "frota executiva KMON VIP",
-    "sedan executivo com motorista",
-    "SUV premium com motorista",
-    "veículo blindado B6",
-    "van Mercedes Sprinter",
-    "ônibus premium",
-    "frota para comitiva",
-    "locação frota executiva",
-  ],
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return buildMetadata({
+    locale,
+    title: "Frota Executiva — Sedans, SUVs, Blindados, Vans e Ônibus Premium",
+    description:
+      "Frota KMON VIP: sedans executivos, SUVs premium, veículos blindados B6, vans Mercedes-Benz Sprinter e ônibus premium. Operação 24h em todo o Brasil.",
+    path: "/frota",
+    keywords: [
+      "frota executiva KMON VIP",
+      "sedan executivo com motorista",
+      "SUV premium com motorista",
+      "veículo blindado B6",
+      "van Mercedes Sprinter",
+      "ônibus premium",
+      "frota para comitiva",
+      "locação frota executiva",
+    ],
+  });
+}
 
 export default function FrotaHub() {
   return (

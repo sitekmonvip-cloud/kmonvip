@@ -1,33 +1,22 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, services, cities, fleet, crossPages } from "@/lib/seo/constants";
-import { routing } from "@/i18n/routing";
-
-const NON_DEFAULT_LOCALES = routing.locales.filter((l) => l !== routing.defaultLocale);
-
-// Build URL: PT (default) has no prefix; others get "/en", "/es", etc.
-function buildUrl(locale: string, path: string): string {
-  if (locale === routing.defaultLocale) return `${SITE_URL}${path}`;
-  return `${SITE_URL}/${locale}${path}`;
-}
-
-// Build alternate-language URLs object for one path
-function alternatesFor(path: string) {
-  const languages: Record<string, string> = {};
-  routing.locales.forEach((l) => {
-    languages[l === "pt" ? "pt-BR" : l] = buildUrl(l, path);
-  });
-  return { languages };
-}
+import { services, cities, fleet, crossPages } from "@/lib/seo/constants";
+import { getIndexableLocales } from "@/lib/seo/i18n-status";
+import { buildLocaleUrl, buildHreflangAlternates } from "@/lib/seo/locale-urls";
 
 function entry(path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = "monthly"): MetadataRoute.Sitemap {
   const now = new Date();
-  // One entry per locale + alternates pointing to all variants
-  return routing.locales.map((locale) => ({
-    url: buildUrl(locale, path),
+  const indexableLocales = getIndexableLocales(path);
+  const languages = buildHreflangAlternates(path, indexableLocales);
+
+  // Only emit URLs for locales that actually have indexable content at
+  // this path — sitemap and metadata share the same source of truth
+  // (getIndexableLocales), so they can never disagree.
+  return indexableLocales.map((locale) => ({
+    url: buildLocaleUrl(locale, path),
     lastModified: now,
     changeFrequency,
     priority,
-    alternates: alternatesFor(path),
+    ...(languages ? { alternates: { languages } } : {}),
   }));
 }
 
