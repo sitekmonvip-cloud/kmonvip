@@ -1,5 +1,4 @@
 import type { TrackingEventRow } from "@/lib/crm/types";
-import { classifyChannel } from "@/lib/tracking/channel";
 
 const EVENT_LABELS: Record<string, string> = {
   whatsapp_click: "Clique no WhatsApp",
@@ -45,7 +44,7 @@ export default function InteractionsTable({ rows }: { rows: TrackingEventRow[] }
               <td className="px-4 py-3 max-w-[200px] truncate text-ink-500">{row.page_url ?? "—"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-500">{row.button_id ?? "—"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-500">{row.service ?? "—"}</td>
-              <td className="px-4 py-3 whitespace-nowrap text-ink-500">{classifyChannel(row)}</td>
+              <td className="px-4 py-3 whitespace-nowrap text-ink-500">{row.utm_source ?? row.referrer ?? "Direto"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-500">{row.utm_campaign ?? "—"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-500 capitalize">{row.device_type ?? "—"}</td>
             </tr>

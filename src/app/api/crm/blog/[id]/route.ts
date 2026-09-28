@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { auth } from "@/lib/auth/config";
 import { BlogService, slugify } from "@/lib/crm/blogService";
-import { notifyIndexNow } from "@/lib/seo/indexnow";
 
 export const runtime = "nodejs";
 
@@ -60,8 +59,6 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
   const post = await BlogService.update(postId, { ...parsed.data, slug });
   if (!post) return NextResponse.json({ ok: false, error: "Not found" }, { status: 404 });
-
-  if (post.status === "published") notifyIndexNow([`/blog/${post.slug}`, "/blog"]);
 
   return NextResponse.json({ ok: true, post });
 }

@@ -13,8 +13,6 @@ export const BRAND_WHATSAPP = "5561998630303";
 export const GTM_ID = "GTM-TPN3SG8Z";
 export const CLARITY_ID = "xkjdgicz0s";
 export const GSC_VERIFICATION = "EgswlTuyhrqkUXM3NlcmfA1KFJZ7Khe7uEFWJkxNdg8";
-// Public by design: IndexNow verifies ownership by fetching /<key>.txt from the site.
-export const INDEXNOW_KEY = "c84d19bb5de87db6a00a2d168c336439";
 
 /** Best-effort service slug for a given pathname, e.g. "/servicos/transporte-blindado/brasilia" -> "transporte-blindado". */
 export function deriveServiceFromPath(pathname: string): string | null {
@@ -95,9 +93,9 @@ export const services: Service[] = [
     slug: "transporte-blindado",
     name: "Transporte Blindado",
     shortName: "Blindado",
-    hook: "Aluguel de Carro Blindado com Motorista Treinado",
+    hook: "Transporte Blindado Executivo com Motorista Treinado",
     meta: {
-      title: "Aluguel de Carro Blindado com Motorista",
+      title: "Transporte Blindado com Motorista no Brasil",
       description: "Veículos blindados com motorista treinado para agendas que exigem segurança elevada, confidencialidade e proteção. Brasília, São Paulo e Rio de Janeiro.",
       keywords: [
         "transporte blindado",
@@ -118,7 +116,7 @@ export const services: Service[] = [
       ],
     },
     intro:
-      "O aluguel de carro blindado com motorista da KMON VIP atende executivos, autoridades, diplomatas e personalidades que precisam combinar mobilidade premium com segurança elevada. Operamos veículos blindados, conduzidos por motoristas treinados em direção defensiva, evasiva e protocolo executivo. Cada operação é planejada com avaliação prévia de rotas, horários e pontos de risco, com suporte 24 horas e possibilidade de escolta dedicada. Discrição absoluta, confidencialidade contratual e padrão internacional em cada deslocamento — em Brasília, São Paulo, Rio de Janeiro e demais capitais sob demanda.",
+      "O transporte blindado da KMON VIP atende executivos, autoridades, diplomatas e personalidades que precisam combinar mobilidade premium com segurança elevada. Operamos veículos blindados, conduzidos por motoristas treinados em direção defensiva, evasiva e protocolo executivo. Cada operação é planejada com avaliação prévia de rotas, horários e pontos de risco, com suporte 24 horas e possibilidade de escolta dedicada. Discrição absoluta, confidencialidade contratual e padrão internacional em cada deslocamento — em Brasília, São Paulo, Rio de Janeiro e demais capitais sob demanda.",
     features: [
       { title: "Blindagem certificada", desc: "Veículos com proteção contra armamento de alta velocidade." },
       { title: "Motoristas treinados em segurança", desc: "Direção defensiva, evasiva e protocolo executivo." },
@@ -127,10 +125,6 @@ export const services: Service[] = [
       { title: "Discrição operacional", desc: "Confidencialidade contratual em todas as agendas." },
     ],
     faqs: [
-      {
-        q: "Como funciona o aluguel de carro blindado com motorista?",
-        a: "Você contrata o veículo blindado já com motorista treinado em direção defensiva e evasiva. A contratação pode ser por hora, diária, evento ou contrato mensal, e a cotação é personalizada conforme cidade, modelo do veículo, tempo de operação e necessidade de escolta.",
-      },
       {
         q: "Qual o nível de blindagem dos veículos KMON VIP?",
         a: "Nossa frota blindada conta com proteção certificada contra armamento de alta velocidade — o padrão recomendado para executivos, autoridades e diplomatas.",
@@ -154,9 +148,9 @@ export const services: Service[] = [
     slug: "transporte-diplomatico",
     name: "Transporte Diplomático",
     shortName: "Diplomático",
-    hook: "Transporte Diplomático para Embaixadas, Delegações e Missões Oficiais",
+    hook: "Transporte Diplomático — Atendimento para Embaixadas, Delegações e Missões Oficiais",
     meta: {
-      title: "Transporte para Embaixadas e Delegações",
+      title: "Transporte Diplomático para Embaixadas no Brasil",
       description: "Mobilidade executiva com protocolo internacional para embaixadas, delegações estrangeiras, autoridades e missões oficiais em Brasília e capitais brasileiras.",
       keywords: [
         "transporte diplomático",
@@ -264,7 +258,7 @@ export const services: Service[] = [
     slug: "transfers-executivos",
     name: "Transfers Executivos",
     shortName: "Transfers",
-    hook: "Transfer Executivo de Aeroporto com Receptivo e Monitoramento de Voo",
+    hook: "Transfer Aeroporto, Hotel e Eventos — Atendimento Executivo Profissional",
     meta: {
       title: "Transfer Aeroporto Executivo com Motorista",
       description: "Traslados executivos com motorista entre aeroporto, hotel, reuniões e compromissos. Pontualidade, recepção em portões e atendimento bilíngue.",
@@ -319,9 +313,9 @@ export const services: Service[] = [
     slug: "vans-e-onibus",
     name: "Vans e Ônibus",
     shortName: "Vans e Ônibus",
-    hook: "Aluguel de Van Executiva e Ônibus com Motorista para Grupos",
+    hook: "Vans Executivas e Ônibus Premium — Mobilidade para Grupos",
     meta: {
-      title: "Aluguel de Van e Ônibus com Motorista",
+      title: "Locação de Vans Executivas e Ônibus Premium com Motorista",
       description: "Vans executivas Mercedes-Benz Sprinter e ônibus premium com motorista para grupos, delegações, eventos e operações de transporte coletivo executivo.",
       keywords: [
         "locação de van executiva",
@@ -396,9 +390,9 @@ export const cities: City[] = [
     region: "DF",
     geo: { lat: -15.79, lng: -47.88 },
     isHQ: true,
-    hook: "KMON VIP em Brasília — Transporte Executivo, Blindado e Diplomático na Capital Federal",
+    hook: "Transporte Executivo em Brasília — 35 Anos Atendendo Setor Público e Diplomático",
     meta: {
-      title: "Serviços de Transporte com Motorista em Brasília",
+      title: "Transporte Executivo em Brasília — KMON VIP",
       description: "Transporte executivo, blindado e diplomático em Brasília. 35 anos atendendo embaixadas, autoridades, órgãos públicos e eventos corporativos no DF.",
       keywords: [
         "transporte executivo Brasília",
@@ -449,9 +443,9 @@ export const cities: City[] = [
     shortName: "São Paulo",
     region: "SP",
     geo: { lat: -23.55, lng: -46.63 },
-    hook: "KMON VIP em São Paulo — Transporte Executivo, Blindado e Transfer Aeroportuário",
+    hook: "Transporte Executivo em São Paulo — Atendimento Corporativo e Financeiro",
     meta: {
-      title: "Serviços de Transporte com Motorista em São Paulo",
+      title: "Transporte Executivo em São Paulo — KMON VIP",
       description: "Transporte executivo e blindado com motorista em São Paulo. Atendimento ao mercado financeiro, multinacionais, eventos corporativos e transfers aeroportuários.",
       keywords: [
         "transporte executivo São Paulo",
@@ -502,9 +496,9 @@ export const cities: City[] = [
     shortName: "Rio",
     region: "RJ",
     geo: { lat: -22.91, lng: -43.17 },
-    hook: "KMON VIP no Rio de Janeiro — Transporte Executivo, Blindado, Eventos e Turismo Premium",
+    hook: "Transporte Executivo no Rio de Janeiro — Eventos, Autoridades e Turismo Premium",
     meta: {
-      title: "Serviços de Transporte com Motorista no Rio",
+      title: "Transporte Executivo no Rio de Janeiro — KMON VIP",
       description: "Transporte executivo, blindado e VIP no Rio de Janeiro. Atendimento a autoridades, artistas, turismo premium, eventos e operações corporativas no RJ.",
       keywords: [
         "transporte executivo Rio de Janeiro",
@@ -557,7 +551,7 @@ export const cities: City[] = [
     geo: { lat: -19.92, lng: -43.94 },
     hook: "Transporte Executivo em Belo Horizonte — Atendimento Corporativo em Minas Gerais",
     meta: {
-      title: "Transporte Executivo em Belo Horizonte",
+      title: "Transporte Executivo em Belo Horizonte — KMON VIP",
       description: "Transporte executivo com motorista em Belo Horizonte. Atendimento a empresas, eventos corporativos e agendas estratégicas em BH e região metropolitana.",
       keywords: [
         "transporte executivo Belo Horizonte",
@@ -610,7 +604,7 @@ export const cities: City[] = [
     geo: { lat: -3.12, lng: -60.02 },
     hook: "Transporte Executivo em Manaus — Operação Executiva na Região Norte",
     meta: {
-      title: "Transporte Executivo em Manaus com Motorista",
+      title: "Transporte Executivo em Manaus — KMON VIP",
       description: "Transporte executivo com motorista em Manaus. Atendimento a executivos, autoridades e operações corporativas no Polo Industrial e Amazônia.",
       keywords: [
         "transporte executivo Manaus",
@@ -663,7 +657,7 @@ export const cities: City[] = [
     geo: { lat: -1.46, lng: -48.5 },
     hook: "Transporte Executivo em Belém — Cidade Estratégica para Grandes Operações",
     meta: {
-      title: "Transporte Executivo em Belém com Motorista",
+      title: "Transporte Executivo em Belém — KMON VIP",
       description: "Transporte executivo, diplomático e para eventos em Belém. Atendimento à COP 30 e grandes operações internacionais na Amazônia.",
       keywords: [
         "transporte executivo Belém",
@@ -891,7 +885,7 @@ export const crossPages: CrossPage[] = [
   {
     serviceSlug: "transporte-executivo",
     citySlug: "brasilia",
-    hook: "Transporte Executivo e Aluguel de Carro com Motorista em Brasília",
+    hook: "Transporte Executivo em Brasília — Sedans e SUVs com Motorista",
     meta: {
       title: "Transporte Executivo em Brasília com Motorista",
       description: "Sedans e SUVs executivos com motorista em Brasília. Atendimento a embaixadas, órgãos públicos, eventos e agendas corporativas no DF.",
@@ -943,9 +937,9 @@ export const crossPages: CrossPage[] = [
   {
     serviceSlug: "transporte-blindado",
     citySlug: "brasilia",
-    hook: "Carro Blindado com Motorista em Brasília — Frota Local e Escolta",
+    hook: "Transporte Blindado em Brasília — Frota Blindada e Escolta",
     meta: {
-      title: "Carro Blindado com Motorista em Brasília",
+      title: "Transporte Blindado em Brasília com Motorista",
       description: "Veículos blindados com motorista treinado em Brasília. Atendimento a autoridades, executivos e diplomatas no Distrito Federal.",
       keywords: ["transporte blindado Brasília", "carro blindado Brasília", "blindado DF", "SUV blindado Brasília", "blindado com motorista DF", "transporte VIP blindado Brasília", "blindado para autoridade Brasília", "blindado para diplomata Brasília", "escolta executiva Brasília", "blindado Lago Sul", "veículo blindado Esplanada", "transporte blindado executivo DF"],
     },
@@ -960,9 +954,9 @@ export const crossPages: CrossPage[] = [
   {
     serviceSlug: "transporte-blindado",
     citySlug: "sao-paulo",
-    hook: "Carro Blindado com Motorista em São Paulo — Motoristas Treinados em Segurança",
+    hook: "Transporte Blindado em São Paulo — Veículos Blindados com Motorista Treinado",
     meta: {
-      title: "Carro Blindado com Motorista em São Paulo",
+      title: "Transporte Blindado em São Paulo com Motorista",
       description: "SUVs e sedans blindados com motorista treinado em São Paulo. Atendimento a executivos, autoridades e mercado financeiro em SP.",
       keywords: ["transporte blindado São Paulo", "carro blindado São Paulo", "blindado SP", "SUV blindado São Paulo", "blindado com motorista SP", "blindado para executivo SP", "blindado Faria Lima", "blindado Vila Olímpia", "escolta executiva São Paulo", "transporte blindado Avenida Paulista", "blindado para mercado financeiro", "veículo blindado VIP SP"],
     },
@@ -977,9 +971,9 @@ export const crossPages: CrossPage[] = [
   {
     serviceSlug: "transporte-blindado",
     citySlug: "rio-de-janeiro",
-    hook: "Carro Blindado com Motorista no Rio de Janeiro",
+    hook: "Transporte Blindado no Rio de Janeiro — Veículos Blindados com Motorista",
     meta: {
-      title: "Carro Blindado com Motorista no Rio de Janeiro",
+      title: "Transporte Blindado no Rio de Janeiro com Motorista",
       description: "Veículos blindados com motorista treinado no Rio de Janeiro. Atendimento a executivos, autoridades, artistas internacionais e turismo VIP.",
       keywords: ["transporte blindado Rio de Janeiro", "carro blindado Rio", "blindado RJ", "SUV blindado Rio", "blindado com motorista Rio", "blindado para artista Rio", "blindado para celebridade RJ", "escolta executiva Rio", "blindado Copacabana", "blindado Ipanema", "blindado Barra da Tijuca", "transporte blindado Galeão"],
     },

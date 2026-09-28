@@ -1,7 +1,7 @@
 "use client";
 
 import { trackEvent } from "@/lib/tracking/events";
-import { gtmEvent } from "@/lib/tracking/gtm";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { BRAND_WHATSAPP } from "@/lib/seo/constants";
 
 type Props = {
@@ -32,7 +32,7 @@ export default function WhatsAppCTA({
       rel="noopener noreferrer"
       onClick={() => {
         trackEvent({ eventType: "whatsapp_click", buttonId, buttonLocation });
-        gtmEvent("whatsapp_click", { button_location: buttonLocation });
+        sendGTMEvent({ event: "whatsapp_click", button_location: buttonLocation });
       }}
       className={className}
       style={style}

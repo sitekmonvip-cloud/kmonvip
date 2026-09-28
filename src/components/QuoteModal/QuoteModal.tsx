@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { gtmEvent } from "@/lib/tracking/gtm";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { useQuoteModal } from "./QuoteModalProvider";
 import { trackEvent } from "@/lib/tracking/events";
 import { getAttribution } from "@/lib/tracking/attribution";
@@ -342,11 +342,10 @@ export default function QuoteModal() {
       }),
     }).catch((err) => console.error("[KMON-LEAD] email send failed", err));
 
-    gtmEvent("quote_submitted", {
+    sendGTMEvent({
+      event: "quote_submitted",
       landing_page: window.location.pathname,
       purpose: data.purpose,
-      service_type: data.serviceType,
-      city: data.city,
     });
 
     setSubmitted(true);
@@ -354,7 +353,7 @@ export default function QuoteModal() {
 
   const openWhatsApp = () => {
     trackEvent({ eventType: "whatsapp_click", buttonId: "quote-success-whatsapp", buttonLocation: "quote-modal-success" });
-    gtmEvent("whatsapp_click", { button_location: "quote-modal-success" });
+    sendGTMEvent({ event: "whatsapp_click", button_location: "quote-modal-success" });
     const text = encodeURIComponent(buildMessage());
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   };

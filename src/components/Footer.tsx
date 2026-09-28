@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/tracking/events";
-import { gtmEvent } from "@/lib/tracking/gtm";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -128,7 +128,7 @@ export default function Footer() {
                   href="https://wa.me/5561998630303"
                   onClick={() => {
                     trackEvent({ eventType: "whatsapp_click", buttonId: "footer-whatsapp", buttonLocation: "footer" });
-                    gtmEvent("whatsapp_click", { button_location: "footer" });
+                    sendGTMEvent({ event: "whatsapp_click", button_location: "footer" });
                   }}
                   className="hover:text-white transition-colors"
                 >

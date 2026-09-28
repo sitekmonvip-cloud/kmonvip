@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { auth } from "@/lib/auth/config";
 import { BlogService, slugify } from "@/lib/crm/blogService";
-import { notifyIndexNow } from "@/lib/seo/indexnow";
 
 export const runtime = "nodejs";
 
@@ -65,8 +64,6 @@ export async function POST(req: NextRequest) {
     author: parsed.data.author,
     status: parsed.data.status,
   });
-
-  if (post.status === "published") notifyIndexNow([`/blog/${post.slug}`, "/blog"]);
 
   return NextResponse.json({ ok: true, post });
 }

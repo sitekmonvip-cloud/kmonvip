@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
-import { gtmEvent } from "@/lib/tracking/gtm";
 
 type Ctx = {
   isOpen: boolean;
@@ -17,10 +16,7 @@ export function QuoteModalProvider({ children }: { children: ReactNode }) {
     <QuoteModalContext.Provider
       value={{
         isOpen,
-        open: () => {
-          setIsOpen(true);
-          gtmEvent("quote_open");
-        },
+        open: () => setIsOpen(true),
         close: () => setIsOpen(false),
       }}
     >

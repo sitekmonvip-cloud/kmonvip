@@ -1,13 +1,14 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import Authority from "@/components/Authority";
 import PageCTA from "@/components/page/PageCTA";
-import { localizedMetadata } from "@/lib/seo/metadata";
+import { buildMetadata } from "@/lib/seo/metadata";
 
-export const generateMetadata = localizedMetadata({
-  title: "Linha do Tempo — Grandes Operações e Eventos",
+export const metadata: Metadata = buildMetadata({
+  title: "Linha do Tempo — Grandes Operações e Eventos KMON VIP",
   description:
     "De Obama em 2011 à COP 30 em 2025 — linha do tempo das principais operações e eventos atendidos pela KMON VIP em 35 anos de história.",
   path: "/sobre/historia",

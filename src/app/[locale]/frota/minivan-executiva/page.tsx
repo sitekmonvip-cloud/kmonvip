@@ -1,10 +1,11 @@
-import { localizedMetadata } from "@/lib/seo/metadata";
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo/metadata";
 import { fleet } from "@/lib/seo/constants";
 import FleetPageContent from "@/components/page/FleetPageContent";
 
 const item = fleet.find((f) => f.slug === "minivan-executiva")!;
 
-export const generateMetadata = localizedMetadata({
+export const metadata: Metadata = buildMetadata({
   title: item.meta.title,
   description: item.meta.description,
   path: `/frota/${item.slug}`,

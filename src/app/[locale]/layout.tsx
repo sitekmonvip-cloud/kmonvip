@@ -10,7 +10,7 @@ import "../globals.css";
 import { QuoteModalProvider, QuoteModal } from "@/components/QuoteModal";
 import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/seo/JsonLd";
-import { siteSchemas } from "@/components/seo/schemas";
+import { homeSchemas } from "@/components/seo/schemas";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, GTM_ID, CLARITY_ID, GSC_VERIFICATION } from "@/lib/seo/constants";
 import { routing } from "@/i18n/routing";
 import AttributionCapture from "@/components/AttributionCapture";
@@ -33,6 +33,14 @@ export const metadata: Metadata = {
   },
   description:
     "Transporte executivo, blindado e diplomático para CEOs, autoridades, embaixadas, delegações e grandes eventos no Brasil. Segurança, discrição e padrão internacional.",
+  // TODO(i18n-seo, next phase): remove this default once the home page
+  // (src/app/[locale]/page.tsx) gets its own locale-aware generateMetadata.
+  // Right now the home page has no metadata of its own, so it still relies
+  // on this fallback (Next's metadata merge is shallow-per-key — a page's
+  // own `alternates` would fully replace this, see generate-metadata.md
+  // "Merging" — but home doesn't set one yet). Removing it now would leave
+  // the home page canonical-less, which is out of scope for this pilot.
+  alternates: { canonical: SITE_URL },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "website",
@@ -84,10 +92,10 @@ export default async function LocaleLayout({
       <GoogleTagManager gtmId={GTM_ID} />
       <body suppressHydrationWarning className="min-h-screen flex flex-col">
         {/* Global JSON-LD */}
-        <JsonLd data={siteSchemas()} />
+        <JsonLd data={homeSchemas()} />
 
         {/* Microsoft Clarity */}
-        <Script id="clarity-script" strategy="lazyOnload">
+        <Script id="clarity-script" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

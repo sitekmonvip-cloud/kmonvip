@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,7 +7,7 @@ import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import FAQ from "@/components/page/FAQ";
 import WhatsAppCTA from "@/components/page/WhatsAppCTA";
 import { QuoteButton } from "@/components/QuoteModal";
-import { localizedMetadata } from "@/lib/seo/metadata";
+import { buildMetadata } from "@/lib/seo/metadata";
 
 const IMG = "/images/parcerias/pousada-inacia";
 
@@ -14,7 +15,7 @@ const IMG = "/images/parcerias/pousada-inacia";
 const WA_MESSAGE =
   "Olá! Vim pelo site da KMON VIP e quero informações sobre o transporte para a Pousada Inácia, na Chapada dos Veadeiros.";
 
-export const generateMetadata = localizedMetadata({
+export const metadata: Metadata = buildMetadata({
   title: "Transporte Oficial da Pousada Inácia — Chapada dos Veadeiros",
   description:
     "Transporte oficial da Pousada Inácia. Frota executiva com motorista até Alto Paraíso de Goiás e 4x4 para as cachoeiras da Chapada dos Veadeiros.",
