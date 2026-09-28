@@ -34,8 +34,14 @@ export const SiteSettingsService = {
     // without it, pages using generateStaticParams would bake in whatever the
     // DB had at build time and ignore live toggles from /crm/funcoes.
     await connection();
-    const stored = await getValue<Partial<WhatsappFloatingConfig>>(WHATSAPP_FLOATING_KEY);
-    return { ...DEFAULT_WHATSAPP_FLOATING, ...stored };
+    // Rendered on every public page: a DB outage must not take the whole site down.
+    try {
+      const stored = await getValue<Partial<WhatsappFloatingConfig>>(WHATSAPP_FLOATING_KEY);
+      return { ...DEFAULT_WHATSAPP_FLOATING, ...stored };
+    } catch (err) {
+      console.error("[site-settings] whatsapp_floating read failed, using default", err);
+      return DEFAULT_WHATSAPP_FLOATING;
+    }
   },
 
   async setWhatsappFloating(patch: Partial<WhatsappFloatingConfig>): Promise<WhatsappFloatingConfig> {

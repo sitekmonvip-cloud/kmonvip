@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo/metadata";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = buildMetadata({
   title: "Solicitar Cotação — Transporte Executivo KMON VIP",
@@ -18,6 +19,12 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
+// WhatsAppButton reads its toggle from the DB, so it must render here (server), not in the client page.
 export default function CotacaoLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      {children}
+      <WhatsAppButton />
+    </>
+  );
 }

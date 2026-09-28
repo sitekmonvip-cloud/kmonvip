@@ -1,22 +1,28 @@
-import { neon, type NeonQueryFunction } from "@neondatabase/serverless";
+import postgres from "postgres";
 
-let cached: NeonQueryFunction<false, false> | null = null;
+type Row = Record<string, unknown>;
+type SqlTag = (strings: TemplateStringsArray, ...values: unknown[]) => Promise<Row[]>;
 
-function getClient(): NeonQueryFunction<false, false> {
+let cached: postgres.Sql | null = null;
+
+function getClient(): postgres.Sql {
   if (cached) return cached;
 
   const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!connectionString) {
     throw new Error(
-      "DATABASE_URL (or POSTGRES_URL) is not set. Provision a Postgres database (Vercel Storage → Create Database) and connect it to this project."
+      "DATABASE_URL (or POSTGRES_URL) is not set. Use the Supabase transaction pooler URL (port 6543) from Project Settings → Database."
     );
   }
 
-  cached = neon(connectionString);
+  // prepare:false is required by Supabase's transaction pooler (PgBouncer); a small
+  // pool per serverless instance keeps us under the pooler's client limit. TLS comes
+  // from the URL (?sslmode=require).
+  cached = postgres(connectionString, { prepare: false, max: 5, idle_timeout: 20 });
   return cached;
 }
 
 // Lazy wrapper: avoids connecting (and throwing when the env var isn't set yet) at module
 // evaluation time, which would otherwise break `next build`'s page-data collection step.
-export const sql: NeonQueryFunction<false, false> = ((...args: Parameters<NeonQueryFunction<false, false>>) =>
-  getClient()(...args)) as NeonQueryFunction<false, false>;
+export const sql: SqlTag = (strings, ...values) =>
+  getClient()(strings, ...(values as postgres.ParameterOrFragment<never>[])) as unknown as Promise<Row[]>;

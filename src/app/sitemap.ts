@@ -26,7 +26,11 @@ function entry(
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await BlogService.listPublished();
+  // Static pages must stay listed even if the blog DB is unavailable.
+  const posts = await BlogService.listPublished().catch((err) => {
+    console.error("[sitemap] blog posts unavailable", err);
+    return [];
+  });
 
   const all: MetadataRoute.Sitemap = [
     ...entry("", 1.0),
