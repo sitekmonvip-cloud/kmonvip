@@ -8,10 +8,12 @@ let cached: postgres.Sql | null = null;
 function getClient(): postgres.Sql {
   if (cached) return cached;
 
-  const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+  // SUPABASE_DATABASE_URL wins so the Neon integration's managed DATABASE_URL can stay untouched.
+  const connectionString =
+    process.env.SUPABASE_DATABASE_URL || process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!connectionString) {
     throw new Error(
-      "DATABASE_URL (or POSTGRES_URL) is not set. Use the Supabase transaction pooler URL (port 6543) from Project Settings → Database."
+      "SUPABASE_DATABASE_URL (or DATABASE_URL) is not set. Use the Supabase transaction pooler URL (port 6543) from Project Settings → Database."
     );
   }
 
