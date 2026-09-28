@@ -39,7 +39,10 @@ export function buildMetadata({
 }: BuildMetadataOpts): Metadata {
   const indexableLocales = getIndexableLocales(path);
   const isIndexable = indexableLocales.includes(locale);
-  const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+  // External covers (blog) are used as-is; local photos get a branded card with the page title.
+  const ogImage = image.startsWith("http")
+    ? image
+    : `${SITE_URL}/og.jpg?${new URLSearchParams({ title, img: image })}`;
 
   if (!isIndexable) {
     return {
