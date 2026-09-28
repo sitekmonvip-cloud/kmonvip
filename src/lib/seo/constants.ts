@@ -13,6 +13,8 @@ export const BRAND_WHATSAPP = "5561998630303";
 export const GTM_ID = "GTM-TPN3SG8Z";
 export const CLARITY_ID = "xkjdgicz0s";
 export const GSC_VERIFICATION = "EgswlTuyhrqkUXM3NlcmfA1KFJZ7Khe7uEFWJkxNdg8";
+// Public by design: IndexNow verifies ownership by fetching /<key>.txt from the site.
+export const INDEXNOW_KEY = "c84d19bb5de87db6a00a2d168c336439";
 
 /** Best-effort service slug for a given pathname, e.g. "/servicos/transporte-blindado/brasilia" -> "transporte-blindado". */
 export function deriveServiceFromPath(pathname: string): string | null {
