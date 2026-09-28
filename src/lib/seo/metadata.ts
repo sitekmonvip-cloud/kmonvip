@@ -15,14 +15,7 @@ const OG_LOCALE: Record<Locale, string> = {
 };
 
 type BuildMetadataOpts = {
-  // Optional for now: pages still on static `export const metadata` (not
-  // yet migrated to generateMetadata) can't pass the real locale, since a
-  // static export has no access to route params. Defaulting to "pt" keeps
-  // their output byte-identical to before this change (same canonical,
-  // same index:true) for every locale variant until they're migrated —
-  // no regression, just no fix yet either. Pages using generateMetadata
-  // (the correct pattern) must pass their real locale explicitly.
-  locale?: Locale;
+  locale: Locale;
   title: string;            // page title (without "| KMON VIP" — template appends it)
   description: string;
   path: string;             // canonical path, e.g. "/servicos/transporte-blindado"
@@ -37,7 +30,7 @@ type BuildMetadataOpts = {
 // never both a cross-locale canonical AND noindex on the same page, and
 // never a hreflang tag/header claiming a translation that doesn't exist.
 export function buildMetadata({
-  locale = "pt",
+  locale,
   title,
   description,
   path,
@@ -95,5 +88,14 @@ export function buildMetadata({
       description,
       images: [ogImage],
     },
+  };
+}
+
+// Page-level generateMetadata factory: reads the real locale from the route so
+// non-indexable locale variants get noindex instead of inheriting the PT canonical.
+export function localizedMetadata(opts: Omit<BuildMetadataOpts, "locale">) {
+  return async ({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> => {
+    const { locale } = await params;
+    return buildMetadata({ ...opts, locale: locale as Locale });
   };
 }

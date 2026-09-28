@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import { BRAND_EMAIL } from "@/lib/seo/constants";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Política de Privacidade — KMON VIP",
+export const generateMetadata = localizedMetadata({
+  title: "Política de Privacidade",
   description:
     "Como a KMON VIP coleta, armazena, utiliza e protege seus dados pessoais. Política de privacidade em conformidade com a LGPD.",
   path: "/politica-de-privacidade",

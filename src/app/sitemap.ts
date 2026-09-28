@@ -1,14 +1,17 @@
 import type { MetadataRoute } from "next";
-import { services, cities, fleet, crossPages } from "@/lib/seo/constants";
+import { SITE_URL, services, cities, fleet, crossPages } from "@/lib/seo/constants";
 import { getIndexableLocales } from "@/lib/seo/i18n-status";
 import { buildLocaleUrl, buildHreflangAlternates } from "@/lib/seo/locale-urls";
 import { BlogService } from "@/lib/crm/blogService";
 
+// lastModified only where we know the real date (blog posts); a build-time "now" on
+// every static page teaches Google to ignore the field.
 function entry(
   path: string,
   priority: number,
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = "monthly",
-  lastModified: Date = new Date(),
+  lastModified?: Date,
+  image?: string,
 ): MetadataRoute.Sitemap {
   const indexableLocales = getIndexableLocales(path);
   const languages = buildHreflangAlternates(path, indexableLocales);
@@ -18,7 +21,8 @@ function entry(
   // (getIndexableLocales), so they can never disagree.
   return indexableLocales.map((locale) => ({
     url: buildLocaleUrl(locale, path),
-    lastModified,
+    ...(lastModified ? { lastModified } : {}),
+    ...(image ? { images: [`${SITE_URL}${image}`] } : {}),
     changeFrequency,
     priority,
     ...(languages ? { alternates: { languages } } : {}),
@@ -35,9 +39,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...entry("/atuacao", 0.9),
     ...entry("/frota", 0.9),
 
-    ...services.flatMap((s) => entry(`/servicos/${s.slug}`, 0.8)),
-    ...cities.flatMap((c) => entry(`/atuacao/${c.slug}`, 0.8)),
-    ...fleet.flatMap((f) => entry(`/frota/${f.slug}`, 0.8)),
+    ...services.flatMap((s) => entry(`/servicos/${s.slug}`, 0.8, "monthly", undefined, s.image)),
+    ...cities.flatMap((c) => entry(`/atuacao/${c.slug}`, 0.8, "monthly", undefined, c.image)),
+    ...fleet.flatMap((f) => entry(`/frota/${f.slug}`, 0.8, "monthly", undefined, f.image)),
 
     ...crossPages.flatMap((p) => entry(`/servicos/${p.serviceSlug}/${p.citySlug}`, 0.7)),
 

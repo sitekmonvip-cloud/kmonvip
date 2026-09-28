@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,10 +6,12 @@ import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageHero from "@/components/page/PageHero";
 import FeatureList from "@/components/page/FeatureList";
 import PageCTA from "@/components/page/PageCTA";
-import { buildMetadata } from "@/lib/seo/metadata";
+import JsonLd from "@/components/seo/JsonLd";
+import { hqLocalBusinessSchema } from "@/components/seo/schemas";
+import { localizedMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Sobre a KMON VIP — 35 Anos em Transporte Executivo no Brasil",
+export const generateMetadata = localizedMetadata({
+  title: "Sobre Nós — 35 Anos em Transporte Executivo no Brasil",
   description:
     "Há 35 anos a KMON VIP atende CEOs, autoridades, embaixadas e grandes eventos no Brasil com transporte executivo, blindado e diplomático de padrão internacional.",
   path: "/sobre",
@@ -32,6 +33,7 @@ export default function SobrePage() {
     <>
       <Header />
       <main className="flex-1">
+        <JsonLd data={hqLocalBusinessSchema()} />
         <BreadcrumbsNav
           crumbs={[
             { name: "Início", path: "/" },

@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
+import JsonLd from "@/components/seo/JsonLd";
+import { blogPostingSchema } from "@/components/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { BlogService } from "@/lib/crm/blogService";
 import { renderPostContent } from "@/lib/blog/render";
@@ -16,12 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = await BlogService.getPublishedBySlug(slug);
   if (!post) {
-    return buildMetadata({ locale, title: "Blog KMON VIP", description: "Blog KMON VIP.", path: `/blog/${slug}` });
+    return buildMetadata({ locale, title: "Blog", description: "Blog KMON VIP.", path: `/blog/${slug}` });
   }
 
   return buildMetadata({
     locale,
-    title: `${post.title} — Blog KMON VIP`,
+    title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.cover_image_url || undefined,
@@ -52,6 +54,7 @@ export default async function BlogPostPage({ params }: Props) {
           ]}
         />
 
+        <JsonLd data={blogPostingSchema(post)} />
         <article className="py-12 md:py-16">
           <div className="mx-auto max-w-3xl px-5">
             <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-500 mb-4 block">

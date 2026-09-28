@@ -12,6 +12,8 @@ import Coverage from "@/components/Coverage";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import JsonLd from "@/components/seo/JsonLd";
+import { hqLocalBusinessSchema } from "@/components/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
 import type { Locale } from "@/i18n/routing";
 
@@ -35,6 +37,7 @@ export default function Home() {
     <>
       <Header />
       <main>
+        <JsonLd data={hqLocalBusinessSchema()} />
         <Hero />
         <TrustBadges />
         <Services />

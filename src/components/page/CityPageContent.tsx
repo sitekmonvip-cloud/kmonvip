@@ -7,7 +7,7 @@ import FAQ from "./FAQ";
 import RelatedLinks from "./RelatedLinks";
 import PageCTA from "./PageCTA";
 import JsonLd from "@/components/seo/JsonLd";
-import { cityLocalBusinessSchema } from "@/components/seo/schemas";
+import { citySchema } from "@/components/seo/schemas";
 import { services, cities, type City } from "@/lib/seo/constants";
 
 type Props = { city: City };
@@ -85,7 +85,7 @@ export default function CityPageContent({ city }: Props) {
         />
 
         {/* JSON-LD LocalBusiness */}
-        <JsonLd data={cityLocalBusinessSchema(city)} />
+        <JsonLd data={citySchema(city)} />
       </main>
       <Footer />
       <WhatsAppButton />
