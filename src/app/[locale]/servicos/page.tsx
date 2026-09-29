@@ -9,7 +9,7 @@ import { localizedMetadata } from "@/lib/seo/metadata";
 import { services } from "@/lib/seo/constants";
 
 export const generateMetadata = localizedMetadata({
-  title: "Soluções de Transporte Executivo, Blindado e Diplomático",
+  title: "Soluções de Transporte Executivo e Blindado",
   description:
     "Soluções de mobilidade executiva: transporte executivo, blindado, diplomático, eventos, transfers e vans. Atendimento em todo o Brasil pela KMON VIP.",
   path: "/servicos",

@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return buildMetadata({
     locale,
-    title: "Frota Executiva — Sedans, SUVs, Blindados, Vans e Ônibus Premium",
+    title: "Frota: Sedans, SUVs, Blindados, Vans e Ônibus",
     description:
       "Frota KMON VIP: sedans executivos, SUVs premium, veículos blindados, vans Mercedes-Benz Sprinter e ônibus premium. Operação 24h em todo o Brasil.",
     path: "/frota",

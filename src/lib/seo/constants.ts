@@ -317,7 +317,7 @@ export const services: Service[] = [
     shortName: "Vans e Ônibus",
     hook: "Vans Executivas e Ônibus Premium — Mobilidade para Grupos",
     meta: {
-      title: "Locação de Vans Executivas e Ônibus Premium com Motorista",
+      title: "Vans Executivas e Ônibus Premium com Motorista",
       description: "Vans executivas Mercedes-Benz Sprinter e ônibus premium com motorista para grupos, delegações, eventos e operações de transporte coletivo executivo.",
       keywords: [
         "locação de van executiva",

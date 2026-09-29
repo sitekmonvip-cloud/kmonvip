@@ -9,7 +9,7 @@ import { localizedMetadata } from "@/lib/seo/metadata";
 import { cities } from "@/lib/seo/constants";
 
 export const generateMetadata = localizedMetadata({
-  title: "Atuação Nacional — Transporte Executivo nas Principais Capitais",
+  title: "Transporte Executivo nas Principais Capitais",
   description:
     "Atuação da KMON VIP em Brasília (sede), São Paulo, Rio de Janeiro, Belo Horizonte, Manaus e Belém. Frota executiva e blindada nas principais capitais do Brasil.",
   path: "/atuacao",

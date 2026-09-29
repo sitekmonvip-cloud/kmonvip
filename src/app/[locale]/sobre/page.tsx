@@ -11,7 +11,7 @@ import { hqLocalBusinessSchema } from "@/components/seo/schemas";
 import { localizedMetadata } from "@/lib/seo/metadata";
 
 export const generateMetadata = localizedMetadata({
-  title: "Sobre a KMON VIP — 35 Anos em Transporte Executivo no Brasil",
+  title: "Sobre Nós — 35 Anos em Transporte Executivo",
   description:
     "Há 35 anos a KMON VIP atende CEOs, autoridades, embaixadas e grandes eventos no Brasil com transporte executivo, blindado e diplomático de padrão internacional.",
   path: "/sobre",

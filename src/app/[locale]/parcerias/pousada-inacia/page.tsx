@@ -15,7 +15,7 @@ const WA_MESSAGE =
   "Olá! Vim pelo site da KMON VIP e quero informações sobre o transporte para a Pousada Inácia, na Chapada dos Veadeiros.";
 
 export const generateMetadata = localizedMetadata({
-  title: "Transporte Oficial da Pousada Inácia — Chapada dos Veadeiros",
+  title: "Pousada Inácia — Transporte Oficial na Chapada",
   description:
     "Transporte oficial da Pousada Inácia. Frota executiva com motorista até Alto Paraíso de Goiás e 4x4 para as cachoeiras da Chapada dos Veadeiros.",
   path: "/parcerias/pousada-inacia",
