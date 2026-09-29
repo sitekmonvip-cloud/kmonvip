@@ -8,13 +8,13 @@ import RelatedLinks from "./RelatedLinks";
 import PageCTA from "./PageCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { citySchema } from "@/components/seo/schemas";
-import { services, cities, type City } from "@/lib/seo/constants";
+import { services, cities, serviceCityHref, type City } from "@/lib/seo/constants";
 
 type Props = { city: City };
 
 export default function CityPageContent({ city }: Props) {
   const serviceLinks = services.map((s) => ({
-    href: `/servicos/${s.slug}`,
+    href: serviceCityHref(s.slug, city.slug, `/servicos/${s.slug}`),
     title: s.name,
     desc: s.hook,
     image: s.image,

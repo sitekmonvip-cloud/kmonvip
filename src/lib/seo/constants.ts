@@ -1024,3 +1024,10 @@ export const crossPages: CrossPage[] = [
     ],
   },
 ];
+
+/** Most specific URL for a service in a city: the dedicated cross-page if one exists, else fallback. */
+export function serviceCityHref(serviceSlug: string, citySlug: string, fallback: string): string {
+  return crossPages.some((c) => c.serviceSlug === serviceSlug && c.citySlug === citySlug)
+    ? `/servicos/${serviceSlug}/${citySlug}`
+    : fallback;
+}

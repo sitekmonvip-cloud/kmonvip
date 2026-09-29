@@ -20,7 +20,11 @@ function formatDate(iso: string | null) {
 }
 
 export default async function BlogIndexPage() {
-  const posts = await BlogService.listPublished();
+  // A DB outage should show an empty blog, not a 500 linked from every page's nav.
+  const posts = await BlogService.listPublished().catch((err) => {
+    console.error("[blog] posts unavailable", err);
+    return [];
+  });
 
   return (
     <>

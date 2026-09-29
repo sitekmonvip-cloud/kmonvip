@@ -12,7 +12,7 @@ import RelatedLinks from "./RelatedLinks";
 import PageCTA from "./PageCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/components/seo/schemas";
-import { services, cities, type Service } from "@/lib/seo/constants";
+import { services, cities, serviceCityHref, type Service } from "@/lib/seo/constants";
 
 type Props = { service: Service };
 
@@ -28,7 +28,7 @@ export default function ServicePageContent({ service }: Props) {
     }));
 
   const cityLinks = cities.slice(0, 3).map((c) => ({
-    href: `/atuacao/${c.slug}`,
+    href: serviceCityHref(service.slug, c.slug, `/atuacao/${c.slug}`),
     title: `${service.shortName} em ${c.name}`,
     desc: c.hook,
     image: c.image,
