@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -6,9 +5,9 @@ import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import Clients from "@/components/Clients";
 import TrustBadges from "@/components/TrustBadges";
 import PageCTA from "@/components/page/PageCTA";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "Clientes — Empresas e Organizações que Confiam na KMON VIP",
   description:
     "FIFA, G20, COP 30, ONU, Google, Microsoft, Shell, XP, ESPN e muitas outras organizações já confiaram suas operações executivas à KMON VIP.",

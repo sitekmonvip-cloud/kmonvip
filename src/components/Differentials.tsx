@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import LazyBackgroundVideos from "./LazyBackgroundVideos";
 
 export default function Differentials() {
   const t = useTranslations("differentials");
@@ -13,32 +14,20 @@ export default function Differentials() {
   ];
   return (
     <section className="relative py-20 md:py-44 overflow-hidden">
-      {/* ── Background videos — responsive ── */}
-      <video
-        src="/videos/diferenciais-desktop.mp4"
-        poster="/images/diferenciais-bg-desktop.webp"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        controls={false}
-        disablePictureInPicture
-        className="hidden md:block absolute inset-0 w-full h-full object-cover pointer-events-none"
-        aria-hidden="true"
-      />
-      <video
-        src="/videos/diferenciais-mobile.mp4"
-        poster="/images/diferenciais-bg-mobile.webp"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        controls={false}
-        disablePictureInPicture
-        className="md:hidden absolute inset-0 w-full h-full object-cover pointer-events-none"
-        aria-hidden="true"
+      {/* ── Background videos — responsive, loaded on approach ── */}
+      <LazyBackgroundVideos
+        sources={[
+          {
+            src: "/videos/diferenciais-desktop.mp4",
+            poster: "/images/diferenciais-bg-desktop.webp",
+            className: "hidden md:block absolute inset-0 w-full h-full object-cover pointer-events-none",
+          },
+          {
+            src: "/videos/diferenciais-mobile.mp4",
+            poster: "/images/diferenciais-bg-mobile.webp",
+            className: "md:hidden absolute inset-0 w-full h-full object-cover pointer-events-none",
+          },
+        ]}
       />
 
       {/* ── Dark overlay for legibility ── */}

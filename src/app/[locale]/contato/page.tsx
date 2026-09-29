@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -6,11 +5,11 @@ import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
 import ContactWhatsAppLink from "@/components/page/ContactWhatsAppLink";
 import JsonLd from "@/components/seo/JsonLd";
-import { contactPageSchema } from "@/components/seo/schemas";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { contactPageSchema, hqLocalBusinessSchema } from "@/components/seo/schemas";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import { BRAND_EMAIL, BRAND_WHATSAPP } from "@/lib/seo/constants";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "Contato — KMON VIP Transporte Executivo",
   description:
     "Fale com a KMON VIP. Atendimento 24h para cotações, contratos corporativos e operações executivas. Sede em Brasília, atuação nacional.",
@@ -98,7 +97,7 @@ export default function ContatoPage() {
           subtitle="Use o formulário guiado em 3 passos para receber proposta personalizada."
         />
 
-        <JsonLd data={contactPageSchema()} />
+        <JsonLd data={[contactPageSchema(), hqLocalBusinessSchema()]} />
       </main>
       <Footer />
       <WhatsAppButton />

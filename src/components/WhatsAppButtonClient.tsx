@@ -2,7 +2,7 @@
 
 import FloatingLanguageButton from "./FloatingLanguageButton";
 import { trackEvent } from "@/lib/tracking/events";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { gtmEvent } from "@/lib/tracking/gtm";
 
 export default function WhatsAppButtonClient({ number }: { number: string }) {
   return (
@@ -15,7 +15,7 @@ export default function WhatsAppButtonClient({ number }: { number: string }) {
         aria-label="Falar via WhatsApp"
         onClick={() => {
           trackEvent({ eventType: "whatsapp_click", buttonId: "floating-whatsapp", buttonLocation: "floating" });
-          sendGTMEvent({ event: "whatsapp_click", button_location: "floating" });
+          gtmEvent("whatsapp_click", { button_location: "floating" });
         }}
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl active:scale-95"
       >

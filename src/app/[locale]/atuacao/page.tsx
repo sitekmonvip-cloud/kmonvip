@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -6,10 +5,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import { cities } from "@/lib/seo/constants";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "Atuação Nacional — Transporte Executivo nas Principais Capitais",
   description:
     "Atuação da KMON VIP em Brasília (sede), São Paulo, Rio de Janeiro, Belo Horizonte, Manaus e Belém. Frota executiva e blindada nas principais capitais do Brasil.",

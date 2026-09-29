@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
 import { Link } from "@/i18n/navigation";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import { BlogService } from "@/lib/crm/blogService";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "Blog KMON VIP — Transporte Executivo, Blindado e Diplomático",
   description:
     "Bastidores, operações e bastões da KMON VIP: conteúdo sobre transporte executivo, blindado e diplomático no Brasil.",

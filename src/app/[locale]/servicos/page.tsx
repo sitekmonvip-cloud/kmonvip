@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -6,10 +5,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
 import PageCTA from "@/components/page/PageCTA";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import { services } from "@/lib/seo/constants";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "Soluções de Transporte Executivo, Blindado e Diplomático",
   description:
     "Soluções de mobilidade executiva: transporte executivo, blindado, diplomático, eventos, transfers e vans. Atendimento em todo o Brasil pela KMON VIP.",

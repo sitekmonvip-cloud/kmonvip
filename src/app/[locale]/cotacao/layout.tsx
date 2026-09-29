@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "Solicitar Cotação — Transporte Executivo KMON VIP",
   description:
     "Solicite cotação para transporte executivo, blindado, diplomático, eventos, transfers ou vans. Formulário guiado em 3 passos. Resposta em até 1 hora útil.",

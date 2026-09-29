@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BreadcrumbsNav from "@/components/page/BreadcrumbsNav";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { localizedMetadata } from "@/lib/seo/metadata";
 import { BRAND_EMAIL } from "@/lib/seo/constants";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = localizedMetadata({
   title: "LGPD — Encarregado de Dados KMON VIP",
   description:
     "Informações sobre o tratamento de dados pessoais pela KMON VIP em conformidade com a Lei Geral de Proteção de Dados (LGPD).",

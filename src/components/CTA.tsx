@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useQuoteModal } from "./QuoteModal";
 import { trackEvent } from "@/lib/tracking/events";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { gtmEvent } from "@/lib/tracking/gtm";
 
 export default function CTA() {
   const t = useTranslations("cta");
@@ -42,7 +42,7 @@ export default function CTA() {
                 rel="noopener noreferrer"
                 onClick={() => {
                   trackEvent({ eventType: "whatsapp_click", buttonId: "cta-whatsapp", buttonLocation: "cta" });
-                  sendGTMEvent({ event: "whatsapp_click", button_location: "cta" });
+                  gtmEvent("whatsapp_click", { button_location: "cta" });
                 }}
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-8 py-4 text-sm font-medium transition-all hover:bg-white/20"
               >
