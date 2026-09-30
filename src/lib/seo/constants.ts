@@ -993,7 +993,7 @@ export const crossPages: CrossPage[] = [
     citySlug: "brasilia",
     hook: "Transporte Diplomático em Brasília — Atendimento a Embaixadas e Missões",
     meta: {
-      title: "Transporte Diplomático em Brasília — Embaixadas e Delegações",
+      title: "Transporte Diplomático em Brasília",
       description: "Transporte com protocolo internacional para embaixadas, delegações estrangeiras e missões oficiais em Brasília. KMON VIP há 35 anos no corpo diplomático.",
       keywords: ["transporte diplomático Brasília", "transporte para embaixada Brasília", "transporte para delegação estrangeira", "carro para embaixador DF", "transporte para missão oficial Brasília", "transporte para cúpula internacional", "transporte para chanceler Brasília", "transporte para visita de Estado", "frota para corpo diplomático", "motorista diplomático Brasília", "transporte VIP embaixada", "transporte para consulado Brasília"],
     },
