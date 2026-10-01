@@ -1,9 +1,8 @@
-// Dados legais do controlador. Preencha os campos [PREENCHER] antes de publicar.
+// Dados legais do controlador.
 export const LEGAL = {
   companyName: "SLC Pathway Global Services LTDA",
   cnpj: "66.783.981/0001-07",
-  dpoName: "[PREENCHER: nome do encarregado]",
-  privacyEmail: "[PREENCHER: e-mail do encarregado / privacidade]",
-  retentionMonths: 24, // proposta — aguardando confirmação
+  privacyEmail: "contato@kmonvip.com",
+  retentionMonths: 24,
   lastUpdate: "outubro de 2026",
 } as const;

@@ -46,7 +46,7 @@ export default function PoliticaPrivacidadePage() {
                   O controlador dos dados pessoais tratados neste site (kmonvip.com) é a <strong>{LEGAL.companyName}</strong>, nome fantasia KMON VIP, inscrita no CNPJ sob o nº {LEGAL.cnpj}.
                 </p>
                 <p className="mt-3">
-                  Contato do encarregado pelo tratamento de dados pessoais ({LEGAL.dpoName}):{" "}
+                  Canal do encarregado pelo tratamento de dados pessoais (dúvidas e exercício de direitos):{" "}
                   <a href={`mailto:${LEGAL.privacyEmail}`} className="text-ink-900 underline hover:text-brand-champagne-dark">{LEGAL.privacyEmail}</a>.
                 </p>
               </section>
