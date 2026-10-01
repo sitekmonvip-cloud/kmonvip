@@ -70,14 +70,9 @@ export default function CookieConsent() {
               {t("linkText")}
             </Link>
           </p>
-          <div className="flex gap-3">
-            <button type="button" onClick={() => choose(false, false)} className={BTN}>
-              {t("reject")}
-            </button>
-            <button type="button" onClick={() => choose(true, true)} className={BTN}>
-              {t("accept")}
-            </button>
-          </div>
+          <button type="button" onClick={() => choose(true, true)} className={`${BTN} w-full`}>
+            {t("accept")}
+          </button>
           <button
             type="button"
             onClick={() => setShowPrefs(true)}
