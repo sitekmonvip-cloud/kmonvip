@@ -150,7 +150,7 @@ export default function QuoteModal() {
       el.removeEventListener("scroll", check);
       ro.disconnect();
     };
-  }, [step, submitted]);
+  }, [step, submitted, isOpen]);
 
   // Reset on close
   useEffect(() => {
@@ -437,7 +437,7 @@ export default function QuoteModal() {
         className="fixed inset-0 z-[90] flex items-end sm:items-center justify-center p-0 sm:p-6 pointer-events-none"
       >
         <div
-          className="relative bg-white w-full max-w-xl pointer-events-auto rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col max-h-[95vh] overflow-hidden"
+          className="relative bg-white w-full max-w-xl pointer-events-auto rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col h-[92dvh] sm:h-auto max-h-[92dvh] sm:max-h-[95vh] overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
