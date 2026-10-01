@@ -7,6 +7,15 @@ import { sendGTMEvent } from "@next/third-parties/google";
 import { useQuoteModal } from "./QuoteModalProvider";
 import { trackEvent } from "@/lib/tracking/events";
 import { getAttribution } from "@/lib/tracking/attribution";
+import {
+  MIN_FILL_MS,
+  isValidEmail,
+  isValidPhone,
+  normalizeEmail,
+  toE164,
+} from "@/lib/tracking/quote";
+
+const TOTAL_STEPS = 2;
 
 // ── Config ──────────────────────────────────────────────────────────
 const WHATSAPP_NUMBER = "5561998630303";
@@ -52,10 +61,7 @@ const COUNTRY_CODES: { dial: string; flag: string; name: string }[] = [
 ];
 
 // ── Types ───────────────────────────────────────────────────────────
-type Purpose = "empresa" | "trabalho";
-
 type FormData = {
-  purpose: Purpose | "";
   serviceType: string;
   city: string;
   startDate: string;
@@ -70,10 +76,10 @@ type FormData = {
   phone: string;
   position: string;
   company: string;
+  website: string; // honeypot — real users never see/fill this
 };
 
 const initialData: FormData = {
-  purpose: "",
   serviceType: "",
   city: "",
   startDate: "",
@@ -88,6 +94,7 @@ const initialData: FormData = {
   phone: "",
   position: "",
   company: "",
+  website: "",
 };
 
 // value = canonical PT (kept in the lead notification); key = i18n label lookup
@@ -119,6 +126,9 @@ export default function QuoteModal() {
   const [data, setData]   = useState<FormData>(initialData);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const submittingRef = useRef(false);
+  const openedAtRef = useRef(0);
   const [hasMoreBelow, setHasMoreBelow] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -151,9 +161,18 @@ export default function QuoteModal() {
         setData(initialData);
         setErrors({});
         setSubmitted(false);
+        setSubmitting(false);
+        submittingRef.current = false;
       }, 400);
       return () => clearTimeout(t);
     }
+  }, [isOpen]);
+
+  // quote_open — once per opening
+  useEffect(() => {
+    if (!isOpen) return;
+    openedAtRef.current = Date.now();
+    sendGTMEvent({ event: "quote_open", landing_page: window.location.pathname });
   }, [isOpen]);
 
   // Body scroll lock + ESC
@@ -179,20 +198,20 @@ export default function QuoteModal() {
   const validateStep = (s: number): boolean => {
     const e: Record<string, string> = {};
     if (s === 1) {
-      if (!data.purpose) e.purpose = t("step1.errorSelect");
-      if (data.purpose === "trabalho") e.purpose = t("step1.blockTitle");
-    } else if (s === 2) {
       if (!data.serviceType) e.serviceType = "Selecione o tipo de serviço.";
       if (!data.city.trim()) e.city        = "Cidade do atendimento é obrigatória.";
       if (!data.startDate)   e.startDate   = "Data de início é obrigatória.";
       if (!data.vehicleProtection) e.vehicleProtection = "Selecione um tipo de veículo.";
       if (!data.vehicleModel) e.vehicleModel = "Modelo do veículo é obrigatório.";
       if (!data.additionalInfo.trim()) e.additionalInfo = "Informações adicionais são obrigatórias.";
-    } else if (s === 3) {
+    } else if (s === 2) {
       if (!data.fullName.trim()) e.fullName = "Nome é obrigatório.";
-      if (!data.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
-        e.email = "E-mail válido é obrigatório.";
+      if (!isValidEmail(data.email)) e.email = "E-mail válido é obrigatório.";
       if (!data.phone.trim()) e.phone = "Telefone é obrigatório.";
+      else if (!isValidPhone(data.countryCode, data.phone))
+        e.phone = data.countryCode === "55"
+          ? "Informe o telefone com DDD (ex: 61 99863-0303)."
+          : "Telefone inválido.";
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -200,22 +219,18 @@ export default function QuoteModal() {
 
   const goNext = () => {
     if (!validateStep(step)) return;
-    setStep((s) => Math.min(3, s + 1));
+    const next = Math.min(TOTAL_STEPS, step + 1);
+    sendGTMEvent({ event: `quote_step_${next}`, landing_page: window.location.pathname });
+    setStep(next);
   };
 
   const goBack = () => setStep((s) => Math.max(1, s - 1));
 
   // ── Submit ────────────────────────────────────────────────────────
   const buildMessage = () => {
-    const purposeLabel = {
-      "empresa": "Empresa / Empresário",
-      "trabalho": "Oportunidade de trabalho",
-    }[data.purpose as Purpose] || "—";
-
     return [
       `*Nova Cotação — KMON VIP*`,
       ``,
-      `*Categoria:* ${purposeLabel}`,
       `*Serviço:* ${data.serviceType}`,
       `*Cidade:* ${data.city}`,
       `*Início:* ${data.startDate}`,
@@ -238,14 +253,19 @@ export default function QuoteModal() {
       .join("\n");
   };
 
-  const buildEmailHtml = () => {
-    const purposeLabel = {
-      "empresa": "Empresa / Empresário",
-      "trabalho": "Oportunidade de trabalho",
-    }[data.purpose as Purpose] || "—";
+  const originRows = (): [string, string][] => {
+    const a = getAttribution();
+    const list: [string, string | null][] = [
+      ["gclid", a.gclid], ["gbraid", a.gbraid], ["wbraid", a.wbraid],
+      ["utm_source", a.utmSource], ["utm_medium", a.utmMedium],
+      ["utm_campaign", a.utmCampaign], ["utm_term", a.utmTerm],
+      ["utm_content", a.utmContent], ["Página de entrada", a.landingPage],
+    ];
+    return list.filter((r): r is [string, string] => !!r[1]);
+  };
 
+  const buildEmailHtml = () => {
     const rows: [string, string][] = [
-      ["Categoria", purposeLabel],
       ["Serviço", data.serviceType],
       ["Cidade", data.city],
       ["Início", formatDateBR(data.startDate)],
@@ -258,6 +278,7 @@ export default function QuoteModal() {
       ["Telefone", `+${data.countryCode} ${data.phone}`],
       ...(data.position ? ([["Cargo", data.position]] as [string, string][]) : []),
       ...(data.company ? ([["Empresa", data.company]] as [string, string][]) : []),
+      ...originRows(),
     ];
 
     const rowsHtml = rows
@@ -316,39 +337,77 @@ export default function QuoteModal() {
 </html>`;
   };
 
-  const handleSubmit = () => {
-    if (!validateStep(3)) return;
+  const handleSubmit = async () => {
+    if (submittingRef.current || submitted) return;
+    if (!validateStep(TOTAL_STEPS)) return;
+
+    // Honeypot: bots fill it. Fake success — no request, no event.
+    if (data.website) {
+      setSubmitted(true);
+      return;
+    }
+
+    const elapsedMs = Date.now() - openedAtRef.current;
+    if (elapsedMs < MIN_FILL_MS) {
+      setErrors({ form: "Aguarde alguns segundos e tente novamente." });
+      return;
+    }
+
+    submittingRef.current = true;
+    setSubmitting(true);
+    setErrors({});
 
     const attribution = getAttribution();
+    const transactionId = crypto.randomUUID();
+    const email = normalizeEmail(data.email);
+    const phoneE164 = toE164(data.countryCode, data.phone);
 
-    fetch("/api/quote", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        html: buildEmailHtml(),
-        text: buildMessage(),
-        fullName: data.fullName,
-        email: data.email,
-        phone: data.phone,
-        countryCode: data.countryCode,
-        company: data.company,
-        position: data.position,
-        purpose: data.purpose,
-        serviceType: data.serviceType,
-        city: data.city,
-        vehicleProtection: data.vehicleProtection,
-        ...attribution,
-        landingPage: window.location.pathname,
-      }),
-    }).catch((err) => console.error("[KMON-LEAD] email send failed", err));
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          html: buildEmailHtml(),
+          text: buildMessage(),
+          fullName: data.fullName,
+          email,
+          phone: data.phone,
+          countryCode: data.countryCode,
+          company: data.company,
+          position: data.position,
+          serviceType: data.serviceType,
+          city: data.city,
+          vehicleProtection: data.vehicleProtection,
+          hp: data.website,
+          elapsedMs,
+          transactionId,
+          ...attribution,
+          landingPage: window.location.pathname,
+        }),
+      });
+      const json = await res.json().catch(() => null);
+      if (!res.ok || !json?.ok) throw new Error(json?.error || `HTTP ${res.status}`);
+    } catch (err) {
+      console.error("[KMON-LEAD] email send failed", err);
+      setErrors({ form: "Não foi possível enviar sua solicitação. Tente novamente ou fale conosco pelo WhatsApp." });
+      submittingRef.current = false;
+      setSubmitting(false);
+      return;
+    }
 
+    // Only reached after the server confirmed the e-mail was sent.
     sendGTMEvent({
       event: "quote_submitted",
       landing_page: window.location.pathname,
-      purpose: data.purpose,
+      service_type: data.serviceType,
+      city: data.city,
+      transaction_id: transactionId,
+      user_data: { email, phone_number: phoneE164 },
+      ...(/^teste/i.test(data.fullName.trim()) ? { is_test: true } : {}),
     });
 
     setSubmitted(true);
+    setSubmitting(false);
   };
 
   const openWhatsApp = () => {
@@ -405,7 +464,7 @@ export default function QuoteModal() {
           {!submitted && (
             <div className="px-6 pt-5 shrink-0">
               <div className="flex gap-2 mb-3">
-                {[1, 2, 3].map((s) => (
+                {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((s) => (
                   <div
                     key={s}
                     className="flex-1 h-1 rounded-full transition-colors"
@@ -417,7 +476,7 @@ export default function QuoteModal() {
                 ))}
               </div>
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-ink-500">
-                {t("step", { current: step, total: 3 })}
+                {t("step", { current: step, total: TOTAL_STEPS })}
               </span>
             </div>
           )}
@@ -430,11 +489,12 @@ export default function QuoteModal() {
                 onClose={close}
               />
             ) : step === 1 ? (
-              <Step1 data={data} set={set} errors={errors} />
-            ) : step === 2 ? (
               <Step2 data={data} set={set} errors={errors} />
             ) : (
-              <Step3 data={data} set={set} errors={errors} />
+              <>
+                <Step3 data={data} set={set} errors={errors} />
+                {errors.form && <p className="mt-4 text-sm text-red-600" role="alert">{errors.form}</p>}
+              </>
             )}
 
             {/* Subtle "scroll for more" hint — sticks to the bottom of the
@@ -467,11 +527,10 @@ export default function QuoteModal() {
               ) : (
                 <span />
               )}
-              {step < 3 ? (
+              {step < TOTAL_STEPS ? (
                 <button
                   onClick={goNext}
-                  disabled={step === 1 && data.purpose === "trabalho"}
-                  className="ml-auto inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:shadow-lg active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                  className="ml-auto inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:shadow-lg active:scale-[0.97] "
                   style={{ background: "var(--brand-champagne)", color: "var(--c-ink-900)" }}
                 >
                   {t("next")}
@@ -479,7 +538,8 @@ export default function QuoteModal() {
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="ml-auto inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:shadow-lg active:scale-[0.97]"
+                  disabled={submitting}
+                  className="ml-auto inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:shadow-lg active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{ background: "var(--brand-champagne)", color: "var(--c-ink-900)" }}
                 >
                   {t("submit")}
@@ -493,84 +553,7 @@ export default function QuoteModal() {
   );
 }
 
-// ─── Step 1: Purpose ────────────────────────────────────────────────
-function Step1({
-  data, set, errors,
-}: {
-  data: FormData;
-  set: <K extends keyof FormData>(k: K, v: FormData[K]) => void;
-  errors: Record<string, string>;
-}) {
-  const t = useTranslations("quoteModal");
-  const opts: { value: Purpose; key: string }[] = [
-    { value: "empresa",  key: "empresa" },
-    { value: "trabalho", key: "trabalho" },
-  ];
-
-  return (
-    <div>
-      <h2 className="text-2xl font-medium tracking-tight mb-6">{t("step1.title")}</h2>
-      <div className="flex flex-col gap-3">
-        {opts.map((o) => {
-          const isActive = data.purpose === o.value;
-          return (
-            <label
-              key={o.value}
-              className={`flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-all ${
-                isActive
-                  ? "border-ink-900 bg-ink-50"
-                  : "border-ink-200 hover:border-ink-300 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="purpose"
-                value={o.value}
-                checked={isActive}
-                onChange={() => set("purpose", o.value)}
-                className="sr-only"
-              />
-              <span
-                className={`h-5 w-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
-                  isActive ? "border-ink-900" : "border-ink-300"
-                }`}
-              >
-                {isActive && (
-                  <span className="h-2.5 w-2.5 rounded-full bg-ink-900" />
-                )}
-              </span>
-              <span className="flex-1">
-                <span className="block font-medium text-ink-900">{t(`step1.options.${o.key}.title`)}</span>
-                <span className="block text-sm text-ink-500">{t(`step1.options.${o.key}.sub`)}</span>
-              </span>
-            </label>
-          );
-        })}
-      </div>
-      {errors.purpose && <p className="mt-3 text-sm text-red-600">{errors.purpose}</p>}
-
-      {/* Block message when "Oportunidade de trabalho" selected */}
-      {data.purpose === "trabalho" && (
-        <div
-          className="mt-6 rounded-xl border p-5"
-          style={{
-            background: "rgba(191,176,138,0.08)",
-            borderColor: "rgba(191,176,138,0.35)",
-          }}
-        >
-          <p className="text-sm font-semibold uppercase tracking-wider text-ink-900 mb-2">
-            {t("step1.blockTitle")}
-          </p>
-          <p className="text-sm text-ink-700 leading-relaxed">
-            {t("step1.blockMessage")}
-          </p>
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─── Step 2: Details ────────────────────────────────────────────────
+// ─── Step 1: Details ────────────────────────────────────────────────
 function Step2({
   data, set, errors,
 }: {
@@ -707,7 +690,7 @@ function Step2({
   );
 }
 
-// ─── Step 3: Contact ────────────────────────────────────────────────
+// ─── Step 2: Contact ────────────────────────────────────────────────
 function Step3({
   data, set, errors,
 }: {
@@ -766,6 +749,21 @@ function Step3({
           />
         </div>
       </Field>
+
+      {/* Honeypot */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Website
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={data.website}
+            onChange={(e) => set("website", e.target.value)}
+          />
+        </label>
+      </div>
 
       <Field label={t("step3.position")}>
         <input

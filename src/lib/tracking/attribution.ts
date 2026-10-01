@@ -8,6 +8,8 @@ export type Attribution = {
   utmContent: string | null;
   utmTerm: string | null;
   gclid: string | null;
+  gbraid: string | null;
+  wbraid: string | null;
   fbclid: string | null;
   referrer: string | null;
   landingPage: string | null;
@@ -20,6 +22,8 @@ const EMPTY_ATTRIBUTION: Attribution = {
   utmContent: null,
   utmTerm: null,
   gclid: null,
+  gbraid: null,
+  wbraid: null,
   fbclid: null,
   referrer: null,
   landingPage: null,
@@ -35,12 +39,15 @@ function writeCookie(name: string, value: string, maxAgeDays: number) {
   document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAge}; SameSite=Lax`;
 }
 
-/** First-touch attribution capture. Call once on app mount; no-ops if a cookie already exists. */
+/** First-touch attribution capture. Call once on app mount. A cookie is only
+ *  overwritten when the visit carries a new ad click id (gclid/gbraid/wbraid). */
 export function captureAttributionOnce() {
   if (typeof window === "undefined") return;
-  if (readCookie(COOKIE_NAME)) return;
 
   const params = new URLSearchParams(window.location.search);
+  const hasClickId = !!(params.get("gclid") || params.get("gbraid") || params.get("wbraid"));
+  if (readCookie(COOKIE_NAME) && !hasClickId) return;
+
   const attribution: Attribution = {
     utmSource: params.get("utm_source"),
     utmMedium: params.get("utm_medium"),
@@ -48,6 +55,8 @@ export function captureAttributionOnce() {
     utmContent: params.get("utm_content"),
     utmTerm: params.get("utm_term"),
     gclid: params.get("gclid"),
+    gbraid: params.get("gbraid"),
+    wbraid: params.get("wbraid"),
     fbclid: params.get("fbclid"),
     referrer: document.referrer || null,
     landingPage: window.location.pathname,

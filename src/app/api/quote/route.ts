@@ -4,6 +4,7 @@ import { createHash } from "crypto";
 import { z } from "zod";
 import { EventService } from "@/lib/crm/eventService";
 import { LeadService } from "@/lib/crm/leadService";
+import { MIN_FILL_MS, isValidEmail, isValidPhone } from "@/lib/tracking/quote";
 
 export const runtime = "nodejs";
 
@@ -19,7 +20,9 @@ const QuoteSchema = z.object({
   countryCode: z.string().optional(),
   company: z.string().optional(),
   position: z.string().optional(),
-  purpose: z.string().optional(),
+  hp: z.string().optional(),
+  elapsedMs: z.number().optional(),
+  transactionId: z.string().optional(),
   serviceType: z.string().optional(),
   city: z.string().optional(),
   vehicleProtection: z.string().optional(),
@@ -30,6 +33,8 @@ const QuoteSchema = z.object({
   utmTerm: z.string().nullable().optional(),
   utmContent: z.string().nullable().optional(),
   gclid: z.string().nullable().optional(),
+  gbraid: z.string().nullable().optional(),
+  wbraid: z.string().nullable().optional(),
   fbclid: z.string().nullable().optional(),
   referrer: z.string().nullable().optional(),
 });
@@ -62,6 +67,22 @@ export async function POST(req: NextRequest) {
   const { html, text, fullName, email } = payload;
   if (!html && !text) {
     return NextResponse.json({ ok: false, error: "Missing email content" }, { status: 400 });
+  }
+
+  // Honeypot: pretend success so bots don't retry, but send nothing.
+  if (payload.hp) return NextResponse.json({ ok: true });
+
+  if (
+    !fullName?.trim() ||
+    !email ||
+    !isValidEmail(email) ||
+    !payload.phone ||
+    !isValidPhone(payload.countryCode || "55", payload.phone)
+  ) {
+    return NextResponse.json({ ok: false, error: "Invalid contact data" }, { status: 400 });
+  }
+  if (typeof payload.elapsedMs !== "number" || payload.elapsedMs < MIN_FILL_MS) {
+    return NextResponse.json({ ok: false, error: "Submitted too fast" }, { status: 400 });
   }
 
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
