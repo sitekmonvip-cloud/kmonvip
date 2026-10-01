@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/tracking/events";
 import { sendGTMEvent } from "@next/third-parties/google";
+import CookiePrefsLink from "@/components/CookiePrefsLink";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -167,6 +168,9 @@ export default function Footer() {
             <Link href="/lgpd" className="text-xs text-white/30 hover:text-white/60 transition-colors">
               {t("terms")}
             </Link>
+            <CookiePrefsLink className="text-xs text-white/30 hover:text-white/60 transition-colors">
+              {t("cookiePrefs")}
+            </CookiePrefsLink>
           </div>
         </div>
       </div>

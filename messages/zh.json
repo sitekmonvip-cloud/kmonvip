@@ -295,7 +295,8 @@
     "privacy": "隐私政策",
     "terms": "使用条款",
     "historyLink": "历史",
-    "partnersLink": "活动与合作"
+    "partnersLink": "活动与合作",
+    "cookiePrefs": "Cookie偏好设置"
   },
   "quoteModal": {
     "step": "第 {current} 步，共 {total} 步",
@@ -382,8 +383,19 @@
     "de": "Deutsch"
   },
   "cookieConsent": {
-    "message": "我们使用必要的Cookie以确保网站正常运行。",
-    "linkText": "了解更多"
+    "title": "您的隐私",
+    "message": "我们使用必要的Cookie，并在您许可的情况下使用统计和广告Cookie，以衡量和改进广告。无论您如何选择，报价表单均可正常使用。",
+    "linkText": "隐私政策",
+    "accept": "接受",
+    "reject": "拒绝",
+    "preferences": "偏好设置",
+    "save": "保存选择",
+    "necessary": "必要",
+    "necessaryDesc": "网站运行及记住您的选择。始终启用。",
+    "analytics": "统计",
+    "analyticsDesc": "Google Analytics 和 Microsoft Clarity：了解网站的使用情况。",
+    "ads": "广告",
+    "adsDesc": "Google Ads：转化衡量和广告个性化，包括发送经哈希处理的电子邮件和电话。"
   },
   "diplomaticLanding": {
     "meta": {

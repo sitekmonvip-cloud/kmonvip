@@ -295,7 +295,8 @@
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
     "historyLink": "沿革",
-    "partnersLink": "イベント・提携"
+    "partnersLink": "イベント・提携",
+    "cookiePrefs": "Cookie設定"
   },
   "quoteModal": {
     "step": "ステップ{current}/{total}",
@@ -382,8 +383,19 @@
     "de": "Deutsch"
   },
   "cookieConsent": {
-    "message": "サイトの正常な動作のため、必要なCookieを使用しています。",
-    "linkText": "詳細はこちら"
+    "title": "プライバシーについて",
+    "message": "必要なCookieを使用し、ご許可いただいた場合に限り、広告の計測・改善のための統計および広告Cookieを使用します。見積もりフォームはご選択にかかわらず利用できます。",
+    "linkText": "プライバシーポリシー",
+    "accept": "同意する",
+    "reject": "拒否する",
+    "preferences": "設定",
+    "save": "選択を保存",
+    "necessary": "必須",
+    "necessaryDesc": "サイトの動作と選択内容の保存。常に有効です。",
+    "analytics": "統計",
+    "analyticsDesc": "Google AnalyticsとMicrosoft Clarity：サイトの利用状況の把握。",
+    "ads": "広告",
+    "adsDesc": "Google Ads：コンバージョン計測と広告のパーソナライズ（ハッシュ化したメールと電話番号の送信を含む）。"
   },
   "diplomaticLanding": {
     "meta": {

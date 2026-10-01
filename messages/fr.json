@@ -295,7 +295,8 @@
     "privacy": "Politique de confidentialité",
     "terms": "Termes d’utilisation",
     "historyLink": "Histoire",
-    "partnersLink": "Événements & Partenariats"
+    "partnersLink": "Événements & Partenariats",
+    "cookiePrefs": "Préférences cookies"
   },
   "quoteModal": {
     "step": "Étape {current} sur {total}",
@@ -382,8 +383,19 @@
     "de": "Deutsch"
   },
   "cookieConsent": {
-    "message": "Nous utilisons des cookies essentiels au bon fonctionnement du site.",
-    "linkText": "En savoir plus"
+    "title": "Votre vie privée",
+    "message": "Nous utilisons des cookies nécessaires et, avec votre accord, des cookies de statistiques et de publicité pour mesurer et améliorer nos annonces. Le formulaire de devis fonctionne quel que soit votre choix.",
+    "linkText": "Politique de confidentialité",
+    "accept": "Accepter",
+    "reject": "Refuser",
+    "preferences": "Préférences",
+    "save": "Enregistrer",
+    "necessary": "Nécessaires",
+    "necessaryDesc": "Fonctionnement du site et mémorisation de votre choix. Toujours actifs.",
+    "analytics": "Statistiques",
+    "analyticsDesc": "Google Analytics et Microsoft Clarity : utilisation du site.",
+    "ads": "Publicité",
+    "adsDesc": "Google Ads : mesure des conversions et personnalisation des annonces, y compris l'envoi d'e-mail et de téléphone hachés."
   },
   "diplomaticLanding": {
     "meta": {

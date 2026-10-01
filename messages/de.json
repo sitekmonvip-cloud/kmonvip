@@ -295,7 +295,8 @@
     "privacy": "Datenschutzerklärung",
     "terms": "Nutzungsbedingungen",
     "historyLink": "Geschichte",
-    "partnersLink": "Events & Partner"
+    "partnersLink": "Events & Partner",
+    "cookiePrefs": "Cookie-Einstellungen"
   },
   "quoteModal": {
     "step": "Schritt {current} von {total}",
@@ -382,8 +383,19 @@
     "de": "Deutsch"
   },
   "cookieConsent": {
-    "message": "Wir verwenden essenzielle Cookies für die Funktion der Website.",
-    "linkText": "Mehr erfahren"
+    "title": "Ihre Privatsphäre",
+    "message": "Wir verwenden notwendige Cookies und – mit Ihrer Erlaubnis – Statistik- und Werbe-Cookies, um unsere Anzeigen zu messen und zu verbessern. Das Angebotsformular funktioniert unabhängig von Ihrer Wahl.",
+    "linkText": "Datenschutzerklärung",
+    "accept": "Akzeptieren",
+    "reject": "Ablehnen",
+    "preferences": "Einstellungen",
+    "save": "Auswahl speichern",
+    "necessary": "Notwendig",
+    "necessaryDesc": "Betrieb der Website und Speicherung Ihrer Wahl. Immer aktiv.",
+    "analytics": "Statistik",
+    "analyticsDesc": "Google Analytics und Microsoft Clarity: wie die Website genutzt wird.",
+    "ads": "Werbung",
+    "adsDesc": "Google Ads: Conversion-Messung und Anzeigenpersonalisierung, inkl. Übermittlung von gehashter E-Mail und Telefonnummer."
   },
   "diplomaticLanding": {
     "meta": {

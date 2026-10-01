@@ -295,7 +295,8 @@
     "privacy": "Política de Privacidade",
     "terms": "Termos de Uso",
     "historyLink": "História",
-    "partnersLink": "Eventos & Parcerias"
+    "partnersLink": "Eventos & Parcerias",
+    "cookiePrefs": "Preferências de cookies"
   },
   "quoteModal": {
     "step": "Passo {current} de {total}",
@@ -382,8 +383,19 @@
     "de": "Deutsch"
   },
   "cookieConsent": {
-    "message": "Usamos cookies essenciais para o funcionamento do site.",
-    "linkText": "Saiba mais"
+    "title": "Sua privacidade",
+    "message": "Usamos cookies necessários e, com a sua permissão, cookies de estatísticas e de publicidade para medir e melhorar nossos anúncios. O formulário de cotação funciona independentemente da sua escolha.",
+    "linkText": "Política de Privacidade",
+    "accept": "Aceitar",
+    "reject": "Recusar",
+    "preferences": "Preferências",
+    "save": "Salvar escolhas",
+    "necessary": "Necessários",
+    "necessaryDesc": "Funcionamento do site e guarda da sua escolha. Sempre ativos.",
+    "analytics": "Estatísticas",
+    "analyticsDesc": "Google Analytics e Microsoft Clarity: como o site é usado.",
+    "ads": "Publicidade",
+    "adsDesc": "Google Ads: medir conversões e personalizar anúncios, incluindo envio de e-mail e telefone com hash."
   },
   "diplomaticLanding": {
     "meta": {

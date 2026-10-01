@@ -295,7 +295,8 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of use",
     "historyLink": "History",
-    "partnersLink": "Events & Partners"
+    "partnersLink": "Events & Partners",
+    "cookiePrefs": "Cookie preferences"
   },
   "quoteModal": {
     "step": "Step {current} of {total}",
@@ -382,8 +383,19 @@
     "de": "Deutsch"
   },
   "cookieConsent": {
-    "message": "We use essential cookies for the site to work properly.",
-    "linkText": "Learn more"
+    "title": "Your privacy",
+    "message": "We use necessary cookies and, with your permission, statistics and advertising cookies to measure and improve our ads. The quote form works regardless of your choice.",
+    "linkText": "Privacy Policy",
+    "accept": "Accept",
+    "reject": "Reject",
+    "preferences": "Preferences",
+    "save": "Save choices",
+    "necessary": "Necessary",
+    "necessaryDesc": "Site operation and remembering your choice. Always on.",
+    "analytics": "Statistics",
+    "analyticsDesc": "Google Analytics and Microsoft Clarity: how the site is used.",
+    "ads": "Advertising",
+    "adsDesc": "Google Ads: conversion measurement and ad personalization, including hashed email and phone."
   },
   "diplomaticLanding": {
     "meta": {

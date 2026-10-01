@@ -14,6 +14,8 @@ import { homeSchemas } from "@/components/seo/schemas";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, GTM_ID, CLARITY_ID, GSC_VERIFICATION } from "@/lib/seo/constants";
 import { routing } from "@/i18n/routing";
 import AttributionCapture from "@/components/AttributionCapture";
+import ClarityLoader from "@/components/ClarityLoader";
+import { CONSENT_DEFAULT_SCRIPT } from "@/lib/consent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -89,21 +91,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={HTML_LANG[locale] || locale} className={`${inter.variable} antialiased`}>
+      {/* Consent Mode v2: default "denied" must run BEFORE GTM */}
+      <script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SCRIPT }} />
       <GoogleTagManager gtmId={GTM_ID} />
       <body suppressHydrationWarning className="min-h-screen flex flex-col">
         {/* Global JSON-LD */}
         <JsonLd data={homeSchemas()} />
 
-        {/* Microsoft Clarity */}
-        <Script id="clarity-script" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${CLARITY_ID}");
-          `}
-        </Script>
+        {/* Microsoft Clarity — only after analytics consent */}
+        <ClarityLoader id={CLARITY_ID} />
 
         <AttributionCapture />
 
