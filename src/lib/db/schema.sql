@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS crm_users (
   name TEXT,
   email TEXT UNIQUE NOT NULL,
   role TEXT NOT NULL DEFAULT 'admin',
+  password_hash TEXT, -- scrypt$<salt>$<hash>; null = cannot sign in with a password
   active BOOLEAN NOT NULL DEFAULT true,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );

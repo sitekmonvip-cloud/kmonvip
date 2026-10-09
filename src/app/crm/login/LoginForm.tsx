@@ -26,8 +26,13 @@ export default function LoginForm({
       password,
       redirect: false,
     });
+    // Not the shared login: try an individual account (email + password).
+    const accountResult =
+      !result || result.error
+        ? await signIn("crm-user-login", { username, password, redirect: false })
+        : result;
     setLoading(false);
-    if (!result || result.error) {
+    if (!accountResult || accountResult.error) {
       setError("Usuário ou senha inválidos.");
       return;
     }
