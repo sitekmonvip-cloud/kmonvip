@@ -39,8 +39,8 @@ export const generateMetadata = localizedMetadata({
 });
 
 const FLEET = [
-  { name: "Sedan blindado", model: "Mercedes-Benz Classe E Blindado ou similar", pax: "1 a 4 passageiros", image: `${IMG}/sedan-blindado.webp`, w: 1152, h: 520, alt: "Mercedes-Benz Classe E blindado preto" },
-  { name: "SUV blindado", model: "Jeep Commander Blindado ou similar", pax: "1 a 4 passageiros", image: `${IMG}/suv-blindado.webp`, w: 1036, h: 456, alt: "Jeep Commander blindado" },
+  { name: "Sedan blindado", model: "Mercedes-Benz Classe E Blindado ou similar", pax: "1 a 4 passageiros", image: "/images/fleet/classe-e.webp", alt: "Mercedes-Benz Classe E blindado preto", desc: "Sedan blindado com motorista para agendas que exigem segurança elevada com discrição e conforto executivo." },
+  { name: "SUV blindado", model: "Jeep Commander Blindado ou similar", pax: "1 a 4 passageiros", image: "/images/fleet/suv-commander.webp", alt: "Jeep Commander blindado", desc: "SUV blindado com motorista para autoridades, diplomatas e executivos que exigem proteção elevada e maior capacidade." },
 ];
 
 const STEPS = [
@@ -120,9 +120,9 @@ export default function GpSaoPauloPage() {
                   GP de São Paulo 2026
                 </span>
               </div>
-              <h1 className={`${s.rise} ${s.d2} text-4xl font-medium leading-[1.03] sm:text-5xl md:text-[64px]`} style={{ letterSpacing: "-0.035em" }}>
+              <h1 className={`${s.rise} ${s.d2} text-4xl font-bold italic leading-[1.03] sm:text-5xl md:text-[64px]`} style={{ letterSpacing: "-0.035em" }}>
                 Transporte oficial{" "}
-                <em className="font-normal not-italic" style={{ fontFamily: "Georgia, serif", fontStyle: "italic", color: "#BFB08A" }}>
+                <em className="text-[#BFB08A]">
                   blindado
                 </em>{" "}
                 para o GP de São Paulo
@@ -163,27 +163,35 @@ export default function GpSaoPauloPage() {
           </div>
         </section>
 
-        {/* ─── Fleet · white ─── */}
-        <section className="bg-white py-20 text-[#0A0A0A] md:py-28">
+        {/* ─── Fleet · dark gray, same cards as the home page ─── */}
+        <section className="border-t border-white/10 bg-[#161616] py-20 text-white md:py-28">
           <div className="mx-auto max-w-7xl px-5">
             <div className={`${s.reveal} max-w-2xl`}>
-              <p className={`${eyebrow} text-[#7D6E49]`}>Frota do fim de semana</p>
+              <p className={`${eyebrow} text-[#BFB08A]`}>Frota do fim de semana</p>
               <h2 className="mt-4 text-3xl font-medium tracking-tight md:text-5xl" style={{ letterSpacing: "-0.03em" }}>Dois modelos, ambos blindados</h2>
-              <p className="mt-4 text-[#5f5b55]">Escolha o veículo na cotação ou peça nossa indicação conforme o número de passageiros e a agenda.</p>
+              <p className="mt-4 text-white/60">Escolha o veículo na cotação ou peça nossa indicação conforme o número de passageiros e a agenda.</p>
             </div>
-            <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <div className="mt-14 grid gap-5 md:grid-cols-2">
               {FLEET.map((v) => (
-                <article key={v.name} className={`${s.lift} overflow-hidden rounded-2xl bg-[#F2F1EE]`}>
-                  <div className={`${s.carIn} relative flex aspect-[16/9] items-center justify-center px-8 pt-8`}>
-                    <Image src={v.image} alt={v.alt} width={v.w} height={v.h} sizes="(max-width: 768px) 90vw, 45vw" className={`${s.car} h-auto w-full max-w-[520px]`} />
+                <article key={v.name} className={`${s.reveal} group relative flex flex-col overflow-hidden rounded-2xl bg-[#0A0A0A] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl`}>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-white">
+                    <Image src={v.image} alt={v.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
-                  <div className="flex items-end justify-between gap-4 px-7 pb-7">
-                    <div>
-                      <h3 className="text-xl font-medium">{v.name}</h3>
-                      <p className="mt-1 text-sm text-[#5f5b55]">{v.model}</p>
-                    </div>
-                    <span className="shrink-0 rounded-full border border-[#0A0A0A]/15 px-3 py-1 text-xs text-[#3d3a35]">{v.pax}</span>
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <h3 className="mb-4 text-lg font-medium tracking-tight md:text-xl">{v.name}</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-center gap-2.5">
+                        <span className="h-px w-4 bg-[#BFB08A]" aria-hidden="true" />
+                        <span className="text-white/85">{v.pax}</span>
+                      </li>
+                      <li className="flex items-center gap-2.5">
+                        <span className="h-px w-4 bg-[#BFB08A]" aria-hidden="true" />
+                        <span className="text-white/85">{v.model}</span>
+                      </li>
+                    </ul>
+                    <p className="mt-4 text-sm leading-relaxed text-white/55">{v.desc}</p>
                   </div>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ boxShadow: "0 0 0 1px rgba(191,176,138,0.3) inset" }} />
                 </article>
               ))}
             </div>
