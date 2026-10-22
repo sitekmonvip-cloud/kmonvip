@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     description: "Mobilidade executiva de alto padrão no Brasil.",
     images: [DEFAULT_OG_IMAGE],
   },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/favicon.svg" },
   verification: { google: GSC_VERIFICATION },
 };
 
