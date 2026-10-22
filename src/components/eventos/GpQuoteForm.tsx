@@ -34,7 +34,7 @@ const EMPTY: Fields = {
 };
 
 const WA_MESSAGE =
-  "Olá! Vim pelo site da KMON VIP e quero cotar transporte blindado com motorista para o GP de São Paulo (6 a 8 de novembro).";
+  "Olá! Vim pelo site da KMON VIP e quero cotar o transporte oficial blindado para o GP de São Paulo (6 a 8 de novembro).";
 
 function escapeHtml(s: string) {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);

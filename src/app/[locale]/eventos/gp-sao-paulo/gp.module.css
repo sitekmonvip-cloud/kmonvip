@@ -1,0 +1,118 @@
+/* Black-and-white motorsport photography, matched to the brand's monochrome palette. */
+.mono {
+  filter: grayscale(1) contrast(1.12) brightness(0.92);
+}
+
+/* Draws an SVG path drawn with pathLength="1". */
+.trackLine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* Thin bar that pulses along the hero bottom edge, like a timing line. */
+.timingBar {
+  position: relative;
+  overflow: hidden;
+}
+.timingBar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.9), transparent);
+  transform: translateX(-120%);
+}
+
+/* Soft light sweeping across the hero photo. */
+.sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.07) 50%, transparent 65%);
+  background-size: 250% 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .d1 { animation-delay: 0.08s; }
+  .d2 { animation-delay: 0.2s; }
+  .d3 { animation-delay: 0.34s; }
+  .d4 { animation-delay: 0.48s; }
+  .d5 { animation-delay: 0.62s; }
+
+  .heroImage {
+    animation: settle 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .timingBar::after {
+    animation: timing 3.6s 1.2s ease-in-out infinite;
+  }
+
+  .sweep {
+    animation: sweep 7s 1s ease-in-out infinite;
+  }
+
+  .lift {
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.5s;
+  }
+  .lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -30px rgba(10, 10, 10, 0.35);
+  }
+  .lift:hover .car {
+    transform: translateX(10px);
+  }
+  .car {
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  /* Scroll-linked reveals. Browsers without view timelines simply show the content. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+    .carIn {
+      animation: carIn linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+    .drawOnView {
+      stroke-dashoffset: 1;
+      animation: draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 55%;
+    }
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes settle {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes timing {
+  0% { transform: translateX(-120%); }
+  60%, 100% { transform: translateX(420%); }
+}
+@keyframes sweep {
+  0% { background-position: 120% 0; }
+  50%, 100% { background-position: -40% 0; }
+}
+@keyframes reveal {
+  from { opacity: 0.25; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes carIn {
+  from { opacity: 0.3; transform: translateX(-48px); }
+  to { opacity: 1; transform: none; }
+}
