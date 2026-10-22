@@ -34,6 +34,7 @@ export default function Header() {
     { label: tNav("services"), href: "/servicos" },
     { label: tNav("fleet"),    href: "/frota" },
     { label: tNav("coverage"), href: "/atuacao" },
+    { label: tNav("events"),   href: "/eventos/gp-sao-paulo" },
     { label: tNav("about"),    href: "/sobre" },
     { label: tNav("blog"),     href: "/blog" },
     { label: tNav("contact"),  href: "/contato" },
@@ -100,7 +101,7 @@ export default function Header() {
               />
             </Link>
 
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-5 xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -117,7 +118,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={openQuote}
-                className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3 text-sm font-medium text-paper transition-all hover:bg-black hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.97]"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-ink-900 px-5 xl:px-6 py-3 text-sm font-medium text-paper transition-all hover:bg-black hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.97]"
               >
                 {tCommon("requestQuote")}
               </button>
