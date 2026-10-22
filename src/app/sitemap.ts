@@ -61,6 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...entry("/lgpd", 0.3, "yearly"),
 
     ...entry("/parcerias/pousada-inacia", 0.7),
+    ...entry("/eventos/gp-sao-paulo", 0.8, "weekly", undefined, "/images/fleet/classe-e.webp"),
 
     ...entry("/blog", 0.6, "weekly"),
     ...posts.flatMap((p) => entry(`/blog/${p.slug}`, 0.5, "monthly", new Date(p.updated_at))),
