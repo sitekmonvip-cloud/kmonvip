@@ -3,16 +3,19 @@
 //   SOURCE_DATABASE_URL="postgresql://...neon.tech/...?sslmode=require" \
 //   TARGET_DATABASE_URL="postgresql://...supabase.com:5432/postgres?sslmode=require" \
 //   node scripts/copy-neon-to-supabase.mjs
-// Safe to re-run: existing rows (same primary key) are skipped, never overwritten.
+// Safe to re-run: a row already in Supabase (same email, slug, key or created_at) is skipped,
+// never overwritten. If an old row's id is already taken by a row created in Supabase after the
+// switch, the old row gets a new id instead of being dropped.
 import postgres from "postgres";
 
 // Parents before children isn't needed (no FKs), but this order copies the small tables first.
+// `match` identifies the same record on both sides, independent of the id.
 const TABLES = [
-  { name: "crm_users", key: "id", serial: true },
-  { name: "site_settings", key: "key", serial: false },
-  { name: "blog_posts", key: "id", serial: true },
-  { name: "leads", key: "id", serial: true },
-  { name: "tracking_events", key: "id", serial: true },
+  { name: "crm_users", key: "id", match: "email", serial: true },
+  { name: "site_settings", key: "key", match: "key", serial: false },
+  { name: "blog_posts", key: "id", match: "slug", serial: true },
+  { name: "leads", key: "id", match: "created_at", serial: true },
+  { name: "tracking_events", key: "id", match: "created_at", serial: true },
 ];
 const BATCH = 500;
 
@@ -27,7 +30,7 @@ const source = postgres(sourceUrl, { max: 1, prepare: false });
 const target = postgres(targetUrl, { max: 1, prepare: false });
 
 try {
-  for (const { name, key, serial } of TABLES) {
+  for (const { name, key, match, serial } of TABLES) {
     const [{ exists }] = await source`SELECT to_regclass(${`public.${name}`}) IS NOT NULL AS exists`;
     if (!exists) {
       console.log(`${name}: não existe na origem, pulando`);
@@ -39,11 +42,29 @@ try {
     for (let offset = 0; offset < total; offset += BATCH) {
       const rows = await source`SELECT * FROM ${source(name)} ORDER BY ${source(key)} LIMIT ${BATCH} OFFSET ${offset}`;
       if (rows.length === 0) break;
-      const result = await target`
-        INSERT INTO ${target(name)} ${target(rows)}
-        ON CONFLICT (${target(key)}) DO NOTHING
+      const present = await target`
+        SELECT ${target(match)} AS m FROM ${target(name)} WHERE ${target(match)} IN ${target(rows.map((r) => r[match]))}
       `;
-      copied += result.count;
+      const seen = new Set(present.map((r) => String(r.m instanceof Date ? r.m.toISOString() : r.m)));
+      const missing = rows.filter((r) => !seen.has(String(r[match] instanceof Date ? r[match].toISOString() : r[match])));
+      if (missing.length === 0) continue;
+
+      let keep = missing;
+      let renumber = [];
+      if (serial) {
+        const taken = await target`SELECT id FROM ${target(name)} WHERE id IN ${target(missing.map((r) => r.id))}`;
+        const takenIds = new Set(taken.map((r) => String(r.id)));
+        keep = missing.filter((r) => !takenIds.has(String(r.id)));
+        renumber = missing.filter((r) => takenIds.has(String(r.id))).map(({ id, ...rest }) => rest);
+      }
+      if (keep.length) copied += (await target`INSERT INTO ${target(name)} ${target(keep)}`).count;
+      if (renumber.length) {
+        // Let the sequence assign ids past everything already there.
+        await target`
+          SELECT setval(pg_get_serial_sequence(${name}, 'id'), GREATEST((SELECT COALESCE(MAX(id), 0) FROM ${target(name)}), 1))
+        `;
+        copied += (await target`INSERT INTO ${target(name)} ${target(renumber)}`).count;
+      }
     }
 
     if (serial) {
