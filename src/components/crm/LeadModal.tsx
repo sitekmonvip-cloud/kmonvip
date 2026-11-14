@@ -2,16 +2,7 @@
 
 import { useState } from "react";
 import { FormField, inputCls, PrimaryButton, SecondaryButton } from "./FormField";
-import { LEAD_STATUSES, type LeadRow, type LeadStatus } from "@/lib/crm/types";
-
-const STATUS_LABELS: Record<LeadStatus, string> = {
-  novo: "Novo",
-  em_atendimento: "Em atendimento",
-  qualificado: "Qualificado",
-  proposta_enviada: "Proposta enviada",
-  fechado: "Fechado",
-  perdido: "Perdido",
-};
+import { LEAD_STATUSES, LEAD_STATUS_LABELS, type LeadRow, type LeadStatus } from "@/lib/crm/types";
 
 export default function LeadModal({
   lead,
@@ -95,7 +86,7 @@ export default function LeadModal({
               <select className={inputCls()} value={status} onChange={(e) => setStatus(e.target.value as LeadStatus)}>
                 {LEAD_STATUSES.map((s) => (
                   <option key={s} value={s}>
-                    {STATUS_LABELS[s]}
+                    {LEAD_STATUS_LABELS[s]}
                   </option>
                 ))}
               </select>

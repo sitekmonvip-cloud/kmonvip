@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import StatCard from "@/components/crm/StatCard";
 import InteractionsChart from "@/components/crm/InteractionsChart";
-import InteractionsTable from "@/components/crm/InteractionsTable";
+import InteractionsList from "@/components/crm/InteractionsList";
 import type { TrackingEventRow } from "@/lib/crm/types";
 
 type Cards = {
@@ -79,7 +79,7 @@ export default function CrmDashboardPage() {
 
       <div>
         <h2 className="text-sm font-medium uppercase tracking-[0.08em] text-ink-700 mb-4">Interações recentes</h2>
-        <InteractionsTable rows={recent} />
+        <InteractionsList rows={recent} />
       </div>
     </div>
   );

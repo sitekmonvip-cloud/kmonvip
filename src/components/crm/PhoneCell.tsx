@@ -23,7 +23,7 @@ export default function PhoneCell({ phone }: { phone: string | null }) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="font-medium text-ink-900 tabular-nums">{formatPhone(phone)}</span>
+      <span className="text-sm font-medium text-ink-900 tabular-nums whitespace-nowrap">{formatPhone(phone)}</span>
       {link && (
         <a
           href={link}
