@@ -56,6 +56,14 @@ export type TrackingEventRow = {
   fbclid: string | null;
   referrer: string | null;
   device_type: string | null;
+  metadata: {
+    ref?: string;
+    phone?: string;
+    phone_source?: "manual";
+    contacted_at?: string;
+    contact_name?: string | null;
+    name?: string | null;
+  } | null;
   created_at: string;
 };
 

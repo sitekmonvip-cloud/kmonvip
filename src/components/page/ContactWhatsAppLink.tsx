@@ -1,6 +1,6 @@
 "use client";
 
-import { trackEvent } from "@/lib/tracking/events";
+import { trackWhatsAppClick } from "@/lib/tracking/events";
 import { gtmEvent } from "@/lib/tracking/gtm";
 
 export default function ContactWhatsAppLink({
@@ -17,8 +17,8 @@ export default function ContactWhatsAppLink({
       href={`https://wa.me/${whatsappNumber}`}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => {
-        trackEvent({ eventType: "whatsapp_click", buttonId: "contato-page-whatsapp", buttonLocation: "contato-page" });
+      onClick={(e) => {
+        trackWhatsAppClick(e, { buttonId: "contato-page-whatsapp", buttonLocation: "contato-page" });
         gtmEvent("whatsapp_click", { button_location: "contato-page" });
       }}
       className={className}

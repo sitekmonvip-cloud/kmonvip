@@ -1,5 +1,7 @@
 import type { TrackingEventRow } from "@/lib/crm/types";
 import { classifyChannel } from "@/lib/tracking/channel";
+import ClickContact from "@/components/crm/ClickContact";
+import PhoneCell from "@/components/crm/PhoneCell";
 
 const EVENT_LABELS: Record<string, string> = {
   whatsapp_click: "Clique no WhatsApp",
@@ -17,6 +19,24 @@ function formatDate(iso: string) {
   });
 }
 
+function ContactCell({ row }: { row: TrackingEventRow }) {
+  if (row.event_type === "whatsapp_click") {
+    return <ClickContact eventId={row.id} initial={row.metadata} />;
+  }
+
+  // Form submissions carry the name and phone typed in the quote form.
+  const meta = row.metadata;
+  if (meta?.phone) {
+    return (
+      <div>
+        {meta.name && <div className="text-xs text-ink-500">{meta.name}</div>}
+        <PhoneCell phone={meta.phone} />
+      </div>
+    );
+  }
+  return <span className="text-ink-500">—</span>;
+}
+
 export default function InteractionsTable({ rows }: { rows: TrackingEventRow[] }) {
   if (rows.length === 0) {
     return <p className="text-sm text-ink-500 py-8 text-center">Nenhuma interação registrada ainda.</p>;
@@ -29,6 +49,7 @@ export default function InteractionsTable({ rows }: { rows: TrackingEventRow[] }
           <tr className="border-b border-ink-100 bg-ink-50 text-left">
             <th className="px-4 py-3 font-medium text-ink-700 whitespace-nowrap">Data/Hora</th>
             <th className="px-4 py-3 font-medium text-ink-700 whitespace-nowrap">Tipo</th>
+            <th className="px-4 py-3 font-medium text-ink-700 whitespace-nowrap">Contato</th>
             <th className="px-4 py-3 font-medium text-ink-700 whitespace-nowrap">Página</th>
             <th className="px-4 py-3 font-medium text-ink-700 whitespace-nowrap">Botão</th>
             <th className="px-4 py-3 font-medium text-ink-700 whitespace-nowrap">Serviço</th>
@@ -42,6 +63,9 @@ export default function InteractionsTable({ rows }: { rows: TrackingEventRow[] }
             <tr key={row.id} className="border-b border-ink-100 last:border-0 hover:bg-ink-50/50">
               <td className="px-4 py-3 whitespace-nowrap text-ink-700">{formatDate(row.created_at)}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-900">{EVENT_LABELS[row.event_type] ?? row.event_type}</td>
+              <td className="px-4 py-3 whitespace-nowrap">
+                <ContactCell row={row} />
+              </td>
               <td className="px-4 py-3 max-w-[200px] truncate text-ink-500">{row.page_url ?? "—"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-500">{row.button_id ?? "—"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-ink-500">{row.service ?? "—"}</td>

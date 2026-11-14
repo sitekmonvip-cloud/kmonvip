@@ -13,6 +13,8 @@ export async function GET(req: NextRequest) {
   const limit = Number(req.nextUrl.searchParams.get("limit") ?? "25");
   const offset = Number(req.nextUrl.searchParams.get("offset") ?? "0");
 
-  const { rows, total } = await EventService.getPaginated(limit, offset);
+  const search = req.nextUrl.searchParams.get("search") ?? undefined;
+
+  const { rows, total } = await EventService.getPaginated(limit, offset, search);
   return NextResponse.json({ ok: true, rows, total });
 }

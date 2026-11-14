@@ -106,6 +106,10 @@ export async function POST(req: NextRequest) {
       fbclid: payload.fbclid ?? null,
       referrer: payload.referrer ?? null,
       ipHash,
+      metadata: {
+        name: fullName || null,
+        phone: payload.phone ? `${payload.countryCode ?? ""}${payload.phone}` : null,
+      },
     });
   } catch (dbError) {
     console.error("[api/quote] DB write failed (email will still be sent)", dbError);

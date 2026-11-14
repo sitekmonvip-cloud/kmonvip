@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import InteractionsTable from "@/components/crm/InteractionsTable";
+import { inputCls } from "@/components/crm/FormField";
 import type { TrackingEventRow } from "@/lib/crm/types";
 
 const PAGE_SIZE = 25;
@@ -11,28 +12,48 @@ export default function CrmInteractionsPage() {
   const [rows, setRows] = useState<TrackingEventRow[]>([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(0);
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLoading(true);
-    fetch(`/api/crm/interactions?limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((json) => {
-        if (json?.ok) {
-          setRows(json.rows);
-          setTotal(json.total);
-        }
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, [page]);
+    const timeout = setTimeout(() => {
+      setLoading(true);
+      const params = new URLSearchParams({
+        limit: String(PAGE_SIZE),
+        offset: String(page * PAGE_SIZE),
+      });
+      if (search.trim()) params.set("search", search.trim());
+
+      fetch(`/api/crm/interactions?${params.toString()}`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((json) => {
+          if (json?.ok) {
+            setRows(json.rows);
+            setTotal(json.total);
+          }
+        })
+        .catch(() => {})
+        .finally(() => setLoading(false));
+    }, 250);
+    return () => clearTimeout(timeout);
+  }, [page, search]);
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-medium text-ink-900">Interações</h1>
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <h1 className="text-2xl font-medium text-ink-900">Interações</h1>
+        <input
+          placeholder="Buscar por protocolo ou telefone"
+          className={`${inputCls()} max-w-xs`}
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setPage(0);
+          }}
+        />
+      </div>
 
       {loading ? (
         <p className="text-sm text-ink-500 py-8 text-center">Carregando...</p>

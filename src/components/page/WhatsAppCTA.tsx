@@ -1,6 +1,6 @@
 "use client";
 
-import { trackEvent } from "@/lib/tracking/events";
+import { trackWhatsAppClick } from "@/lib/tracking/events";
 import { gtmEvent } from "@/lib/tracking/gtm";
 import { BRAND_WHATSAPP } from "@/lib/seo/constants";
 
@@ -30,8 +30,8 @@ export default function WhatsAppCTA({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => {
-        trackEvent({ eventType: "whatsapp_click", buttonId, buttonLocation });
+      onClick={(e) => {
+        trackWhatsAppClick(e, { buttonId, buttonLocation });
         gtmEvent("whatsapp_click", { button_location: buttonLocation });
       }}
       className={className}
