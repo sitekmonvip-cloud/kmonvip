@@ -33,11 +33,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Payload too large" }, { status: 413 });
   }
 
+  // Make can send either a JSON body or plain key/value fields (x-www-form-urlencoded). The second
+  // is the easier one to set up there: field values are escaped for you, so a name or answer with
+  // quotes or line breaks can't break the request.
   let json: unknown;
-  try {
-    json = JSON.parse(raw);
-  } catch {
-    return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
+  if ((request.headers.get("content-type") ?? "").includes("application/x-www-form-urlencoded")) {
+    json = Object.fromEntries(new URLSearchParams(raw));
+  } else {
+    try {
+      json = JSON.parse(raw);
+    } catch {
+      return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
+    }
   }
 
   const parsed = parseMetaLead(json);
