@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Plus, Download, LayoutGrid, List } from "lucide-react";
 import { inputCls, PrimaryButton } from "@/components/crm/FormField";
 import LeadBoard from "@/components/crm/LeadBoard";
@@ -15,10 +16,15 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR");
 }
 
-export default function CrmLeadsPage() {
+type Origin = "" | "site" | "meta";
+
+function CrmLeadsContent() {
+  const searchParams = useSearchParams();
+  const initialOrigin = searchParams.get("origin");
   const [rows, setRows] = useState<LeadRow[]>([]);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
+  const [origin, setOrigin] = useState<Origin>(initialOrigin === "meta" || initialOrigin === "site" ? initialOrigin : "");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [loading, setLoading] = useState(true);
@@ -31,6 +37,7 @@ export default function CrmLeadsPage() {
     const params = new URLSearchParams({ limit: String(LEADS_LIMIT) });
     if (search) params.set("search", search);
     if (status) params.set("status", status);
+    if (origin) params.set("origin", origin);
     if (from) params.set("from", from);
     if (to) params.set("to", to);
 
@@ -41,7 +48,7 @@ export default function CrmLeadsPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [search, status, from, to]);
+  }, [search, status, origin, from, to]);
 
   useEffect(() => {
     const timeout = setTimeout(fetchLeads, 250);
@@ -52,11 +59,12 @@ export default function CrmLeadsPage() {
     const params = new URLSearchParams();
     if (search) params.set("search", search);
     if (status) params.set("status", status);
+    if (origin) params.set("origin", origin);
     if (from) params.set("from", from);
     if (to) params.set("to", to);
     const qs = params.toString();
     return `/api/crm/leads/export${qs ? `?${qs}` : ""}`;
-  }, [search, status, from, to]);
+  }, [search, status, origin, from, to]);
 
   async function handleStatusChange(id: number, newStatus: LeadStatus) {
     // The database returns BIGSERIAL ids as strings, while a dropped card hands us a number.
@@ -129,6 +137,16 @@ export default function CrmLeadsPage() {
               {LEAD_STATUS_LABELS[s]}
             </option>
           ))}
+        </select>
+        <select
+          className={`${inputCls()} max-w-[180px]`}
+          value={origin}
+          onChange={(e) => setOrigin(e.target.value as Origin)}
+          aria-label="Origem do lead"
+        >
+          <option value="">Todas as origens</option>
+          <option value="site">Site</option>
+          <option value="meta">Meta (anúncios)</option>
         </select>
         <input type="date" className={`${inputCls()} max-w-[160px]`} value={from} onChange={(e) => setFrom(e.target.value)} />
         <input type="date" className={`${inputCls()} max-w-[160px]`} value={to} onChange={(e) => setTo(e.target.value)} />
@@ -227,5 +245,14 @@ export default function CrmLeadsPage() {
         />
       )}
     </div>
+  );
+}
+
+export default function CrmLeadsPage() {
+  // useSearchParams needs a Suspense boundary so the rest of the route can still be prerendered.
+  return (
+    <Suspense fallback={<p className="py-8 text-center text-sm text-ink-500">Carregando...</p>}>
+      <CrmLeadsContent />
+    </Suspense>
   );
 }

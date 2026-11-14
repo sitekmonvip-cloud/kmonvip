@@ -94,6 +94,19 @@ export type LeadInput = {
   notes?: string | null;
 };
 
+/** Extra data kept on leads that don't come from the site's own quote form (e.g. Meta Lead Ads). */
+export type LeadExtra = {
+  respostas?: Record<string, string | string[]>;
+  pais?: string | null;
+  cargo?: string | null;
+  platform?: string | null;
+  is_organic?: boolean | null;
+  form_id?: string | null;
+  ad_id?: string | null;
+  adset_id?: string | null;
+  campaign_id?: string | null;
+};
+
 export type LeadRow = {
   id: number;
   name: string;
@@ -113,12 +126,16 @@ export type LeadRow = {
   utm_content: string | null;
   status: LeadStatus;
   notes: string | null;
+  external_id: string | null;
+  extra: LeadExtra | null;
   created_at: string;
   updated_at: string;
 };
 
 export type LeadFilters = {
   search?: string;
+  /** "meta" = leads from Meta Lead Ads; "site" = everything else. */
+  origin?: "meta" | "site";
   status?: LeadStatus;
   source?: string;
   from?: string; // ISO date

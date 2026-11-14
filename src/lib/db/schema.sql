@@ -89,3 +89,11 @@ CREATE TABLE IF NOT EXISTS blog_posts (
 );
 
 CREATE INDEX IF NOT EXISTS idx_blog_posts_status_published ON blog_posts (status, published_at DESC);
+
+-- Leads coming from Meta Lead Ads (via the Make automation → POST /api/meta/leads).
+-- external_id is Meta's lead id: it makes the endpoint idempotent when Make retries.
+-- extra holds the form answers, which differ per form, so they don't get one column each.
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS external_id TEXT;
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS extra JSONB;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_leads_external_id ON leads (external_id) WHERE external_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_leads_source ON leads (source);

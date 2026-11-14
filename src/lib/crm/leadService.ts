@@ -1,5 +1,6 @@
 import { sql } from "@/lib/db/client";
 import type { LeadFilters, LeadInput, LeadRow, LeadStatus } from "./types";
+import type { MetaLeadInput } from "./metaLead";
 
 function normalizePhone(phone?: string | null): string | null {
   if (!phone) return null;
@@ -81,6 +82,36 @@ export const LeadService = {
     return inserted[0];
   },
 
+  /**
+   * Stores a Meta Lead Ads submission. Meta's lead id is the idempotency key, so Make retrying
+   * the same request never creates a second lead. The lead keeps Meta's own creation time.
+   */
+  async createFromMeta(input: MetaLeadInput): Promise<{ lead: LeadRow; created: boolean }> {
+    const phoneNormalized = normalizePhone(input.phone);
+    // extra goes through ::text::jsonb: a bare string bound to jsonb is JSON-encoded twice by the
+    // postgres driver and would be stored as a string instead of an object.
+    const extraJson = JSON.stringify(input.extra);
+
+    const inserted = (await sql`
+      INSERT INTO leads (
+        name, company_name, phone, phone_normalized, email, service_interest, service_city,
+        source, medium, campaign, conversion_page, utm_term, utm_content, status, external_id, extra, created_at
+      ) VALUES (
+        ${input.name}, ${input.companyName}, ${input.phone}, ${phoneNormalized}, ${input.email},
+        ${input.serviceInterest}, ${input.serviceCity}, ${input.source}, ${input.medium}, ${input.campaign},
+        ${input.formName}, ${input.adsetName}, ${input.adName}, 'novo', ${input.externalId},
+        ${extraJson}::text::jsonb, ${input.createdAt}::timestamptz
+      )
+      ON CONFLICT (external_id) WHERE external_id IS NOT NULL DO NOTHING
+      RETURNING *
+    `) as LeadRow[];
+
+    if (inserted[0]) return { lead: inserted[0], created: true };
+
+    const existing = (await sql`SELECT * FROM leads WHERE external_id = ${input.externalId}`) as LeadRow[];
+    return { lead: existing[0], created: false };
+  },
+
   async getById(id: number): Promise<LeadRow | null> {
     const rows = (await sql`SELECT * FROM leads WHERE id = ${id}`) as LeadRow[];
     return rows[0] ?? null;
@@ -128,6 +159,7 @@ export const LeadService = {
       WHERE (${search}::text IS NULL OR name ILIKE ${search} OR phone ILIKE ${search} OR company_name ILIKE ${search})
         AND (${filters.status ?? null}::text IS NULL OR status = ${filters.status ?? null})
         AND (${filters.source ?? null}::text IS NULL OR source = ${filters.source ?? null})
+        AND (${filters.origin ?? null}::text IS NULL OR (${filters.origin ?? null} = 'meta' AND source = 'meta') OR (${filters.origin ?? null} = 'site' AND source IS DISTINCT FROM 'meta'))
         AND (${filters.from ?? null}::text IS NULL OR created_at >= ${filters.from ?? null}::timestamptz)
         AND (${filters.to ?? null}::text IS NULL OR created_at <= ${filters.to ?? null}::timestamptz)
       ORDER BY created_at DESC
@@ -139,6 +171,7 @@ export const LeadService = {
       WHERE (${search}::text IS NULL OR name ILIKE ${search} OR phone ILIKE ${search} OR company_name ILIKE ${search})
         AND (${filters.status ?? null}::text IS NULL OR status = ${filters.status ?? null})
         AND (${filters.source ?? null}::text IS NULL OR source = ${filters.source ?? null})
+        AND (${filters.origin ?? null}::text IS NULL OR (${filters.origin ?? null} = 'meta' AND source = 'meta') OR (${filters.origin ?? null} = 'site' AND source IS DISTINCT FROM 'meta'))
         AND (${filters.from ?? null}::text IS NULL OR created_at >= ${filters.from ?? null}::timestamptz)
         AND (${filters.to ?? null}::text IS NULL OR created_at <= ${filters.to ?? null}::timestamptz)
     `) as { count: number }[];

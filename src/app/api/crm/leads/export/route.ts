@@ -57,6 +57,7 @@ export async function GET(req: NextRequest) {
     search: params.get("search") ?? undefined,
     status: status && LEAD_STATUSES.includes(status as never) ? (status as never) : undefined,
     source: params.get("source") ?? undefined,
+    origin: params.get("origin") === "meta" || params.get("origin") === "site" ? (params.get("origin") as "meta" | "site") : undefined,
     from: params.get("from") ?? undefined,
     to: params.get("to") ?? undefined,
     limit: 10000,
