@@ -6,6 +6,8 @@ const RATE_LIMIT_MAX_EVENTS = 30;
 
 export const EventService = {
   async record(input: TrackingEventInput & { ipHash?: string | null }) {
+    // metadata goes through ::text::jsonb: a bare string bound to a jsonb column is JSON-encoded a
+    // second time by the postgres driver and stored as a string instead of an object.
     await sql`
       INSERT INTO tracking_events (
         event_type, page_url, page_title, button_id, button_text, button_location,
@@ -18,7 +20,7 @@ export const EventService = {
         ${input.utmCampaign ?? null}, ${input.utmContent ?? null}, ${input.utmTerm ?? null},
         ${input.gclid ?? null}, ${input.fbclid ?? null}, ${input.referrer ?? null},
         ${input.deviceType ?? null}, ${input.ipHash ?? null},
-        ${input.metadata ? JSON.stringify(input.metadata) : null}
+        ${input.metadata ? JSON.stringify(input.metadata) : null}::text::jsonb
       )
     `;
   },
@@ -28,14 +30,15 @@ export const EventService = {
    * Only clicks from the last 7 days and without a phone yet are matched, so replays are no-ops.
    */
   async attachInboundContact(ref: string, contact: { phone: string; name: string | null }): Promise<boolean> {
-    const patch = JSON.stringify({
-      phone: contact.phone,
-      contact_name: contact.name,
-      contacted_at: new Date().toISOString(),
-    });
+    // The jsonb patch is built in SQL on purpose: binding a JSON *string* to a ::jsonb cast gets
+    // encoded a second time by the postgres driver and ends up as a string inside an array.
     const rows = (await sql`
       UPDATE tracking_events
-      SET metadata = COALESCE(metadata, '{}'::jsonb) || ${patch}::jsonb
+      SET metadata = COALESCE(metadata, '{}'::jsonb) || jsonb_build_object(
+        'phone', ${contact.phone}::text,
+        'contact_name', ${contact.name}::text,
+        'contacted_at', ${new Date().toISOString()}::text
+      )
       WHERE event_type = 'whatsapp_click'
         AND metadata->>'ref' = ${ref}
         AND metadata->>'phone' IS NULL
@@ -116,10 +119,13 @@ export const EventService = {
       `) as { metadata: TrackingEventRow["metadata"] }[];
       return rows[0]?.metadata ?? undefined;
     }
-    const patch = JSON.stringify({ phone, phone_source: "manual", contacted_at: new Date().toISOString() });
     const rows = (await sql`
       UPDATE tracking_events
-      SET metadata = COALESCE(metadata, '{}'::jsonb) || ${patch}::jsonb
+      SET metadata = COALESCE(metadata, '{}'::jsonb) || jsonb_build_object(
+        'phone', ${phone}::text,
+        'phone_source', 'manual',
+        'contacted_at', ${new Date().toISOString()}::text
+      )
       WHERE id = ${id} AND event_type = 'whatsapp_click'
       RETURNING metadata
     `) as { metadata: TrackingEventRow["metadata"] }[];
