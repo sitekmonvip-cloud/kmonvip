@@ -17,6 +17,15 @@ export const LEAD_STATUSES: LeadStatus[] = [
   "perdido",
 ];
 
+export const LEAD_STATUS_LABELS: Record<LeadStatus, string> = {
+  novo: "Novo",
+  em_atendimento: "Em atendimento",
+  qualificado: "Qualificado",
+  proposta_enviada: "Proposta enviada",
+  fechado: "Fechado",
+  perdido: "Perdido",
+};
+
 export type TrackingEventInput = {
   eventType: EventType;
   pageUrl?: string | null;

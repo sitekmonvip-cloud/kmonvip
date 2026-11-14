@@ -13,8 +13,13 @@ export async function GET(req: NextRequest) {
   const limit = Number(req.nextUrl.searchParams.get("limit") ?? "25");
   const offset = Number(req.nextUrl.searchParams.get("offset") ?? "0");
 
-  const search = req.nextUrl.searchParams.get("search") ?? undefined;
+  const params = req.nextUrl.searchParams;
+  const type = params.get("type");
 
-  const { rows, total } = await EventService.getPaginated(limit, offset, search);
+  const { rows, total } = await EventService.getPaginated(limit, offset, {
+    search: params.get("search") ?? undefined,
+    type: type && ["whatsapp_click", "form_submission", "phone_click"].includes(type) ? type : undefined,
+    pendingPhone: params.get("pending") === "1",
+  });
   return NextResponse.json({ ok: true, rows, total });
 }

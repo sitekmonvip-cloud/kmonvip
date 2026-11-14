@@ -1,20 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Plus, Download } from "lucide-react";
+import { Plus, Download, LayoutGrid, List } from "lucide-react";
 import { inputCls, PrimaryButton } from "@/components/crm/FormField";
+import LeadBoard from "@/components/crm/LeadBoard";
 import LeadModal from "@/components/crm/LeadModal";
 import PhoneCell from "@/components/crm/PhoneCell";
-import { LEAD_STATUSES, type LeadRow, type LeadStatus } from "@/lib/crm/types";
+import { LEAD_STATUSES, LEAD_STATUS_LABELS, type LeadRow, type LeadStatus } from "@/lib/crm/types";
 
-const STATUS_LABELS: Record<LeadStatus, string> = {
-  novo: "Novo",
-  em_atendimento: "Em atendimento",
-  qualificado: "Qualificado",
-  proposta_enviada: "Proposta enviada",
-  fechado: "Fechado",
-  perdido: "Perdido",
-};
+// The board needs every lead at once, so ask for far more than the API's default page of 25.
+const LEADS_LIMIT = 500;
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR");
@@ -28,10 +23,12 @@ export default function CrmLeadsPage() {
   const [to, setTo] = useState("");
   const [loading, setLoading] = useState(true);
   const [modalLead, setModalLead] = useState<LeadRow | null | "new">(null);
+  const [view, setView] = useState<"board" | "list">("board");
+  const [actionError, setActionError] = useState<string | null>(null);
 
   const fetchLeads = useCallback(() => {
     setLoading(true);
-    const params = new URLSearchParams();
+    const params = new URLSearchParams({ limit: String(LEADS_LIMIT) });
     if (search) params.set("search", search);
     if (status) params.set("status", status);
     if (from) params.set("from", from);
@@ -62,19 +59,50 @@ export default function CrmLeadsPage() {
   }, [search, status, from, to]);
 
   async function handleStatusChange(id: number, newStatus: LeadStatus) {
-    setRows((prev) => prev.map((r) => (r.id === id ? { ...r, status: newStatus } : r)));
-    await fetch(`/api/crm/leads/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: newStatus }),
-    });
+    // The database returns BIGSERIAL ids as strings, while a dropped card hands us a number.
+    const sameLead = (r: LeadRow) => String(r.id) === String(id);
+    const previous = rows.find(sameLead)?.status;
+    if (!previous || previous === newStatus) return;
+
+    setActionError(null);
+    setRows((prev) => prev.map((r) => (sameLead(r) ? { ...r, status: newStatus } : r)));
+    try {
+      const res = await fetch(`/api/crm/leads/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!res.ok) throw new Error("request failed");
+    } catch {
+      // Put the lead back where it was so the screen never shows a status the server doesn't have.
+      setRows((prev) => prev.map((r) => (sameLead(r) ? { ...r, status: previous } : r)));
+      setActionError("Não foi possível mover o lead. Tente novamente.");
+    }
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-4">
         <h1 className="text-2xl font-medium text-ink-900">Leads</h1>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
+          <div className="flex rounded-full border border-ink-200 bg-white p-1" role="group" aria-label="Modo de exibição">
+            {([
+              ["board", "Quadro", LayoutGrid],
+              ["list", "Lista", List],
+            ] as const).map(([value, label, Icon]) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setView(value)}
+                aria-pressed={view === value}
+                className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                  view === value ? "bg-ink-900 text-white" : "text-ink-700 hover:bg-ink-50"
+                }`}
+              >
+                <Icon size={14} /> {label}
+              </button>
+            ))}
+          </div>
           <a
             href={exportHref}
             className="px-6 py-3 rounded-full border border-ink-200 text-sm font-medium text-ink-700 hover:bg-white transition-colors flex items-center gap-2"
@@ -98,7 +126,7 @@ export default function CrmLeadsPage() {
           <option value="">Todos os status</option>
           {LEAD_STATUSES.map((s) => (
             <option key={s} value={s}>
-              {STATUS_LABELS[s]}
+              {LEAD_STATUS_LABELS[s]}
             </option>
           ))}
         </select>
@@ -106,6 +134,19 @@ export default function CrmLeadsPage() {
         <input type="date" className={`${inputCls()} max-w-[160px]`} value={to} onChange={(e) => setTo(e.target.value)} />
       </div>
 
+      {actionError && (
+        <p role="alert" className="rounded-lg bg-red-50 px-4 py-2 text-sm text-red-700">
+          {actionError}
+        </p>
+      )}
+
+      {view === "board" ? (
+        loading && rows.length === 0 ? (
+          <p className="py-8 text-center text-sm text-ink-500">Carregando...</p>
+        ) : (
+          <LeadBoard leads={rows} onStatusChange={handleStatusChange} onEdit={setModalLead} />
+        )
+      ) : (
       <div className="overflow-x-auto rounded-xl border border-ink-100 bg-white">
         <table className="w-full text-sm">
           <thead>
@@ -154,7 +195,7 @@ export default function CrmLeadsPage() {
                   >
                     {LEAD_STATUSES.map((s) => (
                       <option key={s} value={s}>
-                        {STATUS_LABELS[s]}
+                        {LEAD_STATUS_LABELS[s]}
                       </option>
                     ))}
                   </select>
@@ -173,6 +214,7 @@ export default function CrmLeadsPage() {
           </tbody>
         </table>
       </div>
+      )}
 
       {modalLead && (
         <LeadModal

@@ -68,20 +68,27 @@ export const EventService = {
     return rows;
   },
 
-  /** `search` matches the protocol code or the phone number (digits as stored). */
+  /**
+   * `search` matches the protocol code or the phone number (digits as stored).
+   * `pendingPhone` keeps only WhatsApp clicks that carry a protocol but no phone yet.
+   */
   async getPaginated(
     limit = 25,
     offset = 0,
-    search?: string
+    filters: { search?: string; type?: string; pendingPhone?: boolean } = {}
   ): Promise<{ rows: TrackingEventRow[]; total: number }> {
-    const term = search?.trim();
+    const term = filters.search?.trim();
     const like = term ? `%${term}%` : null;
+    const type = filters.type ?? null;
+    const pending = filters.pendingPhone ? "yes" : "no";
     const rows = (await sql`
       SELECT id, event_type, page_url, page_title, button_id, button_text, button_location,
              service, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
              gclid, fbclid, referrer, device_type, metadata, created_at
       FROM tracking_events
       WHERE (${like}::text IS NULL OR metadata->>'ref' ILIKE ${like} OR metadata->>'phone' ILIKE ${like})
+        AND (${type}::text IS NULL OR event_type = ${type})
+        AND (${pending}::text = 'no' OR (event_type = 'whatsapp_click' AND metadata->>'ref' IS NOT NULL AND metadata->>'phone' IS NULL))
       ORDER BY created_at DESC
       LIMIT ${limit} OFFSET ${offset}
     `) as TrackingEventRow[];
@@ -89,6 +96,8 @@ export const EventService = {
       SELECT COUNT(*)::int AS count
       FROM tracking_events
       WHERE (${like}::text IS NULL OR metadata->>'ref' ILIKE ${like} OR metadata->>'phone' ILIKE ${like})
+        AND (${type}::text IS NULL OR event_type = ${type})
+        AND (${pending}::text = 'no' OR (event_type = 'whatsapp_click' AND metadata->>'ref' IS NOT NULL AND metadata->>'phone' IS NULL))
     `) as { count: number }[];
     return { rows, total: totalRows[0]?.count ?? 0 };
   },
