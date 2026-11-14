@@ -1,6 +1,7 @@
 import { sql } from "@/lib/db/client";
 import type { LeadFilters, LeadInput, LeadRow, LeadStatus } from "./types";
 import type { MetaLeadInput } from "./metaLead";
+import { ensureMetaSchema } from "@/lib/db/ensureMetaSchema";
 
 function normalizePhone(phone?: string | null): string | null {
   if (!phone) return null;
@@ -87,6 +88,7 @@ export const LeadService = {
    * the same request never creates a second lead. The lead keeps Meta's own creation time.
    */
   async createFromMeta(input: MetaLeadInput): Promise<{ lead: LeadRow; created: boolean }> {
+    await ensureMetaSchema();
     const phoneNormalized = normalizePhone(input.phone);
     // extra goes through ::text::jsonb: a bare string bound to jsonb is JSON-encoded twice by the
     // postgres driver and would be stored as a string instead of an object.

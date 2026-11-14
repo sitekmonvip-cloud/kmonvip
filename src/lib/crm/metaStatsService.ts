@@ -1,4 +1,5 @@
 import { sql } from "@/lib/db/client";
+import { ensureMetaSchema } from "@/lib/db/ensureMetaSchema";
 
 export type CountRow = { label: string; count: number };
 
@@ -19,6 +20,7 @@ const NONE = "(não informado)";
 export const MetaStatsService = {
   /** Aggregates of the leads that came from Meta Lead Ads, over the last `days` days. */
   async get(days: 7 | 30 | 90): Promise<MetaStats> {
+    await ensureMetaSchema();
     const span = String(days);
 
     const totalsRows = (await sql`
