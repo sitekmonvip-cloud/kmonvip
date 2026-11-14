@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Plus, Download } from "lucide-react";
 import { inputCls, PrimaryButton } from "@/components/crm/FormField";
 import LeadModal from "@/components/crm/LeadModal";
+import PhoneCell from "@/components/crm/PhoneCell";
 import { LEAD_STATUSES, type LeadRow, type LeadStatus } from "@/lib/crm/types";
 
 const STATUS_LABELS: Record<LeadStatus, string> = {
@@ -139,7 +140,9 @@ export default function CrmLeadsPage() {
               <tr key={lead.id} className="border-b border-ink-100 last:border-0 hover:bg-ink-50/50">
                 <td className="px-4 py-3 font-medium text-ink-900 whitespace-nowrap">{lead.name}</td>
                 <td className="px-4 py-3 text-ink-500 whitespace-nowrap">{lead.company_name ?? "—"}</td>
-                <td className="px-4 py-3 text-ink-500 whitespace-nowrap">{lead.phone ?? "—"}</td>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <PhoneCell phone={lead.phone} />
+                </td>
                 <td className="px-4 py-3 text-ink-500 whitespace-nowrap">{lead.service_interest ?? "—"}</td>
                 <td className="px-4 py-3 text-ink-500 whitespace-nowrap">{lead.service_city ?? "—"}</td>
                 <td className="px-4 py-3 text-ink-500 whitespace-nowrap">{lead.source ?? "Direto"}</td>

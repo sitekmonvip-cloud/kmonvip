@@ -1,11 +1,13 @@
 import { getAttribution } from "./attribution";
 import { deriveServiceFromPath } from "@/lib/seo/constants";
+import { generateRef, withRef } from "./whatsappRef";
 
 export type WhatsAppEventInput = {
   eventType: "whatsapp_click" | "phone_click";
   buttonId: string;
   buttonText?: string;
   buttonLocation?: string;
+  metadata?: Record<string, unknown>;
 };
 
 /** Non-blocking event log. Never throws, never delays the caller (e.g. WhatsApp navigation). */
@@ -30,6 +32,7 @@ export function trackEvent(input: WhatsAppEventInput) {
       gclid: attribution.gclid,
       fbclid: attribution.fbclid,
       referrer: attribution.referrer,
+      metadata: input.metadata ?? null,
     };
 
     const body = JSON.stringify(payload);
@@ -49,4 +52,23 @@ export function trackEvent(input: WhatsAppEventInput) {
   } catch {
     // tracking must never break the WhatsApp/phone click it's attached to
   }
+}
+
+/**
+ * Click handler for any wa.me link: stamps a fresh "Protocolo: XXXXX" onto the message the visitor is
+ * about to send and logs the click with the same code. Must run before the browser follows the
+ * link, which it does — onClick handlers run ahead of the default navigation.
+ */
+export function trackWhatsAppClick(
+  event: { currentTarget: HTMLAnchorElement },
+  input: Omit<WhatsAppEventInput, "eventType" | "metadata">
+) {
+  let ref: string | undefined;
+  try {
+    ref = generateRef();
+    event.currentTarget.href = withRef(event.currentTarget.href, ref);
+  } catch {
+    ref = undefined; // never block the WhatsApp navigation over the tracking code
+  }
+  trackEvent({ ...input, eventType: "whatsapp_click", metadata: ref ? { ref } : undefined });
 }

@@ -23,6 +23,28 @@ export const EventService = {
     `;
   },
 
+  /**
+   * Links an inbound WhatsApp message to the click that carried the same Ref code.
+   * Only clicks from the last 7 days and without a phone yet are matched, so replays are no-ops.
+   */
+  async attachInboundContact(ref: string, contact: { phone: string; name: string | null }): Promise<boolean> {
+    const patch = JSON.stringify({
+      phone: contact.phone,
+      contact_name: contact.name,
+      contacted_at: new Date().toISOString(),
+    });
+    const rows = (await sql`
+      UPDATE tracking_events
+      SET metadata = COALESCE(metadata, '{}'::jsonb) || ${patch}::jsonb
+      WHERE event_type = 'whatsapp_click'
+        AND metadata->>'ref' = ${ref}
+        AND metadata->>'phone' IS NULL
+        AND created_at > now() - interval '7 days'
+      RETURNING id
+    `) as { id: number }[];
+    return rows.length > 0;
+  },
+
   /** Returns false when the given ip_hash has exceeded the basic abuse threshold. */
   async isWithinRateLimit(ipHash: string): Promise<boolean> {
     const rows = (await sql`
@@ -38,7 +60,7 @@ export const EventService = {
     const rows = (await sql`
       SELECT id, event_type, page_url, page_title, button_id, button_text, button_location,
              service, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-             gclid, fbclid, referrer, device_type, created_at
+             gclid, fbclid, referrer, device_type, metadata, created_at
       FROM tracking_events
       ORDER BY created_at DESC
       LIMIT ${limit}
@@ -46,17 +68,53 @@ export const EventService = {
     return rows;
   },
 
-  async getPaginated(limit = 25, offset = 0): Promise<{ rows: TrackingEventRow[]; total: number }> {
+  /** `search` matches the protocol code or the phone number (digits as stored). */
+  async getPaginated(
+    limit = 25,
+    offset = 0,
+    search?: string
+  ): Promise<{ rows: TrackingEventRow[]; total: number }> {
+    const term = search?.trim();
+    const like = term ? `%${term}%` : null;
     const rows = (await sql`
       SELECT id, event_type, page_url, page_title, button_id, button_text, button_location,
              service, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-             gclid, fbclid, referrer, device_type, created_at
+             gclid, fbclid, referrer, device_type, metadata, created_at
       FROM tracking_events
+      WHERE (${like}::text IS NULL OR metadata->>'ref' ILIKE ${like} OR metadata->>'phone' ILIKE ${like})
       ORDER BY created_at DESC
       LIMIT ${limit} OFFSET ${offset}
     `) as TrackingEventRow[];
-    const totalRows = (await sql`SELECT COUNT(*)::int AS count FROM tracking_events`) as { count: number }[];
+    const totalRows = (await sql`
+      SELECT COUNT(*)::int AS count
+      FROM tracking_events
+      WHERE (${like}::text IS NULL OR metadata->>'ref' ILIKE ${like} OR metadata->>'phone' ILIKE ${like})
+    `) as { count: number }[];
     return { rows, total: totalRows[0]?.count ?? 0 };
+  },
+
+  /**
+   * Lets the sales team record, by hand, who sent the message behind a WhatsApp click.
+   * Pass null to clear it. Only whatsapp_click rows are editable.
+   */
+  async setManualPhone(id: number, phone: string | null): Promise<TrackingEventRow["metadata"] | undefined> {
+    if (phone === null) {
+      const rows = (await sql`
+        UPDATE tracking_events
+        SET metadata = COALESCE(metadata, '{}'::jsonb) - 'phone' - 'phone_source' - 'contacted_at' - 'contact_name'
+        WHERE id = ${id} AND event_type = 'whatsapp_click'
+        RETURNING metadata
+      `) as { metadata: TrackingEventRow["metadata"] }[];
+      return rows[0]?.metadata ?? undefined;
+    }
+    const patch = JSON.stringify({ phone, phone_source: "manual", contacted_at: new Date().toISOString() });
+    const rows = (await sql`
+      UPDATE tracking_events
+      SET metadata = COALESCE(metadata, '{}'::jsonb) || ${patch}::jsonb
+      WHERE id = ${id} AND event_type = 'whatsapp_click'
+      RETURNING metadata
+    `) as { metadata: TrackingEventRow["metadata"] }[];
+    return rows[0]?.metadata ?? undefined;
   },
 
   async countByTypeSince(eventType: string, since: Date): Promise<number> {

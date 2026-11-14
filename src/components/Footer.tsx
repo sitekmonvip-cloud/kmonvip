@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { trackEvent } from "@/lib/tracking/events";
+import { trackWhatsAppClick } from "@/lib/tracking/events";
 import { sendGTMEvent } from "@next/third-parties/google";
 import CookiePrefsLink from "@/components/CookiePrefsLink";
 
@@ -127,8 +127,8 @@ export default function Footer() {
                 </span>
                 <a
                   href="https://wa.me/5561998630303"
-                  onClick={() => {
-                    trackEvent({ eventType: "whatsapp_click", buttonId: "footer-whatsapp", buttonLocation: "footer" });
+                  onClick={(e) => {
+                    trackWhatsAppClick(e, { buttonId: "footer-whatsapp", buttonLocation: "footer" });
                     sendGTMEvent({ event: "whatsapp_click", button_location: "footer" });
                   }}
                   className="hover:text-white transition-colors"
