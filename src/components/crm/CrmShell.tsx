@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SessionProvider, signOut } from "next-auth/react";
-import { LayoutDashboard, Users, Activity, Settings, ToggleLeft, Newspaper, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, Building2, Activity, Settings, ToggleLeft, Newspaper, LogOut } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/crm", label: "Visão geral", icon: LayoutDashboard },
   { href: "/crm/leads", label: "Leads", icon: Users },
+  { href: "/crm/fornecedores", label: "Fornecedores", icon: Building2 },
   { href: "/crm/interacoes", label: "Interações", icon: Activity },
   { href: "/crm/blog", label: "Blog", icon: Newspaper },
   { href: "/crm/funcoes", label: "Funções do site", icon: ToggleLeft },

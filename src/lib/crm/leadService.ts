@@ -27,6 +27,15 @@ function withSdrNotes(existing: string | null, summary: string): string {
   return `${existing}\n\n${block}`;
 }
 
+/** The text of `notes` that lives outside the SDR block, i.e. what a human or the quote form wrote. */
+function notesOutsideSdrBlock(notes: string | null): string {
+  if (!notes) return "";
+  const start = notes.indexOf(SDR_NOTES_START);
+  const end = start === -1 ? -1 : notes.indexOf(SDR_NOTES_END, start);
+  if (start === -1 || end === -1) return notes;
+  return notes.slice(0, start) + notes.slice(end + SDR_NOTES_END.length);
+}
+
 // The SDR may only move a lead forward through these stages. Anything past them
 // (proposta_enviada, fechado, perdido) means a human took over, so the status is left as is.
 const SDR_STATUS_RANK: Partial<Record<LeadStatus, number>> = { novo: 0, em_atendimento: 1, qualificado: 2 };
@@ -113,8 +122,10 @@ export const LeadService = {
   },
 
   /** Upsert used by the WhatsApp SDR. Matches an open lead (not fechado/perdido) with the same phone
-   * that was touched in the last 30 days; otherwise creates one. Never touches gclid/fbclid/utm_*,
-   * never overwrites a name/company/email that is already filled, and never moves status backwards. */
+   * that was touched in the last 30 days; otherwise creates one. Never touches gclid/fbclid/utm_* or the
+   * first-touch fields (source/medium/campaign/conversion_page) of an existing lead, never overwrites a
+   * name/company/email that is already filled, and never moves status backwards. Leads it creates carry
+   * medium = 'sdr', which is how removeUntouchedSdrLead recognises them. */
   async upsertFromSdr(input: SdrLeadInput): Promise<{ lead: LeadRow; created: boolean }> {
     const phoneNormalized = normalizePhone(input.phone);
     if (!phoneNormalized) throw new Error("upsertFromSdr: phone has no digits");
@@ -139,7 +150,7 @@ export const LeadService = {
         ) VALUES (
           ${input.name ?? placeholderName}, ${input.companyName ?? null}, ${phoneNormalized}, ${phoneNormalized},
           ${input.email ?? null}, ${input.serviceInterest ?? null}, ${input.serviceCity ?? null},
-          ${input.source ?? "whatsapp"}, ${input.medium ?? "sdr"}, ${input.campaign ?? null}, ${input.conversionPage ?? null},
+          ${input.source ?? "whatsapp"}, 'sdr', ${input.campaign ?? null}, ${input.conversionPage ?? null},
           ${nextSdrStatus("novo", input.status)},
           ${input.notes ? withSdrNotes(null, input.notes) : null}
         )
@@ -159,10 +170,6 @@ export const LeadService = {
         email = ${current.email ?? input.email ?? null},
         service_interest = ${input.serviceInterest ?? current.service_interest},
         service_city = ${input.serviceCity ?? current.service_city},
-        source = ${current.source ?? input.source ?? null},
-        medium = ${current.medium ?? input.medium ?? null},
-        campaign = ${current.campaign ?? input.campaign ?? null},
-        conversion_page = ${current.conversion_page ?? input.conversionPage ?? null},
         status = ${nextSdrStatus(current.status, input.status)},
         notes = ${notes},
         updated_at = now()
@@ -170,6 +177,28 @@ export const LeadService = {
       RETURNING *
     `) as LeadRow[];
     return { lead: updated[0], created: false };
+  },
+
+  /** Deletes the card(s) the SDR itself created for this phone, when the contact turns out not to be a
+   * prospect (e.g. a supplier). Only removes a card nobody worked on: created by the SDR (medium = 'sdr'),
+   * still novo/em_atendimento, no ad attribution, and no notes besides the SDR block. Returns whether
+   * anything was removed; a card a human touched is left alone. */
+  async removeUntouchedSdrLead(phoneNormalized: string): Promise<boolean> {
+    const candidates = (await sql`
+      SELECT * FROM leads
+      WHERE phone_normalized = ${phoneNormalized}
+        AND medium = 'sdr'
+        AND status IN ('novo', 'em_atendimento')
+        AND gclid IS NULL AND fbclid IS NULL
+    `) as LeadRow[];
+
+    let removed = false;
+    for (const lead of candidates) {
+      if (notesOutsideSdrBlock(lead.notes).trim() !== "") continue;
+      await sql`DELETE FROM leads WHERE id = ${lead.id}`;
+      removed = true;
+    }
+    return removed;
   },
 
   async getById(id: number): Promise<LeadRow | null> {

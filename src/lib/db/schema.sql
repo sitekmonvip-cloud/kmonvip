@@ -88,3 +88,22 @@ CREATE TABLE IF NOT EXISTS blog_posts (
 );
 
 CREATE INDEX IF NOT EXISTS idx_blog_posts_status_published ON blog_posts (status, published_at DESC);
+
+-- Contacts the WhatsApp SDR identified as suppliers/vendors (people offering something to KMON VIP,
+-- not buying). Kept out of `leads` so the funnel, dashboard counts and the Ads conversion export
+-- only ever see real prospects. One row per phone.
+CREATE TABLE IF NOT EXISTS suppliers (
+  id BIGSERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  company_name TEXT,
+  phone TEXT NOT NULL,
+  phone_normalized TEXT NOT NULL,
+  email TEXT,
+  offering TEXT, -- what they are offering
+  notes TEXT,    -- SDR summary of the conversation
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_suppliers_phone_normalized ON suppliers (phone_normalized);
+CREATE INDEX IF NOT EXISTS idx_suppliers_updated_at ON suppliers (updated_at DESC);

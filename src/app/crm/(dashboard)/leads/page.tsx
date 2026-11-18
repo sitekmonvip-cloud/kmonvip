@@ -28,8 +28,8 @@ export default function CrmLeadsPage() {
   const [loading, setLoading] = useState(true);
   const [modalLead, setModalLead] = useState<LeadRow | null | "new">(null);
 
-  const fetchLeads = useCallback(() => {
-    setLoading(true);
+  const fetchLeads = useCallback((silent = false) => {
+    if (!silent) setLoading(true);
     const params = new URLSearchParams();
     if (search) params.set("search", search);
     if (status) params.set("status", status);
@@ -49,6 +49,15 @@ export default function CrmLeadsPage() {
     const timeout = setTimeout(fetchLeads, 250);
     return () => clearTimeout(timeout);
   }, [fetchLeads]);
+
+  // The WhatsApp SDR creates leads and moves their status on its own, so keep the table in sync
+  // without a manual reload. Skipped while the tab is hidden or a lead is being edited.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (document.visibilityState === "visible" && !modalLead) fetchLeads(true);
+    }, 20_000);
+    return () => clearInterval(interval);
+  }, [fetchLeads, modalLead]);
 
   const exportHref = useMemo(() => {
     const params = new URLSearchParams();

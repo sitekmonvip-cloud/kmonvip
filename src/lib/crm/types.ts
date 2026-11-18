@@ -91,11 +91,35 @@ export type SdrLeadInput = {
   status?: SdrLeadStatus | null;
   /** Conversation summary. Stored inside a delimited SDR block of `notes`, replaced on every sync. */
   notes?: string | null;
-  /** First-touch fields: only used when creating the lead, or to backfill empty ones. */
+  /** First-touch fields: only used when the lead is created, never on later syncs. */
   source?: string | null;
-  medium?: string | null;
   campaign?: string | null;
   conversionPage?: string | null;
+};
+
+export type SupplierInput = {
+  /** Any format — only the digits are used (country code included). */
+  phone: string;
+  name?: string | null;
+  companyName?: string | null;
+  email?: string | null;
+  /** What the supplier is offering. */
+  offering?: string | null;
+  /** Conversation summary. */
+  notes?: string | null;
+};
+
+export type SupplierRow = {
+  id: number;
+  name: string;
+  company_name: string | null;
+  phone: string;
+  phone_normalized: string;
+  email: string | null;
+  offering: string | null;
+  notes: string | null;
+  created_at: string;
+  updated_at: string;
 };
 
 export type LeadRow = {
