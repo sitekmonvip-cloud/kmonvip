@@ -77,6 +77,27 @@ export type LeadInput = {
   notes?: string | null;
 };
 
+/** Statuses the SDR is allowed to set. Later stages (proposta_enviada, fechado, perdido) belong to humans. */
+export type SdrLeadStatus = "novo" | "em_atendimento" | "qualificado";
+
+export type SdrLeadInput = {
+  /** Any format — only the digits are used (country code included, e.g. 5561998630303). */
+  phone: string;
+  name?: string | null;
+  companyName?: string | null;
+  email?: string | null;
+  serviceInterest?: string | null;
+  serviceCity?: string | null;
+  status?: SdrLeadStatus | null;
+  /** Conversation summary. Stored inside a delimited SDR block of `notes`, replaced on every sync. */
+  notes?: string | null;
+  /** First-touch fields: only used when creating the lead, or to backfill empty ones. */
+  source?: string | null;
+  medium?: string | null;
+  campaign?: string | null;
+  conversionPage?: string | null;
+};
+
 export type LeadRow = {
   id: number;
   name: string;
