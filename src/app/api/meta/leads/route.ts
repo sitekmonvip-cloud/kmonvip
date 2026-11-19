@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { createHash, timingSafeEqual } from "crypto";
 import { LeadService } from "@/lib/crm/leadService";
 import { parseMetaLead } from "@/lib/crm/metaLead";
+import { notifyMetaLead } from "@/lib/crm/metaLeadNotifier";
 
 export const runtime = "nodejs";
 
@@ -58,6 +59,10 @@ export async function POST(request: NextRequest) {
 
   try {
     const { lead, created } = await LeadService.createFromMeta(parsed.lead);
+    // Only the request that actually inserted the row e-mails it: a Make retry of the same lead
+    // comes back with created=false. after() runs once the response is sent, so the e-mail never
+    // delays (or fails) the webhook; notifyMetaLead swallows its own errors.
+    if (created) after(() => notifyMetaLead(lead));
     return NextResponse.json({ ok: true, status: created ? "created" : "duplicate", id: lead.id });
   } catch (error) {
     console.error("[meta leads] failed to store lead", error);
