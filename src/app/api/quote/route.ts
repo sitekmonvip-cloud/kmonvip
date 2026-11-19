@@ -4,11 +4,21 @@ import { createHash } from "crypto";
 import { z } from "zod";
 import { EventService } from "@/lib/crm/eventService";
 import { LeadService } from "@/lib/crm/leadService";
+import { BRAND_EMAIL } from "@/lib/seo/constants";
 import { MIN_FILL_MS, isValidEmail, isValidPhone } from "@/lib/tracking/quote";
 
 export const runtime = "nodejs";
 
-const TO_EMAIL = process.env.LEAD_NOTIFY_EMAIL || "contato@kmonvip.com";
+// Every lead is always delivered to BRAND_EMAIL (contato@kmonvip.com). LEAD_NOTIFY_EMAIL, if set
+// (comma-separated), only ADDS extra recipients — a stale value in the hosting env vars can no
+// longer redirect leads away from the main inbox.
+const TO_EMAILS = Array.from(
+  new Set(
+    [BRAND_EMAIL, ...(process.env.LEAD_NOTIFY_EMAIL?.split(",") ?? [])]
+      .map((e) => e.trim().toLowerCase())
+      .filter(Boolean)
+  )
+);
 const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || "KMON VIP <naoresponda@kmonvip.com>";
 
 const QuoteSchema = z.object({
@@ -135,7 +145,7 @@ export async function POST(req: NextRequest) {
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
-    to: TO_EMAIL,
+    to: TO_EMAILS,
     replyTo: email && typeof email === "string" ? email : undefined,
     subject: `Nova solicitação de cotação — ${fullName || "Site KMON VIP"}`,
     html: html || undefined,
